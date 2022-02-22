@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{url('frontend/assets/img/apple-icon.png')}}">
+    <link rel="icon" type="image/png" href="{{url('frontend/assets/img/favicon.png')}}">
+    <title>
+        Registro de alumnos
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="{{ url('frontend/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ url('frontend/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="{{url('frontend/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{{ url('frontend/assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
+</head>
+
+<body class="g-sidenav-show  bg-gray-100">
+    <section class="min-vh-100 mb-8">
+        <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
+            style="background-image: url('{{ url('frontend/assets/img/curved-images/curved14.jpg') }}');">
+            <span class="mask bg-gradient-dark opacity-6"></span>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5 text-center mx-auto">
+                        <h1 class="text-white mb-2 mt-5">Bienvenido!</h1>
+                        <p class="text-lead text-white">Ingresa tus datos para acceder a los cuestionarios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+                <div class="col-xl-7 col-lg-7 col-md-7 mx-auto">
+                    <div class="card z-index-0">
+                        <div class="card-header text-center mt-1 pt-4 pb-0">
+                            <h5>Registrar alumno</h5>
+                        </div>
+                        <div class="card-body mx-2">
+                            <form role="form text-left">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-4 col-md-12">
+                                        <label>Nombre</label>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Nombre"
+                                                aria-label="Name" aria-describedby="email-addon">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-12">
+                                        <label>Apellido paterno</label>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Apellido paterno"
+                                                aria-label="Name" aria-describedby="email-addon">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-12">
+                                        <label>Apellido materno</label>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Apellido materno"
+                                                aria-label="Name" aria-describedby="email-addon">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-4 col-md-4">
+                                        <label>Edad</label>
+                                        <div class="mb-3">
+                                            <input type="number" class="form-control" placeholder="Edad"
+                                                aria-label="Name" aria-describedby="email-addon">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-8 col-md-8">
+                                        <label>Email institucional</label>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" placeholder="Email institucional"
+                                                aria-label="Email" aria-describedby="email-addon">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-4 col-md-12">
+                                        <label>Telefono</label>
+                                        <div class="mb-3">
+                                            <input type="tel" class="form-control" placeholder="Telefono"
+                                                aria-label="Name" aria-describedby="email-addon">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-12">
+                                        <label>Telefono de contacto</label>
+                                        <div class="mb-3">
+                                            <input type="tel" class="form-control" placeholder="Telefono de contacto"
+                                                aria-label="Name" aria-describedby="email-addon">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-12">
+                                        <label>Matricula</label>
+                                        <div class="mb-3">
+                                            <input type="number" class="form-control" placeholder="Matricula"
+                                                aria-label="Name" aria-describedby="email-addon">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-8 col-lg-8 col-md-12">
+                                        <label>Programa educativo</label>
+                                        <div class="mb-3">
+                                            <select type="select" id="areaSelect" name="p_id" class="form-control">
+                                                <option value="">Tecnologias de la información DSM</option>
+                                                <option>Tecnologias de la información </option>
+                                                <option>Desarrollo de negocios</option>
+                                                <option>Procesos industriales</option>
+                                                <option>Enfermeria</option>
+                                                <option>Mecatronica</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-12">
+                                        <label>Cuatrimestre y grupo</label>
+                                        <div class="mb-3">
+                                            <select type="select" id="areaSelect" name="area_id" class="form-control">
+                                                <option value="">Area 0</option>
+                                                <option>1 A</option>
+                                                <option>2 A</option>
+                                                <option>3 A</option>
+                                                <option>4 A</option>
+                                                <option>5 A</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button"
+                                        class="btn bg-gradient-dark w-100 my-4 mb-2">Registrarse</button>
+                                </div>
+                                <p class="text-sm mt-3 mb-0">Ya te registraste? <a href="javascript:;"
+                                        class="text-dark font-weight-bolder"> Inicia sesión</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--   Core JS Files   -->
+    <script src="{{url('frontend/assets/js/core/popper.min.js')}}"></script>
+    <script src="{{url('frontend/assets/js/core/bootstrap.min.js')}}"></script>
+    <script src="{{url('frontend/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{url('frontend/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+
+</html>
