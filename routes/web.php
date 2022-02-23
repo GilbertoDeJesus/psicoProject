@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('sign-up');
 });
 
-Route::get('/sign-up', function () {
-    return view('frontend.layout.signUp');
-});
+
+//--------STUDENTS-------------------------
+Route::get('/sign-up', 'frontend\StudentsController@signUp')->name('sign-up');
+Route::post('/sign-up', 'frontend\StudentsController@storeStudent')->name('student.storeStudent');
+
+//--------TESTS---------------------------
+Route::get('/students/questionnaires', 'frontend\StudentsController@index')->name('students.tests');

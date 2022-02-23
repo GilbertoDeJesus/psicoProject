@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{url('frontend/assets/img/apple-icon.png')}}">
-    <link rel="icon" type="image/png" href="{{url('frontend/assets/img/favicon.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ url('frontend/assets/img/apple-icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ url('frontend/assets/img/favicon.png') }}">
     <title>
         Registro de alumnos
     </title>
@@ -16,7 +16,7 @@
     <link href="{{ url('frontend/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="{{url('frontend/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+    <link href="{{ url('frontend/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ url('frontend/assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
 </head>
@@ -43,27 +43,28 @@
                             <h5>Registrar alumno</h5>
                         </div>
                         <div class="card-body mx-2">
-                            <form role="form text-left">
+                            <form role="form text-left" method="POST" action="{{ route('student.storeStudent') }}">
+                                @csrf
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Nombre</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="Nombre"
-                                                aria-label="Name" aria-describedby="email-addon">
+                                            <input type="text" class="form-control " placeholder="Nombre" name=""
+                                                required>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Apellido paterno</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" placeholder="Apellido paterno"
-                                                aria-label="Name" aria-describedby="email-addon">
+                                                name="" required>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Apellido materno</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" placeholder="Apellido materno"
-                                                aria-label="Name" aria-describedby="email-addon">
+                                                name="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -71,15 +72,15 @@
                                     <div class="col-xl-4 col-lg-4 col-md-4">
                                         <label>Edad</label>
                                         <div class="mb-3">
-                                            <input type="number" class="form-control" placeholder="Edad"
-                                                aria-label="Name" aria-describedby="email-addon">
+                                            <input type="number" class="form-control" placeholder="Edad" name=""
+                                                required>
                                         </div>
                                     </div>
                                     <div class="col-xl-8 col-lg-8 col-md-8">
                                         <label>Email institucional</label>
                                         <div class="mb-3">
                                             <input type="email" class="form-control" placeholder="Email institucional"
-                                                aria-label="Email" aria-describedby="email-addon">
+                                                name="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -87,22 +88,22 @@
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Telefono</label>
                                         <div class="mb-3">
-                                            <input type="tel" class="form-control" placeholder="Telefono"
-                                                aria-label="Name" aria-describedby="email-addon">
+                                            <input type="tel" class="form-control" placeholder="Telefono" name=""
+                                                required>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Telefono de contacto</label>
                                         <div class="mb-3">
                                             <input type="tel" class="form-control" placeholder="Telefono de contacto"
-                                                aria-label="Name" aria-describedby="email-addon">
+                                                name="" required>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Matricula</label>
                                         <div class="mb-3">
-                                            <input type="number" class="form-control" placeholder="Matricula"
-                                                aria-label="Name" aria-describedby="email-addon">
+                                            <input type="number" class="form-control" placeholder="Matricula" name=""
+                                                required>
                                         </div>
                                     </div>
                                 </div>
@@ -110,32 +111,34 @@
                                     <div class="col-xl-8 col-lg-8 col-md-12">
                                         <label>Programa educativo</label>
                                         <div class="mb-3">
-                                            <select type="select" id="areaSelect" name="p_id" class="form-control">
-                                                <option value="">Tecnologias de la información DSM</option>
-                                                <option>Tecnologias de la información </option>
-                                                <option>Desarrollo de negocios</option>
-                                                <option>Procesos industriales</option>
-                                                <option>Enfermeria</option>
-                                                <option>Mecatronica</option>
+                                            <select type="select" id="areaSelect" name="p_id" class="form-control"
+                                                name="" required>
+                                                <option value="1" selected>Tecnologias de la información DSM</option>
+                                                <option value="1" >Tecnologias de la información </option>
+                                                <option value="1" >Desarrollo de negocios</option>
+                                                <option value="1" >Procesos industriales</option>
+                                                <option value="1" >Enfermeria</option>
+                                                <option value="1" >Mecatronica</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Cuatrimestre y grupo</label>
                                         <div class="mb-3">
-                                            <select type="select" id="areaSelect" name="area_id" class="form-control">
-                                                <option value="">Area 0</option>
-                                                <option>1 A</option>
-                                                <option>2 A</option>
-                                                <option>3 A</option>
-                                                <option>4 A</option>
-                                                <option>5 A</option>
+                                            <select type="select" id="areaSelect" name="area_id" class="form-control"
+                                                name="" required>
+                                                <option value="1" selected>1 A</option>
+                                                <option value="1" >1 B</option>
+                                                <option value="1" >2 A</option>
+                                                <option value="1" >3 A</option>
+                                                <option value="1" >4 A</option>
+                                                <option value="1" >5 A</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="button"
+                                    <button type="submit"
                                         class="btn bg-gradient-dark w-100 my-4 mb-2">Registrarse</button>
                                 </div>
                                 <p class="text-sm mt-3 mb-0">Ya te registraste? <a href="javascript:;"
@@ -148,10 +151,10 @@
         </div>
     </section>
     <!--   Core JS Files   -->
-    <script src="{{url('frontend/assets/js/core/popper.min.js')}}"></script>
-    <script src="{{url('frontend/assets/js/core/bootstrap.min.js')}}"></script>
-    <script src="{{url('frontend/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
-    <script src="{{url('frontend/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
+    <script src="{{ url('frontend/assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ url('frontend/assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ url('frontend/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ url('frontend/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
