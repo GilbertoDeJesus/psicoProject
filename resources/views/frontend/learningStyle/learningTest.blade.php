@@ -7,20 +7,18 @@
 @section('contenido')
     <div class="container-fluid full-height px-0">
         <div class="row row-height mx-0">
-            <div class="col-lg-6 content-left px-0">
+            <div class="col-lg-6 content-left px-0 bg-gradient-dark">
                 <div class="content-left-wrapper">
-                    <!-- /social -->
                     <div>
-                        <figure><img src="{{ url('frontend/testsAssets/img/info_graphic_1.svg') }}" alt=""
-                                class="img-fluid"></figure>
+                        <figure><img src="{{url('frontend/testsAssets/img/info_graphic_1.svg')}}" alt="" class="img-fluid"></figure>
                         <h2>Cuestionario de estilo de aprendizaje</h2>
-                        <p>En este cuestionario se evaluara tu. Mollitia aliquam hic possimus architecto quibusdam. Cumque,
-                            voluptas. Nulla tenetur, illum sunt ratione, fugit vel earum, molestiae debitis fuga a sed
-                            saepe?</p>
-                        {{-- <a href="#0" class="btn_1 rounded">Purchase this template</a> --}}
+                        <p>En este cuestionario se evaluara tu. Eu dictas concludaturque usu, facete
+                            detracto patrioque an per, lucilius pertinacia eu vel. Adhuc invidunt duo ex. Eu tantas dolorum
+                            ullamcorper qui.</p>
+                        
                         <a href="#start" class="btn_1 rounded mobile_btn">Start Now!</a>
                     </div>
-                    <div class="copy">© 2018 Wilio</div>
+                    <div class="copy">© 2022 UTTehuacan</div>
                 </div>
                 <!-- /content-left-wrapper -->
             </div>
@@ -32,7 +30,8 @@
                         <div id="progressbar"></div>
                     </div>
                     <!-- /top-wizard -->
-                    <form method="POST">
+                    <form id="wrapped" method="POST">
+                        <input id="website" name="website" type="text" value="">
                         <!-- Leave for security protection, read docs for details -->
                         <div id="middle-wizard">
                             <div class="step">
@@ -248,7 +247,7 @@
 @endsection
 
 @section('js')
-    <script src="{{ url('frontend/testsAssets/js/jquery-3.2.1.min.j') }}s"></script>
+    <script src="{{ url('frontend/testsAssets/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ url('frontend/testsAssets/js/common_scripts.min.js') }}"></script>
     <script src="{{ url('frontend/testsAssets/js/velocity.min.js') }}"></script>
     <script src="{{ url('frontend/testsAssets/js/functions.js') }}"></script>
