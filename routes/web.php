@@ -20,7 +20,11 @@ Route::get('/', function () {
 
 //--------STUDENTS-------------------------
 Route::get('/sign-up', 'frontend\StudentsController@signUp')->name('sign-up');
+Route::get('/log-out', 'frontend\StudentsController@logOut')->name('student.log-out');
+Route::post('/log-in', 'frontend\StudentsController@logIn')->name('student.log-in');
 Route::post('/sign-up', 'frontend\StudentsController@storeStudent')->name('student.storeStudent');
 
 //--------TESTS---------------------------
 Route::get('/students/questionnaires', 'frontend\StudentsController@index')->name('students.tests');
+
+Route::get('/students/learning-style', 'frontend\LearningTestController@index')->name('students.learnigStyle');

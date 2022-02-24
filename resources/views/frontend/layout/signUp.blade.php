@@ -114,11 +114,11 @@
                                             <select type="select" id="areaSelect" name="p_id" class="form-control"
                                                 name="" required>
                                                 <option value="1" selected>Tecnologias de la información DSM</option>
-                                                <option value="1" >Tecnologias de la información </option>
-                                                <option value="1" >Desarrollo de negocios</option>
-                                                <option value="1" >Procesos industriales</option>
-                                                <option value="1" >Enfermeria</option>
-                                                <option value="1" >Mecatronica</option>
+                                                <option value="1">Tecnologias de la información </option>
+                                                <option value="1">Desarrollo de negocios</option>
+                                                <option value="1">Procesos industriales</option>
+                                                <option value="1">Enfermeria</option>
+                                                <option value="1">Mecatronica</option>
                                             </select>
                                         </div>
                                     </div>
@@ -128,11 +128,11 @@
                                             <select type="select" id="areaSelect" name="area_id" class="form-control"
                                                 name="" required>
                                                 <option value="1" selected>1 A</option>
-                                                <option value="1" >1 B</option>
-                                                <option value="1" >2 A</option>
-                                                <option value="1" >3 A</option>
-                                                <option value="1" >4 A</option>
-                                                <option value="1" >5 A</option>
+                                                <option value="1">1 B</option>
+                                                <option value="1">2 A</option>
+                                                <option value="1">3 A</option>
+                                                <option value="1">4 A</option>
+                                                <option value="1">5 A</option>
                                             </select>
                                         </div>
                                     </div>
@@ -142,7 +142,8 @@
                                         class="btn bg-gradient-dark w-100 my-4 mb-2">Registrarse</button>
                                 </div>
                                 <p class="text-sm mt-3 mb-0">Ya te registraste? <a href="javascript:;"
-                                        class="text-dark font-weight-bolder"> Inicia sesión</a></p>
+                                        class="text-dark font-weight-bolder" data-bs-toggle="modal"
+                                        data-bs-target="#modal-form"> Inicia sesión</a></p>
                             </form>
                         </div>
                     </div>
@@ -167,5 +168,43 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
+<div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-0">
+                <div class="card card-plain">
+                    <div class="card-header pb-0 text-center">
+                        <h4 class="font-weight-bolder text-info text-gradient">Bienvenido de nuevo</h4>
+                        <p class="mb-0 text-sm">Ingresa tu correo institucional y contraseña para iniciar sesión</p>
+                    </div>
+                    <div class="card-body">
+                        <form role="form text-left" method="POST" action="{{ route('student.log-in') }}">
+                            @csrf
+                            <label>Email</label>
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Email" aria-label="Email"
+                                    aria-describedby="email-addon">
+                            </div>
+                            <label>Contraseña</label>
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Password" aria-label="Password"
+                                    aria-describedby="password-addon">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Iniciar sesión</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                        <p class="mb-0 text-sm mx-auto">
+                            <button type="button" class="btn btn-link  ml-auto mb-0" data-bs-dismiss="modal">Cancelar</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 </html>

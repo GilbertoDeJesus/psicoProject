@@ -15,6 +15,14 @@ class StudentsController extends Controller
         return view('frontend.layout.signUp');
     }
 
+    public function logIn(){
+        return redirect()->route('students.tests');
+    }
+
+    public function logOut(){
+        return redirect()->route('sign-up');
+    }
+
     public function storeStudent(){
         return redirect()->route('students.tests');
     }

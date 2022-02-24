@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ url('frontend/assets/img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ url('frontend/assets/img/favicon.png') }}">
     <title>
-        Registro de alumnos
+        Universidad Tecnologica de Tehuacan
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -24,36 +24,31 @@
     <link href="{{ url('frontend/testsAssets/css/vendors.css') }}" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
-    <link href="{{ url('frontend/testsAssets/css/custom.css') }}" rel="stylesheet">
+    @yield('css')
     <link href="{{ url('frontend/assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
     <!-- MODERNIZR MENU -->
     <script src="{{ url('frontend/testsAssets/js/modernizr.js') }}"></script>
 
 </head>
 
-<body class="">
+<body class="{{ Route::is('students.tests') ? 'bg-gradient-light' : '' }}">
     <div class="container position-sticky z-index-sticky top-0">
         <!-- Navbar -->
         @include('frontend.layout.topMenu')
         <!-- End Navbar -->
     </div>
     <main class="main-content  mt-0">
-        <section>
-            <div class="page-header min-vh-100">
-                @yield('contenido')
-            </div>
+        <section class="min-vh-100 mb-8">
+            @yield('contenido')
         </section>
     </main>
+    @include('frontend.layout.modals')
     <!--   Core JS Files   -->
     <script src="{{ url('frontend/assets/js/core/popper.min.js') }}"></script>
     <script src="{{ url('frontend/assets/js/core/bootstrap.min.js') }}"></script>
-    <script src="{{ url('frontend/testsAssets/js/jquery-3.2.1.min.j') }}s"></script>
-    <script src="{{ url('frontend/testsAssets/js/common_scripts.min.js') }}"></script>
-    <script src="{{ url('frontend/testsAssets/js/velocity.min.js') }}"></script>
-    <script src="{{ url('frontend/testsAssets/js/functions.js') }}"></script>
 
-    <!-- Wizard script -->
-    <script src="{{ url('frontend/testsAssets/js/survey_func.js') }}"></script>
+    @yield('js')
+    
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {

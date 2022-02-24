@@ -1,5 +1,9 @@
 @extends('frontend.layout.main')
 
+@section('css')
+    <link href="{{ url('frontend/testsAssets/css/custom.css') }}" rel="stylesheet">
+@endsection
+
 @section('contenido')
     <div class="container-fluid full-height px-0">
         <div class="row row-height mx-0">
@@ -7,12 +11,13 @@
                 <div class="content-left-wrapper">
                     <!-- /social -->
                     <div>
-                        <figure><img src="img/info_graphic_1.svg" alt="" class="img-fluid"></figure>
-                        <h2>Satisfaction Survey</h2>
-                        <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete
-                            detracto patrioque an per, lucilius pertinacia eu vel. Adhuc invidunt duo ex. Eu tantas dolorum
-                            ullamcorper qui.</p>
-                        <a href="#0" class="btn_1 rounded">Purchase this template</a>
+                        <figure><img src="{{ url('frontend/testsAssets/img/info_graphic_1.svg') }}" alt=""
+                                class="img-fluid"></figure>
+                        <h2>Cuestionario de estilo de aprendizaje</h2>
+                        <p>En este cuestionario se evaluara tu. Mollitia aliquam hic possimus architecto quibusdam. Cumque,
+                            voluptas. Nulla tenetur, illum sunt ratione, fugit vel earum, molestiae debitis fuga a sed
+                            saepe?</p>
+                        {{-- <a href="#0" class="btn_1 rounded">Purchase this template</a> --}}
                         <a href="#start" class="btn_1 rounded mobile_btn">Start Now!</a>
                     </div>
                     <div class="copy">© 2018 Wilio</div>
@@ -240,4 +245,14 @@
         </div>
         <!-- /row-->
     </div>
+@endsection
+
+@section('js')
+    <script src="{{ url('frontend/testsAssets/js/jquery-3.2.1.min.j') }}s"></script>
+    <script src="{{ url('frontend/testsAssets/js/common_scripts.min.js') }}"></script>
+    <script src="{{ url('frontend/testsAssets/js/velocity.min.js') }}"></script>
+    <script src="{{ url('frontend/testsAssets/js/functions.js') }}"></script>
+
+    <!-- Wizard script -->
+    <script src="{{ url('frontend/testsAssets/js/survey_func.js') }}"></script>
 @endsection
