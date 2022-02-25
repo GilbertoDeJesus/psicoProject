@@ -48,7 +48,7 @@
     <script src="{{ url('frontend/assets/js/core/bootstrap.min.js') }}"></script>
 
     @yield('js')
-    
+
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {

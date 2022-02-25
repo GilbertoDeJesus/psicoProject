@@ -5,10 +5,10 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class LearningTestController extends Controller
+class TrajectoryTestController extends Controller
 {
     public function index(){
-        return view('frontend.learningStyle.learningTest');
+        return view('frontend.educationalTrajectory.trajectoryTest');
     }
 
     public function storeTest(){

@@ -28,3 +28,10 @@ Route::post('/sign-up', 'frontend\StudentsController@storeStudent')->name('stude
 Route::get('/students/questionnaires', 'frontend\StudentsController@index')->name('students.tests');
 
 Route::get('/students/learning-style', 'frontend\LearningTestController@index')->name('students.learnigStyle');
+Route::post('/students/learning-style', 'frontend\LearningTestController@storeTest')->name('students.storeTest');
+
+Route::get('/students/vocational-orientation', 'frontend\VocationalTestController@index')->name('students.vocational');
+Route::post('/students/vocational-orientation', 'frontend\VocationalTestController@storeTest')->name('students.storeVocationalTest');
+
+Route::get('/students/educational-trajectory', 'frontend\TrajectoryTestController@index')->name('students.trajectory');
+Route::post('/students/educational-trajectory', 'frontend\TrajectoryTestController@storeTest')->name('students.storeTrajectoryTest');

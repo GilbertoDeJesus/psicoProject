@@ -7,16 +7,14 @@
 @section('contenido')
     <div class="container-fluid full-height px-0">
         <div class="row row-height mx-0">
-            <div class="col-lg-6 content-left px-0 bg-gradient-info">
+            <div class="col-lg-6 content-left px-0 bg-gradient-dark">
                 <div class="content-left-wrapper">
                     <div>
-                        <figure><img src="{{ url('frontend/testsAssets/img/info_graphic_3.svg') }}" alt=""
+                        <figure><img src="{{ url('frontend/testsAssets/img/info_graphic_5.svg') }}" alt=""
                                 class="img-fluid"></figure>
-                        <h2>Cuestionario de estilo de aprendizaje</h2>
-                        <p>En este cuestionario se te presentarán una serie de frases para determinar tu estilo de
-                            aprendizaje.
-                            <br>Selecciona una de las opciones dependiendo de que tan identificado te
-                            sientas con las situaciones que se presentan.
+                        <h2>Cuestionario de trayectoria académica</h2>
+                        <p>En este cuestionario se te presentarán una serie de preguntas para conocer un poco más acerca de tus conocimientos.
+                            <br>Selecciona una de las opciones dependiendo de la pregunta que se te presente.
                         </p>
 
                         <a href="#start" class="btn_1 rounded mobile_btn">Comenzar!</a>

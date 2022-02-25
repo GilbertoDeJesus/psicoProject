@@ -1,14 +1,12 @@
 	/*  Wizard */
 	jQuery(function ($) {
 		"use strict";
-		$('form#wrapped').attr('action', 'survey.php');
+		
 		$("#wizard_container").wizard({
 			stepsWrapper: "#wrapped",
 			submit: ".submit",
 			beforeSelect: function (event, state) {
-				if ($('input#website').val().length != 0) {
-					return false;
-				}
+				
 				if (!state.isMovingForward)
 					return true;
 				var inputs = $(this).wizard('state').step.find(':input');

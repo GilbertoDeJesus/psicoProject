@@ -102,7 +102,7 @@
                                 <hr class="horizontal dark">
                             </li>
                         </ul>
-                        <a href="javascript:;" class="btn bg-gradient-dark w-100 mt-4 mb-0">
+                        <a href="{{ route('students.vocational') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0">
                             Comenzar
                         </a>
                     </div>
@@ -146,7 +146,7 @@
                                 <hr class="horizontal dark">
                             </li>
                         </ul>
-                        <a href="javascript:;" class="btn bg-gradient-dark w-100 mt-4 mb-0">
+                        <a href="{{ route('students.trajectory') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0">
                             Comenzar
                         </a>
                     </div>

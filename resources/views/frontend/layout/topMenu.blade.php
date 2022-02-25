@@ -16,33 +16,33 @@
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
+                    <a class="nav-link me-2" href="#">
+                        <i class="ni ni-ruler-pencil opacity-6 text-dark me-1"></i>
+                        C. Aprendizaje
+                    </a>
+                </li>
+                <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
                     <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
                         href="#">
-                        <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                        <i class="ni ni-briefcase-24 opacity-6 text-dark me-1"></i>
                         C. Vocacional
                     </a>
                 </li>
                 <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
                     <a class="nav-link me-2" href="#">
-                        <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                        <i class="ni ni-hat-3 opacity-6 text-dark me-1"></i>
                         C. Trayectoria
-                    </a>
-                </li>
-                <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
-                    <a class="nav-link me-2" href="#">
-                        <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                        C. Aprendizaje
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-block">
                     <a class="nav-link me-2" href="{{ route('student.log-out') }}">
-                        <i class="ni ni-single-02 opacity-6 text-dark me-1"></i>
+                        <i class="icon-logout-2 opacity-6 text-dark me-1"></i>
                         Cerrar sesión
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-block">
                     <a class="nav-link me-2" href="#" data-bs-toggle="modal" data-bs-target="#modal-notification">
-                        <i class="fas fa-eye opacity-6 text-dark me-1"></i>
+                        <i class="icon-eye opacity-6 text-dark me-1"></i>
                         Ver mi contraseña
                     </a>
                 </li>
@@ -51,7 +51,7 @@
                 <li class="nav-item dropdown pe-2 d-flex align-items-center">
                     <a href="javascript:;" class="btn btn-icon btn-3 btn-round mb-0 me-1 bg-gradient-dark" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="btn-inner--icon"><i class="ni ni-single-02 me-1"></i></span>
+                        <span class="btn-inner--icon"><i class="icon-user"></i></span>
                         Jhon Doe
                     </a>
                     <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
@@ -60,7 +60,7 @@
                             <a class="dropdown-item border-radius-md" href="{{ route('student.log-out') }}">
                                 <div class="d-flex py-1">
                                     <div class="avatar avatar-sm bg-gradient-danger  me-3  my-auto">
-                                        <i class="ni ni-button-power text-white"></i>
+                                        <i class="icon-logout-2 text-white"></i>
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm font-weight-normal mb-0">
@@ -73,8 +73,8 @@
                         <li>
                             <a class="dropdown-item border-radius-md" href="#" data-bs-toggle="modal" data-bs-target="#modal-notification">
                                 <div class="d-flex py-1">
-                                    <div class="avatar avatar-sm bg-gradient-success  me-3  my-auto">
-                                        <i class="fa fa-eye text-white"></i>
+                                    <div class="avatar avatar-sm bg-gradient-dark  me-3  my-auto">
+                                        <i class="icon-eye text-white"></i>
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm font-weight-normal mb-0">
