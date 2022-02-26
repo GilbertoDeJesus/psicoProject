@@ -31,111 +31,52 @@
                         <div id="progressbar"></div>
                     </div>
                     <!-- /top-wizard -->
-                    <form method="POST" role="form" action="{{ route('students.storeTest') }}">
+                    <form method="POST" role="form" action="{{ route('students.storeTrajectoryTest') }}">
                         @csrf
                         <!-- Leave for security protection, read docs for details -->
                         <div id="middle-wizard">
                             <!-- /step-->
                             <div class="step">
-                                <h3 class="main_question"><strong>1/3</strong>Puedo recordar algo mejor si lo escribo.</h3>
+                                <h3 class="main_question"><strong>1/3</strong>Conoces acerca de procesos económico administrativos</h3>
                                 <div class="form-group">
-                                    <label class="container_radio version_2">Nunca
-                                        <input type="radio" name="question_1" value="1" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Ocasionalmente
-                                        <input type="radio" name="question_1" value="2" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Regularmente
-                                        <input type="radio" name="question_1" value="3" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Casi siempre
-                                        <input type="radio" name="question_1" value="4" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Siempre
-                                        <input type="radio" name="question_1" value="5" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- /step-->
-                            <div class="step">
-                                <h3 class="main_question"><strong>2/3</strong>Al leer, oigo las palabras en mi cabeza o leo en voz alta.</h3>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Nunca
+                                    <label class="container_radio version_2">Si
                                         <input type="radio" name="question_2" value="1" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <label class="container_radio version_2">Ocasionalmente
+                                    <label class="container_radio version_2">No
                                         <input type="radio" name="question_2" value="2" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
+                            </div>
+                            <div class="step">
+                                <h3 class="main_question"><strong>2/3</strong>Te gusta el manejo de redes sociales</h3>
                                 <div class="form-group">
-                                    <label class="container_radio version_2">Regularmente
-                                        <input type="radio" name="question_2" value="3" class="required">
+                                    <label class="container_radio version_2">Si
+                                        <input type="radio" name="question_2" value="1" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <label class="container_radio version_2">Casi siempre
-                                        <input type="radio" name="question_2" value="4" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Siempre
-                                        <input type="radio" name="question_2" value="5" class="required">
+                                    <label class="container_radio version_2">No
+                                        <input type="radio" name="question_2" value="2" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                             </div>
-                            <!-- /step-->
                             <div class="step">
-                                <h3 class="main_question"><strong>3/3</strong>Necesito hablar las cosas para entenderlas mejor.</h3>
+                                <h3 class="main_question"><strong>3/3</strong>Te gustaria analizar y resolver problemas dentro de un negocio o empresa</h3>
                                 <div class="form-group">
-                                    <label class="container_radio version_2">Nunca
-                                        <input type="radio" name="question_3" value="1" class="required">
+                                    <label class="container_radio version_2">Si
+                                        <input type="radio" name="question_2" value="1" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <label class="container_radio version_2">Ocasionalmente
-                                        <input type="radio" name="question_3" value="2" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Regularmente
-                                        <input type="radio" name="question_3" value="3" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Casi siempre
-                                        <input type="radio" name="question_3" value="4" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Siempre
-                                        <input type="radio" name="question_3" value="5" class="required">
+                                    <label class="container_radio version_2">No
+                                        <input type="radio" name="question_2" value="2" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>

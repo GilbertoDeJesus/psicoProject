@@ -22,6 +22,21 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
+    <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent mt-4">
+        <div class="container">
+          <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="javascript:;">
+            <img src="{{ url('frontend/assets/img/logo_2020p.png') }}" class="navbar-brand-img h-100" alt="main_logo" style="max-height: 30px;">
+          </a>
+          <div class="px-1" id="navigation">
+            <ul class="navbar-nav mx-auto"></ul>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                <a href="javascript:;" class="btn btn-sm  bg-gradient-dark  btn-round mb-0 me-1">{{now()->isoFormat('DD/MM/YYYY') }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <section class="min-vh-100 mb-8">
         <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
             style="background-image: url('{{ url('frontend/assets/img/curved-images/curved14.jpg') }}');">
@@ -29,7 +44,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
-                        <h1 class="text-white mb-2 mt-5">Bienvenido!</h1>
+                        <h1 class="text-white mb-2 mt-5">¡Bienvenido!</h1>
                         <p class="text-lead text-white">Ingresa tus datos para acceder a los cuestionarios.</p>
                     </div>
                 </div>
@@ -39,7 +54,7 @@
             <div class="row mt-lg-n10 mt-md-n11 mt-n10">
                 <div class="col-xl-7 col-lg-7 col-md-7 mx-auto">
                     <div class="card z-index-0">
-                        <div class="card-header text-center mt-1 pt-4 pb-0">
+                        <div class="card-header text-center mt-1 pt-4">
                             <h5>Registrar alumno</h5>
                         </div>
                         <div class="card-body mx-2">
@@ -86,23 +101,23 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <label>Telefono</label>
+                                        <label>Teléfono</label>
                                         <div class="mb-3">
-                                            <input type="tel" class="form-control" placeholder="Telefono" name=""
+                                            <input type="tel" class="form-control" placeholder="Teléfono" name=""
                                                 required>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <label>Telefono de contacto</label>
+                                        <label>Teléfono de contacto</label>
                                         <div class="mb-3">
-                                            <input type="tel" class="form-control" placeholder="Telefono de contacto"
+                                            <input type="tel" class="form-control" placeholder="Teléfono de contacto"
                                                 name="" required>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <label>Matricula</label>
+                                        <label>Matrícula</label>
                                         <div class="mb-3">
-                                            <input type="number" class="form-control" placeholder="Matricula" name=""
+                                            <input type="number" class="form-control" placeholder="Matrícula" name=""
                                                 required>
                                         </div>
                                     </div>
@@ -139,10 +154,10 @@
                                 </div>
                                 <div class="text-center">
                                     <button type="submit"
-                                        class="btn bg-gradient-dark w-100 my-4 mb-2">Registrarse</button>
+                                        class="btn bg-gradient-dark-green text-white w-100 my-4 mb-2">Registrarse</button>
                                 </div>
-                                <p class="text-sm mt-3 mb-0">Ya te registraste? <a href="javascript:;"
-                                        class="text-dark font-weight-bolder" data-bs-toggle="modal"
+                                <p class="text-sm mt-3 mb-0">¿Ya te registraste? <a href="javascript:;"
+                                        class="text-dark font-weight-bolder icon-move-right" data-bs-toggle="modal"
                                         data-bs-target="#modal-form"> Inicia sesión</a></p>
                             </form>
                         </div>
@@ -191,13 +206,16 @@
                                     aria-describedby="password-addon">
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Iniciar sesión</button>
+                                <button type="submit"
+                                    class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Iniciar
+                                    sesión</button>
                             </div>
                         </form>
                     </div>
                     <div class="card-footer text-center pt-0 px-lg-2 px-1">
                         <p class="mb-0 text-sm mx-auto">
-                            <button type="button" class="btn btn-link  ml-auto mb-0" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-link  ml-auto mb-0"
+                                data-bs-dismiss="modal">Cancelar</button>
                         </p>
                     </div>
                 </div>

@@ -12,6 +12,6 @@ class LearningTestController extends Controller
     }
 
     public function storeTest(){
-        return view('frontend.learningStyle.learningStyleResult');
+        return redirect()->route('students.vocational');
     }
 }
