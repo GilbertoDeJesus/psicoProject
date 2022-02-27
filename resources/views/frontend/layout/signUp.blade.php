@@ -207,14 +207,14 @@
                             </div>
                             <div class="text-center">
                                 <button type="submit"
-                                    class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Iniciar
+                                    class="btn bg-gradient-dark-green btn-lg w-100 mt-4 mb-0 text-white">Iniciar
                                     sesión</button>
                             </div>
                         </form>
                     </div>
                     <div class="card-footer text-center pt-0 px-lg-2 px-1">
                         <p class="mb-0 text-sm mx-auto">
-                            <button type="button" class="btn btn-link  ml-auto mb-0"
+                            <button type="button" class="btn btn-link text-dark ml-auto mb-0"
                                 data-bs-dismiss="modal">Cancelar</button>
                         </p>
                     </div>

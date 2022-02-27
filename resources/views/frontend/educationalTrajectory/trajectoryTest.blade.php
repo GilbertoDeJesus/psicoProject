@@ -40,13 +40,13 @@
                                 <h3 class="main_question"><strong>1/3</strong>Conoces acerca de procesos económico administrativos</h3>
                                 <div class="form-group">
                                     <label class="container_radio version_2">Si
-                                        <input type="radio" name="question_2" value="1" class="required">
+                                        <input type="radio" name="question_1" value="1" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label class="container_radio version_2">No
-                                        <input type="radio" name="question_2" value="2" class="required">
+                                        <input type="radio" name="question_1" value="2" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -70,13 +70,13 @@
                                 <h3 class="main_question"><strong>3/3</strong>Te gustaria analizar y resolver problemas dentro de un negocio o empresa</h3>
                                 <div class="form-group">
                                     <label class="container_radio version_2">Si
-                                        <input type="radio" name="question_2" value="1" class="required">
+                                        <input type="radio" name="question_3" value="1" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label class="container_radio version_2">No
-                                        <input type="radio" name="question_2" value="2" class="required">
+                                        <input type="radio" name="question_3" value="2" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
