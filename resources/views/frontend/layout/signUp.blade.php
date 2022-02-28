@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent mt-4">
         <div class="container">
           <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="javascript:;">
-            <img src="{{ url('frontend/assets/img/logo_2020p.png') }}" class="navbar-brand-img h-100" alt="main_logo" style="max-height: 30px;">
+            <img src="{{ url('frontend/assets/img/logo_2020p.png') }}" class="navbar-brand-img h-100" alt="main_logo" style="max-height: 30px; filter: drop-shadow(2px 3px 3px black);">
           </a>
           <div class="px-1" id="navigation">
             <ul class="navbar-nav mx-auto"></ul>
@@ -202,8 +202,7 @@
                             </div>
                             <label>Contraseña</label>
                             <div class="input-group mb-3">
-                                <input type="email" class="form-control" placeholder="Password" aria-label="Password"
-                                    aria-describedby="password-addon">
+                                <input type="password" class="form-control" placeholder="Password" aria-label="Password" autocomplete="false">
                             </div>
                             <div class="text-center">
                                 <button type="submit"
@@ -222,7 +221,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 </html>

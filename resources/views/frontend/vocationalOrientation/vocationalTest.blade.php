@@ -5,6 +5,9 @@
 @endsection
 
 @section('contenido')
+    <div id="preloader">
+        <div data-loader="circle-side"></div>
+    </div><!-- /Preload -->
     <div class="container-fluid full-height px-0">
         <div class="row row-height mx-0">
             <div class="col-lg-6 content-left px-0 bg-gradient-dark-green">
@@ -13,7 +16,8 @@
                         <figure><img src="{{ url('frontend/testsAssets/img/info_graphic_2.svg') }}" alt=""
                                 class="img-fluid"></figure>
                         <h2>Cuestionario de orientación vocacional</h2>
-                        <p>En este cuestionario se te presentarán una serie de preguntas para determinar a que carreras eres afín.
+                        <p>En este cuestionario se te presentarán una serie de preguntas para determinar a que carreras eres
+                            afín.
                             <br>Selecciona si o no para responder.
                         </p>
 
@@ -39,7 +43,8 @@
                             <div class="step">
                                 <h3 class="main_question"><strong>1/4</strong>Escuela de procedencia.</h3>
                                 <div class="form-group">
-                                    <input type="text" name="firstname" class="form-control required" placeholder="Escuela de procedencia">
+                                    <input type="text" name="firstname" class="form-control required"
+                                        placeholder="Escuela de procedencia">
                                 </div>
                                 <h3 class="main_question">Promedio</h3>
                                 <div class="form-group">
@@ -48,7 +53,8 @@
                             </div>
                             <!-- /step-->
                             <div class="step">
-                                <h3 class="main_question"><strong>2/4</strong>¿Cúal fue la especialidad que tomaste en el bachillerato?</h3>
+                                <h3 class="main_question"><strong>2/4</strong>¿Cúal fue la especialidad que tomaste en el
+                                    bachillerato?</h3>
                                 <div class="form-group">
                                     <label class="container_radio version_2">Económico-Administrativo
                                         <input type="radio" name="question_2" value="1" class="required">
@@ -278,7 +284,8 @@
                                 <div class="row">
                                     <div class="col-7 my-auto">
                                         <div class="form-group my-auto">
-                                            <label for="gender8" class="container_check version_2">Taller de lectura y redacción</label>
+                                            <label for="gender8" class="container_check version_2">Taller de lectura y
+                                                redacción</label>
                                         </div>
                                     </div>
                                     <div class="col-5">
@@ -305,7 +312,8 @@
                                             <p id="question_1"></p>
                                         </li>
                                         <li><strong><i class="icon-check-1"></i></strong>
-                                            <h5>Da clic en el boton <span class="bold">enviar</span> para finalizar el cuestionario</h5>
+                                            <h5>Da clic en el boton <span class="bold">enviar</span> para
+                                                finalizar el cuestionario</h5>
                                             <p id="question_1"></p>
                                         </li>
                                     </ul>

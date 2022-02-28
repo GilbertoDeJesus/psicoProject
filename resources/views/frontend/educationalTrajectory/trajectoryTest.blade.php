@@ -5,6 +5,9 @@
 @endsection
 
 @section('contenido')
+    <div id="preloader">
+        <div data-loader="circle-side"></div>
+    </div><!-- /Preload -->
     <div class="container-fluid full-height px-0">
         <div class="row row-height mx-0">
             <div class="col-lg-6 content-left px-0 bg-gradient-dark">
@@ -13,7 +16,8 @@
                         <figure><img src="{{ url('frontend/testsAssets/img/info_graphic_5.svg') }}" alt=""
                                 class="img-fluid"></figure>
                         <h2>Cuestionario de trayectoria académica</h2>
-                        <p>En este cuestionario se te presentarán una serie de preguntas para conocer un poco más acerca de tus conocimientos.
+                        <p>En este cuestionario se te presentarán una serie de preguntas para conocer un poco más acerca de
+                            tus conocimientos.
                             <br>Selecciona una de las opciones dependiendo de la pregunta que se te presente.
                         </p>
 
@@ -37,7 +41,8 @@
                         <div id="middle-wizard">
                             <!-- /step-->
                             <div class="step">
-                                <h3 class="main_question"><strong>1/3</strong>Conoces acerca de procesos económico administrativos</h3>
+                                <h3 class="main_question"><strong>1/3</strong>Conoces acerca de procesos económico
+                                    administrativos</h3>
                                 <div class="form-group">
                                     <label class="container_radio version_2">Si
                                         <input type="radio" name="question_1" value="1" class="required">
@@ -67,7 +72,8 @@
                                 </div>
                             </div>
                             <div class="step">
-                                <h3 class="main_question"><strong>3/3</strong>Te gustaria analizar y resolver problemas dentro de un negocio o empresa</h3>
+                                <h3 class="main_question"><strong>3/3</strong>Te gustaria analizar y resolver problemas
+                                    dentro de un negocio o empresa</h3>
                                 <div class="form-group">
                                     <label class="container_radio version_2">Si
                                         <input type="radio" name="question_3" value="1" class="required">
@@ -91,7 +97,8 @@
                                             <p id="question_1"></p>
                                         </li>
                                         <li><strong><i class="icon-check-1"></i></strong>
-                                            <h5>Da clic en el boton <span class="bold">enviar</span> para finalizar el cuestionario</h5>
+                                            <h5>Da clic en el boton <span class="bold">enviar</span> para
+                                                finalizar el cuestionario</h5>
                                             <p id="question_1"></p>
                                         </li>
                                     </ul>
