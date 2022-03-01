@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->boolean('status')->default(1);
             $table->boolean('is_example')->default(0);
             $table->mediumInteger('order');
+            $table->boolean('active');
             $table->foreignId('type_id')->constrained();
             $table->unsignedBigInteger('educative_program_id')->nullable();
             $table->foreign('educative_program_id')->references('id')->on('educative_programs');

@@ -11,6 +11,8 @@ use App\Models\Test;
 class Student extends Model
 {
     use HasFactory;
+    protected $fillable = ['name','family_name','last_name','group_id','phone',
+        'contact_phone','email','matricula','password','active'];
 
     public function group()
     {

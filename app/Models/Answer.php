@@ -9,6 +9,8 @@ use App\Models\Question;
 class Answer extends Model
 {
     use HasFactory;
+    protected $fillable = ['answer','is_correct','value','status','order',
+    'question_id'];
 
     public function question()
     {

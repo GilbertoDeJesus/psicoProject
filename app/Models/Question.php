@@ -13,6 +13,9 @@ class Question extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['question','status','is_example','order','type_id',
+    'educative_program_id','active'];
+
     public function educativeProgram()
     {
         return $this->belongsTo(EducativeProgram::class);

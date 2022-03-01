@@ -11,6 +11,8 @@ class Group extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name','active'];
+
     public function educativeProgram()
     {
         return $this->belongsTo(EducativeProgram::class);

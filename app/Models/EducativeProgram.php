@@ -13,6 +13,8 @@ class EducativeProgram extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name','active'];
+
     public function students()
     {
         return $this->hasManyThrough(Student::class, Group::class, 'educative_program_id');

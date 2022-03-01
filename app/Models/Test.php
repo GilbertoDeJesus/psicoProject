@@ -11,6 +11,9 @@ class Test extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name','directions','active',
+    'order'];
+
     public function questions()
     {
         return $this->belongsToMany(Question::class);
