@@ -16,6 +16,7 @@ class CreateGroupsTable extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('name',10);
+            $table->boolean('active');
             $table->foreignId('educative_program_id')->constrained();
             $table->timestamps();
         });

@@ -17,7 +17,7 @@ class CreateTestsTable extends Migration
             $table->id();
             $table->string('name',150);
             $table->text('directions');
-            $table->boolean('status');
+            $table->boolean('active');
             $table->mediumInteger('order');
             $table->timestamps();
         });

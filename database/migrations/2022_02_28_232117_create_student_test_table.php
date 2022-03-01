@@ -19,7 +19,7 @@ class CreateStudentTestTable extends Migration
             $table->foreignId('test_id')->constrained();
             $table->json('answers');
             $table->boolean('finished');
-
+            $table->boolean('active');
             $table->timestamps();
         });
     }

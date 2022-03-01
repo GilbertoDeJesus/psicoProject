@@ -18,12 +18,13 @@ class CreateStudentsTable extends Migration
             $table->string('name',100);
             $table->string('family_name',60);
             $table->string('last_name',60);
-            $table->foreignId('educative_program_id')->constrained();
             $table->unsignedBigInteger('group_id')->nullable();
             $table->string('phone',15);
             $table->string('contact_phone',15);
             $table->string('email',300);
-            $table->string('matricula',15);
+            $table->string('matricula',15)->unique();
+            $table->boolean('active');
+            $table->string('password',300);
             $table->timestamps();
             $table->foreign('group_id')->references('id')->on('groups');
         });
