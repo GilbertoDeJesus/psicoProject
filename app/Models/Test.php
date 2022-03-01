@@ -18,6 +18,6 @@ class Test extends Model
 
     public function student()
     {
-        return $this->belongsToMany(Student::class);
+        return $this->belongsToMany(Student::class)->withPivot('answers', 'finished');
     }
 }
