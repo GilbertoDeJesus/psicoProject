@@ -5,6 +5,9 @@
 @endsection
 
 @section('contenido')
+    <div id="preloader">
+        <div data-loader="circle-side"></div>
+    </div><!-- /Preload -->
     <div class="container-fluid full-height px-0">
         <div class="row row-height mx-0">
             <div class="col-lg-6 content-left px-0 bg-gradient-info">
@@ -74,7 +77,8 @@
                             </div>
                             <!-- /step-->
                             <div class="step">
-                                <h3 class="main_question"><strong>2/3</strong>Al leer, oigo las palabras en mi cabeza o leo en voz alta.</h3>
+                                <h3 class="main_question"><strong>2/3</strong>Al leer, oigo las palabras en mi cabeza o leo
+                                    en voz alta.</h3>
                                 <div class="form-group">
                                     <label class="container_radio version_2">Nunca
                                         <input type="radio" name="question_2" value="1" class="required">
@@ -109,7 +113,8 @@
                             </div>
                             <!-- /step-->
                             <div class="step">
-                                <h3 class="main_question"><strong>3/3</strong>Necesito hablar las cosas para entenderlas mejor.</h3>
+                                <h3 class="main_question"><strong>3/3</strong>Necesito hablar las cosas para entenderlas
+                                    mejor.</h3>
                                 <div class="form-group">
                                     <label class="container_radio version_2">Nunca
                                         <input type="radio" name="question_3" value="1" class="required">
@@ -152,7 +157,8 @@
                                             <p id="question_1"></p>
                                         </li>
                                         <li><strong><i class="icon-check-1"></i></strong>
-                                            <h5>Da clic en el boton <span class="bold">enviar</span> para finalizar el cuestionario</h5>
+                                            <h5>Da clic en el boton <span class="bold">enviar</span> para
+                                                finalizar el cuestionario</h5>
                                             <p id="question_1"></p>
                                         </li>
                                     </ul>

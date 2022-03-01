@@ -6,7 +6,7 @@
 
 @section('contenido')
     <div class="page-header align-items-start min-vh-50 pt-5 pb-10 m-3 border-radius-lg"
-        style="background-image: url('{{ url('frontend/assets/img/curved-images/curved14.jpg') }}');">
+        style="background-image: url('{{ url('frontend/assets/img/curved-images/curved9.jpg') }}');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
             <div class="row justify-content-center">
@@ -66,7 +66,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card card-pricing">
-                    <div class="card-header bg-gradient-success text-center pt-4 pb-5 position-relative">
+                    <div class="card-header bg-gradient-dark-green text-center pt-4 pb-5 position-relative">
                         <div class="z-index-1 position-relative">
                             <h5 class="text-white">Orientación vocacional</h5>
                             <h1 class="text-white mt-3 mb-0">

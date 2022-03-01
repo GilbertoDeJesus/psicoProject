@@ -16,20 +16,20 @@
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
-                    <a class="nav-link me-2" href="#">
+                    <a class="nav-link me-2" href="javascript:;">
                         <i class="ni ni-ruler-pencil opacity-6 text-dark me-1"></i>
                         C. Aprendizaje
                     </a>
                 </li>
                 <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
                     <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
-                        href="#">
+                        href="javascript:;">
                         <i class="ni ni-briefcase-24 opacity-6 text-dark me-1"></i>
                         C. Vocacional
                     </a>
                 </li>
                 <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
-                    <a class="nav-link me-2" href="#">
+                    <a class="nav-link me-2" href="javascript:;">
                         <i class="ni ni-hat-3 opacity-6 text-dark me-1"></i>
                         C. Trayectoria
                     </a>

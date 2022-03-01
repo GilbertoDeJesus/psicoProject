@@ -35,3 +35,12 @@ Route::post('/students/vocational-orientation', 'frontend\VocationalTestControll
 
 Route::get('/students/educational-trajectory', 'frontend\TrajectoryTestController@index')->name('students.trajectory');
 Route::post('/students/educational-trajectory', 'frontend\TrajectoryTestController@storeTest')->name('students.storeTrajectoryTest');
+
+//--------ADMIN-------------------------------
+Route::get('/admin/log-in', 'backend\LoginController@index')->name('admin.logIn');
+Route::post('/admin/log-in', 'backend\LoginController@logIn')->name('admin.log-in');
+Route::get('/admin/log-out', 'backend\LoginController@logOut')->name('admin.log-out');
+
+//--------DASHBOARD----------------------------
+
+Route::get('/admin', 'backend\DashboardController@index')->name('admin');

@@ -5,6 +5,7 @@
 @endsection
 
 @section('contenido')
+
 <div class="page-header align-items-start min-vh-100 bg-gradient-info pt-9">
     <div class="container">
         <div class="row justify-content-center">

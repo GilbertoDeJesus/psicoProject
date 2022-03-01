@@ -576,7 +576,7 @@ button.submit {
   cursor: pointer;
   outline: none;
   text-align: center;
-  background: #434bdf;
+  background:#07997c;
   position: relative;
   font-size: 14px;
   font-size: 0.875rem;
@@ -610,7 +610,7 @@ button.submit:before {
 
 .backward:hover,
 .forward:hover {
-  background: #d80075;
+  background:#3A416F;
   color: #fff;
 }
 
