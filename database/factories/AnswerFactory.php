@@ -14,7 +14,11 @@ class AnswerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'answer'=> $this->faker->realText($this->faker->numberBetween(10, 20)),
+            'is_correct'=> $this->faker->numberBetween(0, 1),
+            'value'=> $this->faker->numberBetween(0, 1),
+            'status'=> $this->faker->numberBetween(0, 1),
+            'order'=> $this->faker->numberBetween(0,100),
         ];
     }
 }
