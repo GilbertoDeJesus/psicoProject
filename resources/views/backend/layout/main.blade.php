@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link type="image/png" rel="shortcut icon" href="{{ url('backend/images/logoSafe.png') }}">
+    <link type="image/png" rel="shortcut icon" href="{{ url('backend/images/logo.png') }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Language" content="es">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

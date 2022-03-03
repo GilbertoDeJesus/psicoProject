@@ -126,7 +126,7 @@
                                     <div class="col-xl-8 col-lg-8 col-md-12">
                                         <label>Programa educativo</label>
                                         <div class="mb-3">
-                                            <select type="select" id="areaSelect" name="p_id" class="form-control"
+                                            <select type="select" id="ProgramaSelect" name="p_id" class="form-control"
                                                 name="" required>
                                                 <option value="1" selected>Tecnologias de la información DSM</option>
                                                 <option value="1">Tecnologias de la información </option>
@@ -197,8 +197,7 @@
                             @csrf
                             <label>Email</label>
                             <div class="input-group mb-3">
-                                <input type="email" class="form-control" placeholder="Email" aria-label="Email"
-                                    aria-describedby="email-addon">
+                                <input type="email" class="form-control" placeholder="Email" aria-label="Email">
                             </div>
                             <label>Contraseña</label>
                             <div class="input-group mb-3">
