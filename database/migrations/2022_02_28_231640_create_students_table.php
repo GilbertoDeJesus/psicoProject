@@ -23,8 +23,8 @@ class CreateStudentsTable extends Migration
             $table->string('contact_phone',15);
             $table->string('email',300);
             $table->string('matricula',15)->unique();
-            $table->boolean('active');
             $table->string('password',300);
+            $table->softDeletes();
             $table->timestamps();
             $table->foreign('group_id')->references('id')->on('groups');
         });

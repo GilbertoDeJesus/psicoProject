@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Group;
 use App\Models\Result;
 use App\Models\Test;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Student extends Model
 {
-    use HasFactory;
+    use HasFactory, softDeletes;
     protected $fillable = ['name','family_name','last_name','group_id','phone',
         'contact_phone','email','matricula','password','active'];
 

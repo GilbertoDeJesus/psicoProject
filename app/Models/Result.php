@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\EducativeProgram;
 use App\Models\Student;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Result extends Model
 {
-    use HasFactory;
+    use HasFactory, softDeletes;
 
     protected $fillable = ['test_orientacional1_id','test_orientacional2_id',
     'test_orientacional3_id','test_aprendizaje','test_status_academico',

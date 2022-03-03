@@ -21,6 +21,7 @@ class CreateAnswersTable extends Migration
             $table->boolean('status')->default(1);
             $table->mediumInteger('order');
             $table->foreignId('question_id')->constrained();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

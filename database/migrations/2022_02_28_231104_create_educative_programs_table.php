@@ -16,7 +16,7 @@ class CreateEducativeProgramsTable extends Migration
         Schema::create('educative_programs', function (Blueprint $table) {
             $table->id();
             $table->string('name',200);
-            $table->boolean('active');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

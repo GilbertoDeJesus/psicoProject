@@ -21,7 +21,7 @@ class CreateResultsTable extends Migration
             $table->string('test_aprendizaje',50);
             $table->string('test_status_academico',50);
             $table->foreignId('student_id')->constrained();
-            $table->boolean('active');
+            $table->softDeletes();
             $table->timestamps();
             $table->foreign('test_orientacional1_id')->references('id')->on('educative_programs');
             $table->foreign('test_orientacional2_id')->references('id')->on('educative_programs');

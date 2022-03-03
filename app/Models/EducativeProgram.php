@@ -8,10 +8,11 @@ use App\Models\Result;
 use App\Models\Group;
 use App\Models\Question;
 use App\Models\Student;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class EducativeProgram extends Model
 {
-    use HasFactory;
+    use HasFactory, softDeletes;
 
     protected $fillable = ['name','active'];
 
