@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent mt-4">
         <div class="container">
           <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="javascript:;">
-            <img src="{{ url('frontend/assets/img/logo_2020p.png') }}" class="navbar-brand-img h-100" alt="main_logo" style="max-height: 30px; filter: drop-shadow(2px 3px 3px black);">
+            <img src="{{ url('frontend/assets/img/logo_2020p.png') }}" class="navbar-brand-img h-100" alt="main_logo" style="max-height: 30px; filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.5));">
           </a>
           <div class="px-1" id="navigation">
             <ul class="navbar-nav mx-auto"></ul>
@@ -39,7 +39,7 @@
       </nav>
     <section class="min-vh-100 mb-8">
         <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-            style="background-image: url('{{ url('frontend/assets/img/curved-images/curved14.jpg') }}');">
+            style="background-image: url('{{ url('frontend/assets/img/curved-images/curved10.jpg') }}');">
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container">
                 <div class="row justify-content-center">

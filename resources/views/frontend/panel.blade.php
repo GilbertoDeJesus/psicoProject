@@ -6,7 +6,7 @@
 
 @section('contenido')
     <div class="page-header align-items-start min-vh-50 pt-5 pb-10 m-3 border-radius-lg"
-        style="background-image: url('{{ url('frontend/assets/img/curved-images/curved9.jpg') }}');">
+        style="background-image: url('{{ url('frontend/assets/img/curved-images/curved5.jpg') }}');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
             <div class="row justify-content-center">
