@@ -35,6 +35,7 @@ Route::post('/students/vocational-orientation', 'frontend\VocationalTestControll
 
 Route::get('/students/educational-trajectory', 'frontend\TrajectoryTestController@index')->name('students.trajectory');
 Route::post('/students/educational-trajectory', 'frontend\TrajectoryTestController@storeTest')->name('students.storeTrajectoryTest');
+Route::get('/students/results', 'frontend\TrajectoryTestController@showResults')->name('students.results');
 
 //--------ADMIN-------------------------------
 Route::get('/admin/log-in', 'backend\LoginController@index')->name('admin.logIn');

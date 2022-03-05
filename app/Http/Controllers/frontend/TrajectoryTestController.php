@@ -12,6 +12,10 @@ class TrajectoryTestController extends Controller
     }
 
     public function storeTest(){
+        return redirect()->route('students.results');
+    }
+
+    public function showResults(){
         return view('frontend.learningStyle.learningStyleResult');
     }
 }

@@ -32,11 +32,13 @@
 </head>
 
 <body class="{{ Route::is('students.tests') ? 'bg-gradient-light' : '' }}">
-    <div class="container position-sticky z-index-sticky top-0">
-        <!-- Navbar -->
-        @include('frontend.layout.topMenu')
-        <!-- End Navbar -->
-    </div>
+    @if (!Route::is('students.results'))
+        <div class="container position-sticky z-index-sticky top-0">
+            <!-- Navbar -->
+            @include('frontend.layout.topMenu')
+            <!-- End Navbar -->
+        </div>
+    @endif
     <main class="main-content  mt-0">
         <section class="min-vh-100 mb-8">
             @yield('contenido')
