@@ -10,9 +10,10 @@
     <title>Panel de control</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="description" content="Panel de administracion">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="{{ url('backend/css/main.css') }}" rel="stylesheet">
+    @yield('links')
     <style>
         .scrollbar-sidebar::-webkit-scrollbar {
             width: 8px;
@@ -55,9 +56,7 @@
         </div>
     </div>
     <script type="text/javascript" src="{{ url('backend/js/main.js') }}"></script>
-    
+    @yield('js')
 </body>
 @yield('modals')
-@yield('js')
-
 </html>

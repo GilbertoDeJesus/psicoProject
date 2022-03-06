@@ -43,11 +43,11 @@
     <!-- End Navbar -->
     <main class="main-content mt-0 ps">
         <div class="page-header min-vh-100"
-            style="background-image: url({{ url('frontend/assets/img/curved-images/curved9.jpg') }});">
+            style="background-image: url({{ url('frontend/assets/img/curved-images/curved17.png') }});">
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-7">
+                    <div class="col-xl-4 col-md-7">
                         <div class="card">
                             <div class="card-body px-lg-5 py-lg-5 text-center">
                                 <div class="info mb-4">

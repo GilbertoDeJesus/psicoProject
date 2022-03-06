@@ -1,0 +1,39 @@
+.widget p {
+    display: inline-block;
+    line-height: 0.7em;
+  }
+  .fecha {
+    font-family: arial;
+    text-align: center;
+    color: #343a40 ;
+    padding: 15px 0px 10px 0px;
+    /*background: rgba(0,0,0,.5);*/
+    width: 100%;
+  }
+  .reloj {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    width: 100%;
+    color: #343a40 ;
+    text-align: center;
+  }
+  .reloj .cajaSegundos {
+    display: inline-block;  
+  }
+  .reloj .ampm, .cajaSegundos .segundos{
+    display: block;
+    font-size: 1.5rem;
+  }
+
+  a.login {
+    background: transparent;
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    width: 30px; 
+    height: 45px;
+    cursor: pointer;
+  }
+  a.login:hover{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
