@@ -42,64 +42,64 @@
                 </li>
                 <li class="app-sidebar__heading">ADMINISTRACIÓN</li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.students') }}" class="{{ (Route::is('admin.students','admin.student.info')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-users"></i>
                         Alumnos
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li class="{{ (Route::is('admin.educationalProgram')) ? 'mm-active' : ''}}">
+                    <a href="#" class="{{ (Route::is('admin.educationalProgram')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-portfolio"></i>
                         Programas educativos
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
                     <ul>
                         <li>
-                            <a href="elements-buttons-standard.html">
+                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
                                 <i class="metismenu-icon"></i>
-                                Buttons
+                                TI. DGS
                             </a>
                         </li>
                         <li>
-                            <a href="elements-dropdowns.html">
+                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
                                 <i class="metismenu-icon">
-                                </i>Dropdowns
+                                </i>Desarrollo de negocios
                             </a>
                         </li>
                         <li>
-                            <a href="elements-icons.html">
+                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
                                 <i class="metismenu-icon">
-                                </i>Icons
+                                </i>Mecatronica
                             </a>
                         </li>
                         <li>
-                            <a href="elements-badges-labels.html">
+                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
                                 <i class="metismenu-icon">
-                                </i>Badges
+                                </i>Procesos industriales
                             </a>
                         </li>
                         <li>
-                            <a href="elements-cards.html">
+                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
                                 <i class="metismenu-icon">
-                                </i>Cards
+                                </i>Enfermeria
                             </a>
                         </li>
                         <li>
-                            <a href="elements-list-group.html">
+                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
                                 <i class="metismenu-icon">
-                                </i>List Groups
+                                </i>Procesos alimentarios
                             </a>
                         </li>
                         <li>
-                            <a href="elements-navigation.html">
+                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
                                 <i class="metismenu-icon">
-                                </i>Navigation Menus
+                                </i>Agricultura sustentable
                             </a>
                         </li>
                         <li>
-                            <a href="elements-utilities.html">
+                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
                                 <i class="metismenu-icon">
-                                </i>Utilities
+                                </i>Energias renovables
                             </a>
                         </li>
                     </ul>

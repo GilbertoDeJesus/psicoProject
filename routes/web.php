@@ -45,3 +45,11 @@ Route::get('/admin/log-out', 'backend\LoginController@logOut')->name('admin.log-
 //--------DASHBOARD----------------------------
 
 Route::get('/admin', 'backend\DashboardController@index')->name('admin');
+
+//-------REPORTS-------------------------------
+Route::get('/admin/students', 'backend\StudentsAdminController@index')->name('admin.students');
+Route::get('/admin/student/{id}', 'backend\StudentsAdminController@infoStudent')->name('admin.student.info');
+
+
+//-------EDUCATIVE PROGRAM--------------------
+Route::get('/admin/educational-program/{id}', 'backend\EducationalProgramController@indexProgram')->name('admin.educationalProgram');
