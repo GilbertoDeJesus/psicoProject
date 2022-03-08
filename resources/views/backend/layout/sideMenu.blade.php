@@ -99,7 +99,7 @@
                 </li>
                 <li class="app-sidebar__heading">Configuración</li>
                 <li>
-                    <a href="{{ route('admin.users') }}" class="{{ (Route::is('admin.users')) ? 'mm-active' : ''}}">
+                    <a href="{{ route('admin.users') }}" class="{{ (Route::is('admin.users','admin.users.editUser')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-add-user"></i>
                         Usuarios
                     </a>

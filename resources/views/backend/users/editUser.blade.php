@@ -8,18 +8,24 @@
             @csrf
             <div class="card-body mx-2 my-2">
                 <div class="form-row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="position-relative form-group">
                             <label for="name" class="">Nombre</label><input name="name" id="name"
                                 placeholder="Nombre" type="text" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="position-relative form-group">
+                            <label for="lastname" class="">Apellidos</label><input name="lastname" id="lastname"
+                                placeholder="Apellidos" type="text" class="form-control" required>
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-12">
                         <div class="position-relative form-group">
-                            <label for="email" class="">Correo electronico</label><input name="email"
-                                id="email" placeholder="Correo electronico" type="email" class="form-control" required>
+                            <label for="email" class="">Correo electronico</label><input name="email" id="email"
+                                placeholder="Correo electronico" type="email" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -35,10 +41,16 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="position-relative form-group">
-                            <label for="password" class="">Contraseña</label><input name="password"
-                                id="password" placeholder="Contraseña" type="text" class="form-control" required>
+                            <label for="workerKey" class="">Clave de trabajador</label><input name="workerKey" id="workerKey"
+                                placeholder="Clave de trabajador" type="text" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="position-relative form-group">
+                            <label for="password" class="">Contraseña</label><input name="password" id="password"
+                                placeholder="Contraseña" type="text" class="form-control" required>
                         </div>
                     </div>
                 </div>
