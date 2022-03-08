@@ -23,8 +23,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastname',
         'email',
         'password',
+        'educatuve_program_id',
+        'employee_key'
     ];
 
     /**
