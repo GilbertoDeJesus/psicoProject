@@ -55,16 +55,16 @@ window.onload = function reloj() {
         } else {
             $pMinutos.text(minutos)
         };
-        if (segundos < 10) {
-            $pSegundos.text("0" + segundos)
-        } else {
-            $pSegundos.text(segundos)
-        };
+        // if (segundos < 10) {
+        //     $pSegundos.text("0" + segundos)
+        // } else {
+        //     $pSegundos.text(segundos)
+        // };
         $pAMPM.text(ampm);
 
     };
 
 
     actualizarHora();
-    var intervalo = setInterval(actualizarHora, 60000);
+    var intervalo = setInterval(actualizarHora, 5000);
 };

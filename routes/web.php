@@ -58,4 +58,16 @@ Route::get('/admin/student/{id}', 'backend\StudentsAdminController@infoStudent')
 
 
 //-------EDUCATIVE PROGRAM--------------------
-Route::get('/admin/educational-programs', 'backend\EducationalProgramController@indexProgram')->name('admin.educationalProgram');
+Route::get('/admin/educational-programs', 'backend\EducationalProgramController@index')->name('admin.educationalProgram');
+Route::post('/admin/educational-programs', 'backend\EducationalProgramController@storeProgram')->name('admin.educationalProgram.storeProgram');
+Route::delete('/admin/educational-programs/{id}', 'backend\EducationalProgramController@deleteProgram')->name('admin.educationalProgram.deleteProgram');
+Route::get('/admin/educational-programs/{id}/edit', 'backend\EducationalProgramController@editProgram')->name('admin.educationalProgram.editProgram');
+Route::put('/admin/educational-programs/{id}', 'backend\EducationalProgramController@updateProgram')->name('admin.educationalProgram.updateProgram');
+Route::get('/admin/educational-programs/{id}/groups', 'backend\EducationalProgramController@indexProgram')->name('admin.educationalProgram.indexGroups');
+
+//--------GROUPS-------------------------------
+Route::get('/admin/groups', 'backend\GroupsController@index')->name('admin.groups');
+Route::post('/admin/groups', 'backend\GroupsController@storeGroup')->name('admin.groups.storeGroup');
+Route::delete('/admin/groups/{id}', 'backend\GroupsController@deleteGroup')->name('admin.groups.deleteGroup');
+Route::get('/admin/groups/{id}/edit', 'backend\GroupsController@editGroup')->name('admin.groups.editGroup');
+Route::put('/admin/groups/{id}', 'backend\GroupsController@updateGroup')->name('admin.groups.updateGroup');
