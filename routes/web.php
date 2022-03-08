@@ -17,12 +17,18 @@ Route::get('/', function () {
     return redirect()->route('sign-up');
 });
 
-
 //--------STUDENTS-------------------------
 Route::get('/sign-up', 'frontend\StudentsController@signUp')->name('sign-up');
 Route::get('/log-out', 'frontend\StudentsController@logOut')->name('student.log-out');
 Route::post('/log-in', 'frontend\StudentsController@logIn')->name('student.log-in');
 Route::post('/sign-up', 'frontend\StudentsController@storeStudent')->name('student.storeStudent');
+
+//--------USERS--------------------------
+Route::get('/admin/users', 'backend\UsersController@index')->name('admin.users');
+Route::post('/admin/users', 'backend\UsersController@storeUser')->name('admin.users.storeUser');
+Route::delete('/admin/users/{id}', 'backend\UsersController@deleteUser')->name('admin.users.deleteUser');
+Route::get('/admin/users/{id}/edit', 'backend\UsersController@editUser')->name('admin.users.editUser');
+Route::put('/admin/users/{id}', 'backend\UsersController@updateUser')->name('admin.users.updateUser');
 
 //--------TESTS---------------------------
 Route::get('/students/questionnaires', 'frontend\StudentsController@index')->name('students.tests');
@@ -52,4 +58,4 @@ Route::get('/admin/student/{id}', 'backend\StudentsAdminController@infoStudent')
 
 
 //-------EDUCATIVE PROGRAM--------------------
-Route::get('/admin/educational-program/{id}', 'backend\EducationalProgramController@indexProgram')->name('admin.educationalProgram');
+Route::get('/admin/educational-programs', 'backend\EducationalProgramController@indexProgram')->name('admin.educationalProgram');

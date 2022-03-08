@@ -47,62 +47,11 @@
                         Alumnos
                     </a>
                 </li>
-                <li class="{{ (Route::is('admin.educationalProgram')) ? 'mm-active' : ''}}">
-                    <a href="#" class="{{ (Route::is('admin.educationalProgram')) ? 'mm-active' : ''}}">
+                <li>
+                    <a href="{{ route('admin.educationalProgram') }}" class="{{ (Route::is('admin.educationalProgram')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-portfolio"></i>
                         Programas educativos
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
-                    <ul>
-                        <li>
-                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
-                                <i class="metismenu-icon"></i>
-                                TI. DGS
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
-                                <i class="metismenu-icon">
-                                </i>Desarrollo de negocios
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
-                                <i class="metismenu-icon">
-                                </i>Mecatronica
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
-                                <i class="metismenu-icon">
-                                </i>Procesos industriales
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
-                                <i class="metismenu-icon">
-                                </i>Enfermeria
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
-                                <i class="metismenu-icon">
-                                </i>Procesos alimentarios
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
-                                <i class="metismenu-icon">
-                                </i>Agricultura sustentable
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.educationalProgram', ['id'=>1]) }}">
-                                <i class="metismenu-icon">
-                                </i>Energias renovables
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="#">
@@ -150,7 +99,7 @@
                 </li>
                 <li class="app-sidebar__heading">Configuración</li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.users') }}" class="{{ (Route::is('admin.users')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-add-user"></i>
                         Usuarios
                     </a>

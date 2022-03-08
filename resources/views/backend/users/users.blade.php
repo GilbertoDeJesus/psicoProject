@@ -1,0 +1,326 @@
+@extends('backend.layout.main')
+
+@section('contenido')
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-add-user icon-gradient bg-mean-fruit">
+                    </i>
+                </div>
+                <div>Registro de usuarios
+                    <div class="page-title-subheading">A continuación se presentan todos los usuarios activos
+                    </div>
+                </div>
+            </div>
+            <div class="page-title-actions">
+                <div class="search-wrapper active mx-auto">
+                    <div class="input-holder mx-auto">
+                        <form action="" method="get">
+                            <input type="text" class="search-input" placeholder="Escribe para buscar">
+                            <button class="search-icon" type="submit"><span></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @if (session('status'))
+                <div class="alert alert-success fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close"  data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ session('status') }}
+                </div>
+            @endif
+            <div class="main-card mb-3 card">
+                <div class="card-header">Lista de usuarios
+                    <div class="btn-actions-pane-right">
+                        <div role="group" class="btn-group">
+                            <button class="btn btn-primary mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                <span class="btn-icon-wrapper pr-2 opacity-7">
+                                    <i class="fa fa-plus fa-w-20"></i>
+                                </span>
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>Nombre</th>
+                                <th>Programa educativo</th>
+                                <th class="text-center">Creación</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center text-muted">#345</td>
+                                <td>
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-3">
+                                                <div class="widget-content-left">
+                                                    <img width="40" class="rounded-circle"
+                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-left flex2">
+                                                <div class="widget-heading">Jhon Doe</div>
+                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Desarrollo y gestión de software</td>
+                                <td class="text-center">24/12/2002</td>
+                                <td class="text-center">
+                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                        data-toggle="tooltip" data-placement="top" title="Editar">
+                                        <span class="btn-icon-wrapper">
+                                            <i class="fa fa-edit fa-w-20"></i>
+                                        </span>
+                                    </a>
+                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
+                                        data-toggle="modal" data-placement="top" title="Eliminar"
+                                        data-target="#exampleModal">
+                                        <span class="btn-icon-wrapper">
+                                            <i class="fa fa-trash fa-w-20"></i>
+                                        </span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center text-muted">#347</td>
+                                <td>
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-3">
+                                                <div class="widget-content-left">
+                                                    <img width="40" class="rounded-circle"
+                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-left flex2">
+                                                <div class="widget-heading">Vinnie Wagstaff</div>
+                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Desarrollo y gestión de software</td>
+                                <td class="text-center">12/03/2009</td>
+                                <td class="text-center">
+                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                        data-toggle="tooltip" data-placement="top" title="Editar">
+                                        <span class="btn-icon-wrapper">
+                                            <i class="fa fa-edit fa-w-20"></i>
+                                        </span>
+                                    </a>
+                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
+                                        data-toggle="modal" data-placement="top" title="Eliminar"
+                                        data-target="#exampleModal">
+                                        <span class="btn-icon-wrapper">
+                                            <i class="fa fa-trash fa-w-20"></i>
+                                        </span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center text-muted">#321</td>
+                                <td>
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-3">
+                                                <div class="widget-content-left">
+                                                    <img width="40" class="rounded-circle"
+                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-left flex2">
+                                                <div class="widget-heading">Jhon Doe</div>
+                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Desarrollo y gestión de software</td>
+                                <td class="text-center">09/04/2017</td>
+                                <td class="text-center">
+                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                        data-toggle="tooltip" data-placement="top" title="Editar">
+                                        <span class="btn-icon-wrapper">
+                                            <i class="fa fa-edit fa-w-20"></i>
+                                        </span>
+                                    </a>
+                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
+                                        data-toggle="modal" data-placement="top" title="Eliminar"
+                                        data-target="#exampleModal">
+                                        <span class="btn-icon-wrapper">
+                                            <i class="fa fa-trash fa-w-20"></i>
+                                        </span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center text-muted">#55</td>
+                                <td>
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-3">
+                                                <div class="widget-content-left">
+                                                    <img width="40" class="rounded-circle"
+                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-left flex2">
+                                                <div class="widget-heading">Vinnie Wagstaff</div>
+                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Desarrollo y gestión de software</td>
+                                <td class="text-center">30/01/2022</td>
+                                <td class="text-center">
+                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                        data-toggle="tooltip" data-placement="top" title="Editar">
+                                        <span class="btn-icon-wrapper">
+                                            <i class="fa fa-edit fa-w-20"></i>
+                                        </span>
+                                    </a>
+                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
+                                        data-toggle="modal" data-placement="top" title="Eliminar"
+                                        data-target="#exampleModal">
+                                        <span class="btn-icon-wrapper">
+                                            <i class="fa fa-trash fa-w-20"></i>
+                                        </span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-block text-center card-footer">
+                    <nav class="" aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
+                                    aria-label="Previous"><span aria-hidden="true">«</span><span
+                                        class="sr-only">Previous</span></a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
+                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">2</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
+                                    aria-label="Next"><span aria-hidden="true">»</span><span
+                                        class="sr-only">Next</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('modals')
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content border-0">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title menu-header-title text-white" id="exampleModalLongTitle">Agregar nuevo usuario</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('admin.users.storeUser') }}" method="post" role="form">
+                    @csrf
+                    <div class="modal-body mx-2 my-2">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="position-relative form-group">
+                                    <label for="name" class="">Nombre</label><input name="name" id="name"
+                                        placeholder="Nombre" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="position-relative form-group">
+                                    <label for="email" class="">Correo electronico</label><input name="email" id="email"
+                                        placeholder="Correo electronico" type="email" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="position-relative form-group">
+                                    <label for="educational" class="">Programa educativo</label><select type="select"
+                                        id="educational" name="educational" class="custom-select" required>
+                                        <option value="">Tecnologias de la información</option>
+                                        <option>Enfermeria</option>
+                                        <option>Desarrollo de negocios</option>
+                                        <option>Mecatronica</option>
+                                        <option>Procesos industriales</option>
+                                        <option>Producción de alimentos</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="position-relative form-group">
+                                    <label for="password" class="">Contraseña</label><input name="password" id="password"
+                                        placeholder="Contraseña" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('admin.users.deleteUser', ['id' => 1]) }}" method="post" data-action="">
+                    @method('DELETE')
+                    @csrf
+                    <div class="modal-body text-center">
+                        <div class="font-icon-lg my-3"><i class="fa fa-times-circle fa-8x icon-gradient bg-love-kiss"
+                                aria-hidden="true"></i></div>
+                        <h4 class="mb-3">¿Realmente quieres eliminar a este usuario?</h4>
+                        <h6>¡Este proceso no se puede deshacer!</h6>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+@endsection
+
+@section('js')
+
+@endsection
