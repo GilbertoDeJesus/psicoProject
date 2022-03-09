@@ -280,6 +280,15 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="position-relative form-group">
+                                    <label for="rol" class="">Rol</label><select type="select"
+                                        id="rol" name="rol" class="custom-select" required>
+                                        <option value="">Tutor</option>
+                                        <option>Administrador</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
                                     <label for="workerKey" class="">Clave de trabajador</label><input name="workerKey" id="workerKey"

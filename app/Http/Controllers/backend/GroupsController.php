@@ -20,7 +20,7 @@ class GroupsController extends Controller
     }
 
     public function editGroup(){
-        return view('backend.users.editUser');
+        return view('backend.groups.editGroup');
     }
 
     public function updateGroup(){

@@ -73,7 +73,7 @@
                                 <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">24/12/2002</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
@@ -102,7 +102,7 @@
                                 <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">12/03/2009</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
@@ -131,7 +131,7 @@
                                 <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">09/04/2017</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
@@ -160,7 +160,7 @@
                                 <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">30/01/2022</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
