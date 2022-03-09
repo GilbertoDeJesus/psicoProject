@@ -46,7 +46,7 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header bg-dark text-white">Lista de grupos</div>
                 <div class="card-body px-4 py-3">
                     <div class="dropdown-menu dropdown-menu-inline">
