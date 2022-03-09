@@ -7,7 +7,17 @@ use Illuminate\Http\Request;
 
 class StudentsAdminController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+        if ($request->group == null) {
+            $request->group = "todos";
+        }
+        
+        $group = $request->group;
+
+        return view('backend.students.students',['group'=>$group]);
+    }
+
+    public function indexGroup(){
         return view('backend.students.students');
     }
 

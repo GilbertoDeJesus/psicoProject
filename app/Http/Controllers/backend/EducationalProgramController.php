@@ -27,7 +27,16 @@ class EducationalProgramController extends Controller
         return redirect()->route('admin.educationalProgram')->with('status', '¡El registro se modificó  correctamente!');
     }
 
-    public function indexProgram(){
+    public function indexProgram(Request $request){
+        if ($request->group == null) {
+            $request->group = "todos";
+        }
+        
+        $group = $request->group;
         return view('backend.educationalProgram.studentGroups');
+    }
+
+    public function infoStudent(){
+        return view('backend.students.studentInfo');
     }
 }
