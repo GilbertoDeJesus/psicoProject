@@ -40,6 +40,9 @@
             background-color: #999999;
         }
 
+        .drop-down-2 {
+            min-width: 15rem !important;
+        }
     </style>
 </head>
 
