@@ -54,7 +54,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.groups') }}" class="{{ (Route::is('admin.groups')) ? 'mm-active' : ''}}">
+                    <a href="{{ route('admin.groups') }}" class="{{ (Route::is('admin.groups','admin.groups.editGroup')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-network"></i>
                         Grupos
                     </a>
