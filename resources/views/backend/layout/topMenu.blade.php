@@ -74,7 +74,7 @@
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true"
-                                    class="dropdown-menu dropdown-menu-right">
+                                    class="dropdown-menu drop-down-2 dropdown-menu-right">
                                     <button type="button" tabindex="0" class="dropdown-item">Mi cuenta</button>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <a type="button" tabindex="0" class="dropdown-item"

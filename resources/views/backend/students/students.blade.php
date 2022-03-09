@@ -45,7 +45,46 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <div class="card-header bg-dark text-white">Lista de grupos</div>
+                <div class="card-body px-4 py-3">
+                    <div class="dropdown-menu dropdown-menu-inline">
+                        <form action="{{ route('admin.students') }}" method="get">
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == 'todos' ? 'active card-shadow-primary' : '' }}">
+                                <input type="radio" class="d-none" name="group" value="todos" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-drawer h4 mb-0 mr-2"></i><span>Todos</span>
+                            </label>
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '1a'  ? 'active card-shadow-primary' : '' }}">
+                                <input type="radio" class="d-none" name="group" value="1a" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>1A</span>
+                            </label>
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '1b'  ? 'active card-shadow-primary' : '' }}">
+                                <input type="radio" class="d-none" name="group" value="1b" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>1B</span>
+                            </label>
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '2a'  ? 'active card-shadow-primary' : '' }}">
+                                <input type="radio" class="d-none" name="group" value="2a" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>2A</span>
+                            </label>
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '2b'  ? 'active card-shadow-primary' : '' }}">
+                                <input type="radio" class="d-none" name="group" value="2b" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>2B</span>
+                            </label>
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '3a'  ? 'active card-shadow-primary' : '' }}">
+                                <input type="radio" class="d-none" name="group" value="3a" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>3A</span>
+                            </label>
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '3b'  ? 'active card-shadow-primary' : '' }}">
+                                <input type="radio" class="d-none" name="group" value="3b" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>3B</span>
+                            </label>
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '4a'  ? 'active card-shadow-primary' : '' }}">
+                                <input type="radio" class="d-none" name="group" value="4a" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>4A</span>
+                            </label>
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '4b'  ? 'active card-shadow-primary' : '' }}">
+                                <input type="radio" class="d-none" name="group" value="4b" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>4B</span>
+                            </label>
+                        </form>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
             @if (session('status'))
                 <div class="alert alert-success fade alert-dismissible show" role="alert">
                     <button type="button" class="close" aria-label="Close" data-dismiss="alert">
@@ -54,7 +93,7 @@
                 </div>
             @endif
             <div class="main-card mb-3 card">
-                <div class="card-header">Lista de empleados
+                <div class="card-header">Lista de alumnos
                 </div>
                 <div class="table-responsive">
                     <table class="align-middle mb-0 table table-borderless table-striped table-hover">

@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.educationalProgram') }}" class="{{ (Route::is('admin.educationalProgram','admin.educationalProgram.indexGroups')) ? 'mm-active' : ''}}">
+                    <a href="{{ route('admin.educationalProgram') }}" class="{{ (Route::is('admin.educationalProgram','admin.educationalProgram.indexGroups','admin.educationalProgram.infoStudent')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-portfolio"></i>
                         Programas educativos
                     </a>

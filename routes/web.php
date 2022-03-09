@@ -52,18 +52,19 @@ Route::get('/admin/log-out', 'backend\LoginController@logOut')->name('admin.log-
 
 Route::get('/admin', 'backend\DashboardController@index')->name('admin');
 
-//-------REPORTS-------------------------------
+//-------ADMIN STUDENTS-------------------------------
 Route::get('/admin/students', 'backend\StudentsAdminController@index')->name('admin.students');
 Route::get('/admin/student/{id}', 'backend\StudentsAdminController@infoStudent')->name('admin.student.info');
 
 
-//-------EDUCATIVE PROGRAM--------------------
+//-------EDUCATIONAL PROGRAM--------------------
 Route::get('/admin/educational-programs', 'backend\EducationalProgramController@index')->name('admin.educationalProgram');
 Route::post('/admin/educational-programs', 'backend\EducationalProgramController@storeProgram')->name('admin.educationalProgram.storeProgram');
 Route::delete('/admin/educational-programs/{id}', 'backend\EducationalProgramController@deleteProgram')->name('admin.educationalProgram.deleteProgram');
 Route::get('/admin/educational-programs/{id}/edit', 'backend\EducationalProgramController@editProgram')->name('admin.educationalProgram.editProgram');
 Route::put('/admin/educational-programs/{id}', 'backend\EducationalProgramController@updateProgram')->name('admin.educationalProgram.updateProgram');
 Route::get('/admin/educational-programs/{id}/groups', 'backend\EducationalProgramController@indexProgram')->name('admin.educationalProgram.indexGroups');
+Route::get('/admin/educational-programs/group/student/{id}', 'backend\EducationalProgramController@infoStudent')->name('admin.educationalProgram.infoStudent');
 
 //--------GROUPS-------------------------------
 Route::get('/admin/groups', 'backend\GroupsController@index')->name('admin.groups');
