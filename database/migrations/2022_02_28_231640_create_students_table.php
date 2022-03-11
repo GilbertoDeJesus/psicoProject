@@ -19,6 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('family_name',60);
             $table->string('last_name',60);
             $table->unsignedBigInteger('group_id')->nullable();
+            $table->smallInteger('age');
             $table->string('phone',15);
             $table->string('contact_phone',15);
             $table->string('email',300);

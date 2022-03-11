@@ -13,7 +13,7 @@ class Student extends Model
 {
     use HasFactory, softDeletes;
     protected $fillable = ['name','family_name','last_name','group_id','phone',
-        'contact_phone','email','matricula','password','active'];
+        'contact_phone','email','matricula','password','age'];
 
     public function group()
     {
