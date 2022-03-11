@@ -112,7 +112,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-lg-7">
             @if (session('status'))
                 <div class="alert alert-success fade alert-dismissible show" role="alert">
                     <button type="button" class="close" aria-label="Close" data-dismiss="alert">
@@ -120,7 +120,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <div class="main-card mb-3 card">
+            <div class="main-card mb-3 card card-shadow-primary">
                 <div class="card-header bg-primary text-white">Información basica
                 </div>
                 <div class="card-body">
@@ -172,6 +172,257 @@
                 </div>
                 <div class="d-block text-center card-footer p-3">
 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="conatiner card">
+                <div class="card-header text-dark">
+                    <div class="mx-auto">
+                        Respuestas de cuestionarios
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="tabs-animated-shadow tabs-animated nav nav-justified tabs-rounded-lg">
+                        <li class="nav-item">
+                            <a role="tab" class="nav-link mb-0 active show" href="#estilo-aprendizaje" data-toggle="tab" aria-selected="true">
+                                <span>Estilo de aprendizaje</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a role="tab" class="nav-link mb-0" href="#orientacion-vocacional" data-toggle="tab" aria-selected="false">
+                                <span>Orientacion vocacional</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a role="tab" class="nav-link mb-0" href="#trayectoria-academica" data-toggle="tab" aria-selected="false">
+                                <span>Trayectoria academica</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane tabs-animation fade show active" id="estilo-aprendizaje" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <div class="main-card my-3 card">
+                                <div class="table-responsive pt-1">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th>Pregunta</th>
+                                                <th>Respuesta</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center text-muted">#1</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">Puedo recordar algo mejor si lo escribo</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Rara vez</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#2</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">Al leer, oigo las palabras en mi cabeza o leo en voz alta.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Frecuentemente</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#3</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">Necesito hablar las cosas para entenderlas mejor.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>A veces</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#4</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">No me gusta leer o escuchar instrucciones, prefiero simplemente comenzar a hacer las cosas</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Casi siempre</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane tabs-animation fade" id="orientacion-vocacional" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <div class="main-card my-3 card">
+                                <div class="table-responsive pt-1">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th>Pregunta</th>
+                                                <th>Respuesta</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center text-muted">#1</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">Conoces acerca de procesos económico administrativos</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Si</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#2</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">Te gusta automatizar procesos mediante el uso de la computadora o procesadores</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Si</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#3</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">Te gusta cocinar y/o procesar alimentos</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>No</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#4</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">Te gusta configurar equipos de computo</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Si</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane tabs-animation fade" id="trayectoria-academica" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <div class="main-card my-3 card">
+                                <div class="table-responsive pt-1">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th>Pregunta</th>
+                                                <th>Respuesta</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center text-muted">#1</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">Escuela de procedencia</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>CBTis 229</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#2</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">Promedio</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>9.6</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#3</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">¿Cúal fue la especialidad que tomaste en el bachillerato?</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Tecnológico</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#4</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">¿Es la primer ocasión que estudias una carrera universitaria?</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>No</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

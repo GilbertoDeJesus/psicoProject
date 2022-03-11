@@ -84,7 +84,7 @@
                                     <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
                                         data-placement="top" title="Editar" data-target="#editModal">
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="editar">
+                                            title="Editar">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </button>
@@ -123,7 +123,7 @@
                                     <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
                                         data-placement="top" title="Editar" data-target="#editModal">
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="editar">
+                                            title="Editar">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </button>
@@ -162,7 +162,7 @@
                                     <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
                                         data-placement="top" title="Editar" data-target="#editModal">
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="editar">
+                                            title="Editar">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </button>
@@ -201,7 +201,7 @@
                                     <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
                                         data-placement="top" title="Editar" data-target="#editModal">
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="editar">
+                                            title="Editar">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </button>

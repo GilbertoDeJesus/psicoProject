@@ -139,8 +139,8 @@
                                     <div class="badge badge-success">8° A</div>
                                 </td>
                                 <td class="text-center">
-                                    <button type="button" id="PopoverCustomT-1"
-                                        class="btn btn-primary btn-sm">Detalles</button>
+                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" type="button" id="PopoverCustomT-1"
+                                        class="btn btn-primary btn-sm">Detalles</a>
                                 </td>
                             </tr>
                             <tr>
@@ -162,8 +162,8 @@
                                     <div class="badge badge-success">5° A</div>
                                 </td>
                                 <td class="text-center">
-                                    <button type="button" id="PopoverCustomT-2"
-                                        class="btn btn-primary btn-sm">Detalles</button>
+                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" type="button" id="PopoverCustomT-2"
+                                        class="btn btn-primary btn-sm">Detalles</a>
                                 </td>
                             </tr>
                             <tr>
@@ -185,8 +185,8 @@
                                     <div class="badge badge-success">3° A</div>
                                 </td>
                                 <td class="text-center">
-                                    <button type="button" id="PopoverCustomT-3"
-                                        class="btn btn-primary btn-sm">Detalles</button>
+                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" type="button" id="PopoverCustomT-3"
+                                        class="btn btn-primary btn-sm">Detalles</a>
                                 </td>
                             </tr>
                             <tr>
@@ -208,8 +208,8 @@
                                     <div class="badge badge-success">1° B</div>
                                 </td>
                                 <td class="text-center">
-                                    <button type="button" id="PopoverCustomT-4"
-                                        class="btn btn-primary btn-sm">Detalles</button>
+                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" type="button" id="PopoverCustomT-4"
+                                        class="btn btn-primary btn-sm">Detalles</a>
                                 </td>
                             </tr>
                         </tbody>

@@ -59,14 +59,8 @@
                         Grupos
                     </a>
                 </li>
-                {{-- <li>
-                    <a href="{{ route('admin.outputs') }}" class="{{ (Route::is('admin.outputs')) ? 'mm-active' : ''}}">
-                        <i class="metismenu-icon pe-7s-left-arrow"></i>
-                        Salidas
-                    </a>
-                </li> --}}
                 <li class="app-sidebar__heading">Cuestionarios</li>
-                <li>
+                {{-- <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-box2"></i>
                         Estilo de aprendizaje
@@ -84,7 +78,7 @@
                         Trayectoria academica
                     </a>
                 </li>
-                <li class="app-sidebar__heading">Estadisticas</li>
+                <li class="app-sidebar__heading">Estadisticas</li> --}}
                 <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-display1"></i>
