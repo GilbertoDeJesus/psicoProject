@@ -72,3 +72,6 @@ Route::post('/admin/groups', 'backend\GroupsController@storeGroup')->name('admin
 Route::delete('/admin/groups/{id}', 'backend\GroupsController@deleteGroup')->name('admin.groups.deleteGroup');
 Route::get('/admin/groups/{id}/edit', 'backend\GroupsController@editGroup')->name('admin.groups.editGroup');
 Route::put('/admin/groups/{id}', 'backend\GroupsController@updateGroup')->name('admin.groups.updateGroup');
+
+//--------REPORTS------------------------------
+Route::get('/admin/reports','backend\ReportsController@index')->name('admin.reports');
