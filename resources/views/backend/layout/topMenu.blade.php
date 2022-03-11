@@ -70,7 +70,7 @@
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     class="p-0 btn">
                                     <img width="42" class="rounded-circle"
-                                        src="{{ url('backend/images/avatars/7.png') }}" alt="">
+                                        src="{{ url('backend/images/avatars/4.png') }}" alt="">
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true"
