@@ -75,3 +75,4 @@ Route::put('/admin/groups/{id}', 'backend\GroupsController@updateGroup')->name('
 
 //--------REPORTS------------------------------
 Route::get('/admin/reports','backend\ReportsController@index')->name('admin.reports');
+Route::post('/admin/reports','backend\ReportsController@generateReport')->name('admin.reports.generate');

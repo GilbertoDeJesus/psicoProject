@@ -127,7 +127,7 @@
                                         <label>Programa educativo</label>
                                         <div class="mb-3">
                                             <select type="select" id="ProgramaSelect" name="p_id" class="form-control"
-                                                name="" required>
+                                                required>
                                                 <option value="1" selected>Tecnologias de la información DSM</option>
                                                 <option value="1">Tecnologias de la información </option>
                                                 <option value="1">Desarrollo de negocios</option>
@@ -141,7 +141,7 @@
                                         <label>Cuatrimestre y grupo</label>
                                         <div class="mb-3">
                                             <select type="select" id="areaSelect" name="area_id" class="form-control"
-                                                name="" required>
+                                                required>
                                                 <option value="1" selected>1 A</option>
                                                 <option value="1">1 B</option>
                                                 <option value="1">2 A</option>
