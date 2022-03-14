@@ -11,9 +11,8 @@ class TrajectoryTestController extends Controller
 
         $trajectoryTest= \DB:: table('questions')
         ->select('questions.*')
-        ->where('test_id', $test_id)
         ->orderBy('order','ASC')
-        ->first();
+        ->get();
         return view('frontend.educationalTrajectory.trajectoryTest')->with('trajectoryTest', $trajectoryTest);
 
     }
