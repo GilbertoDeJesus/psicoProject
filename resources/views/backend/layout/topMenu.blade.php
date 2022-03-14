@@ -33,13 +33,13 @@
     </div>
     <div class="app-header__content">
         <div class="app-header-left">
-            <div class="search-wrapper">
+            {{-- <div class="search-wrapper">
                 <div class="input-holder">
                     <input type="text" class="search-input" placeholder="Escribe para buscar">
                     <button class="search-icon"><span></span></button>
                 </div>
                 <button class="close  d-lg-block"></button>
-            </div>
+            </div> --}}
             <ul class="header-menu nav">
                 <li class="nav-item">
                     <a href="javascript:void(0);" class="nav-link">

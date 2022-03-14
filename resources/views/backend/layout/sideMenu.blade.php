@@ -86,7 +86,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.reports') }}" class="{{ (Route::is('admin.reports')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-print"></i>
                         Reportes
                     </a>
