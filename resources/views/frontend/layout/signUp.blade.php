@@ -104,14 +104,14 @@
                                         <label>Teléfono</label>
                                         <div class="mb-3">
                                             <input type="tel" class="form-control" placeholder="Teléfono" name=""
-                                                required>
+                                                required maxlength="10">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Teléfono de contacto</label>
                                         <div class="mb-3">
                                             <input type="tel" class="form-control" placeholder="Teléfono de contacto"
-                                                name="" required>
+                                                name="" required maxlength="10">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">

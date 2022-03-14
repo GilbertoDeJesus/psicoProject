@@ -75,10 +75,8 @@
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true"
                                     class="dropdown-menu drop-down-2 dropdown-menu-right">
-                                    <button type="button" tabindex="0" class="dropdown-item">Mi cuenta</button>
-                                    <div tabindex="-1" class="dropdown-divider"></div>
                                     <a type="button" tabindex="0" class="dropdown-item"
-                                        href="{{ route('admin.log-out') }}">Cerrar sesión</a>
+                                        href="{{ route('admin.log-out') }}"><i class="pe-7s-power mr-2 my-auto h5 icon-gradient bg-premium-dark"></i> Cerrar sesión</a>
                                 </div>
                             </div>
                         </div>
