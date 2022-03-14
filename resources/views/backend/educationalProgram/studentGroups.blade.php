@@ -35,8 +35,8 @@
             <div class="page-title-actions">
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
-                        <form action="" method="get">
-                            <input type="text" class="search-input" placeholder="Escribe para buscar">
+                        <form action="{{ route('admin.educationalProgram.searchStudent', ['id' => 1]) }}" method="get">
+                            <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
                     </div>

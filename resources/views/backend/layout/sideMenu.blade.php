@@ -42,19 +42,19 @@
                 </li>
                 <li class="app-sidebar__heading">ADMINISTRACIÓN</li>
                 <li>
-                    <a href="{{ route('admin.students') }}" class="{{ (Route::is('admin.students','admin.student.info')) ? 'mm-active' : ''}}">
+                    <a href="{{ route('admin.students') }}" class="{{ (Route::is('admin.students','admin.student.info','admin.students.search')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-users"></i>
                         Alumnos
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.educationalProgram') }}" class="{{ (Route::is('admin.educationalProgram','admin.educationalProgram.indexGroups','admin.educationalProgram.infoStudent')) ? 'mm-active' : ''}}">
+                    <a href="{{ route('admin.educationalProgram') }}" class="{{ (Route::is('admin.educationalProgram','admin.educationalProgram.indexGroups','admin.educationalProgram.infoStudent','admin.educationalProgram.search','admin.educationalProgram.searchStudent')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-portfolio"></i>
                         Programas educativos
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.groups') }}" class="{{ (Route::is('admin.groups','admin.groups.editGroup')) ? 'mm-active' : ''}}">
+                    <a href="{{ route('admin.groups') }}" class="{{ (Route::is('admin.groups','admin.groups.editGroup','admin.groups.search')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-network"></i>
                         Grupos
                     </a>
@@ -93,7 +93,7 @@
                 </li>
                 <li class="app-sidebar__heading">Configuración</li>
                 <li>
-                    <a href="{{ route('admin.users') }}" class="{{ (Route::is('admin.users','admin.users.editUser')) ? 'mm-active' : ''}}">
+                    <a href="{{ route('admin.users') }}" class="{{ (Route::is('admin.users','admin.users.editUser','admin.users.search')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-add-user"></i>
                         Usuarios
                     </a>

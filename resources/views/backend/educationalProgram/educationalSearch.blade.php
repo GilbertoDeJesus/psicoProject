@@ -5,18 +5,18 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="pe-7s-network icon-gradient bg-mean-fruit">
+                    <i class="pe-7s-search icon-gradient bg-mean-fruit">
                     </i>
                 </div>
-                <div>Registro de grupos
-                    <div class="page-title-subheading">A continuación se presentan todos los grupos activos
+                <div>Resultados para {{Str::limit($search, 25)}}
+                    <div class="page-title-subheading">A continuación se presentan los resultados de la busqueda
                     </div>
                 </div>
             </div>
             <div class="page-title-actions">
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
-                        <form action="{{ route('admin.groups.search') }}" method="get">
+                        <form action="{{ route('admin.educationalProgram.search') }}" method="get">
                             <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
@@ -29,23 +29,13 @@
         <div class="col-md-12">
             @if (session('status'))
                 <div class="alert alert-success fade alert-dismissible show" role="alert">
-                    <button type="button" class="close" aria-label="Close"  data-dismiss="alert">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
                         <span aria-hidden="true">&times;</span></button>
                     {{ session('status') }}
                 </div>
             @endif
             <div class="main-card mb-3 card">
-                <div class="card-header">Lista de grupos
-                    <div class="btn-actions-pane-right">
-                        <div role="group" class="btn-group">
-                            <button class="btn btn-primary mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">
-                                <span class="btn-icon-wrapper pr-2 opacity-7">
-                                    <i class="fa fa-plus fa-w-20"></i>
-                                </span>
-                                Agregar
-                            </button>
-                        </div>
-                    </div>
+                <div class="card-header">Lista de programas educativos
                 </div>
                 <div class="table-responsive">
                     <table class="align-middle mb-0 table table-borderless table-striped table-hover">
@@ -53,8 +43,8 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
-                                <th>Programa educativo</th>
                                 <th class="text-center">Creación</th>
+                                <th class="text-center">Alumnos</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
@@ -65,24 +55,34 @@
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Jhon Doe</div>
+                                                <div class="widget-heading">Tecnologias de la informacion</div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">24/12/2002</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
-                                        data-toggle="tooltip" data-placement="top" title="Editar">
+                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
+                                        class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
+                                        title="Ver lista de alumnos">
                                         <span class="btn-icon-wrapper">
-                                            <i class="fa fa-edit fa-w-20"></i>
+                                            <i class="fa fa-users fa-w-20"></i>
                                         </span>
                                     </a>
+                                </td>
+                                <td class="text-center">
+                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
+                                        data-placement="top" title="Editar" data-target="#editModal">
+                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
+                                            title="Editar">
+                                            <i class="fa fa-edit fa-w-20"></i>
+                                        </span>
+                                    </button>
                                     <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
                                         data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
+                                        data-target="#deleteModal">
+                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
+                                            title="Eliminar">
                                             <i class="fa fa-trash fa-w-20"></i>
                                         </span>
                                     </button>
@@ -94,24 +94,34 @@
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Vinnie Wagstaff</div>
+                                                <div class="widget-heading">Enfermeria</div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">12/03/2009</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
-                                        data-toggle="tooltip" data-placement="top" title="Editar">
+                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
+                                        class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
+                                        title="Ver lista de alumnos">
                                         <span class="btn-icon-wrapper">
-                                            <i class="fa fa-edit fa-w-20"></i>
+                                            <i class="fa fa-users fa-w-20"></i>
                                         </span>
                                     </a>
+                                </td>
+                                <td class="text-center">
+                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
+                                        data-placement="top" title="Editar" data-target="#editModal">
+                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
+                                            title="Editar">
+                                            <i class="fa fa-edit fa-w-20"></i>
+                                        </span>
+                                    </button>
                                     <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
                                         data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
+                                        data-target="#deleteModal">
+                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
+                                            title="Eliminar">
                                             <i class="fa fa-trash fa-w-20"></i>
                                         </span>
                                     </button>
@@ -123,24 +133,34 @@
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Jhon Doe</div>
+                                                <div class="widget-heading">Desarrollo de negocios</div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">09/04/2017</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
-                                        data-toggle="tooltip" data-placement="top" title="Editar">
+                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
+                                        class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
+                                        title="Ver lista de alumnos">
                                         <span class="btn-icon-wrapper">
-                                            <i class="fa fa-edit fa-w-20"></i>
+                                            <i class="fa fa-users fa-w-20"></i>
                                         </span>
                                     </a>
+                                </td>
+                                <td class="text-center">
+                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
+                                        data-placement="top" title="Editar" data-target="#editModal">
+                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
+                                            title="Editar">
+                                            <i class="fa fa-edit fa-w-20"></i>
+                                        </span>
+                                    </button>
                                     <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
                                         data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
+                                        data-target="#deleteModal">
+                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
+                                            title="Eliminar">
                                             <i class="fa fa-trash fa-w-20"></i>
                                         </span>
                                     </button>
@@ -152,24 +172,34 @@
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Vinnie Wagstaff</div>
+                                                <div class="widget-heading">Mecatronica</div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">30/01/2022</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
-                                        data-toggle="tooltip" data-placement="top" title="Editar">
+                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
+                                        class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
+                                        title="Ver lista de alumnos">
                                         <span class="btn-icon-wrapper">
-                                            <i class="fa fa-edit fa-w-20"></i>
+                                            <i class="fa fa-users fa-w-20"></i>
                                         </span>
                                     </a>
+                                </td>
+                                <td class="text-center">
+                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
+                                        data-placement="top" title="Editar" data-target="#editModal">
+                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
+                                            title="Editar">
+                                            <i class="fa fa-edit fa-w-20"></i>
+                                        </span>
+                                    </button>
                                     <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
                                         data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
+                                        data-target="#deleteModal">
+                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
+                                            title="Eliminar">
                                             <i class="fa fa-trash fa-w-20"></i>
                                         </span>
                                     </button>
@@ -201,17 +231,20 @@
 @endsection
 
 @section('modals')
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content border-0">
                 <div class="modal-header bg-primary">
-                    <h5 class="modal-title menu-header-title text-white" id="exampleModalLongTitle">Agregar nuevo grupo</h5>
+                    <h5 class="modal-title menu-header-title text-white" id="exampleModalLongTitle">Editar programa
+                        educativo
+                    </h5>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.groups.storeGroup') }}" method="post" role="form">
+                <form action="{{ route('admin.educationalProgram.updateProgram', ['id' => 1]) }}" method="post" role="form">
+                    @method('PUT')
                     @csrf
                     <div class="modal-body mx-2 my-2">
                         <div class="form-row">
@@ -219,21 +252,6 @@
                                 <div class="position-relative form-group">
                                     <label for="name" class="">Nombre</label><input name="name" id="name"
                                         placeholder="Nombre" type="text" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="position-relative form-group">
-                                    <label for="educational" class="">Programa educativo</label><select type="select"
-                                        id="educational" name="educational" class="custom-select" required>
-                                        <option value="">Tecnologias de la información</option>
-                                        <option>Enfermeria</option>
-                                        <option>Desarrollo de negocios</option>
-                                        <option>Mecatronica</option>
-                                        <option>Procesos industriales</option>
-                                        <option>Producción de alimentos</option>
-                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +265,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -257,13 +275,14 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.groups.deleteGroup', ['id' => 1]) }}" method="post" data-action="">
+                <form action="{{ route('admin.educationalProgram.deleteProgram', ['id' => 1]) }}" method="post"
+                    data-action="">
                     @method('DELETE')
                     @csrf
                     <div class="modal-body text-center">
                         <div class="font-icon-lg my-3"><i class="fa fa-times-circle fa-8x icon-gradient bg-love-kiss"
                                 aria-hidden="true"></i></div>
-                        <h4 class="mb-3">¿Realmente quieres eliminar a este grupo?</h4>
+                        <h4 class="mb-3">¿Realmente quieres eliminar este programa?</h4>
                         <h6>¡Este proceso no se puede deshacer!</h6>
                     </div>
                     <div class="modal-footer">
@@ -274,9 +293,7 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('js')
-
 @endsection

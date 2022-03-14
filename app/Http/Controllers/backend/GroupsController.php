@@ -26,4 +26,11 @@ class GroupsController extends Controller
     public function updateGroup(){
         return redirect()->route('admin.users')->with('status', '¡El registro se modificó  correctamente!');
     }
+
+    public function searchGroup(Request $request){
+
+        $search = htmlspecialchars($request->input('search'));
+
+        return view('backend.groups.groupsSearch',['search'=>$search]);
+    }
 }
