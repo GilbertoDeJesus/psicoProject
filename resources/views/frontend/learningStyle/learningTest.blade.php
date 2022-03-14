@@ -47,9 +47,10 @@
                             @foreach($learningTest as $questions)
                             @php
                                 $numberTest++;
+                                $totalQuestions = $learningTest->count();
                             @endphp
                             <div class="step">
-                                <h3 class="main_question"><strong>{{$numberTest}}/18</strong> 
+                                <h3 class="main_question"><strong>{{$numberTest}}/{{$totalQuestions}}</strong> 
                                 {{$questions->question}}
                                 </h3>
                                 <div class="form-group">

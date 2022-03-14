@@ -3,16 +3,24 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Questions;
+use App\Models\Test;
+use App\Models\Answer;
 use Illuminate\Http\Request;
+
 
 class TrajectoryTestController extends Controller
 {
     public function index(){
 
-        $trajectoryTest= \DB:: table('questions')
-        ->select('questions.*')
-        ->orderBy('order','ASC')
-        ->get();
+        $test_id = Test::query()
+            ->where('name', 'LIKE', "%informacion academica%")
+            ->orderByDesc('id')
+            ->first();
+
+        $test = Test::where('id',$test_id->id)->orderBy('id','ASC')->first();
+        $trajectoryTest = $test->questions()->orderBy('order','ASC')->get();
+
         return view('frontend.educationalTrajectory.trajectoryTest')->with('trajectoryTest', $trajectoryTest);
 
     }

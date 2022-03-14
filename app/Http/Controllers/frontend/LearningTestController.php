@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Questions;
 use App\Models\Test;
+use App\Models\Answer;
 use Illuminate\Http\Request;
 
 class LearningTestController extends Controller
