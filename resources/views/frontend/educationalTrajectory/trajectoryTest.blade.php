@@ -40,9 +40,11 @@
                         <!-- Leave for security protection, read docs for details -->
                         <div id="middle-wizard">
                             <!-- /step-->
+                            @foreach($trajectoryTest as $questions)
                             <div class="step">
-                                <h3 class="main_question"><strong>1/3</strong>Conoces acerca de procesos económico
-                                    administrativos</h3>
+                                <h3 class="main_question"><strong>{{$questions->id}}/18</strong>
+                                {{$questions->question}}
+                                </h3>
                                 <div class="form-group">
                                     <label class="container_radio version_2">Si
                                         <input type="radio" name="question_1" value="1" class="required">
@@ -56,37 +58,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="step">
-                                <h3 class="main_question"><strong>2/3</strong>Te gusta el manejo de redes sociales</h3>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Si
-                                        <input type="radio" name="question_2" value="1" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">No
-                                        <input type="radio" name="question_2" value="2" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="step">
-                                <h3 class="main_question"><strong>3/3</strong>Te gustaria analizar y resolver problemas
-                                    dentro de un negocio o empresa</h3>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Si
-                                        <input type="radio" name="question_3" value="1" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">No
-                                        <input type="radio" name="question_3" value="2" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
+                            @endforeach
                             <!-- /step-->
                             <div class="submit step">
                                 <h3 class="main_question"><strong>3/3</strong>Finalizar</h3>
@@ -120,7 +92,10 @@
             <!-- /content-right-->
         </div>
         <!-- /row-->
+        
     </div>
+
+  
 @endsection
 
 @section('js')
