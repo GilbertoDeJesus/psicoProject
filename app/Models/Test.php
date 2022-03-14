@@ -17,7 +17,8 @@ class Test extends Model
 
     public function questions()
     {
-        return $this->belongsToMany(Question::class)->orderBy('order','ASC');
+        //Se agrega el orderBy desde aquí para cuando en el controlador llamamos a las preguntas nos la devuelva con el orden
+        return $this->belongsToMany(Question::class)->orderBy('order','ASC'); 
     }
 
     public function student()

@@ -16,7 +16,7 @@ class TrajectoryTestController extends Controller
         // ->get();
 
         //Ocupando el modelo podemos reducir código y además teniendo en cuenta que "sabemos" que son 3 test 
-        // lo podemos manejar así.
+        // lo podemos manejar así..
         $trajectoryTest = Test::find(1)->questions; //Guardamos en la variable $trayectoryTest la colección que nos trae al consultar el test una con todas las preguntas que tienen relación con él.
         return view('frontend.educationalTrajectory.trajectoryTest')
         ->with('trajectoryTest', $trajectoryTest);
