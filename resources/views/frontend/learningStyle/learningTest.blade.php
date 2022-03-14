@@ -41,8 +41,11 @@
                         <!-- Leave for security protection, read docs for details -->
                         <div id="middle-wizard">
                             <!-- /step-->
+                            @foreach($learningTest as $questions)
                             <div class="step">
-                                <h3 class="main_question"><strong>1/3</strong>Puedo recordar algo mejor si lo escribo.</h3>
+                                <h3 class="main_question"><strong>{{$questions->id}}/18</strong> 
+                                {{$questions->question}}
+                                </h3>
                                 <div class="form-group">
                                     <label class="container_radio version_2">Nunca
                                         <input type="radio" name="question_1" value="1" class="required">
@@ -75,78 +78,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <!-- /step-->
-                            <div class="step">
-                                <h3 class="main_question"><strong>2/3</strong>Al leer, oigo las palabras en mi cabeza o leo
-                                    en voz alta.</h3>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Nunca
-                                        <input type="radio" name="question_2" value="1" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Ocasionalmente
-                                        <input type="radio" name="question_2" value="2" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Regularmente
-                                        <input type="radio" name="question_2" value="3" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Casi siempre
-                                        <input type="radio" name="question_2" value="4" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Siempre
-                                        <input type="radio" name="question_2" value="5" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- /step-->
-                            <div class="step">
-                                <h3 class="main_question"><strong>3/3</strong>Necesito hablar las cosas para entenderlas
-                                    mejor.</h3>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Nunca
-                                        <input type="radio" name="question_3" value="1" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Ocasionalmente
-                                        <input type="radio" name="question_3" value="2" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Regularmente
-                                        <input type="radio" name="question_3" value="3" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Casi siempre
-                                        <input type="radio" name="question_3" value="4" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Siempre
-                                        <input type="radio" name="question_3" value="5" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
+                            @endforeach
                             <!-- /step-->
                             <div class="submit step">
                                 <h3 class="main_question"><strong>3/3</strong>Finalizar</h3>
