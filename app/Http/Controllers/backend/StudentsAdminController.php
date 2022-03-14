@@ -29,4 +29,11 @@ class StudentsAdminController extends Controller
         return view('backend.students.studentInfo');
     }
 
+    public function searchStudent(Request $request){
+
+        $search = htmlspecialchars($request->input('search'));
+
+        return view('backend.students.studentsSearch',['search'=>$search]);
+    }
+
 }

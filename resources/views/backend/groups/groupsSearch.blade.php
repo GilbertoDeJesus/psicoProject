@@ -5,11 +5,11 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="pe-7s-network icon-gradient bg-mean-fruit">
+                    <i class="pe-7s-search icon-gradient bg-mean-fruit">
                     </i>
                 </div>
-                <div>Registro de grupos
-                    <div class="page-title-subheading">A continuación se presentan todos los grupos activos
+                <div>Resultados para {{Str::limit($search, 25)}}
+                    <div class="page-title-subheading">A continuación se presentan los resultados de la busqueda
                     </div>
                 </div>
             </div>
@@ -36,16 +36,6 @@
             @endif
             <div class="main-card mb-3 card">
                 <div class="card-header">Lista de grupos
-                    <div class="btn-actions-pane-right">
-                        <div role="group" class="btn-group">
-                            <button class="btn btn-primary mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">
-                                <span class="btn-icon-wrapper pr-2 opacity-7">
-                                    <i class="fa fa-plus fa-w-20"></i>
-                                </span>
-                                Agregar
-                            </button>
-                        </div>
-                    </div>
                 </div>
                 <div class="table-responsive">
                     <table class="align-middle mb-0 table table-borderless table-striped table-hover">
@@ -201,52 +191,6 @@
 @endsection
 
 @section('modals')
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content border-0">
-                <div class="modal-header bg-primary">
-                    <h5 class="modal-title menu-header-title text-white" id="exampleModalLongTitle">Agregar nuevo grupo</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="{{ route('admin.groups.storeGroup') }}" method="post" role="form">
-                    @csrf
-                    <div class="modal-body mx-2 my-2">
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="position-relative form-group">
-                                    <label for="name" class="">Nombre</label><input name="name" id="name"
-                                        placeholder="Nombre" type="text" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="position-relative form-group">
-                                    <label for="educational" class="">Programa educativo</label><select type="select"
-                                        id="educational" name="educational" class="custom-select" required>
-                                        <option value="">Tecnologias de la información</option>
-                                        <option>Enfermeria</option>
-                                        <option>Desarrollo de negocios</option>
-                                        <option>Mecatronica</option>
-                                        <option>Procesos industriales</option>
-                                        <option>Producción de alimentos</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">

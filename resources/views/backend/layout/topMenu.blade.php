@@ -33,13 +33,13 @@
     </div>
     <div class="app-header__content">
         <div class="app-header-left">
-            <div class="search-wrapper">
+            {{-- <div class="search-wrapper">
                 <div class="input-holder">
                     <input type="text" class="search-input" placeholder="Escribe para buscar">
                     <button class="search-icon"><span></span></button>
                 </div>
                 <button class="close  d-lg-block"></button>
-            </div>
+            </div> --}}
             <ul class="header-menu nav">
                 <li class="nav-item">
                     <a href="javascript:void(0);" class="nav-link">
@@ -75,10 +75,8 @@
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true"
                                     class="dropdown-menu drop-down-2 dropdown-menu-right">
-                                    <button type="button" tabindex="0" class="dropdown-item">Mi cuenta</button>
-                                    <div tabindex="-1" class="dropdown-divider"></div>
                                     <a type="button" tabindex="0" class="dropdown-item"
-                                        href="{{ route('admin.log-out') }}">Cerrar sesión</a>
+                                        href="{{ route('admin.log-out') }}"><i class="pe-7s-power mr-2 my-auto h5 icon-gradient bg-premium-dark"></i> Cerrar sesión</a>
                                 </div>
                             </div>
                         </div>

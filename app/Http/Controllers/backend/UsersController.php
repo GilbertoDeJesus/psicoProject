@@ -26,4 +26,11 @@ class UsersController extends Controller
     public function updateUser(){
         return redirect()->route('admin.users')->with('status', '¡El registro se modificó  correctamente!');
     }
+
+    public function searchUser(Request $request){
+
+        $search = htmlspecialchars($request->input('search'));
+
+        return view('backend.users.usersSearch',['search'=>$search]);
+    }
 }

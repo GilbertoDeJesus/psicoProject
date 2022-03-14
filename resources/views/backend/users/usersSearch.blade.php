@@ -5,18 +5,18 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="pe-7s-network icon-gradient bg-mean-fruit">
+                    <i class="pe-7s-search icon-gradient bg-mean-fruit">
                     </i>
                 </div>
-                <div>Registro de grupos
-                    <div class="page-title-subheading">A continuación se presentan todos los grupos activos
+                <div>Resultados para {{Str::limit($search, 25)}}
+                    <div class="page-title-subheading">A continuación se presentan los resultados de la busqueda
                     </div>
                 </div>
             </div>
             <div class="page-title-actions">
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
-                        <form action="{{ route('admin.groups.search') }}" method="get">
+                        <form action="{{ route('admin.users.search') }}" method="get">
                             <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
@@ -35,17 +35,7 @@
                 </div>
             @endif
             <div class="main-card mb-3 card">
-                <div class="card-header">Lista de grupos
-                    <div class="btn-actions-pane-right">
-                        <div role="group" class="btn-group">
-                            <button class="btn btn-primary mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">
-                                <span class="btn-icon-wrapper pr-2 opacity-7">
-                                    <i class="fa fa-plus fa-w-20"></i>
-                                </span>
-                                Agregar
-                            </button>
-                        </div>
-                    </div>
+                <div class="card-header">Lista de usuarios
                 </div>
                 <div class="table-responsive">
                     <table class="align-middle mb-0 table table-borderless table-striped table-hover">
@@ -64,8 +54,16 @@
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-3">
+                                                <div class="widget-content-left">
+                                                    <img width="40" class="rounded-circle"
+                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
+                                                </div>
+                                            </div>
                                             <div class="widget-content-left flex2">
                                                 <div class="widget-heading">Jhon Doe</div>
+                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +71,7 @@
                                 <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">24/12/2002</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
@@ -93,8 +91,16 @@
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-3">
+                                                <div class="widget-content-left">
+                                                    <img width="40" class="rounded-circle"
+                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
+                                                </div>
+                                            </div>
                                             <div class="widget-content-left flex2">
                                                 <div class="widget-heading">Vinnie Wagstaff</div>
+                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -102,7 +108,7 @@
                                 <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">12/03/2009</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
@@ -122,8 +128,16 @@
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-3">
+                                                <div class="widget-content-left">
+                                                    <img width="40" class="rounded-circle"
+                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
+                                                </div>
+                                            </div>
                                             <div class="widget-content-left flex2">
                                                 <div class="widget-heading">Jhon Doe</div>
+                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -131,7 +145,7 @@
                                 <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">09/04/2017</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
@@ -151,8 +165,16 @@
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-3">
+                                                <div class="widget-content-left">
+                                                    <img width="40" class="rounded-circle"
+                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
+                                                </div>
+                                            </div>
                                             <div class="widget-content-left flex2">
                                                 <div class="widget-heading">Vinnie Wagstaff</div>
+                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -160,7 +182,7 @@
                                 <td>Desarrollo y gestión de software</td>
                                 <td class="text-center">30/01/2022</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
@@ -201,52 +223,6 @@
 @endsection
 
 @section('modals')
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content border-0">
-                <div class="modal-header bg-primary">
-                    <h5 class="modal-title menu-header-title text-white" id="exampleModalLongTitle">Agregar nuevo grupo</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="{{ route('admin.groups.storeGroup') }}" method="post" role="form">
-                    @csrf
-                    <div class="modal-body mx-2 my-2">
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="position-relative form-group">
-                                    <label for="name" class="">Nombre</label><input name="name" id="name"
-                                        placeholder="Nombre" type="text" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="position-relative form-group">
-                                    <label for="educational" class="">Programa educativo</label><select type="select"
-                                        id="educational" name="educational" class="custom-select" required>
-                                        <option value="">Tecnologias de la información</option>
-                                        <option>Enfermeria</option>
-                                        <option>Desarrollo de negocios</option>
-                                        <option>Mecatronica</option>
-                                        <option>Procesos industriales</option>
-                                        <option>Producción de alimentos</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -257,13 +233,13 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.groups.deleteGroup', ['id' => 1]) }}" method="post" data-action="">
+                <form action="{{ route('admin.users.deleteUser', ['id' => 1]) }}" method="post" data-action="">
                     @method('DELETE')
                     @csrf
                     <div class="modal-body text-center">
                         <div class="font-icon-lg my-3"><i class="fa fa-times-circle fa-8x icon-gradient bg-love-kiss"
                                 aria-hidden="true"></i></div>
-                        <h4 class="mb-3">¿Realmente quieres eliminar a este grupo?</h4>
+                        <h4 class="mb-3">¿Realmente quieres eliminar a este usuario?</h4>
                         <h6>¡Este proceso no se puede deshacer!</h6>
                     </div>
                     <div class="modal-footer">
