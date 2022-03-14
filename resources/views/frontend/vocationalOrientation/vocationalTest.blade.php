@@ -42,8 +42,8 @@
                             <!-- /step-->
                             @foreach($vocationalTest as $questions)
                             <div class="step">
-                                <h3 class="main_question"><strong>{{$questions->id}}/18</strong>
-                                {{$questions->question}}
+                                <h3 class="main_question"><strong>/18</strong>
+                                {{$questions->question_id}}
                                 </h3>
                                 <div class="form-group">
                                     <input type="text" name="firstname" class="form-control required"

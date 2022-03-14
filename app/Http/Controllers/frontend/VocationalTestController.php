@@ -8,14 +8,13 @@ use Illuminate\Http\Request;
 class VocationalTestController extends Controller
 {
     public function index(){
-        $vocationalTest= \DB:: table('questions')
-        ->select('questions.*')
-        ->orderBy('order','ASC')
+        
+        $vocationalTest= \DB:: table('question_test')
+        ->where('test_id', 1)
         ->get();
          return view('frontend.vocationalOrientation.vocationalTest')->with('vocationalTest', $vocationalTest);
 
     }
-
     public function storeTest(){
         return redirect()->route('students.trajectory');
     }
