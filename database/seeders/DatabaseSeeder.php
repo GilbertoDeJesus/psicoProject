@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\Student::factory(rand(80,120))->create();
 
         // \App\Models\User::factory(10)->create();
+
+        $this->call(FirstSeeder::class);
     }
 }

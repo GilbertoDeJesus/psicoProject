@@ -1,8 +1,9 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Student;
 use Illuminate\Database\Seeder;
+
 
 class FirstSeeder extends Seeder
 {
@@ -12,26 +13,30 @@ class FirstSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
+
+ 
+//////////////////////////////////////////////
         \App\Models\Type::factory(1)->create(['name' => "Opcion Multiple"]);
         \App\Models\Type::factory(1)->create(['name' => "Desplegable"]);
         \App\Models\Type::factory(1)->create(['name' => "Abierta"]);
         \App\Models\Type::factory(1)->create(['name' => "Multirespuesta"]);
 
-
+        $this->call(EducativeProgramSeeder::class);
+        Student::Factory(30)->create();
 
         $t1 = \App\Models\Test::factory(1)->create([
-            'name' => "Informacion académica",
+            'name' => "Trayectoria académica",
             'directions' => "Lee atentamente y escribe lo que se te pide",
             'order' => 1,
         ]);
         $t2 = \App\Models\Test::factory(1)->create([
-            'name' => "Intereses",
+            'name' => "Orientación Vocacional",
             'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona SI o NO dependiendo de tus conocimientos e intereses",
             'order' => 2,
         ]);
         $t3 = \App\Models\Test::factory(1)->create([
-            'name' => "Canal de aprendizaje",
+            'name' => "Estilo de aprendizaje",
             'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona un numero en escala del 1 al 5 que tanto te identificas",
             'order' => 3,
         ]);
@@ -40,7 +45,7 @@ class FirstSeeder extends Seeder
 
         //////////////////////////////////// Información académica 
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "1.- Escuela de procedencia",
+            'question' => "Escuela de procedencia",
             'status' => 1,
             'is_example' => 0,
             'order' => 1,
@@ -54,7 +59,7 @@ class FirstSeeder extends Seeder
         //
 
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "2.- Promedio",
+            'question' => "Promedio",
             'status' => 1,
             'is_example' => 0,
             'order' => 2,
@@ -65,11 +70,11 @@ class FirstSeeder extends Seeder
         //
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "3.- ¿Cúal fue la especialidad que tomaste en el bachillerato?",
+            'question' => "¿Cúal fue la especialidad que tomaste en el bachillerato?",
             'status' => 1,
             'is_example' => 0,
             'order' => 3,
-            'type_id' => 4
+            'type_id' => 1
         ]);
 
         //$question = \App\Models\Answer::find($q->id);
@@ -84,7 +89,7 @@ class FirstSeeder extends Seeder
                 'order' => 1,
                 'question_id' => $question->id
             ]);
-            
+
 
 
 
@@ -140,7 +145,7 @@ class FirstSeeder extends Seeder
         //
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "4.- ¿Es la primer ocasión que estudias una carrera universitaria?",
+            'question' => "¿Es la primer ocasión que estudias una carrera universitaria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 4,
@@ -170,7 +175,7 @@ class FirstSeeder extends Seeder
         //
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "5.- Durante el bachillerato o Carrera Universitaria anterior ¿Reprobaste alguna materia o presentaste exámenes extraordinarios?",
+            'question' => "Durante el bachillerato o Carrera Universitaria anterior ¿Reprobaste alguna materia o presentaste exámenes extraordinarios?",
             'status' => 1,
             'is_example' => 0,
             'order' => 5,
@@ -199,7 +204,7 @@ class FirstSeeder extends Seeder
         //
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "6.- ¿Cuál o cuáles materias reprobaste(s)?",
+            'question' => "¿Cuál o cuáles materias reprobaste(s)?",
             'status' => 1,
             'is_example' => 0,
             'order' => 6,
@@ -285,7 +290,7 @@ class FirstSeeder extends Seeder
         //
 
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "7.- ¿Cuentas con tu certificado de bachillerato/preparatoria?",
+            'question' => "¿Cuentas con tu certificado de bachillerato/preparatoria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 7,
@@ -315,7 +320,7 @@ class FirstSeeder extends Seeder
         //
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "8.- ¿Cuál o Cuáles materias no fueron de tu interés durante la preparatoria?",
+            'question' => "¿Cuál o Cuáles materias no fueron de tu interés durante la preparatoria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 8,
@@ -401,7 +406,7 @@ class FirstSeeder extends Seeder
         //
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "9.- Entre mis asignaturas favoritas durante la preparatoria se encuentran",
+            'question' => "Entre mis asignaturas favoritas durante la preparatoria se encuentran",
             'status' => 1,
             'is_example' => 0,
             'order' => 9,
@@ -490,11 +495,131 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Tienes computadora de escritorio o laptop como apoyo para  trabajos y tareas escolares?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 10,
+            'type_id' => 1
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 1,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Cuentas con servicio de Internet en casa?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 11,
+            'type_id' => 1
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 1,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿En casa cuentas con un espacio específico para realizar tus actividades académicas?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 12,
+            'type_id' => 1
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 1,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Estudias o Trabajas?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 13,
+            'type_id' => 1
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Estudio",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Trabajo",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Ambas",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+        }
+
+
+
+
 
 
         //////////////////////////////////// Intereses
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "1.-¿Conoces acerca de procesos económico administrativos?",
+            'question' => "¿Conoces acerca de procesos económico administrativos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 1,
@@ -523,7 +648,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "2 .- ¿Te gusta automatizar procesos mediante el uso de la computadora o procesadores?",
+            'question' => "¿Te gusta automatizar procesos mediante el uso de la computadora o procesadores?",
             'status' => 1,
             'is_example' => 0,
             'order' => 2,
@@ -552,7 +677,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "3.- ¿Te gusta cocinar y/o procesar alimentos?",
+            'question' => "¿Te gusta cocinar y/o procesar alimentos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 3,
@@ -580,7 +705,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "4.- ¿Te gusta configurar equipos de computo?",
+            'question' => "¿Te gusta configurar equipos de computo?",
             'status' => 1,
             'is_example' => 0,
             'order' => 4,
@@ -609,7 +734,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "5.- ¿Te gusta llevar un control ordenado en el proceso o ejecución de alguna tarea industrial?",
+            'question' => "¿Te gusta llevar un control ordenado en el proceso o ejecución de alguna tarea industrial?",
             'status' => 1,
             'is_example' => 0,
             'order' => 5,
@@ -638,7 +763,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "6.-  ¿Te interesa dar mantenimiento a equipos industriales?",
+            'question' => "¿Te interesa dar mantenimiento a equipos industriales?",
             'status' => 1,
             'is_example' => 0,
             'order' => 6,
@@ -666,7 +791,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "7.- ¿Acostumbras a leer revistas relacionadas con los últimos avances científicos y tecnológicos en el área de la salud?",
+            'question' => "¿Acostumbras a leer revistas relacionadas con los últimos avances científicos y tecnológicos en el área de la salud?",
             'status' => 1,
             'is_example' => 0,
             'order' => 7,
@@ -694,7 +819,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "8.- ¿Te gusta hacer reparaciones eléctricas en tu domicilio?",
+            'question' => "¿Te gusta hacer reparaciones eléctricas en tu domicilio?",
             'status' => 1,
             'is_example' => 0,
             'order' => 8,
@@ -721,7 +846,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "9.- ¿Aceptarías trabajar en producción protegida para sustentabilidad agrícola?",
+            'question' => "¿Aceptarías trabajar en producción protegida para sustentabilidad agrícola?",
             'status' => 1,
             'is_example' => 0,
             'order' => 9,
@@ -748,7 +873,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "10.- ¿Te gusta el manejo de redes sociales?",
+            'question' => "¿Te gusta el manejo de redes sociales?",
             'status' => 1,
             'is_example' => 0,
             'order' => 10,
@@ -775,7 +900,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "11.-¿Conoces que es un Arduino y sus funciones?",
+            'question' => "¿Conoces que es un Arduino y sus funciones?",
             'status' => 1,
             'is_example' => 0,
             'order' => 11,
@@ -802,7 +927,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "12.- ¿Te gusta analizar la composición de los alimentos?",
+            'question' => "¿Te gusta analizar la composición de los alimentos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 12,
@@ -829,7 +954,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "13.- ¿Te gusta conocer el funcionamiento de un equipo de computo?",
+            'question' => "¿Te gusta conocer el funcionamiento de un equipo de computo?",
             'status' => 1,
             'is_example' => 0,
             'order' => 13,
@@ -856,7 +981,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "14.- ¿Te apasiona construir cosas con materiales a tu alcance?",
+            'question' => "¿Te apasiona construir cosas con materiales a tu alcance?",
             'status' => 1,
             'is_example' => 0,
             'order' => 14,
@@ -883,7 +1008,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "15.- ¿Te interesa conocer el funcionamiento de equipos industriales?",
+            'question' => "¿Te interesa conocer el funcionamiento de equipos industriales?",
             'status' => 1,
             'is_example' => 0,
             'order' => 15,
@@ -910,7 +1035,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "16.- ¿Te gusta trabajar con personas en el cuidado de la salud?",
+            'question' => "¿Te gusta trabajar con personas en el cuidado de la salud?",
             'status' => 1,
             'is_example' => 0,
             'order' => 16,
@@ -937,7 +1062,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "17.- ¿Te gustaría conocer el funcionamiento de un panel solar?",
+            'question' => "¿Te gustaría conocer el funcionamiento de un panel solar?",
             'status' => 1,
             'is_example' => 0,
             'order' => 17,
@@ -964,7 +1089,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "18.-¿Te ofrecerías para participar en un proyecto de control y automatización de sistemas a campo abierto?",
+            'question' => "¿Te ofrecerías para participar en un proyecto de control y automatización de sistemas a campo abierto?",
             'status' => 1,
             'is_example' => 0,
             'order' => 18,
@@ -991,7 +1116,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "19.- ¿Te gustaria analizar y resolver problemas dentro de un negocio o empresa?",
+            'question' => "¿Te gustaria analizar y resolver problemas dentro de un negocio o empresa?",
             'status' => 1,
             'is_example' => 0,
             'order' => 19,
@@ -1018,7 +1143,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "20.- ¿Te llama la atención el proceso de impresión 3D?",
+            'question' => "¿Te llama la atención el proceso de impresión 3D?",
             'status' => 1,
             'is_example' => 0,
             'order' => 20,
@@ -1045,7 +1170,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "21.- ¿Te gustaría producir alimentos a escala industrial?",
+            'question' => "¿Te gustaría producir alimentos a escala industrial?",
             'status' => 1,
             'is_example' => 0,
             'order' => 21,
@@ -1072,7 +1197,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "22.- ¿Te gusta trabajar con lenguaje de programación?",
+            'question' => "¿Te gusta trabajar con lenguaje de programación?",
             'status' => 1,
             'is_example' => 0,
             'order' => 22,
@@ -1099,7 +1224,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "23.- ¿Te gusta realizar dibujos o bosquejos para después llevarlos a la realidad?",
+            'question' => "¿Te gusta realizar dibujos o bosquejos para después llevarlos a la realidad?",
             'status' => 1,
             'is_example' => 0,
             'order' => 23,
@@ -1126,7 +1251,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "24.- ¿Te gustaría trabajar en el sector industrial como jefe de mantenimiento?",
+            'question' => "¿Te gustaría trabajar en el sector industrial como jefe de mantenimiento?",
             'status' => 1,
             'is_example' => 0,
             'order' => 24,
@@ -1153,7 +1278,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "25.- ¿Te sentirías a gusto trabajando en un ámbito hospitalario?",
+            'question' => "¿Te sentirías a gusto trabajando en un ámbito hospitalario?",
             'status' => 1,
             'is_example' => 0,
             'order' => 25,
@@ -1180,7 +1305,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "26.- ¿Te gustaria participar en el mantenimiento a los sistemas energéticos?",
+            'question' => "¿Te gustaria participar en el mantenimiento a los sistemas energéticos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 26,
@@ -1207,7 +1332,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "27.- ¿Te gustaría radicar en una zona agrícola-ganadera para desarrollar tus actividades como profesional?",
+            'question' => "¿Te gustaría radicar en una zona agrícola-ganadera para desarrollar tus actividades como profesional?",
             'status' => 1,
             'is_example' => 0,
             'order' => 27,
@@ -1234,7 +1359,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "28.- ¿Te ofrecerías para organizar las ventas y compras de una empresa?",
+            'question' => "¿Te ofrecerías para organizar las ventas y compras de una empresa?",
             'status' => 1,
             'is_example' => 0,
             'order' => 28,
@@ -1261,7 +1386,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "29.- ¿Te interesa saber cómo estan construidos los equipos de automatización de las grandes empresas industriales?",
+            'question' => "¿Te interesa saber cómo estan construidos los equipos de automatización de las grandes empresas industriales?",
             'status' => 1,
             'is_example' => 0,
             'order' => 29,
@@ -1288,7 +1413,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "30.- ¿Te interesa trabajar en una empresa de alimentos?",
+            'question' => "¿Te interesa trabajar en una empresa de alimentos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 30,
@@ -1315,7 +1440,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "31.- ¿Te interesan los secretos de la tecnología?",
+            'question' => "¿Te interesan los secretos de la tecnología?",
             'status' => 1,
             'is_example' => 0,
             'order' => 31,
@@ -1342,7 +1467,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "32.- ¿Te sientes cómodo al trabajar en ambientes como talleres o fábricas?",
+            'question' => "¿Te sientes cómodo al trabajar en ambientes como talleres o fábricas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 32,
@@ -1369,7 +1494,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "33.- ¿Tienes conocimientos previos en las materias de electricidad y magnetismo?",
+            'question' => "¿Tienes conocimientos previos en las materias de electricidad y magnetismo?",
             'status' => 1,
             'is_example' => 0,
             'order' => 33,
@@ -1396,7 +1521,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "34.- ¿Te dedicarías a socorrer a personas accidentadas?",
+            'question' => "¿Te dedicarías a socorrer a personas accidentadas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 34,
@@ -1423,7 +1548,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "35.- ¿Te gustaría aprender el funcionamiento un multímetro?",
+            'question' => "¿Te gustaría aprender el funcionamiento un multímetro?",
             'status' => 1,
             'is_example' => 0,
             'order' => 35,
@@ -1450,7 +1575,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "36.- ¿Te gustaría investigar científicamente sobre cultivos agrícolas?",
+            'question' => "¿Te gustaría investigar científicamente sobre cultivos agrícolas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 36,
@@ -1477,7 +1602,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "37.- ¿Te gusta diseñar y planificar la producción de artículos o nuevos productos?",
+            'question' => "¿Te gusta diseñar y planificar la producción de artículos o nuevos productos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 37,
@@ -1504,7 +1629,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "38.- ¿Te interesa dar mantenimiento a maquinaria automatizada?",
+            'question' => "¿Te interesa dar mantenimiento a maquinaria automatizada?",
             'status' => 1,
             'is_example' => 0,
             'order' => 38,
@@ -1531,7 +1656,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "39.- ¿Tienes conocimiento en conservar alimentos?",
+            'question' => "¿Tienes conocimiento en conservar alimentos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 39,
@@ -1558,7 +1683,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "40.- ¿Entablas una relación casi personal con tu computadora?",
+            'question' => "¿Entablas una relación casi personal con tu computadora?",
             'status' => 1,
             'is_example' => 0,
             'order' => 40,
@@ -1585,7 +1710,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "41.- ¿Las matemáticas y el cálculo te resultan interesantes?",
+            'question' => "¿Las matemáticas y el cálculo te resultan interesantes?",
             'status' => 1,
             'is_example' => 0,
             'order' => 41,
@@ -1612,7 +1737,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "42.- ¿Conoces el concepto de metrología industrial?",
+            'question' => "¿Conoces el concepto de metrología industrial?",
             'status' => 1,
             'is_example' => 0,
             'order' => 42,
@@ -1639,7 +1764,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "43.- ¿Escuchas atentamente los síntomas que tiene una persona al estar enferma?",
+            'question' => "¿Escuchas atentamente los síntomas que tiene una persona al estar enferma?",
             'status' => 1,
             'is_example' => 0,
             'order' => 43,
@@ -1666,7 +1791,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "44.- ¿Te gustaría conocer a que se refieren las Energías renovables?",
+            'question' => "¿Te gustaría conocer a que se refieren las Energías renovables?",
             'status' => 1,
             'is_example' => 0,
             'order' => 44,
@@ -1693,7 +1818,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "45.- ¿Participarias en una campaña de reforestación empleando técnicas y conocimientos agrícolas?",
+            'question' => "¿Participarias en una campaña de reforestación empleando técnicas y conocimientos agrícolas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 45,
@@ -1720,7 +1845,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "46.- ¿Te gusta diseñar logotipos y/o portadas para tus libretas?",
+            'question' => "¿Te gusta diseñar logotipos y/o portadas para tus libretas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 46,
@@ -1747,7 +1872,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "47.- ¿Te interesa diseñar máquinas que puedan simular actividades humanas?",
+            'question' => "¿Te interesa diseñar máquinas que puedan simular actividades humanas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 47,
@@ -1774,7 +1899,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "48.- ¿Te gustaría desarrollar productos alimentarios aprovechando los recursos disponibles e impulsando el desarrollo de tú región?",
+            'question' => "¿Te gustaría desarrollar productos alimentarios aprovechando los recursos disponibles e impulsando el desarrollo de tú región?",
             'status' => 1,
             'is_example' => 0,
             'order' => 48,
@@ -1801,7 +1926,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "49.- ¿Estás informado sobre las nuevas tecnologías?",
+            'question' => "¿Estás informado sobre las nuevas tecnologías?",
             'status' => 1,
             'is_example' => 0,
             'order' => 49,
@@ -1828,7 +1953,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "50.- ¿Te interesa desarrollar procesos de manufactura?",
+            'question' => "¿Te interesa desarrollar procesos de manufactura?",
             'status' => 1,
             'is_example' => 0,
             'order' => 50,
@@ -1855,7 +1980,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "51.- ¿Se te facilita el armar y desarmar objetos?",
+            'question' => "¿Se te facilita el armar y desarmar objetos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 51,
@@ -1882,7 +2007,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "52.- ¿Te gustaría participar en campañas de salud en zonas marginadas?",
+            'question' => "¿Te gustaría participar en campañas de salud en zonas marginadas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 52,
@@ -1909,7 +2034,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "53.- ¿Te interesa formular proyectos de energías renovables mediante diagnósticos energéticos y estudios especializados de los recursos naturales del entorno?",
+            'question' => "¿Te interesa formular proyectos de energías renovables mediante diagnósticos energéticos y estudios especializados de los recursos naturales del entorno?",
             'status' => 1,
             'is_example' => 0,
             'order' => 53,
@@ -1936,7 +2061,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "54.- ¿Te gustaria conocer los alcances de la agricultura protegida?",
+            'question' => "¿Te gustaria conocer los alcances de la agricultura protegida?",
             'status' => 1,
             'is_example' => 0,
             'order' => 54,
@@ -1963,7 +2088,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "55.- ¿Te gusta tener el control de tus ingresos y egresos económicos?",
+            'question' => "¿Te gusta tener el control de tus ingresos y egresos económicos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 55,
@@ -1990,7 +2115,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "56.- ¿Te gusta formular planos a través de software especializado?",
+            'question' => "¿Te gusta formular planos a través de software especializado?",
             'status' => 1,
             'is_example' => 0,
             'order' => 56,
@@ -2017,7 +2142,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "57.- ¿Te interesaría supervisar el proceso de producción alimentaria?",
+            'question' => "¿Te interesaría supervisar el proceso de producción alimentaria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 57,
@@ -2044,7 +2169,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "58.- ¿Te gusta explorar nuevas aplicaciones tecnológicas para uso del internet?",
+            'question' => "¿Te gusta explorar nuevas aplicaciones tecnológicas para uso del internet?",
             'status' => 1,
             'is_example' => 0,
             'order' => 58,
@@ -2071,7 +2196,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => " 59.- Te interesa saber ¿cómo estan construidos los equipos de automatización de las grandes empresas industriales?",
+            'question' => "Te interesa saber ¿cómo estan construidos los equipos de automatización de las grandes empresas industriales?",
             'status' => 1,
             'is_example' => 0,
             'order' => 59,
@@ -2098,7 +2223,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "60.- ¿Te gustaría conocer las normas de seguridad e higiene bajo las que opera el sector industrial?",
+            'question' => "¿Te gustaría conocer las normas de seguridad e higiene bajo las que opera el sector industrial?",
             'status' => 1,
             'is_example' => 0,
             'order' => 60,
@@ -2125,7 +2250,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "61.- ¿Ante una situación de emergencia actúas rápidamente?",
+            'question' => "¿Ante una situación de emergencia actúas rápidamente?",
             'status' => 1,
             'is_example' => 0,
             'order' => 61,
@@ -2152,7 +2277,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "62.- ¿Te llama la atención el uso de nuevas tecnologías para la generación de energía?",
+            'question' => "¿Te llama la atención el uso de nuevas tecnologías para la generación de energía?",
             'status' => 1,
             'is_example' => 0,
             'order' => 62,
@@ -2179,7 +2304,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "63.- ¿Te incluirías en un proyecto nacional de desarrollo sustentable de agricultura?",
+            'question' => "¿Te incluirías en un proyecto nacional de desarrollo sustentable de agricultura?",
             'status' => 1,
             'is_example' => 0,
             'order' => 63,
@@ -2206,7 +2331,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "64.- ¿Te gusta tener un negocio propio de tipo comercial?",
+            'question' => "¿Te gusta tener un negocio propio de tipo comercial?",
             'status' => 1,
             'is_example' => 0,
             'order' => 64,
@@ -2233,7 +2358,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "65.- ¿Te gusta identificar, formular y resolver problemas aplicando conocimientos de las matemáticas, la física mecánica e ingeniería?",
+            'question' => "¿Te gusta identificar, formular y resolver problemas aplicando conocimientos de las matemáticas, la física mecánica e ingeniería?",
             'status' => 1,
             'is_example' => 0,
             'order' => 65,
@@ -2260,7 +2385,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "66.- ¿Te llama la atención el conocer los parámetros de control de calidad en alimentos?",
+            'question' => "¿Te llama la atención el conocer los parámetros de control de calidad en alimentos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 66,
@@ -2287,7 +2412,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "67.- ¿Se te facilita el uso de las tecnologías?",
+            'question' => "¿Se te facilita el uso de las tecnologías?",
             'status' => 1,
             'is_example' => 0,
             'order' => 67,
@@ -2314,7 +2439,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "68.- ¿Te gustaria tener tu propia empresa en la cadena de suministro y servicios a la industria automotriz y de autopartes?",
+            'question' => "¿Te gustaria tener tu propia empresa en la cadena de suministro y servicios a la industria automotriz y de autopartes?",
             'status' => 1,
             'is_example' => 0,
             'order' => 68,
@@ -2341,7 +2466,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "69.- ¿Te interesa realizar programas para mantenimiento preventivo de instalaciones industriales y maquinaria?",
+            'question' => "¿Te interesa realizar programas para mantenimiento preventivo de instalaciones industriales y maquinaria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 69,
@@ -2368,7 +2493,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "70.- ¿Participarias en una campaña de prevención de enfermedades?",
+            'question' => "¿Participarias en una campaña de prevención de enfermedades?",
             'status' => 1,
             'is_example' => 0,
             'order' => 70,
@@ -2395,7 +2520,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "71.- ¿Te interesa el desarrollo sustentable de energía con el cuidado del medio ambiente?",
+            'question' => "¿Te interesa el desarrollo sustentable de energía con el cuidado del medio ambiente?",
             'status' => 1,
             'is_example' => 0,
             'order' => 71,
@@ -2422,7 +2547,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "72.- ¿Te gustaría trabajar en un laboratorio para conocer más sobre la estructura y mejora de las plantas?",
+            'question' => "¿Te gustaría trabajar en un laboratorio para conocer más sobre la estructura y mejora de las plantas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 72,
@@ -2449,7 +2574,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "73.- ¿Te gusta organizar un plan de distribución y venta de un gran almacén?",
+            'question' => "¿Te gusta organizar un plan de distribución y venta de un gran almacén?",
             'status' => 1,
             'is_example' => 0,
             'order' => 73,
@@ -2476,7 +2601,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "74.- ¿Te interesa conocer el proceso de manufactura de piezas del sector industrial?",
+            'question' => "¿Te interesa conocer el proceso de manufactura de piezas del sector industrial?",
             'status' => 1,
             'is_example' => 0,
             'order' => 74,
@@ -2503,7 +2628,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "75.- ¿Te gustaría dedicarte a fabricar productos alimenticios de consumo masivo?",
+            'question' => "¿Te gustaría dedicarte a fabricar productos alimenticios de consumo masivo?",
             'status' => 1,
             'is_example' => 0,
             'order' => 75,
@@ -2530,7 +2655,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "76.- ¿Te gusta manejar y/o dar mantenimiento a dispositivos/aparatos tecnológicos (computadoras, teléfonos)?",
+            'question' => "¿Te gusta manejar y/o dar mantenimiento a dispositivos/aparatos tecnológicos (computadoras, teléfonos)?",
             'status' => 1,
             'is_example' => 0,
             'order' => 76,
@@ -2557,7 +2682,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "77.- ¿Te gustaría trabajar en una empresa en un cargo técnico como control de la producción?",
+            'question' => "¿Te gustaría trabajar en una empresa en un cargo técnico como control de la producción?",
             'status' => 1,
             'is_example' => 0,
             'order' => 77,
@@ -2584,7 +2709,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "78.- ¿Te gustaría elaborar manuales de uso de maquinaria?",
+            'question' => "¿Te gustaría elaborar manuales de uso de maquinaria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 78,
@@ -2611,7 +2736,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "79.- ¿Tienes disposición a seguir instrucciones precisas para cuidar la una persona?",
+            'question' => "¿Tienes disposición a seguir instrucciones precisas para cuidar la una persona?",
             'status' => 1,
             'is_example' => 0,
             'order' => 79,
@@ -2638,7 +2763,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "80.- ¿Te gustaría implementar un proyecto usando tecnologías relacionadas con el aprovechamiento de recursos energéticos renovables?",
+            'question' => "¿Te gustaría implementar un proyecto usando tecnologías relacionadas con el aprovechamiento de recursos energéticos renovables?",
             'status' => 1,
             'is_example' => 0,
             'order' => 80,
@@ -2665,7 +2790,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "81.- ¿Tienes interés por saber cuales son las causas que determinan ciertos fenómenos que alteran la producción agrícola?",
+            'question' => "¿Tienes interés por saber cuales son las causas que determinan ciertos fenómenos que alteran la producción agrícola?",
             'status' => 1,
             'is_example' => 0,
             'order' => 81,
@@ -2692,7 +2817,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "82.- ¿Te gusta crear campañas publicitarias?",
+            'question' => "¿Te gusta crear campañas publicitarias?",
             'status' => 1,
             'is_example' => 0,
             'order' => 82,
@@ -2719,7 +2844,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "83.- ¿Te interesa trabajar con maquinaria y dispositivos electrónicos?",
+            'question' => "¿Te interesa trabajar con maquinaria y dispositivos electrónicos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 83,
@@ -2746,7 +2871,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "84.- ¿Te gustaría transformar materias primas, mediante el uso de la tecnología pertinente, para proporcionar valor agregado?",
+            'question' => "¿Te gustaría transformar materias primas, mediante el uso de la tecnología pertinente, para proporcionar valor agregado?",
             'status' => 1,
             'is_example' => 0,
             'order' => 84,
@@ -2773,7 +2898,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "85.- ¿Sabes que es un sistema operativo?",
+            'question' => "¿Sabes que es un sistema operativo?",
             'status' => 1,
             'is_example' => 0,
             'order' => 85,
@@ -2800,7 +2925,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "86.- ¿Te interesa participar en los procesos de producción en donde se empleen herramientas de administración enfocadas a satisfacer los requerimientos del cliente?",
+            'question' => "¿Te interesa participar en los procesos de producción en donde se empleen herramientas de administración enfocadas a satisfacer los requerimientos del cliente?",
             'status' => 1,
             'is_example' => 0,
             'order' => 86,
@@ -2827,7 +2952,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "87.- ¿Cuando se descompone un artefacto en casa, te dispones prontamente a repararlo?",
+            'question' => "¿Cuando se descompone un artefacto en casa, te dispones prontamente a repararlo?",
             'status' => 1,
             'is_example' => 0,
             'order' => 87,
@@ -2854,7 +2979,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "88.- ¿Te gustaría aprender a tomar los signos vitales de una persona?",
+            'question' => "¿Te gustaría aprender a tomar los signos vitales de una persona?",
             'status' => 1,
             'is_example' => 0,
             'order' => 88,
@@ -2881,7 +3006,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "89.- ¿Te llama la atención el uso racional y eficiente de la energía eléctrica?",
+            'question' => "¿Te llama la atención el uso racional y eficiente de la energía eléctrica?",
             'status' => 1,
             'is_example' => 0,
             'order' => 89,
@@ -2908,7 +3033,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "90.- ¿Te interesa aprender y conocer sobre las características del suelo y su influencia en los cultivos?",
+            'question' => "¿Te interesa aprender y conocer sobre las características del suelo y su influencia en los cultivos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 90,
@@ -2935,7 +3060,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "91.- ¿Te gusta hacer trabajo de investigación de mercados?",
+            'question' => "¿Te gusta hacer trabajo de investigación de mercados?",
             'status' => 1,
             'is_example' => 0,
             'order' => 91,
@@ -2962,7 +3087,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "92.- ¿Te gustaria trabajar en una empresa que se dedique a la fabricación de componentes eléctricos?",
+            'question' => "¿Te gustaria trabajar en una empresa que se dedique a la fabricación de componentes eléctricos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 92,
@@ -2989,7 +3114,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "93.- ¿Te gustan las materias de química y biología?",
+            'question' => "¿Te gustan las materias de química y biología?",
             'status' => 1,
             'is_example' => 0,
             'order' => 93,
@@ -3016,7 +3141,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "94.- ¿Sabes la diferencia de un software o hardware?",
+            'question' => "¿Sabes la diferencia de un software o hardware?",
             'status' => 1,
             'is_example' => 0,
             'order' => 94,
@@ -3043,7 +3168,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "95.- ¿Te gustaria trabajar en la industria automotriz en el área de producción, calidad, ingeniería de producto/manufactura, logística, proyectos y soporte técnico?",
+            'question' => "¿Te gustaria trabajar en la industria automotriz en el área de producción, calidad, ingeniería de producto/manufactura, logística, proyectos y soporte técnico?",
             'status' => 1,
             'is_example' => 0,
             'order' => 95,
@@ -3070,7 +3195,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "96.- ¿Te interesaría participar en programa para incrementar la eficiencia de los equipos y reducir los costos de mantenimiento?",
+            'question' => "¿Te interesaría participar en programa para incrementar la eficiencia de los equipos y reducir los costos de mantenimiento?",
             'status' => 1,
             'is_example' => 0,
             'order' => 96,
@@ -3097,7 +3222,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "97.- ¿Te interesa saber sobre el funcionamiento del cuerpo humano?",
+            'question' => "¿Te interesa saber sobre el funcionamiento del cuerpo humano?",
             'status' => 1,
             'is_example' => 0,
             'order' => 97,
@@ -3124,7 +3249,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "98.- ¿Te gustaria trabajar como supervisor de mantenimiento de instalaciones eléctricas?",
+            'question' => "¿Te gustaria trabajar como supervisor de mantenimiento de instalaciones eléctricas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 98,
@@ -3151,7 +3276,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "99.- ¿Te llaman la atención los invernaderos?",
+            'question' => "¿Te llaman la atención los invernaderos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 99,
@@ -3178,7 +3303,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "100.- ¿Convencer fácilmente a otras personas?",
+            'question' => "¿Convencer fácilmente a otras personas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 100,
@@ -3205,7 +3330,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "101.- ¿Tienes conocimientos básicos de electricidad y electrónica?",
+            'question' => "¿Tienes conocimientos básicos de electricidad y electrónica?",
             'status' => 1,
             'is_example' => 0,
             'order' => 101,
@@ -3232,7 +3357,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "102.- ¿Te gustaría conocer técnicas que aseguren la calidad de un producto alimenticio?",
+            'question' => "¿Te gustaría conocer técnicas que aseguren la calidad de un producto alimenticio?",
             'status' => 1,
             'is_example' => 0,
             'order' => 102,
@@ -3259,7 +3384,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "103.- ¿Te gustaría participar en un proyecto que acerque el internet a las comunidades sin este servicio?",
+            'question' => "¿Te gustaría participar en un proyecto que acerque el internet a las comunidades sin este servicio?",
             'status' => 1,
             'is_example' => 0,
             'order' => 103,
@@ -3286,7 +3411,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "104.- ¿Te llama la atención el uso de herramientas electromecanicas industriales?",
+            'question' => "¿Te llama la atención el uso de herramientas electromecanicas industriales?",
             'status' => 1,
             'is_example' => 0,
             'order' => 104,
@@ -3313,7 +3438,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "105.- ¿Se te facilita el uso del pensamiento crítico y analítico para la solución de problemas?",
+            'question' => "¿Se te facilita el uso del pensamiento crítico y analítico para la solución de problemas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 105,
@@ -3340,7 +3465,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "106.- ¿Sientes empatía con las personas enfermas y/o con sus familiares?",
+            'question' => "¿Sientes empatía con las personas enfermas y/o con sus familiares?",
             'status' => 1,
             'is_example' => 0,
             'order' => 106,
@@ -3367,7 +3492,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "107.- ¿Te gustaría ser coordinador de proyectos de eficiencia energética?",
+            'question' => "¿Te gustaría ser coordinador de proyectos de eficiencia energética?",
             'status' => 1,
             'is_example' => 0,
             'order' => 107,
@@ -3394,7 +3519,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "108.- ¿Conoces sobre el Fitomejoramiento en plantas?",
+            'question' => "¿Conoces sobre el Fitomejoramiento en plantas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 108,
@@ -3421,7 +3546,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "109.- Cuando tienes que trabajar con compañeros a tú cargo ¿logras el objetivo?",
+            'question' => "Cuando tienes que trabajar con compañeros a tú cargo ¿logras el objetivo?",
             'status' => 1,
             'is_example' => 0,
             'order' => 109,
@@ -3448,7 +3573,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "110.- ¿Te gusta dar soporte técnico, electromecánico y electrónico?",
+            'question' => "¿Te gusta dar soporte técnico, electromecánico y electrónico?",
             'status' => 1,
             'is_example' => 0,
             'order' => 110,
@@ -3475,7 +3600,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "111¿Te gustaría generar  un programa de seguridad e higiene en la producción de alimentos?",
+            'question' => "¿Te gustaría generar  un programa de seguridad e higiene en la producción de alimentos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 111,
@@ -3502,7 +3627,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "112.- ¿Te gustaría elaborar y gestionar una base de datos de una empresa?",
+            'question' => "¿Te gustaría elaborar y gestionar una base de datos de una empresa?",
             'status' => 1,
             'is_example' => 0,
             'order' => 112,
@@ -3529,7 +3654,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "113.- ¿Te gustaría trabajar como supervisor de calidad industrial?",
+            'question' => "¿Te gustaría trabajar como supervisor de calidad industrial?",
             'status' => 1,
             'is_example' => 0,
             'order' => 113,
@@ -3556,7 +3681,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "114.- ¿Te gustaría conocer sobre la Termodinámica y sus efectos dentro de las estructuras físicas?",
+            'question' => "¿Te gustaría conocer sobre la Termodinámica y sus efectos dentro de las estructuras físicas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 114,
@@ -3583,7 +3708,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "115.- ¿Las materias de química, biología y anatomía te resultan interesantes?",
+            'question' => "¿Las materias de química, biología y anatomía te resultan interesantes?",
             'status' => 1,
             'is_example' => 0,
             'order' => 115,
@@ -3610,7 +3735,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "116.- ¿Te gustaría trabajar en una auditoría energética?",
+            'question' => "¿Te gustaría trabajar en una auditoría energética?",
             'status' => 1,
             'is_example' => 0,
             'order' => 116,
@@ -3637,7 +3762,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "117.- ¿Te gustaría trabajar en el área agroalimentaria?",
+            'question' => "¿Te gustaría trabajar en el área agroalimentaria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 117,
@@ -3664,7 +3789,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "118.- ¿Crees que los detalles son tan importantes en ventas?",
+            'question' => "¿Crees que los detalles son tan importantes en ventas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 118,
@@ -3691,7 +3816,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "119.- ¿Te gusta diseñar interfases y sistemas electrónicos, utilizando herramientas de programación en dispositivos electrónicos o sistemas de cómputo, para el control y monitoreo de sistemas mecatrónicos?",
+            'question' => "¿Te gusta diseñar interfases y sistemas electrónicos, utilizando herramientas de programación en dispositivos electrónicos o sistemas de cómputo, para el control y monitoreo de sistemas mecatrónicos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 119,
@@ -3718,7 +3843,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "120.- ¿Te gustaría trabajar como supervisor de materias primas en una empresa de alimentos?",
+            'question' => "¿Te gustaría trabajar como supervisor de materias primas en una empresa de alimentos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 120,
@@ -3745,7 +3870,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "121.- ¿Te gustaria trabajar en una empresa dedicada al desarrollo de Software?",
+            'question' => "¿Te gustaria trabajar en una empresa dedicada al desarrollo de Software?",
             'status' => 1,
             'is_example' => 0,
             'order' => 121,
@@ -3772,7 +3897,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "122.- ¿Te gustaría trabajar como superintendente industrial?",
+            'question' => "¿Te gustaría trabajar como superintendente industrial?",
             'status' => 1,
             'is_example' => 0,
             'order' => 122,
@@ -3799,7 +3924,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "123.- ¿Tienes conocimientos sobre mecánica, automatización, electricidad, dibujo técnico?",
+            'question' => "¿Tienes conocimientos sobre mecánica, automatización, electricidad, dibujo técnico?",
             'status' => 1,
             'is_example' => 0,
             'order' => 123,
@@ -3826,7 +3951,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "124.- ¿Te interesa conocer el funcionamiento de los instrumentos quirurgicos en el área de enfermería?",
+            'question' => "¿Te interesa conocer el funcionamiento de los instrumentos quirurgicos en el área de enfermería?",
             'status' => 1,
             'is_example' => 0,
             'order' => 124,
@@ -3853,7 +3978,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "125.- ¿Te interesa ocupar la energía solar para instalaciones eléctricas?",
+            'question' => "¿Te interesa ocupar la energía solar para instalaciones eléctricas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 125,
@@ -3880,7 +4005,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "126.- ¿Consideras importante la producción del campo para la vida?",
+            'question' => "¿Consideras importante la producción del campo para la vida?",
             'status' => 1,
             'is_example' => 0,
             'order' => 126,
@@ -3907,7 +4032,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "127.- ¿Planificar detalladamente tus trabajos antes de empezar?",
+            'question' => "¿Planificar detalladamente tus trabajos antes de empezar?",
             'status' => 1,
             'is_example' => 0,
             'order' => 127,
@@ -3934,7 +4059,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "128.- ¿Te interesa aplicar nuevas tecnologías para resolver problemas en el sector industrial?",
+            'question' => "¿Te interesa aplicar nuevas tecnologías para resolver problemas en el sector industrial?",
             'status' => 1,
             'is_example' => 0,
             'order' => 128,
@@ -3961,7 +4086,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "129.- ¿Te gustaria trabajar como supervisor de producción en una empresa de alimentos?",
+            'question' => "¿Te gustaria trabajar como supervisor de producción en una empresa de alimentos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 129,
@@ -3988,7 +4113,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "130.- ¿Te apasiona facilitar tareas cotidianas mediante el internet de las cosas?",
+            'question' => "¿Te apasiona facilitar tareas cotidianas mediante el internet de las cosas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 130,
@@ -4015,7 +4140,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "131.- ¿Te interesaría trabajar en la producción industrial considerando los recursos tecnológicos, financieros, materiales y humanos?",
+            'question' => "¿Te interesaría trabajar en la producción industrial considerando los recursos tecnológicos, financieros, materiales y humanos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 131,
@@ -4042,7 +4167,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "132.- ¿Te gustaría conocer sobre instalaciones eléctricas y subestaciones eléctricas?",
+            'question' => "¿Te gustaría conocer sobre instalaciones eléctricas y subestaciones eléctricas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 132,
@@ -4069,7 +4194,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "133.- ¿Te agradaría tomar un curso de primeros auxilios?",
+            'question' => "¿Te agradaría tomar un curso de primeros auxilios?",
             'status' => 1,
             'is_example' => 0,
             'order' => 133,
@@ -4096,7 +4221,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "134.- ¿Tienes conocimientos básicos en electrónica y electricidad?",
+            'question' => "¿Tienes conocimientos básicos en electrónica y electricidad?",
             'status' => 1,
             'is_example' => 0,
             'order' => 134,
@@ -4123,7 +4248,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "135.- ¿El trabajo en exteriores te resulta agradable?",
+            'question' => "¿El trabajo en exteriores te resulta agradable?",
             'status' => 1,
             'is_example' => 0,
             'order' => 135,
@@ -4152,11 +4277,11 @@ class FirstSeeder extends Seeder
         //////////////CANAL DE APRENDIZAJE
 
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "1.- Puedo recordar algo mejor si lo escribo.",
+            'question' => "Puedo recordar algo mejor si lo escribo.",
             'status' => 1,
             'is_example' => 0,
             'order' => 1,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4203,11 +4328,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "2.- Al leer, oigo las palabras en mi cabeza o leo en voz alta.",
+            'question' => "Al leer, oigo las palabras en mi cabeza o leo en voz alta.",
             'status' => 1,
             'is_example' => 0,
             'order' => 2,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4255,11 +4380,11 @@ class FirstSeeder extends Seeder
 
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "3.- Necesito hablar las cosas para entenderlas mejor.",
+            'question' => "Necesito hablar las cosas para entenderlas mejor.",
             'status' => 1,
             'is_example' => 0,
             'order' => 3,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4306,11 +4431,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "4.- No me gusta leer o escuchar instrucciones, prefiero simplemente comenzar a hacer las cosas",
+            'question' => "No me gusta leer o escuchar instrucciones, prefiero simplemente comenzar a hacer las cosas",
             'status' => 1,
             'is_example' => 0,
             'order' => 4,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4357,11 +4482,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "5.- Puedo visualizar imágenes en mi cabeza.",
+            'question' => "Puedo visualizar imágenes en mi cabeza.",
             'status' => 1,
             'is_example' => 0,
             'order' => 5,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4408,11 +4533,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "6.- Puedo estudiar mejor si escucho música.",
+            'question' => "Puedo estudiar mejor si escucho música.",
             'status' => 1,
             'is_example' => 0,
             'order' => 6,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4459,11 +4584,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "7.- Necesito recreos frecuentes cuando estudio.",
+            'question' => "Necesito recreos frecuentes cuando estudio.",
             'status' => 1,
             'is_example' => 0,
             'order' => 7,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4510,11 +4635,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "8.- Pienso mejor cuando tengo la libertad de moverme, estar sentado detrás de un escritorio no es para mi",
+            'question' => "Pienso mejor cuando tengo la libertad de moverme, estar sentado detrás de un escritorio no es para mi",
             'status' => 1,
             'is_example' => 0,
             'order' => 8,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4561,11 +4686,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "9.- Tomo muchas notas de lo que leo y escucho.",
+            'question' => "Tomo muchas notas de lo que leo y escucho.",
             'status' => 1,
             'is_example' => 0,
             'order' => 9,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4612,11 +4737,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "10.- Me ayuda mirar a la persona que está hablando. Me mantiene enfocado.",
+            'question' => "Me ayuda mirar a la persona que está hablando. Me mantiene enfocado.",
             'status' => 1,
             'is_example' => 0,
             'order' => 10,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4663,11 +4788,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "11.- Se me hace difícil entender lo que una persona está diciendo si hay ruidos alrededor.",
+            'question' => "Se me hace difícil entender lo que una persona está diciendo si hay ruidos alrededor.",
             'status' => 1,
             'is_example' => 0,
             'order' => 11,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4714,11 +4839,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "12.- Prefiero que alguien me diga cómo tengo que hacer las cosas que leer las instrucciones.",
+            'question' => "Prefiero que alguien me diga cómo tengo que hacer las cosas que leer las instrucciones.",
             'status' => 1,
             'is_example' => 0,
             'order' => 12,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4765,11 +4890,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "13.- Prefiero escuchar una conferencia o una grabación a leer un libro.",
+            'question' => "Prefiero escuchar una conferencia o una grabación a leer un libro.",
             'status' => 1,
             'is_example' => 0,
             'order' => 13,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4816,11 +4941,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "14.- Cuando no puedo pensar en una palabra específica, uso mis manos y llamó al objeto “coso”.",
+            'question' => "Cuando no puedo pensar en una palabra específica, uso mis manos y llamó al objeto “coso”.",
             'status' => 1,
             'is_example' => 0,
             'order' => 14,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4867,11 +4992,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "15.- Puedo seguir fácilmente a una persona que está hablando aunque mi cabeza esté hacia abajo o me encuentre mirando por la ventana.",
+            'question' => "Puedo seguir fácilmente a una persona que está hablando aunque mi cabeza esté hacia abajo o me encuentre mirando por la ventana.",
             'status' => 1,
             'is_example' => 0,
             'order' => 15,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4918,11 +5043,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "16.- Es más fácil para mí hacer un trabajo en un lugar tranquilo.",
+            'question' => "Es más fácil para mí hacer un trabajo en un lugar tranquilo.",
             'status' => 1,
             'is_example' => 0,
             'order' => 16,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4969,11 +5094,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "17.- Me resulta fácil entender mapas, tablas y gráficos.",
+            'question' => "Me resulta fácil entender mapas, tablas y gráficos.",
             'status' => 1,
             'is_example' => 0,
             'order' => 17,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5020,11 +5145,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "18.- Cuando comienzo un artículo o un libro, prefiero espiar la última página.",
+            'question' => "Cuando comienzo un artículo o un libro, prefiero espiar la última página.",
             'status' => 1,
             'is_example' => 0,
             'order' => 18,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5071,11 +5196,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "19.- Recuerdo mejor lo que la gente dice que su aspecto.",
+            'question' => "Recuerdo mejor lo que la gente dice que su aspecto.",
             'status' => 1,
             'is_example' => 0,
             'order' => 19,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5122,11 +5247,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "20.- Recuerdo mejor si estudio en voz alta con alguien.",
+            'question' => "Recuerdo mejor si estudio en voz alta con alguien.",
             'status' => 1,
             'is_example' => 0,
             'order' => 20,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5173,11 +5298,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "21.- Tomo notas, pero nunca vuelvo a releerlas.",
+            'question' => "Tomo notas, pero nunca vuelvo a releerlas.",
             'status' => 1,
             'is_example' => 0,
             'order' => 21,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5224,11 +5349,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "22.- Cuando esto concentrado leyendo o escribiendo, la radio me molesta.",
+            'question' => "Cuando esto concentrado leyendo o escribiendo, la radio me molesta.",
             'status' => 1,
             'is_example' => 0,
             'order' => 22,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5275,11 +5400,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "23.- Me resulta difícil crear imágenes en mi cabeza.",
+            'question' => "Me resulta difícil crear imágenes en mi cabeza.",
             'status' => 1,
             'is_example' => 0,
             'order' => 23,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5326,11 +5451,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "24.- Me resulta útil decir en voz alta las tareas que tengo para hacer.",
+            'question' => "Me resulta útil decir en voz alta las tareas que tengo para hacer.",
             'status' => 1,
             'is_example' => 0,
             'order' => 24,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5377,11 +5502,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "25.- Mi cuaderno y mi escritorio pueden verse un desastre, pero sé exactamente dónde está cada cosa.",
+            'question' => "Mi cuaderno y mi escritorio pueden verse un desastre, pero sé exactamente dónde está cada cosa.",
             'status' => 1,
             'is_example' => 0,
             'order' => 25,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5428,11 +5553,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "26.- Cuando estoy en un examen, puedo “ver en mi mente” la página en el libro de textos referente al tema y la respuesta.",
+            'question' => "Cuando estoy en un examen, puedo “ver en mi mente” la página en el libro de textos referente al tema y la respuesta.",
             'status' => 1,
             'is_example' => 0,
             'order' => 26,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5479,11 +5604,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "27.- No puedo recordar una broma lo suficiente para contarla luego.",
+            'question' => "No puedo recordar una broma lo suficiente para contarla luego.",
             'status' => 1,
             'is_example' => 0,
             'order' => 27,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5530,11 +5655,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "28.- Al aprender algo nuevo, prefiero escuchar la información, luego leer y luego hacerlo.",
+            'question' => "Al aprender algo nuevo, prefiero escuchar la información, luego leer y luego hacerlo.",
             'status' => 1,
             'is_example' => 0,
             'order' => 28,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5581,11 +5706,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "29.- Me gusta completar una tarea antes de comenzar otra.",
+            'question' => "Me gusta completar una tarea antes de comenzar otra.",
             'status' => 1,
             'is_example' => 0,
             'order' => 29,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5632,11 +5757,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "30.- Uso mis dedos para contar y muevo los labios cuando leo.",
+            'question' => "Uso mis dedos para contar y muevo los labios cuando leo.",
             'status' => 1,
             'is_example' => 0,
             'order' => 30,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5683,11 +5808,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "31.- No me gusta releer mi trabajo.",
+            'question' => "No me gusta releer mi trabajo.",
             'status' => 1,
             'is_example' => 0,
             'order' => 31,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5734,11 +5859,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "32.- Cuando estoy tratando de recordar algo nuevo, por ejemplo un número de teléfono, me ayuda formarme una imagen mental para lograrlo.",
+            'question' => "Cuando estoy tratando de recordar algo nuevo, por ejemplo un número de teléfono, me ayuda formarme una imagen mental para lograrlo.",
             'status' => 1,
             'is_example' => 0,
             'order' => 32,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5785,11 +5910,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "33.- Para obtener una nota extra, prefiero grabar un informe a escribirlo.",
+            'question' => "Para obtener una nota extra, prefiero grabar un informe a escribirlo.",
             'status' => 1,
             'is_example' => 0,
             'order' => 33,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5836,11 +5961,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "34.- Fantaseo en clase.",
+            'question' => "Fantaseo en clase.",
             'status' => 1,
             'is_example' => 0,
             'order' => 34,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5887,11 +6012,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "35.- Para obtener calificación extra, prefiero crear un proyecto a escribir un informe.",
+            'question' => "Para obtener calificación extra, prefiero crear un proyecto a escribir un informe.",
             'status' => 1,
             'is_example' => 0,
             'order' => 35,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5938,11 +6063,11 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "36.- Cuando tengo una gran idea, debo escribirla inmediatamente o la olvido con facilidad",
+            'question' => "Cuando tengo una gran idea, debo escribirla inmediatamente o la olvido con facilidad",
             'status' => 1,
             'is_example' => 0,
             'order' => 36,
-            'type_id' => 4
+            'type_id' => 2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -5990,21 +6115,21 @@ class FirstSeeder extends Seeder
         //
         /////////////////////////////////////////////////////////////
 
-        \App\Models\Test::find(1)->questions()->attach([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        \App\Models\Test::find(1)->questions()->attach([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
         \App\Models\Test::find(2)->questions()->attach([
-            10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+             14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
             30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
             50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,  64, 65, 66, 67, 68, 69,
             70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
             80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
             100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115,
-            116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130
+            116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131,
+            132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148
         ]);
         \App\Models\Test::find(3)->questions()->attach([
-            131, 132, 133, 134, 135, 136, 137, 138, 139, 140,
-            141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
-            151, 152, 153, 154, 155, 156, 157, 158, 159, 160,
-            161, 162, 163, 164, 165, 166
+             149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160,
+            161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176,
+            177, 178, 179, 180, 181, 182, 183, 184
         ]);
     }
 }
