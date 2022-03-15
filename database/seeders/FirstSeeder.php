@@ -18,6 +18,7 @@ class FirstSeeder extends Seeder
         \App\Models\Type::factory(1)->create(['name' => "Abierta"]);
         \App\Models\Type::factory(1)->create(['name' => "Multirespuesta"]);
 
+        $this->call(EducativeProgramSeeder::class);
 
 
         $t1 = \App\Models\Test::factory(1)->create([
