@@ -2493,7 +2493,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 70,
-            'type_id' => 4
+            'type_id' => 1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3708,7 +3708,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 115,
-            'type_id' => 4
+            'type_id' => 1
         ]);
         foreach ($q as $question) {
             $question->save();
