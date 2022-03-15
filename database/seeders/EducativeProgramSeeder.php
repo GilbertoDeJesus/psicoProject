@@ -21,7 +21,7 @@ class EducativeProgramSeeder extends Seeder
         ]);
 
         foreach ($ep as $epi) {
-            $epi->id();
+            $epi->save();
 
             \App\Models\Group::factory(1)->create([
                 'name' => "A",
@@ -38,12 +38,12 @@ class EducativeProgramSeeder extends Seeder
         }
 
 
-        \App\Models\EducativeProgram::factory(1)->create([
+        $ep = \App\Models\EducativeProgram::factory(1)->create([
             'name' => "Desarrollo de Negocios Área Mercadotecnia"
         ]);
 
         foreach ($ep as $epi) {
-            $epi->id();
+            $epi->save();
 
             \App\Models\Group::factory(1)->create([
                 'name' => "A",
@@ -59,12 +59,12 @@ class EducativeProgramSeeder extends Seeder
             ]);
         }
 
-        \App\Models\EducativeProgram::factory(1)->create([
+        $ep = \App\Models\EducativeProgram::factory(1)->create([
             'name' => "Mecatronica Área Sistemas de Manufactura Flexible"
         ]);
 
         foreach ($ep as $epi) {
-            $epi->id();
+            $epi->save();
 
             \App\Models\Group::factory(1)->create([
                 'name' => "A",
@@ -80,12 +80,12 @@ class EducativeProgramSeeder extends Seeder
             ]);
         }
 
-        \App\Models\EducativeProgram::factory(1)->create([
+        $ep = \App\Models\EducativeProgram::factory(1)->create([
             'name' => "Procesos Alimentarios"
         ]);
 
         foreach ($ep as $epi) {
-            $epi->id();
+            $epi->save();
 
             \App\Models\Group::factory(1)->create([
                 'name' => "A",
@@ -101,12 +101,12 @@ class EducativeProgramSeeder extends Seeder
             ]);
         }
 
-        \App\Models\EducativeProgram::factory(1)->create([
+        $ep = \App\Models\EducativeProgram::factory(1)->create([
             'name' => "Procesos Industriales Área Automotriz"
         ]);
 
         foreach ($ep as $epi) {
-            $epi->id();
+            $epi->save();
 
             \App\Models\Group::factory(1)->create([
                 'name' => "A",
@@ -122,12 +122,12 @@ class EducativeProgramSeeder extends Seeder
             ]);
         }
 
-        \App\Models\EducativeProgram::factory(1)->create([
+        $ep = \App\Models\EducativeProgram::factory(1)->create([
             'name' => "Tecnologías de la Información DGS"
         ]);
 
         foreach ($ep as $epi) {
-            $epi->id();
+            $epi->save();
 
             \App\Models\Group::factory(1)->create([
                 'name' => "A",
@@ -143,12 +143,12 @@ class EducativeProgramSeeder extends Seeder
             ]);
         }
 
-        \App\Models\EducativeProgram::factory(1)->create([
+        $ep = \App\Models\EducativeProgram::factory(1)->create([
             'name' => "Tecnologías de la Información RIC"
         ]);
 
         foreach ($ep as $epi) {
-            $epi->id();
+            $epi->save();
 
             \App\Models\Group::factory(1)->create([
                 'name' => "A",
