@@ -17,7 +17,12 @@ class VocationalTestController extends Controller
         $test = Test::where('id',$test_id->id)->orderBy('id','ASC')->first();
         $vocationalTest = $test->questions()->orderBy('order','ASC')->get();
 
-         return view('frontend.vocationalOrientation.vocationalTest')->with('vocationalTest', $vocationalTest);
+        $answers=[];
+        foreach($vocationalTest as $lt){
+            array_push($answers, Answer::where('question_id',$lt->id)->get());
+        }
+
+        return view('frontend.vocationalOrientation.vocationalTest',['vocationalTest'=> $vocationalTest, 'answers'=>$answers]);
 
     }
     public function storeTest(){
