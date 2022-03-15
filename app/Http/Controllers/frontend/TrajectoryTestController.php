@@ -13,10 +13,7 @@ class TrajectoryTestController extends Controller
 {
     public function index(){
 
-        $test_id = Test::query()
-            ->where('name', 'LIKE', "%informacion academica%")
-            ->orderByDesc('id')
-            ->first();
+        $test_id = Test::where('name', 'Trayectoria académica')->first();
 
         $test = Test::where('id',$test_id->id)->orderBy('id','ASC')->first();
         $trajectoryTest = $test->questions()->orderBy('order','ASC')->get();
