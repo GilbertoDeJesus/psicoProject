@@ -491,6 +491,126 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Tienes computadora de escritorio o laptop como apoyo para  trabajos y tareas escolares?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 10,
+            'type_id' => 1
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 1,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Cuentas con servicio de Internet en casa?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 11,
+            'type_id' => 1
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 1,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿En casa cuentas con un espacio específico para realizar tus actividades académicas?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 12,
+            'type_id' => 1
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 1,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Estudias o Trabajas?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 13,
+            'type_id' => 1
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Estudio",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Trabajo",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Ambas",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+        }
+
+
+
+
 
 
         //////////////////////////////////// Intereses
@@ -5991,9 +6111,9 @@ class FirstSeeder extends Seeder
         //
         /////////////////////////////////////////////////////////////
 
-        \App\Models\Test::find(1)->questions()->attach([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        \App\Models\Test::find(1)->questions()->attach([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
         \App\Models\Test::find(2)->questions()->attach([
-            10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+             14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
             30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
             50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,  64, 65, 66, 67, 68, 69,
             70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
