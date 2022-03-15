@@ -17,10 +17,15 @@ class LearningTestController extends Controller
             ->orderByDesc('id')
             ->first();
 
-        $test = Test::where('id',$test_id->id)->orderBy('id','ASC')->first();
+        $test = Test::where('id',$test_id->id)->first();
         $learningTest = $test->questions()->orderBy('order','ASC')->get();
-        
-        return view('frontend.learningStyle.learningTest')->with('learningTest', $learningTest);
+
+        $answers=[];
+        foreach($learningTest as $lt){
+            array_push($answers, Answer::where('question_id',$lt->id)->get());
+        }
+
+        return view('frontend.learningStyle.learningTest',['learningTest'=> $learningTest, 'answers'=>$answers]);
 
     }
 

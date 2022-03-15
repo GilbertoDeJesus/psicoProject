@@ -41,51 +41,60 @@
                         <!-- Leave for security protection, read docs for details -->
                         <div id="middle-wizard">
                             <!-- /step-->
-                            @php
-                                $numberTest = 0;
-                            @endphp
+                            <div id="middle-wizard">
                             @foreach($learningTest as $questions)
-                            @php
-                                $numberTest++;
-                                $totalQuestions = $learningTest->count();
-                            @endphp
                             <div class="step">
-                                <h3 class="main_question"><strong>{{$numberTest}}/{{$totalQuestions}}</strong> 
+                                <h3 class="main_question"><strong>{{$loop->iteration}}/{{$learningTest->count()}}</strong> 
                                 {{$questions->question}}
                                 </h3>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Nunca
-                                        <input type="radio" name="question_1" value="1" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Ocasionalmente
-                                        <input type="radio" name="question_1" value="2" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Regularmente
-                                        <input type="radio" name="question_1" value="3" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Casi siempre
-                                        <input type="radio" name="question_1" value="4" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Siempre
-                                        <input type="radio" name="question_1" value="5" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
+                                @foreach ($answers as $an)
+                                    @foreach ($an as $ans)
+                                        @if ($ans->question_id == $questions->id)
+                                            <div class="form-group">
+                                                <label class="container_radio version_2">
+                                                    @if ($ans->value == "1")
+                                                        Nunca
+                                                    @endif
+                                                    @if ($ans->value == "2")
+                                                        Ocasionalmente
+                                                    @endif
+                                                    @if ($ans->value == "3")
+                                                        Regularmente
+                                                    @endif
+                                                    @if ($ans->value == "4")
+                                                        Casi siempre
+                                                    @endif
+                                                    @if ($ans->value == "5")
+                                                        Siempre
+                                                    @endif
+                                                    <input type="radio" name="question_{{$questions->id}}" value="{{$ans->value}}" class="required">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                @endforeach
                             </div>
                             @endforeach
+                            <!-- /step-->
+                            <div class="submit step">
+                                <h3 class="main_question"><strong>3/3</strong>Finalizar</h3>
+                                <div class="summary">
+                                    <ul>
+                                        <li><strong><i class="icon-check-1"></i></strong>
+                                            <h5>Has terminado el cuestionario</h5>
+                                            <p id="question_1"></p>
+                                        </li>
+                                        <li><strong><i class="icon-check-1"></i></strong>
+                                            <h5>Da clic en el boton <span class="bold">enviar</span> para
+                                                finalizar el cuestionario</h5>
+                                            <p id="question_1"></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /step-->
+                        </div>
                             <!-- /step-->
                             <div class="submit step">
                                 <h3 class="main_question"><strong>3/3</strong>Finalizar</h3>
