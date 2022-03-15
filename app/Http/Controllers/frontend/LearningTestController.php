@@ -18,10 +18,14 @@ class LearningTestController extends Controller
 
         $test = Test::where('id',$test_id->id)->orderBy('id', 'ASC')->first();
         $learningStyle = $test->questions()->orderBy('order', 'ASC')->get();
-        
-         return view('frontend.learningStyle.learningTest')->with('learningTest', $learningStyle);
 
+        $answers=[];
+        foreach($learningStyle as $lt){
+            array_push($answers, Answer::where('question_id',$lt->id)->get());
+
+         return view('frontend.learningStyle.learningTest',['learningTest'=> $learningStyle, 'answers'=>$answers]);
     }
+}
 
     public function storeTest(){
         return redirect()->route('students.vocational');
