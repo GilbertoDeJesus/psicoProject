@@ -41,9 +41,16 @@
                         <!-- Leave for security protection, read docs for details -->
                         <div id="middle-wizard">
                             <!-- /step-->
+                            @php
+                                $numberTest = 0;
+                            @endphp
                             @foreach($learningTest as $questions)
+                            @php
+                                $numberTest++;
+                                $totalQuestions = $learningTest->count();
+                            @endphp
                             <div class="step">
-                                <h3 class="main_question"><strong>{{$questions->id}}/18</strong> 
+                                <h3 class="main_question"><strong>{{$numberTest}}/{{$totalQuestions}}</strong> 
                                 {{$questions->question}}
                                 </h3>
                                 <div class="form-group">

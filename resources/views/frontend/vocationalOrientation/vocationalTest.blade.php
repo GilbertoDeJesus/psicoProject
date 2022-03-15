@@ -40,10 +40,17 @@
                         <!-- Leave for security protection, read docs for details -->
                         <div id="middle-wizard">
                             <!-- /step-->
+                            @php
+                                $numberTest = 0;
+                            @endphp
                             @foreach($vocationalTest as $questions)
+                            @php
+                                $numberTest++;
+                                $totalQuestions = $vocationalTest->count();
+                            @endphp
                             <div class="step">
-                                <h3 class="main_question"><strong>/18</strong>
-                                {{$questions->question_id}}
+                                <h3 class="main_question"><strong>{{$numberTest}}/{{$totalQuestions}}</strong>
+                                {{$questions->question}}
                                 </h3>
                                 <div class="form-group">
                                     <input type="text" name="firstname" class="form-control required"
