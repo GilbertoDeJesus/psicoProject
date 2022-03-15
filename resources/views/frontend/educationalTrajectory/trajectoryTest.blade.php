@@ -40,18 +40,9 @@
                         <!-- Leave for security protection, read docs for details -->
                         <div id="middle-wizard">
                             <!-- /step-->
-                            @php
-                                $numberTest = 0;
-                            @endphp
                             @foreach($trajectoryTest as $questions)
-                            {{-- sustituye por loop --}}
-                            @php
-                                $numberTest++;
-                                $totalQuestions = $trajectoryTest->count();
-                            @endphp
-                             {{-- sustituye por loop --}}
                             <div class="step">
-                                <h3 class="main_question"><strong>{{$numberTest}}/{{$totalQuestions}}</strong>
+                                <h3 class="main_question"><strong>{{$loop->iteration}}/{{$trajectoryTest->count()}}</strong>
                                 {{$questions->question}}
                                 </h3>
                                 <div class="form-group">

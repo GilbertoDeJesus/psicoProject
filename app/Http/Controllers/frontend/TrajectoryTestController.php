@@ -21,7 +21,13 @@ class TrajectoryTestController extends Controller
         $test = Test::where('id',$test_id->id)->orderBy('id','ASC')->first();
         $trajectoryTest = $test->questions()->orderBy('order','ASC')->get();
 
-        return view('frontend.educationalTrajectory.trajectoryTest')->with('trajectoryTest', $trajectoryTest);
+        $answers=[];
+        foreach($trajectoryTest as $lt){
+            array_push($answers, Answer::where('question_id',$lt->id)->get());
+        }
+
+        return view('frontend.educationalTrajectory.trajectoryTest',['trajectoryTest'=> $trajectoryTest, 'answers'=>$answers]);
+
 
     }
 
