@@ -1,8 +1,9 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Student;
 use Illuminate\Database\Seeder;
+
 
 class FirstSeeder extends Seeder
 {
@@ -12,14 +13,17 @@ class FirstSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
+
+ 
+//////////////////////////////////////////////
         \App\Models\Type::factory(1)->create(['name' => "Opcion Multiple"]);
         \App\Models\Type::factory(1)->create(['name' => "Desplegable"]);
         \App\Models\Type::factory(1)->create(['name' => "Abierta"]);
         \App\Models\Type::factory(1)->create(['name' => "Multirespuesta"]);
 
         $this->call(EducativeProgramSeeder::class);
-
+        Student::Factory(30)->create();
 
         $t1 = \App\Models\Test::factory(1)->create([
             'name' => "Trayectoria académica",
