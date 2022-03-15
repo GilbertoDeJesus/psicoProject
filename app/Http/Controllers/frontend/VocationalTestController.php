@@ -13,7 +13,7 @@ class VocationalTestController extends Controller
     public function index(){
 
         $test_id = Test::query()
-            ->where('name', 'LIKE', "%intereses%")
+            ->where('name', 'LIKE', "%orientacion%")
             ->orderByDesc('id')
             ->first();
 
