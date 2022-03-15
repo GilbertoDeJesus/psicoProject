@@ -39,4 +39,18 @@ class EducationalProgramController extends Controller
     public function infoStudent(){
         return view('backend.students.studentInfo');
     }
+
+    public function searchProgram(Request $request){
+
+        $search = htmlspecialchars($request->input('search'));
+
+        return view('backend.educationalProgram.educationalSearch',['search'=>$search]);
+    }
+
+    public function searchGroupStudent(Request $request){
+
+        $search = htmlspecialchars($request->input('search'));
+
+        return view('backend.educationalProgram.studentGroupSearch',['search'=>$search]);
+    }
 }
