@@ -1,8 +1,9 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Student;
 use Illuminate\Database\Seeder;
+
 
 class FirstSeeder extends Seeder
 {
@@ -12,7 +13,10 @@ class FirstSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
+////////////////////////Registro de 30 alumnos
+    Student::Factory(30)->create();
+//////////////////////////////////////////////
         \App\Models\Type::factory(1)->create(['name' => "Opcion Multiple"]);
         \App\Models\Type::factory(1)->create(['name' => "Desplegable"]);
         \App\Models\Type::factory(1)->create(['name' => "Abierta"]);
@@ -5394,6 +5398,7 @@ class FirstSeeder extends Seeder
         ]);
         //
         /////////////////////////////////////////////////////////////
-
+          
+        
     }
 }
