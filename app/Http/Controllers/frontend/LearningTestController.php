@@ -12,12 +12,10 @@ class LearningTestController extends Controller
 {
     public function index(){
 
-        $test_id = Test::query()
+        $test = Test::query()
             ->where('name', 'LIKE', "%aprendizaje%")
             ->orderByDesc('id')
             ->first();
-
-        $test = Test::where('id',$test_id->id)->first();
         $learningTest = $test->questions()->orderBy('order','ASC')->get();
 
         $answers=[];

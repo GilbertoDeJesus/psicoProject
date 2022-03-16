@@ -12,13 +12,7 @@ class VocationalTestController extends Controller
 {
     public function index(){
 
-        $test_id = Test::query()
-            ->where('name', 'LIKE', "%orientacion%")
-            ->orderByDesc('id')
-            ->first();
-        $test_id = Test::where('name', 'Orientación Vocacional')->first();
-
-        $test = Test::where('id',$test_id->id)->orderBy('id','ASC')->first();
+        $test= Test::where('name', 'Orientación Vocacional')->first();
         $vocationalTest = $test->questions()->orderBy('order','ASC')->get();
 
         $answers=[];
