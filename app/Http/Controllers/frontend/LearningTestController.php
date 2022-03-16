@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Question;
+use App\Models\Questions;
 use App\Models\Test;
+use App\Models\Answer;
 use Illuminate\Http\Request;
 
 class LearningTestController extends Controller
@@ -16,16 +17,17 @@ class LearningTestController extends Controller
             ->orderByDesc('id')
             ->first();
 
-        $test = Test::where('id',$test_id->id)->orderBy('id', 'ASC')->first();
-        $learningStyle = $test->questions()->orderBy('order', 'ASC')->get();
+        $test = Test::where('id',$test_id->id)->first();
+        $learningTest = $test->questions()->orderBy('order','ASC')->get();
 
         $answers=[];
-        foreach($learningStyle as $lt){
+        foreach($learningTest as $lt){
             array_push($answers, Answer::where('question_id',$lt->id)->get());
+        }
 
-         return view('frontend.learningStyle.learningTest',['learningTest'=> $learningStyle, 'answers'=>$answers]);
+        return view('frontend.learningStyle.learningTest',['learningTest'=> $learningTest, 'answers'=>$answers]);
+
     }
-}
 
     public function storeTest(){
         return redirect()->route('students.vocational');
