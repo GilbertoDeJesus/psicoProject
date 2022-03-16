@@ -24,6 +24,7 @@ Route::get('/sign-up', 'frontend\StudentsController@signUp')->name('sign-up');
 Route::get('/log-out', 'frontend\StudentsController@logOut')->name('student.log-out');
 Route::post('/log-in', 'frontend\StudentsController@logIn')->name('student.log-in');
 Route::post('/sign-up', 'frontend\StudentsController@storeStudent')->name('student.storeStudent');
+Route::post('/get-groups', 'frontend\StudentsController@getGroups')->name('student.getGroups');
 
 //--------TESTS---------------------------
 Route::get('/students/questionnaires', 'frontend\StudentsController@index')->name('students.tests');
