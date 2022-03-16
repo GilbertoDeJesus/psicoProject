@@ -167,7 +167,7 @@ return [
         'email' => 'correo electrónico',
         'matricula' => 'matricula',
         'password' => 'contraseña',
-        'ago' => 'edad,'
+        'age' => 'edad,'
     ],
 
 ];
