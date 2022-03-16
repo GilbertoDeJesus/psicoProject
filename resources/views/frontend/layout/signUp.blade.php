@@ -23,21 +23,24 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
-    <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent mt-4">
+    <nav
+        class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent mt-4">
         <div class="container">
-          <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="javascript:;">
-            <img src="{{ url('frontend/assets/img/logo_2020p.png') }}" class="navbar-brand-img h-100" alt="main_logo" style="max-height: 30px; filter: drop-shadow(2px 3px 3px black);">
-          </a>
-          <div class="px-1" id="navigation">
-            <ul class="navbar-nav mx-auto"></ul>
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                <a href="javascript:;" class="btn btn-sm  bg-gradient-dark  btn-round mb-0 me-1">{{now()->isoFormat('DD/MM/YYYY') }}</a>
-              </li>
-            </ul>
-          </div>
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="javascript:;">
+                <img src="{{ url('frontend/assets/img/logo_2020p.png') }}" class="navbar-brand-img h-100"
+                    alt="main_logo" style="max-height: 30px; filter: drop-shadow(2px 3px 3px black);">
+            </a>
+            <div class="px-1" id="navigation">
+                <ul class="navbar-nav mx-auto"></ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                        <a href="javascript:;"
+                            class="btn btn-sm  bg-gradient-dark  btn-round mb-0 me-1">{{ now()->isoFormat('DD/MM/YYYY') }}</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
     <section class="min-vh-100 mb-8">
         <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
             style="background-image: url('{{ url('frontend/assets/img/curved-images/curved14.jpg') }}');">
@@ -62,22 +65,28 @@
                             <form role="form text-left" method="POST" action="{{ route('student.storeStudent') }}">
                                 @csrf
                                 @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                        @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                        @endforeach
-                                        </ul>
-                                    </div>
+                                    @foreach ($errors->all() as $error)
+                                        <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
+                                            <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
+                                            <span class="alert-text">{{ $error }}</span>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
+                                            </button>
+                                        </div>
+                                    @endforeach
                                 @endif
                                 @if (isset($message))
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                        <li>{{$message}}</li>
-                                        </ul>
+                                    <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
+                                        <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
+                                        <span class="alert-text">{{ $message }}</span>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close">
+                                            <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
+                                        </button>
                                     </div>
                                 @endif
-                                
+
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Nombre</label>
@@ -85,7 +94,7 @@
                                             <input type="text" class="form-control " placeholder="Nombre" name="name"
                                                 required>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Apellido paterno</label>
@@ -93,7 +102,7 @@
                                             <input type="text" class="form-control" placeholder="Apellido paterno"
                                                 name="family_name" required>
                                         </div>
-                                       
+
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Apellido materno</label>
@@ -126,7 +135,7 @@
                                             <input type="tel" class="form-control" placeholder="Teléfono" name="phone"
                                                 required>
                                         </div>
-                                    
+
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Teléfono de contacto</label>
@@ -134,26 +143,26 @@
                                             <input type="tel" class="form-control" placeholder="Teléfono de contacto"
                                                 name="contact_phone" required>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12">
                                         <label>Matrícula</label>
                                         <div class="mb-3">
-                                            <input type="number" class="form-control" placeholder="Matrícula" name="matricula"
-                                                required>
+                                            <input type="number" class="form-control" placeholder="Matrícula"
+                                                name="matricula" required>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-8 col-lg-8 col-md-12">
                                         <label>Programa educativo</label>
                                         <div class="mb-3">
-                                            <select type="select" id="p_id" name="p_id" class="form-control"
-                                                required>
-                                                <option value="1" selected>Seleccione su programa educativo</option>
-                                                @foreach ($educativePrograms as $educativeProgram)  
-                                                <option value="{{$educativeProgram->id}}">{{$educativeProgram->name}}</option>
+                                            <select type="select" id="p_id" name="p_id" class="form-control" required>
+                                                <option value="0" selected>Seleccione su programa educativo</option>
+                                                @foreach ($educativePrograms as $educativeProgram)
+                                                    <option value="{{ $educativeProgram->id }}">
+                                                        {{ $educativeProgram->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -163,7 +172,7 @@
                                         <div class="mb-3">
                                             <select type="select" id="areaSelect" name="group_id" class="form-control"
                                                 required>
-                                                <option value="1" selected>Seleccione su cuatrimestre y grupo</option>
+                                                <option value="0" selected>Seleccione su cuatrimestre y grupo</option>
                                             </select>
                                         </div>
                                     </div>
@@ -186,7 +195,7 @@
     <script src="{{ url('frontend/assets/js/core/popper.min.js') }}"></script>
     <script src="{{ url('frontend/assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ url('frontend/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ url('frontend/assets/js/plugins/smooth-scrollbar.min.js') }}"></script> 
+    <script src="{{ url('frontend/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ url('frontend/testsAssets/js/jquery-3.2.1.min.js') }}"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
@@ -199,21 +208,26 @@
         //Selecciona el programa educativo
         const selectElement = document.querySelector('#p_id');
         selectElement.addEventListener('change', (event) => {
-            var p_id = document.getElementById('p_id').value ;
+            var p_id = document.getElementById('p_id').value;
             //Vacia los datos del select 
             $('#areaSelect').find('option').remove();
             //Busqueda AJAX para rellenar los options correspondientes de cada programa educativo
             $.ajax({
-                url: "{{route("student.getGroups")}}",
+                url: "{{ route('student.getGroups') }}",
                 type: 'post',
-                data: { p_id: p_id},
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data: {
+                    p_id: p_id
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 dataType: 'json',
-                    success: function (data) {
-                        $.each(data,function(key, registro) {
-                            $("#areaSelect").append('<option value='+registro.id+'>'+registro.name+'</option>');
-                        });
-                    }
+                success: function(data) {
+                    $.each(data, function(key, registro) {
+                        $("#areaSelect").append('<option value=' + registro.id + '>' + registro
+                            .name + '</option>');
+                    });
+                }
             });
         });
     </script>
@@ -227,27 +241,32 @@
                 <div class="card card-plain">
                     <div class="card-header pb-0 text-center">
                         <h4 class="font-weight-bolder text-info text-gradient">Bienvenido de nuevo</h4>
-                        <p class="mb-0 text-sm">Ingresa tu matricula y contraseña para iniciar sesión</p>
+                        <p class="mb-0 text-sm">Ingresa tú matrícula y contraseña para iniciar sesión</p>
                     </div>
                     <div class="card-body">
                         <form role="form text-left" method="POST" action="{{ route('student.log-in') }}">
                             @csrf
                             @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                    </ul>
-                                </div>
+                                @foreach ($errors->all() as $error)
+                                    <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
+                                        <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
+                                        <span class="alert-text">{{ $error }}</span>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close">
+                                            <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
+                                        </button>
+                                    </div>
+                                 @endforeach
                             @endif
-                            <label>Matricula</label>
+                            <label>Matrícula</label>
                             <div class="input-group mb-3">
-                                <input type="number" name="matricula" class="form-control" placeholder="Matricula" aria-label="Email">
+                                <input type="number" name="matricula" class="form-control" placeholder="Matricula"
+                                    aria-label="Email" required>
                             </div>
                             <label>Contraseña</label>
                             <div class="input-group mb-3">
-                                <input type="password"  name="password" class="form-control" placeholder="Contraseña" aria-label="Password" autocomplete="false">
+                                <input type="password" name="password" class="form-control" placeholder="Contraseña"
+                                    aria-label="Password" autocomplete="false" required>
                             </div>
                             <div class="text-center">
                                 <button type="submit"
