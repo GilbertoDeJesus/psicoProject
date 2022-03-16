@@ -52,7 +52,7 @@
                     <a href="javascript:;" class="btn btn-icon btn-3 btn-round mb-0 me-1 bg-gradient-dark" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="btn-inner--icon"><i class="icon-user"></i></span>
-                        Jhon Doe
+                        {{Session::get('nameAlumno')}}
                     </a>
                     <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
                         aria-labelledby="dropdownMenuButton">

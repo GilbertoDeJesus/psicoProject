@@ -124,7 +124,8 @@
                                         <label>Teléfono</label>
                                         <div class="mb-3">
                                             <input type="tel" class="form-control" placeholder="Teléfono" name="phone"
-                                                required>
+                                            onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
+                                            pattern="[0-9]+" maxlength="10"  required>
                                         </div>
                                     
                                     </div>
@@ -132,7 +133,9 @@
                                         <label>Teléfono de contacto</label>
                                         <div class="mb-3">
                                             <input type="tel" class="form-control" placeholder="Teléfono de contacto"
-                                                name="contact_phone" required>
+                                            {{-- Con esto solo tomamos en cuenta los números, no letras, no símbolos. --}}
+                                            onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
+                                            pattern="[0-9]+" name="contact_phone" maxlength="10" required>
                                         </div>
                                         
                                     </div>

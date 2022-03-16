@@ -24,8 +24,8 @@ class LogInStudentRequest extends FormRequest
     public function rules()
     {
         return [
-            'matricula'=>'required|min:2|max:10',
-            'password'=>'required|min:2|max:8',
+            'matricula'=>'required|max:10',
+            'password'=>'required|min:8',
         ];
     }
 

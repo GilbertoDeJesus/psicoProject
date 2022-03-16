@@ -10,6 +10,8 @@ use App\Models\EducativeProgram;
 use App\Http\Requests\StoreStudentRequest;
 use App\Models\Group;
 use App\Http\Requests\LogInStudentRequest;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class StudentsController extends Controller
 {
@@ -25,31 +27,23 @@ class StudentsController extends Controller
 
     public function logIn(LogInStudentRequest $request){
         
-        $matricula = $request->matricula;
-        $password = $request->password;
 
-        $studentsArray = [] ;
-        $studentsArray = Student::all();
+       $student = Student::where('matricula',$request->matricula)->first();
 
-        foreach ($studentsArray as $student) {
-            if ($student->matricula == $matricula && $student->password == $password && !null) {
+            if($student!=null && Hash::check($request->password,$student->password)){
                 session(['idAlumno' => $student->id,
                     'nameAlumno' => $student->name,
                     'matriculaAlumno' => $student->matricula,
-                    'passwordAlumno' => $student->password,
+                    'passwordAlumno' => "p".$student->matricula."s".$student->id
                 ]);
                 return redirect()->route('students.tests');
             } else {
-                //Variables para mostrar en el bladeS
-                $message = 'Credenciales incorrectas, vuelva iniciar sesión.';
-                $educativePrograms = EducativeProgram::all();
-
-                return view('frontend.layout.signUp')->with([
-                    'message' => $message,
-                    'educativePrograms' => $educativePrograms
-                  ]);
+                //agregamos a variable 'errors' un error de validación en credenciales y regresamos a ruta anterior
+                // en este caso la correspondiente a sing-up.
+                throw ValidationException::withMessages([
+                    'matricula'=> __('auth.failed')
+                ]);
             }
-        }
     }
 
     public function logOut(Request $request){
@@ -59,27 +53,17 @@ class StudentsController extends Controller
     }
 
     public function storeStudent(StoreStudentRequest $request ){
-        $student =  new Student;
 
-        //Obtiene el dato del campo matricula
-        $matricula = $request->matricula;
-        $student->name = $request->name;
-        $student->family_name = $request->family_name;
-        $student->last_name = $request->last_name;
-        $student->group_id = $request->group_id;
-        $student->phone = $request->phone;
-        $student->contact_phone = $request->contact_phone;
-        $student->email = $request->email;
-        $student->matricula = $request->matricula;
-        $student->password = $this->generatePassword();
-        $student->age = $request->age;
-
-        $student->save();
-
+        $publicacion = $request->all(); //Pasamos todos los datos del request a la variable llamada publicación
+        $publicacion['password']= $request->matricula;
+        $student = Student::create($publicacion); //Creamos el nuevo estudiante.
+        $pass = "p".$student->matricula."s".$student->id; //Creamos una contraseña con más dígitos 
+        $student->update(['password'=>$pass]); //Guardamos la contraseña con matrícula letras y id
+        
         session(['idAlumno' => $student->id,
                 'nameAlumno' => $student->name,
                 'matriculaAlumno' => $student->matricula,
-                'passwordAlumno' => $student->password,
+                'passwordAlumno' => "p".$student->matricula."s".$student->id
         ]);
 
         return redirect()->route('students.tests');
