@@ -24,19 +24,20 @@ Route::get('/sign-up', 'frontend\StudentsController@signUp')->name('sign-up');
 Route::get('/log-out', 'frontend\StudentsController@logOut')->name('student.log-out');
 Route::post('/log-in', 'frontend\StudentsController@logIn')->name('student.log-in');
 Route::post('/sign-up', 'frontend\StudentsController@storeStudent')->name('student.storeStudent');
+Route::post('/get-groups', 'frontend\StudentsController@getGroups')->name('student.getGroups');
 
 //--------TESTS---------------------------
-Route::get('/students/questionnaires', 'frontend\StudentsController@index')->name('students.tests');
+Route::get('/students/questionnaires', 'frontend\StudentsController@index')->name('students.tests')->middleware('auth.students');
 
-Route::get('/students/learning-style', 'frontend\LearningTestController@index')->name('students.learnigStyle');
-Route::post('/students/learning-style', 'frontend\LearningTestController@storeTest')->name('students.storeTest');
+Route::get('/students/learning-style', 'frontend\LearningTestController@index')->name('students.learnigStyle')->middleware('auth.students');
+Route::post('/students/learning-style', 'frontend\LearningTestController@storeTest')->name('students.storeTest')->middleware('auth.students');
 
-Route::get('/students/vocational-orientation', 'frontend\VocationalTestController@index')->name('students.vocational');
-Route::post('/students/vocational-orientation', 'frontend\VocationalTestController@storeTest')->name('students.storeVocationalTest');
+Route::get('/students/vocational-orientation', 'frontend\VocationalTestController@index')->name('students.vocational')->middleware('auth.students');
+Route::post('/students/vocational-orientation', 'frontend\VocationalTestController@storeTest')->name('students.storeVocationalTest')->middleware('auth.students');
 
-Route::get('/students/educational-trajectory', 'frontend\TrajectoryTestController@index')->name('students.trajectory');
-Route::post('/students/educational-trajectory', 'frontend\TrajectoryTestController@storeTest')->name('students.storeTrajectoryTest');
-Route::get('/students/results', 'frontend\TrajectoryTestController@showResults')->name('students.results');
+Route::get('/students/educational-trajectory', 'frontend\TrajectoryTestController@index')->name('students.trajectory')->middleware('auth.students');
+Route::post('/students/educational-trajectory', 'frontend\TrajectoryTestController@storeTest')->name('students.storeTrajectoryTest')->middleware('auth.students');
+Route::get('/students/results', 'frontend\TrajectoryTestController@showResults')->name('students.results')->middleware('auth.students');
 
 //-------------BACKEND-----------------------------------------------------------------------------------------------------------------
 

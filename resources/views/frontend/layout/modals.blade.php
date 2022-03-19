@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <div class="py-3 text-center">
                     <i class="ni ni-bell-55 ni-3x"></i>
-                    <h4 class="text-gradient text-danger mt-4">3ds54ds54</h4>
+                    <h4 class="text-gradient text-danger mt-4">{{Session::get('passwordAlumno')}}</h4>
                     <p>Copia y guarda tu contraseña, la necesitaras para iniciar sesión de nuevo</p>
                 </div>
             </div>

@@ -8,6 +8,7 @@ use App\Models\Group;
 use App\Models\Result;
 use App\Models\Test;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Hash;
 
 class Student extends Model
 {
@@ -28,5 +29,11 @@ class Student extends Model
     public function tests()
     {
         return $this->belongsToMany(Test::class)->withPivot('answers', 'finished','active');
+    }
+
+    //Encripta la contraseña del alumno
+    public function setPasswordAttribute($password){
+        // $this->attributes['password'] = bcrypt($password);
+        $this->attributes['password'] = Hash::make($password);
     }
 }
