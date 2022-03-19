@@ -17,13 +17,14 @@ class StudentsAuth
      */
     public function handle(Request $request, Closure $next)
     {   
-        if (session()->has('nameAlumno')) {
-            if (!Student::where('matricula',session()->get('matriculaAlumno'))) {
-                return redirect()->route('sign-up');
+        
+        if (session()->has('matriculaAlumno') && session()->has('passwordAlumno')) {//Verificamos que existan las variables de sesión matriculaAlumno y passwordAlumno
+            if (!Student::where('matricula',session()->get('matriculaAlumno'))) { //Comprobamos si la matrícula de la variable coincide con un registro en la bd
+                return redirect()->route('sign-up'); //Al no encontrar coincidencias se redirige a sign-up
             }
         }else{
-            return redirect()->route('sign-up');
+            return redirect()->route('sign-up');//Si no hay variables de sesión se redirige a sign-up
         }
-        return $next($request);
+        return $next($request);//Pasamos a la ruta de destino.
     }
 }

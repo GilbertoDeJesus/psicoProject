@@ -12,7 +12,7 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-
+    'requiredPE' => 'Por favor, seleccione un programa educativo y su grupo',
     'accepted_if' => 'El :attribute debe aceptarse cuando :other es :values.',
     'accepted'             => 'El campo :attribute debe ser aceptado.',
     'active_url'           => 'El campo :attribute no es una URL válida.',

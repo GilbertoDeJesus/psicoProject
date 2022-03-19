@@ -53,7 +53,11 @@ class StudentsController extends Controller
     }
 
     public function storeStudent(StoreStudentRequest $request ){
-
+        if($request->p_id == 0){
+            throw ValidationException::withMessages([
+                'programa educativo'=> __('validation.requiredPE')
+            ]);
+        }
         $publicacion = $request->all(); //Pasamos todos los datos del request a la variable llamada publicación
         $publicacion['password']= $request->matricula;
         $student = Student::create($publicacion); //Creamos el nuevo estudiante.

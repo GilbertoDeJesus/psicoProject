@@ -92,7 +92,7 @@
                                         <label>Nombre</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control " placeholder="Nombre" name="name"
-                                                required>
+                                                required value="{{old('name')}}">
                                         </div>
 
                                     </div>
@@ -100,7 +100,7 @@
                                         <label>Apellido paterno</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" placeholder="Apellido paterno"
-                                                name="family_name" required>
+                                                name="family_name" required value="{{old('family_name')}}">
                                         </div>
 
                                     </div>
@@ -108,7 +108,7 @@
                                         <label>Apellido materno</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" placeholder="Apellido materno"
-                                                name="last_name" required>
+                                                name="last_name" required value="{{old('last_name')}}">
                                         </div>
                                     </div>
                                 </div>
@@ -117,14 +117,14 @@
                                         <label>Edad</label>
                                         <div class="mb-3">
                                             <input type="number" class="form-control" placeholder="Edad" name="age"
-                                                required>
+                                                required value="{{old('age')}}">
                                         </div>
                                     </div>
                                     <div class="col-xl-8 col-lg-8 col-md-8">
                                         <label>Email institucional</label>
                                         <div class="mb-3">
                                             <input type="email" class="form-control" placeholder="Email institucional"
-                                                name="email" required>
+                                                name="email" required value="{{old('email')}}">
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
                                         <div class="mb-3">
                                             <input type="tel" class="form-control" placeholder="Teléfono" name="phone"
                                             onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
-                                            pattern="[0-9]+" maxlength="10"  required>
+                                            pattern="[0-9]+" maxlength="10"  value="{{old('phone')}}" required>
                                         </div>
 
                                     </div>
@@ -144,7 +144,7 @@
                                             <input type="tel" class="form-control" placeholder="Teléfono de contacto"
                                             {{-- Con esto solo tomamos en cuenta los números, no letras, no símbolos. --}}
                                             onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
-                                            pattern="[0-9]+" name="contact_phone" maxlength="10" required>
+                                            pattern="[0-9]+" name="contact_phone" maxlength="10" required value="{{old('contact_phone')}}">
                                         </div>
 
                                     </div>
@@ -152,7 +152,7 @@
                                         <label>Matrícula</label>
                                         <div class="mb-3">
                                             <input type="number" class="form-control" placeholder="Matrícula"
-                                                name="matricula" required>
+                                                name="matricula" required value={{old('matricula')}}>
                                         </div>
 
                                     </div>
@@ -164,7 +164,7 @@
                                             <select type="select" id="p_id" name="p_id" class="form-control" required>
                                                 <option value="0" selected>Seleccione su programa educativo</option>
                                                 @foreach ($educativePrograms as $educativeProgram)
-                                                    <option value="{{ $educativeProgram->id }}">
+                                                <option {{$educativeProgram->id  == old('p_id') ? "selected":""}} value="{{$educativeProgram->id}}">
                                                         {{ $educativeProgram->name }}</option>
                                                 @endforeach
                                             </select>
