@@ -59,8 +59,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($users as $user)
                             <tr>
-                                <td class="text-center text-muted">#345</td>
+                                <td class="text-center text-muted">#{{$user->id}}</td>
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
@@ -71,142 +72,32 @@
                                                 </div>
                                             </div>
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Jhon Doe</div>
-                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
+                                                <div class="widget-heading">{{$user->name}}</div>
+                                                <div class="widget-subheading opacity-7">{{$user->email}}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">24/12/2002</td>
+                                <td>{{$user->educativeProgram->name}}</td>
+                                <td class="text-center">{{$user->created_at->diffForHumans()}}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.users.editUser', ['id'=>$user->id]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
+                                    <a href="javascript:; type="button" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
+                                        data-id="{{$user->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
                                         data-target="#exampleModal">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center text-muted">#347</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <div class="widget-content-left">
-                                                    <img width="40" class="rounded-circle"
-                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Vinnie Wagstaff</div>
-                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">12/03/2009</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
-                                        data-toggle="tooltip" data-placement="top" title="Editar">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="text-center text-muted">#321</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <div class="widget-content-left">
-                                                    <img width="40" class="rounded-circle"
-                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Jhon Doe</div>
-                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">09/04/2017</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
-                                        data-toggle="tooltip" data-placement="top" title="Editar">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center text-muted">#55</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <div class="widget-content-left">
-                                                    <img width="40" class="rounded-circle"
-                                                        src="{{ url('backend/images/avatars/6.png') }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Vinnie Wagstaff</div>
-                                                <div class="widget-subheading opacity-7">jhon21@gmail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">30/01/2022</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.users.editUser', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
-                                        data-toggle="tooltip" data-placement="top" title="Editar">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -269,21 +160,18 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="position-relative form-group">
-                                    <label for="educational" class="">Programa educativo</label><select type="select"
-                                        id="educational" name="educational" class="custom-select" required>
-                                        <option value="">Tecnologias de la información</option>
-                                        <option>Enfermeria</option>
-                                        <option>Desarrollo de negocios</option>
-                                        <option>Mecatronica</option>
-                                        <option>Procesos industriales</option>
-                                        <option>Producción de alimentos</option>
+                                    <label for="educative_program_id" class="">Programa educativo</label><select type="select"
+                                        id="educative_program_id" name="educative_program_id" class="custom-select" required>
+                                        @foreach ($educativePrograms as $ep)
+                                        <option value="{{$ep->id}}">{{$ep->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="position-relative form-group">
-                                    <label for="rol" class="">Rol</label><select type="select"
-                                        id="rol" name="rol" class="custom-select" required>
+                                    <label for="roles" class="">Rol</label><select type="select"
+                                        id="roles" name="roles" class="custom-select" required>
                                         <option value="">Tutor</option>
                                         <option>Administrador</option>
                                     </select>
@@ -291,7 +179,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    <label for="workerKey" class="">Clave de trabajador</label><input name="workerKey" id="workerKey"
+                                    <label for="employee_key" class="">Clave de trabajador</label><input name="employee_key" id="employee_key"
                                         placeholder="Clave de trabajador" type="text" class="form-control" required>
                                 </div>
                             </div>
@@ -322,7 +210,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.users.deleteUser', ['id' => 1]) }}" method="post" data-action="">
+                <form id="formDelete" action="{{ route('admin.users.deleteUser', ['id' => 0]) }}" method="post" 
+                data-action="{{ route('admin.users.deleteUser', ['id' => 0]) }}">
                     @method('DELETE')
                     @csrf
                     <div class="modal-body text-center">
@@ -343,5 +232,13 @@
 @endsection
 
 @section('js')
-
+<script>
+    document.querySelectorAll(".btn-delete").forEach(link => link.addEventListener('click', function() {
+        id = link.getAttribute("data-id");
+        form = document.getElementById('formDelete');
+        action = form.getAttribute('data-action').slice(0, -1);
+        action += id;
+        form.setAttribute('action', action);
+    }));
+</script>
 @endsection

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Student extends Model
 {
-    use HasFactory, softDeletes;
+    use HasFactory, SoftDeletes;
     protected $fillable = ['name','family_name','last_name','group_id','phone',
         'contact_phone','email','matricula','password','age'];
 

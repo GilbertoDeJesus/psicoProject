@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Group extends Model
 {
-    use HasFactory, softDeletes;
+    use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name','active'];
+    protected $fillable = ['name', 'educative_program_id'];
 
     public function educativeProgram()
     {

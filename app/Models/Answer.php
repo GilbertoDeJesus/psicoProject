@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Answer extends Model
 {
-    use HasFactory, softDeletes;
+    use HasFactory, SoftDeletes;
     protected $fillable = ['answer','is_correct','value','status','order',
     'question_id'];
 
