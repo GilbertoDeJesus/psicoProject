@@ -70,7 +70,7 @@ Route::post('/admin/educational-programs', 'backend\EducationalProgramController
 Route::delete('/admin/educational-programs/{id}', 'backend\EducationalProgramController@deleteProgram')->name('admin.educationalProgram.deleteProgram');
 Route::get('/admin/educational-programs/{id}/edit', 'backend\EducationalProgramController@editProgram')->name('admin.educationalProgram.editProgram');
 Route::put('/admin/educational-programs/{id}', 'backend\EducationalProgramController@updateProgram')->name('admin.educationalProgram.updateProgram');
-Route::get('/admin/students/search', 'backend\EducationalProgramController@searchProgram')->name('admin.educationalProgram.search');
+Route::get('/admin/educational-programs/students/search', 'backend\EducationalProgramController@searchProgram')->name('admin.educationalProgram.search');
 Route::get('/admin/educational-programs/{id}/groups', 'backend\EducationalProgramController@indexProgram')->name('admin.educationalProgram.indexGroups');
 Route::get('/admin/educational-programs/group/student/{id}', 'backend\EducationalProgramController@infoStudent')->name('admin.educationalProgram.infoStudent');
 Route::get('/admin/educational-programs/{id}/groups/students/search', 'backend\EducationalProgramController@searchGroupStudent')->name('admin.educationalProgram.searchStudent');
