@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 text-center mx-auto">
-                    <h4 class="text-white mb-2 mt-7">Bienvenido! Jhon Doe</h4>
+                    <h4 class="text-white mb-2 mt-7">¡Bienvenido, {{Session::get('nameAlumno')}}!</h4>
                     <p class="text-lead text-white mb-5">Puedes consultar tu contraseña en el botón con tu nombre
                     </p>
                 </div>
