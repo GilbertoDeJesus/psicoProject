@@ -4,18 +4,25 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\EducativeProgram;
+use App\Http\Requests\EducativeProgramRequest;
 
 class EducationalProgramController extends Controller
 {
     public function index(){
-        return view('backend.educationalProgram.educationalProgram');
+        return view('backend.educationalProgram.educationalProgram')->with([
+            'educativePrograms' => EducativeProgram::all()
+        ]);
     }
 
-    public function deleteProgram(){
+    public function deleteProgram($educativeProgram){
+        //dd(EducativeProgram::find($educativeProgram));
+        EducativeProgram::find($educativeProgram)->delete();
         return back()->with('status', '¡El registro se elimino correctamente!');
     }
 
-    public function storeProgram(){
+    public function storeProgram(EducativeProgramRequest $request){
+        EducativeProgram::create($request->validated());
         return back()->with('status', '¡El registro se creo correctamente!');
     }
 
@@ -23,7 +30,9 @@ class EducationalProgramController extends Controller
         return view('backend.users.editUser');
     }
 
-    public function updateProgram(){
+    public function updateProgram(EducativeProgramRequest $request, $educativeProgram){
+        //dd(EducativeProgram::find($educativeProgram));
+        EducativeProgram::find($educativeProgram)->update($request->validated());
         return redirect()->route('admin.educationalProgram')->with('status', '¡El registro se modificó  correctamente!');
     }
 

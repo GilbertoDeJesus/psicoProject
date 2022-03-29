@@ -59,18 +59,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($educativePrograms as $ep)
                             <tr>
-                                <td class="text-center text-muted">#345</td>
+                                <td class="text-center text-muted">#{{$ep->id}}</td>
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Tecnologias de la informacion</div>
+                                                <div class="widget-heading">{{$ep->name}}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center">24/12/2002</td>
+                                <td class="text-center">{{$ep->created_at->diffForHumans()}}</td>
                                 <td class="text-center">
                                     <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
                                         class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
@@ -81,140 +82,24 @@
                                     </a>
                                 </td>
                                 <td class="text-center">
-                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
-                                        data-placement="top" title="Editar" data-target="#editModal">
+                                    <a href="javascript:;" id="PopoverCustomT-1" class="btn btn-success btn-update btn-sm my-auto" 
+                                    data-name="{{$ep->name}}" data-id="{{$ep->id}}" data-toggle="modal" data-placement="top" title="Editar" data-target="#editModal">
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
                                             title="Editar">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
-                                    </button>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
+                                    </a>
+                                    <a href="javascript:;" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
+                                    data-id="{{$ep->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
                                         data-target="#deleteModal">
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
                                             title="Eliminar">
                                             <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center text-muted">#347</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Enfermeria</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">12/03/2009</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Ver lista de alumnos">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-users fa-w-20"></i>
                                         </span>
                                     </a>
                                 </td>
-                                <td class="text-center">
-                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
-                                        data-placement="top" title="Editar" data-target="#editModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Editar">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#deleteModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Eliminar">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
                             </tr>
-                            <tr>
-                                <td class="text-center text-muted">#321</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Desarrollo de negocios</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">09/04/2017</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Ver lista de alumnos">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-users fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
-                                        data-placement="top" title="Editar" data-target="#editModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Editar">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#deleteModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Eliminar">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center text-muted">#55</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Mecatronica</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">30/01/2022</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Ver lista de alumnos">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-users fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
-                                        data-placement="top" title="Editar" data-target="#editModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Editar">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#deleteModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Eliminar">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -286,14 +171,15 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.educationalProgram.updateProgram', ['id' => 1]) }}" method="post" role="form">
+                <form id="formUpdate" action="{{ route('admin.educationalProgram.updateProgram', ['id' => 0]) }}" method="post" role="form"
+                data-action="{{ route('admin.educationalProgram.updateProgram', ['id' => 0]) }}">
                     @method('PUT')
                     @csrf
                     <div class="modal-body mx-2 my-2">
                         <div class="form-row">
                             <div class="col-md-12">
                                 <div class="position-relative form-group">
-                                    <label for="name" class="">Nombre</label><input name="name" id="name"
+                                    <label for="name" class="">Nombre</label><input id="inputName" value="" name="name" id="name"
                                         placeholder="Nombre" type="text" class="form-control" required>
                                 </div>
                             </div>
@@ -313,13 +199,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro? de eliminar</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.educationalProgram.deleteProgram', ['id' => 1]) }}" method="post"
-                    data-action="">
+                <form id="formDelete" action="{{ route('admin.educationalProgram.deleteProgram', ['id' => 0]) }}" method="post"
+                    data-action="{{ route('admin.educationalProgram.deleteProgram', ['id' => 0]) }}">
                     @method('DELETE')
                     @csrf
                     <div class="modal-body text-center">
@@ -339,4 +225,25 @@
 @endsection
 
 @section('js')
+<script>
+    document.querySelectorAll(".btn-delete").forEach(link => link.addEventListener('click', function() {
+        id = link.getAttribute("data-id");
+        form = document.getElementById('formDelete');
+        action = form.getAttribute('data-action').slice(0, -1);
+        action += id;
+        form.setAttribute('action', action);
+    }));
+</script>
+<script>
+    document.querySelectorAll(".btn-update").forEach(link => link.addEventListener('click', function() {
+        id = link.getAttribute("data-id");
+        name = link.getAttribute("data-name");
+        form = document.getElementById('formUpdate');
+        input = document.getElementById('inputName');
+        action = form.getAttribute('data-action').slice(0, -1);
+        action += id;
+        form.setAttribute('action', action);
+        input.setAttribute('value', name);
+    }));
+</script>
 @endsection

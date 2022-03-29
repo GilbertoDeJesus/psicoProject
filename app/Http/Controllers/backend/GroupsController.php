@@ -4,27 +4,40 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Group;
+use App\Models\EducativeProgram;
+use App\Http\Requests\GroupRequest;
 
 class GroupsController extends Controller
 {
     public function index(){
-        return view('backend.groups.groups');
+        $groups = Group::with('educativeProgram')->get();
+        return view('backend.groups.groups')->with([
+            'groups' => $groups,
+            'educativePrograms' => EducativeProgram::all()
+        ]);
     }
 
-    public function deleteGroup(){
+    public function deleteGroup($group){
+        Group::find($group)->delete();
         return back()->with('status', '¡El registro se elimino correctamente!');
     }
 
-    public function storeGroup(){
+    public function storeGroup(GroupRequest $request){
+        Group::create($request->validated());
         return back()->with('status', '¡El registro se creo correctamente!');
     }
 
-    public function editGroup(){
-        return view('backend.groups.editGroup');
+    public function editGroup($group){
+        return view('backend.groups.editGroup')->with([
+            'group' => Group::find($group),
+            'educativePrograms' => EducativeProgram::all(),
+        ]);
     }
 
-    public function updateGroup(){
-        return redirect()->route('admin.users')->with('status', '¡El registro se modificó  correctamente!');
+    public function updateGroup(GroupRequest $request, $group){
+        Group::find($group)->update($request->validated());
+        return redirect()->route('admin.groups')->with('status', '¡El registro se modificó  correctamente!');
     }
 
     public function searchGroup(Request $request){

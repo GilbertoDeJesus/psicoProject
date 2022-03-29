@@ -8,13 +8,20 @@ use App\Models\Result;
 use App\Models\Group;
 use App\Models\Question;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class EducativeProgram extends Model
 {
-    use HasFactory, softDeletes;
+    use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name','active'];
+    protected $fillable = ['name'];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+    ];
+
+    protected $dates = ['deleted_at'];
 
     public function students()
     {
@@ -44,5 +51,10 @@ class EducativeProgram extends Model
     public function questions()
     {
         return $this->hasMany(Question::class);
+    }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
     }
 }
