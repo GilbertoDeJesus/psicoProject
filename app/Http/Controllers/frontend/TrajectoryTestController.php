@@ -34,18 +34,29 @@ class TrajectoryTestController extends Controller
 
         $answers = [];
 
-        foreach($trajectoryTest as $lt){
-            $question = 'question_' . $lt->id;
-            $answers[$lt->id] = $request->$question;
-        }
+            foreach($trajectoryTest as $lt){
+                $question = 'question_' . $lt->id;
+                $answers[$lt->id] = $request->$question;
+            }
+    
+            $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
+            $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
+            $student->tests()->attach($student->id, $studentAnswers);
+            return redirect()->route('students.results');
 
-        $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
-        $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
-        $student->tests()->attach($student->id, $studentAnswers);
-        return redirect()->route('students.results');
     }
 
     public function showResults(){
+
+        $test = $student->tests()->where('matricula', session()->get('matriculaAlumno'))->where($test->id);
+
+        $answers = json_decode($test->answers);
+
+        $answers -> where ('id','1')->count();
+
+
+
+
         return view('frontend.learningStyle.learningStyleResult');
     }
 }

@@ -32,7 +32,7 @@ class VocationalTestController extends Controller
 
         foreach($vocationalTest as $lt){
             $question = 'question_' . $lt->id;
-            $answers[$lt->id] = $request->$question;
+            $answers[$lt->id] = ['answer' => $request->$question, 'program' => $lt->educative_program_id ];
         }
 
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
