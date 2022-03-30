@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use App\Models\Student;
 use Illuminate\Database\Seeder;
 
+use function PHPSTORM_META\map;
 
 class FirstSeeder extends Seeder
 {
@@ -21,6 +22,8 @@ class FirstSeeder extends Seeder
         \App\Models\Type::factory(1)->create(['name' => "Desplegable"]);
         \App\Models\Type::factory(1)->create(['name' => "Abierta"]);
         \App\Models\Type::factory(1)->create(['name' => "Multirespuesta"]);
+
+
 
         $this->call(EducativeProgramSeeder::class);
         Student::Factory(30)->create();
@@ -50,6 +53,7 @@ class FirstSeeder extends Seeder
             'is_example' => 0,
             'order' => 1,
             'type_id' => 3,
+
         ]);
 
 
@@ -623,7 +627,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 1,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
 
         foreach ($q as $question) {
@@ -636,6 +641,7 @@ class FirstSeeder extends Seeder
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
+                
             ]);
             \App\Models\Answer::factory(1)->create([
                 'answer' => "No",
@@ -652,7 +658,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 2,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
 
         foreach ($q as $question) {
@@ -681,7 +688,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 3,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -709,7 +717,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 4,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
 
         foreach ($q as $question) {
@@ -738,7 +747,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 5,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
 
         foreach ($q as $question) {
@@ -767,7 +777,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 6,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -795,7 +806,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 7,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -823,7 +835,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 8,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -850,7 +863,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 9,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -877,7 +891,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 10,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -904,7 +919,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 11,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -931,7 +947,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 12,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -958,7 +975,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 13,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -985,7 +1003,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 14,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1012,7 +1031,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 15,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1039,7 +1059,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 16,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1093,7 +1114,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 18,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1120,7 +1142,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 19,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1147,7 +1170,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 20,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1174,7 +1198,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 21,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1201,7 +1226,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 22,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1228,7 +1254,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 23,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1255,7 +1282,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 24,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1282,7 +1310,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 25,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1309,7 +1338,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 26,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1336,7 +1366,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 27,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1363,7 +1394,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 28,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1390,7 +1422,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 29,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1417,7 +1450,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 30,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1444,7 +1478,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 31,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1471,7 +1506,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 32,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1498,7 +1534,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 33,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1525,7 +1562,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 34,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1579,7 +1617,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 36,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1660,7 +1699,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 39,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1687,7 +1727,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 40,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1714,7 +1755,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 41,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1741,7 +1783,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 42,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1768,7 +1811,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 43,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1822,7 +1866,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 45,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1849,7 +1894,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 46,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1876,7 +1922,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 47,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1903,7 +1950,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 48,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1930,7 +1978,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 49,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1957,7 +2006,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 50,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -1984,7 +2034,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 51,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2038,7 +2089,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 53,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2065,7 +2117,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 54,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2092,7 +2145,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 55,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2119,7 +2173,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 56,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2146,7 +2201,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 57,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2173,7 +2229,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 58,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2227,7 +2284,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 60,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2254,7 +2312,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 61,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2281,7 +2340,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 62,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2308,7 +2368,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 63,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2335,7 +2396,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 64,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2362,7 +2424,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 65,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2389,7 +2452,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 66,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2416,7 +2480,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 67,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2443,7 +2508,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 68,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2470,7 +2536,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 69,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2497,7 +2564,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 70,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2524,7 +2592,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 71,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2551,7 +2620,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 72,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2578,7 +2648,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 73,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2605,7 +2676,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 74,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2632,7 +2704,9 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 75,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
+            
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2659,7 +2733,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 76,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2686,7 +2761,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 77,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2713,7 +2789,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 78,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2736,11 +2813,12 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Tienes disposición a seguir instrucciones precisas para cuidar la una persona?",
+            'question' => "¿Tienes disposición a seguir instrucciones precisas para cuidar a una persona?",
             'status' => 1,
             'is_example' => 0,
             'order' => 79,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2767,7 +2845,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 80,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2794,7 +2873,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 81,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2821,7 +2901,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 82,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2848,7 +2929,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 83,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2875,7 +2957,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 84,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2902,7 +2985,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 85,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2929,7 +3013,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 86,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2956,7 +3041,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 87,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2983,7 +3069,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 88,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3010,7 +3097,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 89,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3037,7 +3125,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 90,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3064,7 +3153,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 91,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3091,7 +3181,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 92,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3118,7 +3209,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 93,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3145,7 +3237,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 94,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3172,7 +3265,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 95,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3199,7 +3293,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 96,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3226,7 +3321,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 97,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3280,7 +3376,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 99,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3303,11 +3400,12 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Convencer fácilmente a otras personas?",
+            'question' => "¿Convences fácilmente a otras personas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 100,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3334,7 +3432,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 101,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3361,7 +3460,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 102,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>4
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3388,7 +3488,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 103,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3415,7 +3516,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 104,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3442,7 +3544,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 105,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3469,7 +3572,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 106,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3496,7 +3600,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 107,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3523,7 +3628,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 108,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3550,7 +3656,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 109,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3577,7 +3684,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 110,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3631,7 +3739,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 112,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3658,7 +3767,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 113,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3685,7 +3795,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 114,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3712,7 +3823,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 115,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3739,7 +3851,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 116,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3766,7 +3879,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 117,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3793,7 +3907,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 118,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3820,7 +3935,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 119,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3874,7 +3990,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 121,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3901,7 +4018,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 122,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3928,7 +4046,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 123,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -3982,7 +4101,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 125,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4009,7 +4129,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 126,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4036,7 +4157,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 127,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>2
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4063,7 +4185,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 128,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>3
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4117,7 +4240,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 130,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>6
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4144,7 +4268,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 131,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4171,7 +4296,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 132,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>8
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4198,7 +4324,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 133,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>7
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4225,7 +4352,8 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 134,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -4252,7 +4380,205 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 135,
-            'type_id' => 1
+            'type_id' => 1,
+            'educative_program_id'=>1
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Posees habilidades para trabajar en equipo?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 136,
+            'type_id' => 1,
+            'educative_program_id'=>4
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Te gustaría aprender a determinar las condiciones optimas de los equipos utilizados en la producción de alimentos?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 137,
+            'type_id' => 1,
+            'educative_program_id'=>4
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Conoces a que se refiere la microbiologia?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 138,
+            'type_id' => 1,
+            'educative_program_id'=>4
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Usar uniforme te hace sentir distinto, importante?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 139,
+            'type_id' => 1,
+            'educative_program_id'=>7
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Conoces la definición de Diastólica y sistólica ?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 140,
+            'type_id' => 1,
+            'educative_program_id'=>7
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Sabes para qué se usa un multímetro?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 141,
+            'type_id' => 1,
+            'educative_program_id'=>9
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Conoces la definición de Energias renovables?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 142,
+            'type_id' => 1,
+            'educative_program_id'=>9
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6124,12 +6450,14 @@ class FirstSeeder extends Seeder
             80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
             100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115,
             116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131,
-            132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148
+            132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148,
+            149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161
         ]);
         \App\Models\Test::find(3)->questions()->attach([
-             149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160,
-            161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176,
-            177, 178, 179, 180, 181, 182, 183, 184
+             162, 163, 164, 165, 166, 167, 168, 169, 170, 171,
+             172, 173, 174, 175, 176, 177, 178, 179, 180, 181,
+             182, 183, 184, 185, 186, 187, 188, 189, 190, 191,
+             192, 193, 194, 195, 196, 197
         ]);
     }
 }
