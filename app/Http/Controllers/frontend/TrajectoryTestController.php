@@ -12,29 +12,29 @@ use Illuminate\Http\Request;
 
 class TrajectoryTestController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $test = Test::where('name', 'Trayectoria académica')->first();
-        $trajectoryTest = $test->questions()->orderBy('order','ASC')->get();
+        $trajectoryTest = $test->questions()->orderBy('order', 'ASC')->get();
 
-        $answers=[];
-        foreach($trajectoryTest as $lt){
-            array_push($answers, Answer::where('question_id',$lt->id)->get());
+        $answers = [];
+        foreach ($trajectoryTest as $lt) {
+            array_push($answers, Answer::where('question_id', $lt->id)->get());
         }
 
-        return view('frontend.educationalTrajectory.trajectoryTest',['trajectoryTest'=> $trajectoryTest, 'answers'=>$answers]);
-
-
+        return view('frontend.educationalTrajectory.trajectoryTest', ['trajectoryTest' => $trajectoryTest, 'answers' => $answers]);
     }
 
-    public function storeTest(Request $request){
+    public function storeTest(Request $request)
+    {
 
         $test = Test::where('name', 'Trayectoria académica')->first();
-        $trajectoryTest = $test->questions()->orderBy('order','ASC')->get();
+        $trajectoryTest = $test->questions()->orderBy('order', 'ASC')->get();
 
         $answers = [];
 
-        foreach($trajectoryTest as $lt){
+        foreach ($trajectoryTest as $lt) {
             $question = 'question_' . $lt->id;
             $answers[$lt->id] = $request->$question;
         }
@@ -45,7 +45,26 @@ class TrajectoryTestController extends Controller
         return redirect()->route('students.results');
     }
 
-    public function showResults(){
+    public function showResults()
+    {
+
+        $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
+
+        $testAprendizaje = Test::where('name', 'Estilo de aprendizaje')->first();
+        $testVocacional = Test::where('name', 'Orientación Vocacional')->first();
+        $testTrayectoria = Test::where('name', 'Trayectoria académica')->first();
+
+        $answersAprendizaje = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testAprendizaje->id)->first()->pivot->answers;
+        $answersVocacional = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testVocacional->id)->first()->pivot->answers;
+        $answersTrayectoria = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testTrayectoria->id)->first()->pivot->answers;
+        //Para consulta sin la tabla de resultados
+        
+        //dd(json_decode($answersVocacional));
+        
+
+
+
+
         return view('frontend.learningStyle.learningStyleResult');
     }
 }

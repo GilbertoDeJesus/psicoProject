@@ -28,7 +28,7 @@ class Student extends Model
 
     public function tests()
     {
-        return $this->belongsToMany(Test::class)->withPivot('answers', 'finished','active');
+        return $this->belongsToMany(Test::class)->withPivot('answers', 'finished');
     }
 
     //Encripta la contraseña del alumno
