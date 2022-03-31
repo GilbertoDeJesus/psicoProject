@@ -58,6 +58,13 @@ class LearningTestController extends Controller
             }
         }
 
+        $calculateAnswers = $test->questions()->orderBy('order', 'ASC')->get();
+        $sum = 0;
+
+        for($i = 0; $i < count($calculateAnswers); $i ++){
+            $sum += $calculateAnswers[$i][0];
+        }
+
         collect($learningTest)->pluck('answer')->countBy();
 
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
