@@ -1082,34 +1082,34 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaría conocer el funcionamiento de un panel solar?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 17,
-            'type_id' => 1,
-            'educative_program_id'=>9
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
-        //
+        // $q = \App\Models\Question::factory(1)->create([
+        //     'question' => "¿Te gustaría conocer el funcionamiento de un panel solar?",
+        //     'status' => 1,
+        //     'is_example' => 0,
+        //     'order' => 17,
+        //     'type_id' => 1,
+        //     'educative_program_id'=>9
+        // ]);
+        // foreach ($q as $question) {
+        //     $question->save();
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "Si",
+        //         'is_correct' => 1,
+        //         'value' => 1,
+        //         'status' => 1,
+        //         'order' => 1,
+        //         'question_id' => $question->id
+        //     ]);
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "No",
+        //         'is_correct' => 0,
+        //         'value' => 0,
+        //         'status' => 1,
+        //         'order' => 2,
+        //         'question_id' => $question->id
+        //     ]);
+        // }
+        // //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te ofrecerías para participar en un proyecto de control y automatización de sistemas a campo abierto?",
             'status' => 1,
@@ -1586,34 +1586,34 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaría aprender el funcionamiento un multímetro?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 35,
-            'type_id' => 1,
-            'educative_program_id'=>7
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
-        //
+        // $q = \App\Models\Question::factory(1)->create([
+        //     'question' => "¿Te gustaría aprender el funcionamiento un multímetro?",
+        //     'status' => 1,
+        //     'is_example' => 0,
+        //     'order' => 35,
+        //     'type_id' => 1,
+        //     'educative_program_id'=>7
+        // ]);
+        // foreach ($q as $question) {
+        //     $question->save();
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "Si",
+        //         'is_correct' => 1,
+        //         'value' => 1,
+        //         'status' => 1,
+        //         'order' => 1,
+        //         'question_id' => $question->id
+        //     ]);
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "No",
+        //         'is_correct' => 0,
+        //         'value' => 0,
+        //         'status' => 1,
+        //         'order' => 2,
+        //         'question_id' => $question->id
+        //     ]);
+        // }
+        // //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te gustaría investigar científicamente sobre cultivos agrícolas?",
             'status' => 1,
@@ -1838,33 +1838,33 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaría conocer a que se refieren las Energías renovables?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 44,
-            'type_id' => 1,
-            'educative_program_id'=>9
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
+        // $q = \App\Models\Question::factory(1)->create([
+        //     'question' => "¿Te gustaría conocer a que se refieren las Energías renovables?",
+        //     'status' => 1,
+        //     'is_example' => 0,
+        //     'order' => 44,
+        //     'type_id' => 1,
+        //     'educative_program_id'=>9
+        // ]);
+        // foreach ($q as $question) {
+        //     $question->save();
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "Si",
+        //         'is_correct' => 1,
+        //         'value' => 1,
+        //         'status' => 1,
+        //         'order' => 1,
+        //         'question_id' => $question->id
+        //     ]);
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "No",
+        //         'is_correct' => 0,
+        //         'value' => 0,
+        //         'status' => 1,
+        //         'order' => 2,
+        //         'question_id' => $question->id
+        //     ]);
+        // }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Participarias en una campaña de reforestación empleando técnicas y conocimientos agrícolas?",
@@ -2062,34 +2062,34 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaría participar en campañas de salud en zonas marginadas?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 52,
-            'type_id' => 1,
-            'educative_program_id'=>7
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
-        //
+        // $q = \App\Models\Question::factory(1)->create([
+        //     'question' => "¿Te gustaría participar en campañas de salud en zonas marginadas?",
+        //     'status' => 1,
+        //     'is_example' => 0,
+        //     'order' => 52,
+        //     'type_id' => 1,
+        //     'educative_program_id'=>7
+        // ]);
+        // foreach ($q as $question) {
+        //     $question->save();
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "Si",
+        //         'is_correct' => 1,
+        //         'value' => 1,
+        //         'status' => 1,
+        //         'order' => 1,
+        //         'question_id' => $question->id
+        //     ]);
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "No",
+        //         'is_correct' => 0,
+        //         'value' => 0,
+        //         'status' => 1,
+        //         'order' => 2,
+        //         'question_id' => $question->id
+        //     ]);
+        // }
+        // //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te interesa formular proyectos de energías renovables mediante diagnósticos energéticos y estudios especializados de los recursos naturales del entorno?",
             'status' => 1,
@@ -2258,33 +2258,33 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "Te interesa saber ¿cómo estan construidos los equipos de automatización de las grandes empresas industriales?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 59,
-            'type_id' => 1,
-            'educative_program_id'=>3
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
+        // $q = \App\Models\Question::factory(1)->create([
+        //     'question' => "Te interesa saber ¿cómo estan construidos los equipos de automatización de las grandes empresas industriales?",
+        //     'status' => 1,
+        //     'is_example' => 0,
+        //     'order' => 59,
+        //     'type_id' => 1,
+        //     'educative_program_id'=>3
+        // ]);
+        // foreach ($q as $question) {
+        //     $question->save();
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "Si",
+        //         'is_correct' => 1,
+        //         'value' => 1,
+        //         'status' => 1,
+        //         'order' => 1,
+        //         'question_id' => $question->id
+        //     ]);
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "No",
+        //         'is_correct' => 0,
+        //         'value' => 0,
+        //         'status' => 1,
+        //         'order' => 2,
+        //         'question_id' => $question->id
+        //     ]);
+        // }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te gustaría conocer las normas de seguridad e higiene bajo las que opera el sector industrial?",
@@ -2399,7 +2399,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gusta tener un negocio propio de tipo comercial?",
+            'question' => "¿Te gustaria tener un negocio propio de tipo comercial?",
             'status' => 1,
             'is_example' => 0,
             'order' => 64,
