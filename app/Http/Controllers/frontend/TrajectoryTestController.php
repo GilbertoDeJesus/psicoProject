@@ -50,13 +50,13 @@ class TrajectoryTestController extends Controller
 
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
 
-        $testAprendizaje = Test::where('name', 'Estilo de aprendizaje')->first();
-        $testVocacional = Test::where('name', 'Orientación Vocacional')->first();
-        $testTrayectoria = Test::where('name', 'Trayectoria académica')->first();
+        // $testAprendizaje = Test::where('name', 'Estilo de aprendizaje')->first();
+        // $testVocacional = Test::where('name', 'Orientación Vocacional')->first();
+        // $testTrayectoria = Test::where('name', 'Trayectoria académica')->first();
 
-        $answersAprendizaje = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testAprendizaje->id)->first()->pivot->answers;
-        $answersVocacional = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testVocacional->id)->first()->pivot->answers;
-        $answersTrayectoria = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testTrayectoria->id)->first()->pivot->answers;
+        // $answersAprendizaje = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testAprendizaje->id)->first()->pivot->answers;
+        // $answersVocacional = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testVocacional->id)->first()->pivot->answers;
+        // $answersTrayectoria = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testTrayectoria->id)->first()->pivot->answers;
         //Para consulta sin la tabla de resultados
         
         //dd(json_decode($answersVocacional));
