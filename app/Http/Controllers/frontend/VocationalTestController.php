@@ -35,8 +35,13 @@ class VocationalTestController extends Controller
             $answers[$lt->id] = ['answer' => $request->$question, 'program' => $lt->educative_program_id ];
         }
 
+        collect($array)->pluck('answer')->countBy();
+
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
         $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
+        $studentAnswersResults = array('student_id' => $test->id, 'test_aprendizaje' => json_encode($answers), 'finished' => 1);
+
+        $studentResults->tests()->attach($student->id, $studentAnswersResults);
         $student->tests()->attach($student->id, $studentAnswers);
 
         return redirect()->route('students.trajectory');
