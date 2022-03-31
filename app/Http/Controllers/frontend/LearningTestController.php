@@ -25,6 +25,14 @@ class LearningTestController extends Controller
             array_push($answers, Answer::where('question_id', $lt->id)->get());
         }
 
+        $student = Student::with('tests')->find(session()->get('idAlumno')); //buscamos en la tabla student_test los test que ha realizado el estudiante
+        if($student->tests->isNotEmpty()){
+             foreach ($student->tests as $testF){
+                if($testF->pivot->test_id == $test->id && $testF->pivot->finished==1){ //Evaluamos si el test actual ha sido finalizado por el estudiante o no
+                    return redirect()->route('students.vocational'); //Si ya se ha contestado redireccionamos al siguiente test
+                }
+             } 
+        }
         return view('frontend.learningStyle.learningTest', ['learningTest' => $learningTest, 'answers' => $answers]);
     }
 

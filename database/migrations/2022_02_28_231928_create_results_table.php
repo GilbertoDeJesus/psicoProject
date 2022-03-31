@@ -18,8 +18,8 @@ class CreateResultsTable extends Migration
             $table->unsignedBigInteger('test_orientacional1_id')->nullable();            
             $table->unsignedBigInteger('test_orientacional2_id')->nullable();            
             $table->unsignedBigInteger('test_orientacional3_id')->nullable();
-            $table->string('test_aprendizaje',50);
-            $table->string('test_status_academico',50);
+            $table->string('test_aprendizaje',50)->nullable();
+            $table->string('test_status_academico',50)->nullable();
             $table->foreignId('student_id')->constrained();
             $table->softDeletes();
             $table->timestamps();
