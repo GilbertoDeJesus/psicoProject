@@ -3715,33 +3715,33 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaría generar  un programa de seguridad e higiene en la producción de alimentos?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 111,
-            'type_id' => 1,
-            'educative_program_id'=>4
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
+        // $q = \App\Models\Question::factory(1)->create([
+        //     'question' => "¿Te gustaría generar  un programa de seguridad e higiene en la producción de alimentos?",
+        //     'status' => 1,
+        //     'is_example' => 0,
+        //     'order' => 111,
+        //     'type_id' => 1,
+        //     'educative_program_id'=>4
+        // ]);
+        // foreach ($q as $question) {
+        //     $question->save();
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "Si",
+        //         'is_correct' => 1,
+        //         'value' => 1,
+        //         'status' => 1,
+        //         'order' => 1,
+        //         'question_id' => $question->id
+        //     ]);
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "No",
+        //         'is_correct' => 0,
+        //         'value' => 0,
+        //         'status' => 1,
+        //         'order' => 2,
+        //         'question_id' => $question->id
+        //     ]);
+        // }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te gustaría elaborar y gestionar una base de datos de una empresa?",
@@ -3967,33 +3967,33 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaría trabajar como supervisor de materias primas en una empresa de alimentos?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 120,
-            'type_id' => 1,
-            'educative_program_id'=>4
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
+        // $q = \App\Models\Question::factory(1)->create([
+        //     'question' => "¿Te gustaría trabajar como supervisor de materias primas en una empresa de alimentos?",
+        //     'status' => 1,
+        //     'is_example' => 0,
+        //     'order' => 120,
+        //     'type_id' => 1,
+        //     'educative_program_id'=>4
+        // ]);
+        // foreach ($q as $question) {
+        //     $question->save();
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "Si",
+        //         'is_correct' => 1,
+        //         'value' => 1,
+        //         'status' => 1,
+        //         'order' => 1,
+        //         'question_id' => $question->id
+        //     ]);
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "No",
+        //         'is_correct' => 0,
+        //         'value' => 0,
+        //         'status' => 1,
+        //         'order' => 2,
+        //         'question_id' => $question->id
+        //     ]);
+        // }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te gustaria trabajar en una empresa dedicada al desarrollo de Software?",
@@ -6462,12 +6462,12 @@ class FirstSeeder extends Seeder
             90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 
             108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 
             124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 
-            140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155
+            140, 141, 142, 143, 144, 145, 146, 147, 148
         ]);
         \App\Models\Test::find(3)->questions()->attach([
-            156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 
-            166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 
-            176, 177, 178, 179, 180, 181, 182, 183, 184
+            149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 
+            161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 
+            173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184
         ]);
     }
 }
