@@ -86,21 +86,8 @@ class LearningTestController extends Controller
 
         Result::create($results);
 
-        $calculateAnswers = $test->questions()->orderBy('order', 'ASC')->get();
-        $sum = 0;
-
-        for($i = 0; $i < count($calculateAnswers); $i ++){
-            $sum += $calculateAnswers[$i][0];
-        }
-
-        collect($learningTest)->pluck('answer')->countBy();
-
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
-
         $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
-        //$studentAnswersResults = array('student_id' => $test->id, 'test_aprendizaje' => json_encode($answers), 'finished' => 1);
-
-       // $student->tests()->attach($student->id, $studentAnswersResults);
         $student->tests()->attach($student->id, $studentAnswers);
 
         return redirect()->route('students.vocational');
