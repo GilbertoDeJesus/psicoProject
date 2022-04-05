@@ -82,7 +82,7 @@
                             @endforeach
                             <!-- /step-->
                             <div class="submit step">
-                                <h3 class="main_question"><strong>3/3</strong>Finalizar</h3>
+                                <h3 class="main_question"><strong>{{ $trajectoryTest->count() }}/{{ $trajectoryTest->count() }}</strong>Finalizar</h3>
                                 <div class="summary">
                                     <ul>
                                         <li><strong><i class="icon-check-1"></i></strong>

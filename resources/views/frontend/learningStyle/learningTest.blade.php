@@ -78,7 +78,7 @@
                             @endforeach
                             <!-- /step-->
                             <div class="submit step">
-                                <h3 class="main_question"><strong>36/36</strong>Finalizar</h3>
+                                <h3 class="main_question"><strong>{{ $learningTest->count() }}/{{ $learningTest->count() }}</strong>Finalizar</h3>
                                 <div class="summary">
                                     <ul>
                                         <li><strong><i class="icon-check-1"></i></strong>
