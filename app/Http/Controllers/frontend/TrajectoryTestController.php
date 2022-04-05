@@ -7,6 +7,8 @@ use App\Models\Questions;
 use App\Models\Test;
 use App\Models\Answer;
 use App\Models\Student;
+use App\Models\EducativeProgram;
+use App\Models\Result;
 use Illuminate\Http\Request;
 
 
@@ -21,6 +23,15 @@ class TrajectoryTestController extends Controller
         $answers = [];
         foreach ($trajectoryTest as $lt) {
             array_push($answers, Answer::where('question_id', $lt->id)->get());
+        }
+
+        $student = Student::with('tests')->find(session()->get('idAlumno')); //buscamos en la tabla student_test los test que ha realizado el estudiante
+        if($student->tests->isNotEmpty()){
+             foreach ($student->tests as $testF){
+                if($testF->pivot->test_id == $test->id && $testF->pivot->finished==1){ //Evaluamos si el test actual ha sido finalizado por el estudiante o no
+                    return redirect()->route('students.results'); //Si ya se ha contestado redireccionamos al siguiente test
+                }
+             } 
         }
 
         return view('frontend.educationalTrajectory.trajectoryTest', ['trajectoryTest' => $trajectoryTest, 'answers' => $answers]);
@@ -47,24 +58,14 @@ class TrajectoryTestController extends Controller
 
     public function showResults()
     {
+        $results = Result::where('student_id', session()->get('idAlumno'))->first();
 
-        $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
+        $careerResults1 = EducativeProgram::where('id',$results->test_orientacional1_id)->first();
+        $careerResults2 = EducativeProgram::where('id',$results->test_orientacional2_id)->first();
+        $careerResults3 = EducativeProgram::where('id',$results->test_orientacional3_id)->first();
 
-        // $testAprendizaje = Test::where('name', 'Estilo de aprendizaje')->first();
-        // $testVocacional = Test::where('name', 'Orientación Vocacional')->first();
-        // $testTrayectoria = Test::where('name', 'Trayectoria académica')->first();
+        $learningResult = $results->test_aprendizaje;
 
-        // $answersAprendizaje = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testAprendizaje->id)->first()->pivot->answers;
-        // $answersVocacional = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testVocacional->id)->first()->pivot->answers;
-        // $answersTrayectoria = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id',$testTrayectoria->id)->first()->pivot->answers;
-        //Para consulta sin la tabla de resultados
-        
-        //dd(json_decode($answersVocacional));
-        
-
-
-
-
-        return view('frontend.learningStyle.learningStyleResult');
+        return view('frontend.learningStyle.learningStyleResult', ['careerResults1' => $careerResults1, 'careerResults2' => $careerResults2, 'careerResults3' => $careerResults3, 'learningResult' => $learningResult]);
     }
 }

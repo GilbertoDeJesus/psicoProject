@@ -33,6 +33,7 @@ class LearningTestController extends Controller
                 }
              } 
         }
+        
         return view('frontend.learningStyle.learningTest', ['learningTest' => $learningTest, 'answers' => $answers]);
     }
 
