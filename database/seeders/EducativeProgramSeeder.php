@@ -123,7 +123,7 @@ class EducativeProgramSeeder extends Seeder
         }
 
         $ep = \App\Models\EducativeProgram::factory(1)->create([
-            'name' => "Tecnologías de la Información DGS"
+            'name' => "Tecnologías de la Información"
         ]);
 
         foreach ($ep as $epi) {
@@ -144,7 +144,7 @@ class EducativeProgramSeeder extends Seeder
         }
 
         $ep = \App\Models\EducativeProgram::factory(1)->create([
-            'name' => "Tecnologías de la Información RIC"
+            'name' => "Enfermería"
         ]);
 
         foreach ($ep as $epi) {
@@ -163,5 +163,68 @@ class EducativeProgramSeeder extends Seeder
                 'educative_program_id' => $epi->id
             ]);
         }
+
+        $ep = \App\Models\EducativeProgram::factory(1)->create([
+            'name' => "Mantenimiento Industrial"
+        ]);
+
+        foreach ($ep as $epi) {
+            $epi->save();
+
+            \App\Models\Group::factory(1)->create([
+                'name' => "A",
+                'educative_program_id' => $epi->id
+            ]);
+            \App\Models\Group::factory(1)->create([
+                'name' => "B",
+                'educative_program_id' => $epi->id
+            ]);
+            \App\Models\Group::factory(1)->create([
+                'name' => "C",
+                'educative_program_id' => $epi->id
+            ]);
+        }
+
+        $ep = \App\Models\EducativeProgram::factory(1)->create([
+            'name' => "Energias Renovables"
+        ]);
+
+        foreach ($ep as $epi) {
+            $epi->save();
+
+            \App\Models\Group::factory(1)->create([
+                'name' => "A",
+                'educative_program_id' => $epi->id
+            ]);
+            \App\Models\Group::factory(1)->create([
+                'name' => "B",
+                'educative_program_id' => $epi->id
+            ]);
+            \App\Models\Group::factory(1)->create([
+                'name' => "C",
+                'educative_program_id' => $epi->id
+            ]);
+        }
+
+        /*$ep = \App\Models\EducativeProgram::factory(1)->create([
+            'name' => "Tecnologías de la Información RIC"
+        ]);
+
+        foreach ($ep as $epi) {
+            $epi->save();
+
+            \App\Models\Group::factory(1)->create([
+                'name' => "A",
+                'educative_program_id' => $epi->id
+            ]);
+            \App\Models\Group::factory(1)->create([
+                'name' => "B",
+                'educative_program_id' => $epi->id
+            ]);
+            \App\Models\Group::factory(1)->create([
+                'name' => "C",
+                'educative_program_id' => $epi->id
+            ]);
+        }*/
     }
 }
