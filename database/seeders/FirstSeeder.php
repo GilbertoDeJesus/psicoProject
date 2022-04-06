@@ -35,12 +35,12 @@ class FirstSeeder extends Seeder
         ]);
         $t2 = \App\Models\Test::factory(1)->create([
             'name' => "Orientación Vocacional",
-            'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona SI o NO dependiendo de tus conocimientos e intereses",
+            'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona SÍ o NO dependiendo de tus conocimientos e intereses",
             'order' => 2,
         ]);
         $t3 = \App\Models\Test::factory(1)->create([
             'name' => "Estilo de aprendizaje",
-            'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona un numero en escala del 1 al 5 que tanto te identificas",
+            'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona una opción en escala de 'Siempre' a 'Nunca' según cuanto te identificas",
             'order' => 3,
         ]);
 
@@ -160,7 +160,7 @@ class FirstSeeder extends Seeder
             $question->save();
 
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -189,7 +189,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -305,7 +305,7 @@ class FirstSeeder extends Seeder
             $question->save();
 
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -510,7 +510,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -537,7 +537,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -564,7 +564,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -635,7 +635,7 @@ class FirstSeeder extends Seeder
             $question->save();
 
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -666,7 +666,7 @@ class FirstSeeder extends Seeder
             $question->save();
 
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -695,7 +695,7 @@ class FirstSeeder extends Seeder
             $question->save();
 
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -725,7 +725,7 @@ class FirstSeeder extends Seeder
             $question->save();
 
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -755,7 +755,7 @@ class FirstSeeder extends Seeder
             $question->save();
 
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -784,7 +784,7 @@ class FirstSeeder extends Seeder
             $question->save();
 
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -813,7 +813,7 @@ class FirstSeeder extends Seeder
             $question->save();
 
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -841,7 +841,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -869,7 +869,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -897,7 +897,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -925,7 +925,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -953,7 +953,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -981,7 +981,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1009,7 +1009,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1037,7 +1037,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1065,7 +1065,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1093,7 +1093,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1121,7 +1121,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 0,
                 'status' => 1,
@@ -1149,7 +1149,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 0,
                 'status' => 1,
@@ -1177,7 +1177,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1205,7 +1205,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1233,7 +1233,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1261,7 +1261,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1289,7 +1289,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1317,7 +1317,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1345,7 +1345,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1373,7 +1373,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1401,7 +1401,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1429,7 +1429,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1457,7 +1457,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1485,7 +1485,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1513,7 +1513,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1541,7 +1541,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1569,7 +1569,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1597,7 +1597,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1625,7 +1625,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1653,7 +1653,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1681,7 +1681,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1709,7 +1709,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1737,7 +1737,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1765,7 +1765,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1793,7 +1793,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1821,7 +1821,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1849,7 +1849,7 @@ class FirstSeeder extends Seeder
         // foreach ($q as $question) {
         //     $question->save();
         //     \App\Models\Answer::factory(1)->create([
-        //         'answer' => "Si",
+        //         'answer' => "Sí",
         //         'is_correct' => 1,
         //         'value' => 1,
         //         'status' => 1,
@@ -1877,7 +1877,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1905,7 +1905,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1933,7 +1933,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1961,7 +1961,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -1989,7 +1989,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2017,7 +2017,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2045,7 +2045,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2074,7 +2074,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2102,7 +2102,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2130,7 +2130,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2158,7 +2158,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2186,7 +2186,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2214,7 +2214,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2242,7 +2242,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2270,7 +2270,7 @@ class FirstSeeder extends Seeder
         // foreach ($q as $question) {
         //     $question->save();
         //     \App\Models\Answer::factory(1)->create([
-        //         'answer' => "Si",
+        //         'answer' => "Sí",
         //         'is_correct' => 1,
         //         'value' => 1,
         //         'status' => 1,
@@ -2298,7 +2298,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2326,7 +2326,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2354,7 +2354,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2382,7 +2382,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2411,7 +2411,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2439,7 +2439,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2467,7 +2467,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2495,7 +2495,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2523,7 +2523,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2551,7 +2551,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2579,7 +2579,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2607,7 +2607,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2635,7 +2635,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2663,7 +2663,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2691,7 +2691,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2719,7 +2719,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2748,7 +2748,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2776,7 +2776,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2804,7 +2804,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2832,7 +2832,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2860,7 +2860,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2888,7 +2888,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2916,7 +2916,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2944,7 +2944,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -2972,7 +2972,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3000,7 +3000,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3028,7 +3028,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3056,7 +3056,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3084,7 +3084,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3112,7 +3112,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3140,7 +3140,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3168,7 +3168,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3196,7 +3196,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3224,7 +3224,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3252,7 +3252,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3280,7 +3280,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3308,7 +3308,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3336,7 +3336,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3364,7 +3364,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3392,7 +3392,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3420,7 +3420,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3448,7 +3448,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3476,7 +3476,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3504,7 +3504,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3532,7 +3532,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3560,7 +3560,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3578,7 +3578,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Sientes empatía con las personas enfermas y/o con sus familiares?",
+            'question' => "¿Síentes empatía con las personas enfermas y/o con sus familiares?",
             'status' => 1,
             'is_example' => 0,
             'order' => 106,
@@ -3588,7 +3588,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3616,7 +3616,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3644,7 +3644,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3672,7 +3672,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3700,7 +3700,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3728,7 +3728,7 @@ class FirstSeeder extends Seeder
         // foreach ($q as $question) {
         //     $question->save();
         //     \App\Models\Answer::factory(1)->create([
-        //         'answer' => "Si",
+        //         'answer' => "Sí",
         //         'is_correct' => 1,
         //         'value' => 1,
         //         'status' => 1,
@@ -3756,7 +3756,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3784,7 +3784,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3812,7 +3812,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3840,7 +3840,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3868,7 +3868,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3896,7 +3896,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3924,7 +3924,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3952,7 +3952,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -3980,7 +3980,7 @@ class FirstSeeder extends Seeder
         // foreach ($q as $question) {
         //     $question->save();
         //     \App\Models\Answer::factory(1)->create([
-        //         'answer' => "Si",
+        //         'answer' => "Sí",
         //         'is_correct' => 1,
         //         'value' => 1,
         //         'status' => 1,
@@ -4008,7 +4008,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4036,7 +4036,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4064,7 +4064,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4093,7 +4093,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4121,7 +4121,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4149,7 +4149,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4177,7 +4177,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4207,7 +4207,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4235,7 +4235,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4263,7 +4263,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4292,7 +4292,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4320,7 +4320,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4349,7 +4349,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4377,7 +4377,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4405,7 +4405,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4433,7 +4433,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4461,7 +4461,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4489,7 +4489,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -4517,7 +4517,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,

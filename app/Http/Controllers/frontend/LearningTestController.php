@@ -22,7 +22,7 @@ class LearningTestController extends Controller
 
         $answers = [];
         foreach ($learningTest as $lt) {
-            array_push($answers, Answer::where('question_id', $lt->id)->get());
+            array_push($answers, Answer::where('question_id', $lt->id)->orderBy('order', 'DESC')->get());
         }
 
         $student = Student::with('tests')->find(session()->get('idAlumno')); //buscamos en la tabla student_test los test que ha realizado el estudiante

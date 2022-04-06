@@ -102,9 +102,13 @@
                                 <hr class="horizontal dark">
                             </li>
                         </ul>
-                        <a href="{{ route('students.vocational') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0 {{$vocacional == 1 ? 'disabled' : ''}}">
-                            Comenzar
-                        </a>
+                        @if( $aprendizaje == null )
+                        
+                        @else
+                            <a href="{{ route('students.vocational') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0 {{$vocacional == 1 ? 'disabled' : ''}}">
+                                Comenzar
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>
