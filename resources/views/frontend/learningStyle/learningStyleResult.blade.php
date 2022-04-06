@@ -36,7 +36,8 @@
 @endsection
 
 @section('contenido')
-    <div class="page-header align-items-start min-vh-100 bg-gradient-info pt-6" style="background-image: url({{ url('frontend/assets/img/curved-images/curved5.jpg') }});">
+    <div class="page-header align-items-start min-vh-100 bg-gradient-info pt-6"
+        style="background-image: url({{ url('frontend/assets/img/curved-images/curved5.jpg') }});">
         {{-- <span class="mask bg-gradient-dark opacity-7"></span> --}}
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
@@ -56,48 +57,48 @@
                 </div>
 
                 @if ($learningResult == 'Kinestésico')
-                {{-- Kinestésico --}}
-                <div class="col-lg-12 mb-5 mt-5">{{-- Si el resultado es Kinestésico se muestra este --}}
-                    <div
-                        class="card rounded-circle max-width-200 min-height-200 mx-auto bg-transparent border-2 border-white">
-                        <div class="text-center my-auto">
-                            <h1 class="text-white my-auto">
-                                <i class="ni ni-user-run"></i>
-                            </h1>
-                            <h4 class="text-white mb-0">Kinestésico</h4>
+                    {{-- Kinestésico --}}
+                    <div class="col-lg-12 mb-5 mt-5">{{-- Si el resultado es Kinestésico se muestra este --}}
+                        <div
+                            class="card rounded-circle max-width-200 min-height-200 mx-auto bg-transparent border-2 border-white">
+                            <div class="text-center my-auto">
+                                <h1 class="text-white my-auto">
+                                    <i class="ni ni-user-run"></i>
+                                </h1>
+                                <h4 class="text-white mb-0">Kinestésico</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endif
 
                 @if ($learningResult == 'Visual')
-                {{-- Visual --}}
-                <div class="col-lg-12 mb-5 mt-5"> {{-- Si el resultado es visual se muestra este --}}
-                    <div
-                        class="card rounded-circle max-width-200 min-height-200 mx-auto bg-transparent border-2 border-white">
-                        <div class="text-center my-auto">
-                            <h1 class="text-white my-auto">
-                                <i class="icon-eye"></i>
-                            </h1>
-                            <h4 class="text-white mb-0">Visual</h4>
+                    {{-- Visual --}}
+                    <div class="col-lg-12 mb-5 mt-5"> {{-- Si el resultado es visual se muestra este --}}
+                        <div
+                            class="card rounded-circle max-width-200 min-height-200 mx-auto bg-transparent border-2 border-white">
+                            <div class="text-center my-auto">
+                                <h1 class="text-white my-auto">
+                                    <i class="icon-eye"></i>
+                                </h1>
+                                <h4 class="text-white mb-0">Visual</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endif
 
                 @if ($learningResult == 'Auditivo')
-                {{-- Auditivo --}}
-                <div class="col-lg-12 mb-5 mt-5"> {{-- Si el resultado es auditivo se muestra este --}}
-                    <div
-                        class="card rounded-circle max-width-200 min-height-200 mx-auto bg-transparent border-2 border-white">
-                        <div class="text-center my-auto">
-                            <h1 class="text-white my-auto">
-                                <i class="icon-volume-high"></i>
-                            </h1>
-                            <h4 class="text-white mb-0">Auditivo</h4>
+                    {{-- Auditivo --}}
+                    <div class="col-lg-12 mb-5 mt-5"> {{-- Si el resultado es auditivo se muestra este --}}
+                        <div
+                            class="card rounded-circle max-width-200 min-height-200 mx-auto bg-transparent border-2 border-white">
+                            <div class="text-center my-auto">
+                                <h1 class="text-white my-auto">
+                                    <i class="icon-volume-high"></i>
+                                </h1>
+                                <h4 class="text-white mb-0">Auditivo</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endif
 
                 <div class="col-lg-12 text-center mx-auto">
@@ -113,7 +114,7 @@
                                         <h1 class="mt-3 mb-0">
                                             <i class="ni ni-hat-3 text-dark text-gradient"></i>
                                         </h1>
-                                        <h4 class="text-white">{{$careerResults1->name}}</h4>
+                                        <h4 class="text-white">{{ $careerResults1->name }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +129,7 @@
                                         <h1 class="mt-3 mb-0">
                                             <i class="ni ni-hat-3 text-dark text-gradient"></i>
                                         </h1>
-                                        <h4 class="text-white">{{$careerResults2->name}}</h4>
+                                        <h4 class="text-white">{{ $careerResults2->name }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +144,7 @@
                                         <h1 class="mt-3 mb-0">
                                             <i class="ni ni-hat-3 text-dark text-gradient"></i>
                                         </h1>
-                                        <h4 class="text-white">{{$careerResults3->name}}</h4>
+                                        <h4 class="text-white">{{ $careerResults3->name }}</h4>
                                     </div>
                                 </div>
                             </div>

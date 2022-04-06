@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 text-center mx-auto">
-                    <h4 class="text-white mb-2 mt-7">¡Bienvenido, {{Session::get('nameAlumno')}}!</h4>
+                    <h4 class="text-white mb-2 mt-7">¡Bienvenido, {{ Str::title(Session::get('nameAlumno')) }}!</h4>
                     <p class="text-lead text-white mb-5">Puedes consultar tu contraseña en el botón con tu nombre
                     </p>
                 </div>
@@ -28,7 +28,7 @@
                             <h1 class="text-white mt-3 mb-0">
                                 <i class="ni ni-ruler-pencil"></i>
                             </h1>
-                            <h6 class="text-white">Sin contestar</h6>
+                            <h6 class="text-white">{{$aprendizaje == 1 ? 'Contestado' : 'Sin contestar'}}</h6>
                         </div>
                     </div>
                     <div class="position-relative mt-n5" style="height: 50px;">
@@ -58,7 +58,7 @@
                                 <hr class="horizontal dark">
                             </li>
                         </ul>
-                        <a href="{{ route('students.learnigStyle') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0">
+                        <a href="{{ route('students.learnigStyle') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0 {{$aprendizaje == 1 ? 'disabled' : ''}}">
                             Comenzar
                         </a>
                     </div>
@@ -72,7 +72,7 @@
                             <h1 class="text-white mt-3 mb-0">
                                 <i class="ni ni-briefcase-24"></i>
                             </h1>
-                            <h6 class="text-white">Sin contestar</h6>
+                            <h6 class="text-white">{{$vocacional == 1 ? 'Contestado' : 'Sin contestar'}}</h6>
                         </div>
                     </div>
                     <div class="position-relative mt-n5" style="height: 50px;">
@@ -102,7 +102,7 @@
                                 <hr class="horizontal dark">
                             </li>
                         </ul>
-                        <a href="{{ route('students.vocational') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0">
+                        <a href="{{ route('students.vocational') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0 {{$vocacional == 1 ? 'disabled' : ''}}">
                             Comenzar
                         </a>
                     </div>
@@ -116,7 +116,7 @@
                             <h1 class="text-white mt-3 mb-0">
                                 <i class="ni ni-hat-3"></i>
                             </h1>
-                            <h6 class="text-white">Sin contestar</h6>
+                            <h6 class="text-white">{{$trayectoria == 1 ? 'Contestado' : 'Sin contestar'}}</h6>
                         </div>
                     </div>
                     <div class="position-relative mt-n5" style="height: 50px;">
@@ -146,7 +146,7 @@
                                 <hr class="horizontal dark">
                             </li>
                         </ul>
-                        <a href="{{ route('students.trajectory') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0">
+                        <a href="{{ route('students.trajectory') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0 {{$trayectoria == 1 ? 'disabled' : ''}}">
                             Comenzar
                         </a>
                     </div>
@@ -157,5 +157,4 @@
 @endsection
 
 @section('js')
-    
 @endsection

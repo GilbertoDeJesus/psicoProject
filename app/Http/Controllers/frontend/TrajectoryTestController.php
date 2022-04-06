@@ -26,12 +26,12 @@ class TrajectoryTestController extends Controller
         }
 
         $student = Student::with('tests')->find(session()->get('idAlumno')); //buscamos en la tabla student_test los test que ha realizado el estudiante
-        if($student->tests->isNotEmpty()){
-             foreach ($student->tests as $testF){
-                if($testF->pivot->test_id == $test->id && $testF->pivot->finished==1){ //Evaluamos si el test actual ha sido finalizado por el estudiante o no
+        if ($student->tests->isNotEmpty()) {
+            foreach ($student->tests as $testF) {
+                if ($testF->pivot->test_id == $test->id && $testF->pivot->finished == 1) { //Evaluamos si el test actual ha sido finalizado por el estudiante o no
                     return redirect()->route('students.results'); //Si ya se ha contestado redireccionamos al siguiente test
                 }
-             } 
+            }
         }
 
         return view('frontend.educationalTrajectory.trajectoryTest', ['trajectoryTest' => $trajectoryTest, 'answers' => $answers]);
@@ -60,9 +60,9 @@ class TrajectoryTestController extends Controller
     {
         $results = Result::where('student_id', session()->get('idAlumno'))->first();
 
-        $careerResults1 = EducativeProgram::where('id',$results->test_orientacional1_id)->first();
-        $careerResults2 = EducativeProgram::where('id',$results->test_orientacional2_id)->first();
-        $careerResults3 = EducativeProgram::where('id',$results->test_orientacional3_id)->first();
+        $careerResults1 = EducativeProgram::where('id', $results->test_orientacional1_id)->first();
+        $careerResults2 = EducativeProgram::where('id', $results->test_orientacional2_id)->first();
+        $careerResults3 = EducativeProgram::where('id', $results->test_orientacional3_id)->first();
 
         $learningResult = $results->test_aprendizaje;
 
