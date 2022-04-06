@@ -1082,33 +1082,33 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        // $q = \App\Models\Question::factory(1)->create([
-        //     'question' => "¿Te gustaría conocer el funcionamiento de un panel solar?",
-        //     'status' => 1,
-        //     'is_example' => 0,
-        //     'order' => 17,
-        //     'type_id' => 1,
-        //     'educative_program_id'=>9
-        // ]);
-        // foreach ($q as $question) {
-        //     $question->save();
-        //     \App\Models\Answer::factory(1)->create([
-        //         'answer' => "Si",
-        //         'is_correct' => 1,
-        //         'value' => 1,
-        //         'status' => 1,
-        //         'order' => 1,
-        //         'question_id' => $question->id
-        //     ]);
-        //     \App\Models\Answer::factory(1)->create([
-        //         'answer' => "No",
-        //         'is_correct' => 0,
-        //         'value' => 0,
-        //         'status' => 1,
-        //         'order' => 2,
-        //         'question_id' => $question->id
-        //     ]);
-        // }
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Te interesa desarrollar procesos de manufactura?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 17,
+            'type_id' => 1,
+            'educative_program_id'=>9
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
         // //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te ofrecerías para participar en un proyecto de control y automatización de sistemas a campo abierto?",
@@ -2175,6 +2175,34 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Te gusta tener un negocio propio de tipo comercial?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 56,
+            'type_id' => 1,
+            'educative_program_id'=>2
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te gusta formular planos a través de software especializado?",
             'status' => 1,
             'is_example' => 0,
@@ -2397,34 +2425,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaria tener un negocio propio de tipo comercial?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 64,
-            'type_id' => 1,
-            'educative_program_id'=>2
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
+       
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te gusta identificar, formular y resolver problemas aplicando conocimientos de las matemáticas, la física mecánica e ingeniería?",
@@ -2489,6 +2490,34 @@ class FirstSeeder extends Seeder
             'order' => 67,
             'type_id' => 1,
             'educative_program_id'=>6
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Te interesa saber cómo estaban construidos los equipos de automatización de las grandes empresas industriales?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 68,
+            'type_id' => 1,
+            'educative_program_id'=>5
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2652,6 +2681,34 @@ class FirstSeeder extends Seeder
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te gusta organizar un plan de distribución y venta de un gran almacén?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 73,
+            'type_id' => 1,
+            'educative_program_id'=>2
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Si",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Te gusta crear campañas publicitarias?",
             'status' => 1,
             'is_example' => 0,
             'order' => 73,
@@ -2902,35 +2959,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gusta crear campañas publicitarias?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 82,
-            'type_id' => 1,
-            'educative_program_id'=>2
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
-        //
+        //        
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te interesa trabajar con maquinaria y dispositivos electrónicos?",
             'status' => 1,
@@ -3324,7 +3353,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te interesa saber sobre el funcionamiento del cuerpo humano?",
+            'question' => "¿Tienes conocimiento del funcionamiento del cuerpo humano?",
             'status' => 1,
             'is_example' => 0,
             'order' => 97,
@@ -4079,33 +4108,33 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te interesa conocer el funcionamiento de los instrumentos quirurgicos en el área de enfermería?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 124,
-            'type_id' => 1,
-            'educative_program_id'=>7
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
+        // $q = \App\Models\Question::factory(1)->create([
+        //     'question' => "¿Te interesa conocer el funcionamiento de los instrumentos quirurgicos en el área de enfermería?",
+        //     'status' => 1,
+        //     'is_example' => 0,
+        //     'order' => 124,
+        //     'type_id' => 1,
+        //     'educative_program_id'=>7
+        // ]);
+        // foreach ($q as $question) {
+        //     $question->save();
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "Si",
+        //         'is_correct' => 1,
+        //         'value' => 1,
+        //         'status' => 1,
+        //         'order' => 1,
+        //         'question_id' => $question->id
+        //     ]);
+        //     \App\Models\Answer::factory(1)->create([
+        //         'answer' => "No",
+        //         'is_correct' => 0,
+        //         'value' => 0,
+        //         'status' => 1,
+        //         'order' => 2,
+        //         'question_id' => $question->id
+        //     ]);
+        // }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te interesa ocupar la energía solar para instalaciones eléctricas?",
@@ -4219,33 +4248,7 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaria trabajar como supervisor de producción en una empresa de alimentos?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 129,
-            'type_id' => 1,
-            'educative_program_id'=>4
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
+        
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te apasiona facilitar tareas cotidianas mediante el internet de las cosas?",
@@ -4330,34 +4333,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te agradaría tomar un curso de primeros auxilios?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 133,
-            'type_id' => 1,
-            'educative_program_id'=>7
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
+       
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Tienes conocimientos básicos en electrónica y electricidad?",
