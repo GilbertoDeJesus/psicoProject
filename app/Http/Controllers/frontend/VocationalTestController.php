@@ -77,8 +77,9 @@ class VocationalTestController extends Controller
             $min = min($count);
             unset($count[array_search($min, $count)]);
         }
-        
+        arsort($count);
         $maxPe = array_keys($count);
+        //dd($maxPe);
         // $results = [];
         // $results['test_orientacional1_id'] = $maxPe[0];
         // $results['test_orientacional2_id'] = $maxPe[1];
