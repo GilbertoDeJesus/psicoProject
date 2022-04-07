@@ -1,7 +1,7 @@
 <nav
     class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
     <div class="container-fluid">
-        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="javascript:;">
+        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{route('students.tests')}}">
             <img src="{{ url('frontend/assets/img/logo_2020p.png') }}" class="navbar-brand-img h-100" alt="main_logo" style="max-height: 30px;">
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
@@ -16,20 +16,20 @@
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
-                    <a class="nav-link me-2" href="javascript:;">
-                        <i class="ni ni-ruler-pencil opacity-6 text-dark me-1"></i>
+                    <a class="nav-link me-2 {{ (Route::is('students.learnigStyle')) ? 'active' : ''}}"  >
+                        <i class="ni ni-ruler-pencil opacity-6 text-dark me-1 "></i>
                         C. Aprendizaje
                     </a>
                 </li>
                 <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
-                    <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
-                        href="javascript:;">
+                    <a class="nav-link d-flex align-items-center me-2 {{ (Route::is('students.vocational')) ? 'active' : ''}}" aria-current="page"
+                        >
                         <i class="ni ni-briefcase-24 opacity-6 text-dark me-1"></i>
                         C. Vocacional
                     </a>
                 </li>
                 <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
-                    <a class="nav-link me-2" href="javascript:;">
+                    <a class="nav-link me-2 {{ (Route::is('students.trajectory')) ? 'active' : ''}}" >
                         <i class="ni ni-hat-3 opacity-6 text-dark me-1"></i>
                         C. Trayectoria
                     </a>

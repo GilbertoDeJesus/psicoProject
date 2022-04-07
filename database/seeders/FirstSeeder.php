@@ -134,7 +134,7 @@ class FirstSeeder extends Seeder
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
-                'order' => 6,
+                'order' => 7,
                 'question_id' => $question->id
             ]);
             \App\Models\Answer::factory(1)->create([
@@ -142,7 +142,7 @@ class FirstSeeder extends Seeder
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
-                'order' => 7,
+                'order' => 6,
                 'question_id' => $question->id
             ]);
         }

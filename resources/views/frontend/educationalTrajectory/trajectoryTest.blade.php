@@ -58,28 +58,35 @@
                                                     @if ($questions->type_id == 1)
                                                         <div class="form-group">
                                                             <label class="container_radio version_2">{{ $ans->answer }}
-                                                                <input type="radio" name="question_{{ $questions->id }}"
-                                                                    value="{{ $ans->value }}" class="required">
+                                                                <input type="radio" name="question_{{ $questions->id }}" data-answ="{{ $ans->answer }}"
+                                                                    value="{{ $ans->answer }}" class="required">
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </div>
+                                                       
                                                     @endif
                                                     @if ($questions->type_id == 4)
                                                         <div class="form-group">
                                                             <label class="container_check version_2">{{ $ans->answer }}
                                                                 <input type="checkbox"
                                                                     name="question_{{ $questions->id }}[]"
-                                                                    value="{{ $ans->id }}" class="required">
+                                                                    value="{{ $ans->answer }}" class="required">
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </div>
-                                                    @endif
+                                                    @endif                                                    
                                                 @endif
-                                            @endforeach
+                                                
+                                            @endforeach                                            
                                         @endforeach
+                                        <div id="extra" class="form-group" style="display:none;">
+                                            <input type="text"  class="form-control" placeholder="Escriba cual" id="otro" >
+                                        </div>
                                     @endif
+                                  
                                 </div>
                             @endforeach
+                            
                             <!-- /step-->
                             <div class="submit step">
                                 <h3 class="main_question"><strong>{{ $trajectoryTest->count() }}/{{ $trajectoryTest->count() }}</strong>Finalizar</h3>
@@ -125,4 +132,29 @@
 
     <!-- Wizard script -->
     <script src="{{ url('frontend/testsAssets/js/survey_func.js') }}"></script>
+    <script>
+        $('input:radio').click(function() { 
+            // console.log($(this).data('answ')); 
+            if($(this).data('answ') === "Otras"){
+                console.log($(this).data('answ')); 
+                $("#extra").css('display','block');
+                // newName = $(this).attr('name'); 
+                $("#otro").addClass('required');
+                // $("#otro").attr('name',newName);
+               
+            }else{                
+                $("#otro").removeClass('required');
+                $("#otro").attr('name',"");
+                $("#extra").css('display','none');
+            }
+            });
+
+            $(document).ready(function () {
+                    $("#otro").keyup(function () {
+                        var value = $(this).val();
+                        console.log(value);
+                        $("input[name='question_3'").val(value);
+                    });
+            });
+    </script>
 @endsection
