@@ -76,3 +76,31 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modal-warning-3" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-3">
+                <div class="card card-plain">
+                    <div class="card-header pb-0 text-center">
+                        <h3 class="font-weight-bolder text-danger text-gradient">¿Estas seguro?</h3>
+                        <div class="mt-4"><i class="ni ni-notification-70 ni-4x"
+                            aria-hidden="true"></i></div>
+                    </div>
+                    <div class="card-body text-center pb-3 pt-4 px-2">
+                        <p class="mb-0 text-dark">¡Al salir del cuestionario sin finalizarlo todas tus respuestas se perderan!</p>
+                        <div class="text-center">
+                            <a href="{{route('students.tests')}}" class="btn bg-gradient-danger btn-lg w-100 mt-4 mb-0">Salir</a>
+                        </div>
+                    </div>
+                    <div class="card-footer mx-auto py-2">
+                        <p class="mx-auto my-0">
+                            <button type="button" class="btn btn-link text-dark mb-0" data-bs-dismiss="modal">Cancelar</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
