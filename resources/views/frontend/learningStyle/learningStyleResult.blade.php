@@ -36,10 +36,9 @@
 @endsection
 
 @section('contenido')
-    <div class="page-header align-items-start min-vh-100 bg-gradient-info pt-6"
-        style="background-image: url({{ url('frontend/assets/img/curved-images/curved5.jpg') }});">
+    <div class="page-header align-items-start min-vh-100 bg-gradient-dark-green pt-6">
         {{-- <span class="mask bg-gradient-dark opacity-7"></span> --}}
-        <span class="mask bg-gradient-dark opacity-6"></span>
+        {{-- <span class="mask bg-gradient-dark opacity-2"></span> --}}
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center mx-auto">
@@ -48,7 +47,7 @@
                             <div class="card card-pricing rounded-2">
                                 <div class="text-center position-relative">
                                     <div class="z-index-1 position-relative">
-                                        <h3 class="text-dark text-gradient my-3">Tu estilo de aprendizaje es</h3>
+                                        <h3 class="text-gradient text-dark-green my-3">Tu estilo de aprendizaje es</h3>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +57,7 @@
 
                 @if ($learningResult == 'Kinestésico')
                     {{-- Kinestésico --}}
-                    <div class="col-lg-12 mb-5 mt-5">{{-- Si el resultado es Kinestésico se muestra este --}}
+                    <div class="col-lg-12 mb-5 mt-6">{{-- Si el resultado es Kinestésico se muestra este --}}
                         <div
                             class="card rounded-circle max-width-200 min-height-200 mx-auto bg-transparent border-2 border-white">
                             <div class="text-center my-auto">
@@ -73,7 +72,7 @@
 
                 @if ($learningResult == 'Visual')
                     {{-- Visual --}}
-                    <div class="col-lg-12 mb-5 mt-5"> {{-- Si el resultado es visual se muestra este --}}
+                    <div class="col-lg-12 mb-5 mt-6"> {{-- Si el resultado es visual se muestra este --}}
                         <div
                             class="card rounded-circle max-width-200 min-height-200 mx-auto bg-transparent border-2 border-white">
                             <div class="text-center my-auto">
@@ -88,7 +87,7 @@
 
                 @if ($learningResult == 'Auditivo')
                     {{-- Auditivo --}}
-                    <div class="col-lg-12 mb-5 mt-5"> {{-- Si el resultado es auditivo se muestra este --}}
+                    <div class="col-lg-12 mb-5 mt-6"> {{-- Si el resultado es auditivo se muestra este --}}
                         <div
                             class="card rounded-circle max-width-200 min-height-200 mx-auto bg-transparent border-2 border-white">
                             <div class="text-center my-auto">
@@ -107,49 +106,49 @@
                 </div>
                 <div class="col-lg-12 mb-2 mt-5 mx-auto">
                     <div class="card-group">
-                        <div class="card move-on-hover mx-2 rounded-3">
+                        <div class="card move-on-hover mx-2 rounded-3 bg-gradient-dark">
                             <div class="card-body pt-4 pb-2 text-center">
-                                <div class="bg-gradient-dark-green text-center pt-4 pb-3 px-2 position-relative rounded-3">
+                                <div class="bg-white text-center pt-4 pb-3 px-3 position-relative rounded-3">
                                     <div class="z-index-1 position-relative">
                                         <h1 class="mt-3 mb-0">
-                                            <i class="ni ni-hat-3 text-dark text-gradient"></i>
+                                            <i class="ni ni-hat-3 text-success text-gradient"></i>
                                         </h1>
-                                        <h4 class="text-white">{{ $careerResults1->name }}</h4>
+                                        <h4 class="text-dark h5">{{ $careerResults1->name }}</h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <h5 class="pb-0 text-dark text-gradient">Opción 1</h5>
+                                <h5 class="pb-0 text-white">Opción 1</h5>
                             </div>
                         </div>
-                        <div class="card move-on-hover mx-2 rounded-3">
+                        <div class="card move-on-hover mx-2 rounded-3 bg-gradient-dark">
                             <div class="card-body pt-4 pb-2 text-center">
-                                <div class="bg-gradient-dark-green text-center pt-4 pb-3 px-2 position-relative rounded-3">
+                                <div class="bg-white text-center pt-4 pb-3 px-3 position-relative rounded-3">
                                     <div class="z-index-1 position-relative">
                                         <h1 class="mt-3 mb-0">
-                                            <i class="ni ni-hat-3 text-dark text-gradient"></i>
+                                            <i class="ni ni-hat-3 text-success text-gradient"></i>
                                         </h1>
-                                        <h4 class="text-white">{{ $careerResults2->name }}</h4>
+                                        <h4 class="text-dark h5">{{ $careerResults2->name }}</h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <h5 class="pb-0 text-dark text-gradient">Opción 2</h5>
+                                <h5 class="pb-0 text-white">Opción 2</h5>
                             </div>
                         </div>
-                        <div class="card move-on-hover mx-2 rounded-3">
+                        <div class="card move-on-hover mx-2 rounded-3 bg-gradient-dark">
                             <div class="card-body pt-4 pb-2 text-center">
-                                <div class="bg-gradient-dark-green text-center pt-4 pb-3 px-2 position-relative rounded-3">
+                                <div class="bg-white text-center pt-4 pb-3 px-3 position-relative rounded-3">
                                     <div class="z-index-1 position-relative">
                                         <h1 class="mt-3 mb-0">
-                                            <i class="ni ni-hat-3 text-dark text-gradient"></i>
+                                            <i class="ni ni-hat-3 text-success text-gradient"></i>
                                         </h1>
-                                        <h4 class="text-white">{{ $careerResults3->name }}</h4>
+                                        <h4 class="text-dark h5">{{ $careerResults3->name }}</h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <h5 class="pb-0 text-dark text-gradient">Opción 3</h5>
+                                <h5 class="pb-0 text-white">Opción 3</h5>
                             </div>
                         </div>
                     </div>

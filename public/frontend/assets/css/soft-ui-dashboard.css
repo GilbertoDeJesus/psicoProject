@@ -23284,6 +23284,10 @@ p {
   background-image: linear-gradient(310deg, #141727, #3A416F);
 }
 
+.text-gradient.text-dark-green {
+  background-image: linear-gradient(310deg, #037059 0%, #06AE8B 100%);
+}
+
 .blockquote {
   border-left: 3px solid #6c757d;
 }

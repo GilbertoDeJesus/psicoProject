@@ -11,9 +11,15 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 text-center mx-auto">
-                    <h4 class="text-white mb-2 mt-7">¡Bienvenido, {{ Str::title(Session::get('nameAlumno')) }}!</h4>
-                    <p class="text-lead text-white mb-5">Puedes consultar tu contraseña en el botón con tu nombre
-                    </p>
+                    @if ($aprendizaje == 1 && $vocacional == 1 && $trayectoria == 1)
+                        <h4 class="text-white mb-2 mt-7">¡Ya has contestado todos los cuestionarios!</h4>
+                        <a href="{{ route('students.results') }}" type="button" class="btn bg-gradient-dark-green btn-lg w-100 mt-4 mb-5 text-white"
+                        data-bs-dismiss="modal">Consulta tus resultados</a>
+                    @else
+                        <h4 class="text-white mb-2 mt-7">¡Bienvenido, {{ Str::title(Session::get('nameAlumno')) }}!</h4>
+                        <p class="text-lead text-white mb-5">Puedes consultar tu contraseña en el botón con tu nombre
+                        </p>
+                    @endif
                 </div>
             </div>
         </div>
@@ -25,10 +31,10 @@
                     <div class="card-header bg-gradient-info text-center pt-4 pb-5 position-relative">
                         <div class="z-index-1 position-relative">
                             <h5 class="text-white">Estilo de aprendizaje</h5>
-                            <h1 class="text-white mt-3 mb-0">
+                            <h1 class="text-white mt-3 mb-1">
                                 <i class="ni ni-ruler-pencil"></i>
                             </h1>
-                            <h6 class="text-white">{{$aprendizaje == 1 ? 'Contestado' : 'Sin contestar'}}</h6>
+                            <h6 class="text-dark"><span class="badge bg-white text-dark">{{$aprendizaje == 1 ? 'Contestado' : 'Sin contestar'}}</span></h6>
                         </div>
                     </div>
                     <div class="position-relative mt-n5" style="height: 50px;">
@@ -69,10 +75,10 @@
                     <div class="card-header bg-gradient-dark-green text-center pt-4 pb-5 position-relative">
                         <div class="z-index-1 position-relative">
                             <h5 class="text-white">Orientación vocacional</h5>
-                            <h1 class="text-white mt-3 mb-0">
+                            <h1 class="text-white mt-3 mb-1">
                                 <i class="ni ni-briefcase-24"></i>
                             </h1>
-                            <h6 class="text-white">{{$vocacional == 1 ? 'Contestado' : 'Sin contestar'}}</h6>
+                            <h6 class="text-dark"><span class="badge bg-white text-dark">{{$vocacional == 1 ? 'Contestado' : 'Sin contestar'}}</span></h6>
                         </div>
                     </div>
                     <div class="position-relative mt-n5" style="height: 50px;">
@@ -102,10 +108,13 @@
                                 <hr class="horizontal dark">
                             </li>
                         </ul>
-                        @if( $aprendizaje == null )
-                        
-                        @else
+                        @if( $aprendizaje == 1 )
                             <a href="{{ route('students.vocational') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0 {{$vocacional == 1 ? 'disabled' : ''}}">
+                                Comenzar
+                            </a>
+                        @else
+                            <a href="javascript:;" class="btn bg-gradient-dark w-100 mt-4 mb-0" data-bs-toggle="modal"
+                            data-bs-target="#modal-warning-1">
                                 Comenzar
                             </a>
                         @endif
@@ -117,10 +126,10 @@
                     <div class="card-header bg-gradient-dark text-center pt-4 pb-5 position-relative">
                         <div class="z-index-1 position-relative">
                             <h5 class="text-white">Trayectoria académica</h5>
-                            <h1 class="text-white mt-3 mb-0">
+                            <h1 class="text-white mt-3 mb-1">
                                 <i class="ni ni-hat-3"></i>
                             </h1>
-                            <h6 class="text-white">{{$trayectoria == 1 ? 'Contestado' : 'Sin contestar'}}</h6>
+                            <h6 class="text-dark"><span class="badge bg-white text-dark">{{$trayectoria == 1 ? 'Contestado' : 'Sin contestar'}}</span></h6>
                         </div>
                     </div>
                     <div class="position-relative mt-n5" style="height: 50px;">
@@ -150,9 +159,16 @@
                                 <hr class="horizontal dark">
                             </li>
                         </ul>
-                        <a href="{{ route('students.trajectory') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0 {{$trayectoria == 1 ? 'disabled' : ''}}">
-                            Comenzar
-                        </a>
+                        @if ($vocacional == 1)
+                            <a href="{{ route('students.trajectory') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0 {{$trayectoria == 1 ? 'disabled' : ''}}">
+                                Comenzar
+                            </a>
+                        @else
+                            <a href="javascript:;" class="btn bg-gradient-dark w-100 mt-4 mb-0" data-bs-toggle="modal"
+                            data-bs-target="#modal-warning-2">
+                                Comenzar
+                            </a>
+                            @endif
                     </div>
                 </div>
             </div>
