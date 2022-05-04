@@ -30,6 +30,7 @@ class Student extends Model
     {
         return $this->belongsToMany(Test::class)->withPivot('answers', 'finished');
     }
+   
 
     //Encripta la contraseña del alumno
     public function setPasswordAttribute($password){

@@ -54,7 +54,16 @@
                             <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == 'todos' ? 'active card-shadow-primary' : '' }}">
                                 <input type="radio" class="d-none" name="group" value="todos" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-drawer h4 mb-0 mr-2"></i><span>Todos</span>
                             </label>
-                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '1a'  ? 'active card-shadow-primary' : '' }}">
+                            @forelse ($groups as $group)
+                                <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == $group->id  ? 'active card-shadow-primary' : '' }}">
+                                    <input type="radio" class="d-none" name="group" value="{{$group->id}}" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>{{$group->name}}</span>
+                                </label>
+                            
+                            @empty
+                                
+                            @endforelse
+                          
+                            {{-- <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '1a'  ? 'active card-shadow-primary' : '' }}">
                                 <input type="radio" class="d-none" name="group" value="1a" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>1A</span>
                             </label>
                             <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '1b'  ? 'active card-shadow-primary' : '' }}">
@@ -77,7 +86,7 @@
                             </label>
                             <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '4b'  ? 'active card-shadow-primary' : '' }}">
                                 <input type="radio" class="d-none" name="group" value="4b" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>4B</span>
-                            </label>
+                            </label> --}}
                         </form>
                         <div class="divider"></div>
                     </div>
@@ -108,27 +117,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center text-muted">#345</td>
+                            @forelse ($students as $item)
+                            @php
+                                $program = $item->name;
+                            @endphp
+                            @forelse ($item->students as $student)
+                             <tr>
+                                <td class="text-center text-muted">{{$student->id}}</td>
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                         </div>
                                         <div class="widget-content-left flex2">
-                                            <div class="widget-heading">John Doe</div>
+                                            <div class="widget-heading">{{$student->name, $student->family_name}}</div>
                                             <div class="widget-subheading opacity-7">Web Developer
                                             </div>
                                         </div>
                                     </div>
 
                                 </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">3519110001</td>
+                                <td>{{$program}}</td>
+                                <td class="text-center">{{$student->matricula}}</td>
                                 <td class="text-center">
-                                    1 A
+                                    {{$student->group->name}}
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" id="PopoverCustomT-1"
+                                    <a href="{{ route('admin.student.info', ['student' => $student->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
                                         title="Resultados">
                                         <span class="btn-icon-wrapper">
@@ -145,133 +159,22 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="text-center text-muted">#347</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Ruben Tillman</div>
-                                                <div class="widget-subheading opacity-7">Etiam sit amet
-                                                    orci eget</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">3519110001</td>
-                                <td class="text-center">
-                                    1 A
-                                </td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Resultados">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-eye fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Información"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Información basica">
-                                            <i class="fa fa-id-card fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center text-muted">#321</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Elliot Huber</div>
-                                                <div class="widget-subheading opacity-7">Lorem ipsum
-                                                    dolor sic</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">3519110001</td>
-                                <td class="text-center">
-                                    1 A
-                                </td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Resultados">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-eye fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Información"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Información basica">
-                                            <i class="fa fa-id-card fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center text-muted">#55</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Vinnie Wagstaff</div>
-                                                <div class="widget-subheading opacity-7">UI Designer
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">3519110001</td>
-                                <td class="text-center">
-                                    1 A
-                                </td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Resultados">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-eye fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Información"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Información basica">
-                                            <i class="fa fa-id-card fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
+                                
+                            @empty
+                                
+                            @endforelse
+                           
+                           
+                            
+                            @empty
+                            <h6>No hay almnos inscritos aquí</h6>
+                            @endforelse
+                           
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">
-                    <nav class="" aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Previous"><span aria-hidden="true">«</span><span
-                                        class="sr-only">Previous</span></a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
-                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">2</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Next"><span aria-hidden="true">»</span><span
-                                        class="sr-only">Next</span></a></li>
-                        </ul>
-                    </nav>
+                <div class="d-block text-center card-footer">                  
+                        {{ $students->links('vendor.pagination.default') }}   
                 </div>
             </div>
         </div>
@@ -338,14 +241,14 @@
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="telefonoP" class="">Telefono personal</label><input
+                                <label for="telefonoP" class="">Teléfono personal</label><input
                                     name="telefonoP" id="telefonoP" type="text" class="form-control" disabled
                                     value="2381234567" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="telefonoC" class="">Telefono de contacto</label><input
+                                <label for="telefonoC" class="">Teléfono de contacto</label><input
                                     name="telefonoC" id="telefonoC" type="text" class="form-control" disabled
                                     value="2381234567" />
                             </div>

@@ -61,7 +61,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'name' => "Karla",
             'lastname' => "Francisco",
             'email' => "karla@gmail.com",
-            'password' => "karlagmail",
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
             'educative_program_id' => 6,
             'employee_key' => "karlatics"
         ])->assignRole('Admin');
@@ -70,7 +70,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'name' => "Elena",
             'lastname' => "Manuel",
             'email' => "elena@gmail.com",
-            'password' => "elenagmail",
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
             'educative_program_id' => 7,
             'employee_key' => "Elenaenf"
         ])->assignRole('Super-Admin');

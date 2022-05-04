@@ -82,7 +82,7 @@
                                 <td>{{$user->educativeProgram->name}}</td>
                                 <td class="text-center">{{$user->created_at->diffForHumans()}}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.users.editUser', ['id'=>$user->id]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.users.editUser', ['user'=>$user->id]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>

@@ -47,6 +47,7 @@ class EducativeProgram extends Model
     {
         return $this->hasMany(Group::class);
     }
+    
 
     public function questions()
     {
@@ -57,4 +58,5 @@ class EducativeProgram extends Model
     {
         return $this->hasMany(User::class);
     }
+
 }

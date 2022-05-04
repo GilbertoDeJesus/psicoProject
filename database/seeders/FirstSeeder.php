@@ -208,7 +208,7 @@ class FirstSeeder extends Seeder
         //
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Cuál o cuáles materias reprobaste(s)?",
+            'question' => "¿Cuál o cuáles materias reprobaste?",
             'status' => 1,
             'is_example' => 0,
             'order' => 6,

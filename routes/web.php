@@ -50,7 +50,7 @@ Route::get('/admin/log-out', 'backend\LoginController@logOut')->name('admin.log-
 Route::get('/admin/users', 'backend\UsersController@index')->name('admin.users');
 Route::post('/admin/users', 'backend\UsersController@storeUser')->name('admin.users.storeUser');
 Route::delete('/admin/users/{id}', 'backend\UsersController@deleteUser')->name('admin.users.deleteUser');
-Route::get('/admin/users/{id}/edit', 'backend\UsersController@editUser')->name('admin.users.editUser');
+Route::get('/admin/users/{user}/edit', 'backend\UsersController@editUser')->name('admin.users.editUser');
 Route::put('/admin/users/{id}', 'backend\UsersController@updateUser')->name('admin.users.updateUser');
 Route::get('/admin/users/search', 'backend\UsersController@searchUser')->name('admin.users.search');
 
@@ -60,7 +60,7 @@ Route::get('/admin', 'backend\DashboardController@index')->name('admin');
 
 //-------ADMIN STUDENTS-------------------------------
 Route::get('/admin/students', 'backend\StudentsAdminController@index')->name('admin.students');
-Route::get('/admin/student/{id}', 'backend\StudentsAdminController@infoStudent')->name('admin.student.info');
+Route::get('/admin/student/{student}', 'backend\StudentsAdminController@infoStudent')->name('admin.student.info');
 Route::get('/admin/students/search', 'backend\StudentsAdminController@searchStudent')->name('admin.students.search');
 
 

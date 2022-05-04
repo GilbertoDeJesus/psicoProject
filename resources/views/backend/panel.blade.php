@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-7">
-                                <h4 class="text-bold text-dark">Bienvenido, <span style="font-weight: 600;">Jhon Doe</span>
+                                <h4 class="text-bold text-dark">Bienvenid@, <span style="font-weight: 600;">{{ Str::limit(auth()->user()->name, 10, '.') }}</span>
                                 </h4>
                                 <p class="page-title-subheading mb-2">A continuación se presentan los informes de los alumnos
                                 </p>
@@ -64,7 +64,7 @@
                         <div class="widget-subheading">Cuestionarios respondidos</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-warning"><span>1896</span></div>
+                        <div class="widget-numbers text-warning"><span>{{$aprendizaje}}</span></div>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                         <div class="widget-subheading">Cuestionarios respondidos</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-white"><span>568</span></div>
+                        <div class="widget-numbers text-white"><span>{{$orientacion}}</span></div>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                         <div class="widget-subheading">Cuestionarios respondidos</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-white"><span>46</span></div>
+                        <div class="widget-numbers text-white"><span>{{$academico}}</span></div>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                                     <div class="badge badge-success">8° A</div>
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" type="button" id="PopoverCustomT-1"
+                                    <a href="{{ route('admin.student.info', ['student' => 1]) }}" type="button" id="PopoverCustomT-1"
                                         class="btn btn-primary btn-sm">Detalles</a>
                                 </td>
                             </tr>
@@ -162,7 +162,7 @@
                                     <div class="badge badge-success">5° A</div>
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" type="button" id="PopoverCustomT-2"
+                                    <a href="{{ route('admin.student.info', ['student' => 1]) }}" type="button" id="PopoverCustomT-2"
                                         class="btn btn-primary btn-sm">Detalles</a>
                                 </td>
                             </tr>
@@ -185,7 +185,7 @@
                                     <div class="badge badge-success">3° A</div>
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" type="button" id="PopoverCustomT-3"
+                                    <a href="{{ route('admin.student.info', ['student' => 1]) }}" type="button" id="PopoverCustomT-3"
                                         class="btn btn-primary btn-sm">Detalles</a>
                                 </td>
                             </tr>
@@ -208,7 +208,7 @@
                                     <div class="badge badge-success">1° B</div>
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.student.info', ['id' => 1]) }}" type="button" id="PopoverCustomT-4"
+                                    <a href="{{ route('admin.student.info', ['student' => 1]) }}" type="button" id="PopoverCustomT-4"
                                         class="btn btn-primary btn-sm">Detalles</a>
                                 </td>
                             </tr>
