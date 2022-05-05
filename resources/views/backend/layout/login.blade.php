@@ -64,15 +64,27 @@
                                 <div class="row gx-2 gx-sm-3">
                                     <form role="form text-left" method="POST" action="{{ route('admin.log-in') }}">
                                         @csrf
-                                        <label>Email</label>
+                                        @if ($errors->any())
+                                        @foreach ($errors->all() as $error)
+                                            <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
+                                                <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
+                                                <span class="alert-text">{{ $error }}</span>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
+                                                </button>
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                        <label>Clave de empleado</label>
                                         <div class="input-group mb-3">
-                                            <input type="email" class="form-control" placeholder="Email"
-                                                aria-label="Email" aria-describedby="email-addon">
+                                            <input type="text" class="form-control" placeholder="Clave de empleado"
+                                                aria-label="Clave" aria-describedby="email-addon" name="employee_key" required>
                                         </div>
                                         <label>Contraseña</label>
                                         <div class="input-group mb-3">
                                             <input type="password" class="form-control" placeholder="Password"
-                                                aria-label="Password" autocomplete="false">
+                                                aria-label="Password" autocomplete="false" name="password" required>
                                         </div>
                                         <div class="text-center">
                                             <button type="submit"

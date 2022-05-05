@@ -46,8 +46,8 @@
                                 </div>
                             </div>
                             <div>
-                                <h5 class="menu-header-title">Bryce Cordova</h5>
-                                <h6 class="menu-header-subtitle">Implementation Specialist</h6>
+                                <h5 class="menu-header-title">{{$student->name}} {{$student->family_name}} {{$student->last_name}}</h5>
+                                <h6 class="menu-header-subtitle">{{$student->group->educativeProgram->name}}</h6>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                             <div class="position-relative form-group">
                                 <label for="email" class="">Email institucional</label><input name="email"
                                     id="email" type="text" class="form-control" disabled
-                                    value="a3519110001@alumno.uttehuacan.edu.mx" />
+                                    value="{{$student->email}}" />
                             </div>
                         </div>
                     </div>
@@ -137,35 +137,35 @@
                         <div class="col-md-4">
                             <div class="position-relative form-group">
                                 <label for="grupo" class="">Grupo</label><input name="grupo" id="grupo"
-                                    type="text" class="form-control" disabled value="4 A" />
+                                    type="text" class="form-control" disabled value="{{$student->group->name}}" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="position-relative form-group">
                                 <label for="matricula" class="">Matrícula</label><input name="matricula"
-                                    id="matricula" type="text" class="form-control" disabled value="3519110001" />
+                                    id="matricula" type="text" class="form-control" disabled value="{{$student->matricula}}" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="position-relative form-group">
                                 <label for="edad" class="">Edad</label><input name="edad" id="edad"
-                                    type="text" class="form-control" disabled value="19" />
+                                    type="text" class="form-control" disabled value="{{$student->age}}" />
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="telefonoP" class="">Telefono personal</label><input
+                                <label for="telefonoP" class="">Teléfono personal</label><input
                                     name="telefonoP" id="telefonoP" type="text" class="form-control" disabled
-                                    value="2381234567" />
+                                    value="{{$student->phone}}" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="telefonoC" class="">Telefono de contacto</label><input
+                                <label for="telefonoC" class="">Teléfono de contacto</label><input
                                     name="telefonoC" id="telefonoC" type="text" class="form-control" disabled
-                                    value="2381234567" />
+                                    value="{{$student->contact_phone}}" />
                             </div>
                         </div>
                     </div>

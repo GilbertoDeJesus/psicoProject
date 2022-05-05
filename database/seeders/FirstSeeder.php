@@ -162,7 +162,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Sí",
                 'is_correct' => 1,
-                'value' => 1,
+                'value' => 5,
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
@@ -190,16 +190,16 @@ class FirstSeeder extends Seeder
             $question->save();
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Sí",
-                'is_correct' => 1,
-                'value' => 1,
+                'is_correct' => 0,
+                'value' => 0,
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
             ]);
             \App\Models\Answer::factory(1)->create([
                 'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
+                'is_correct' => 1,
+                'value' => 5,
                 'status' => 1,
                 'order' => 2,
                 'question_id' => $question->id
@@ -208,7 +208,7 @@ class FirstSeeder extends Seeder
         //
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Cuál o cuáles materias reprobaste(s)?",
+            'question' => "¿Cuál o cuáles materias reprobaste?",
             'status' => 1,
             'is_example' => 0,
             'order' => 6,
@@ -284,7 +284,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Ninguna",
                 'is_correct' => 1,
-                'value' => 1,
+                'value' => 5,
                 'status' => 1,
                 'order' => 9,
                 'question_id' => $question->id
@@ -307,7 +307,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Sí",
                 'is_correct' => 1,
-                'value' => 1,
+                'value' => 5,
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
@@ -401,7 +401,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Ninguna",
                 'is_correct' => 1,
-                'value' => 1,
+                'value' => 5,
                 'status' => 1,
                 'order' => 9,
                 'question_id' => $question->id
@@ -512,7 +512,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Sí",
                 'is_correct' => 1,
-                'value' => 1,
+                'value' => 5,
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
@@ -520,7 +520,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "No",
                 'is_correct' => 1,
-                'value' => 0,
+                'value' => 3,
                 'status' => 1,
                 'order' => 2,
                 'question_id' => $question->id
@@ -539,7 +539,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Sí",
                 'is_correct' => 1,
-                'value' => 1,
+                'value' => 5,
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
@@ -547,7 +547,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "No",
                 'is_correct' => 1,
-                'value' => 0,
+                'value' => 3,
                 'status' => 1,
                 'order' => 2,
                 'question_id' => $question->id
@@ -566,7 +566,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Sí",
                 'is_correct' => 1,
-                'value' => 1,
+                'value' => 5,
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
@@ -574,7 +574,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "No",
                 'is_correct' => 1,
-                'value' => 0,
+                'value' => 3,
                 'status' => 1,
                 'order' => 2,
                 'question_id' => $question->id
@@ -593,7 +593,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Estudio",
                 'is_correct' => 1,
-                'value' => 1,
+                'value' => 5,
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
@@ -601,7 +601,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Trabajo",
                 'is_correct' => 1,
-                'value' => 1,
+                'value' => 0,
                 'status' => 1,
                 'order' => 2,
                 'question_id' => $question->id
@@ -609,7 +609,7 @@ class FirstSeeder extends Seeder
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Ambas",
                 'is_correct' => 1,
-                'value' => 1,
+                'value' => 3,
                 'status' => 1,
                 'order' => 3,
                 'question_id' => $question->id

@@ -2,13 +2,24 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\LogInAdminRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    public function logIn(){
-        return redirect()->route('admin');
+    public function logIn(LogInAdminRequest $request){
+        // dd($request);
+        $credentials = $request->validated();
+        if(Auth::attempt($credentials)){
+            request()->session()->regenerate(); //Evitamos robo de sesión            
+            return redirect()->intended(route('admin'));
+        }
+        throw ValidationException::withMessages([
+            'employee_key'=> __('auth.failed')
+        ]);
     }
 
     public function index(){

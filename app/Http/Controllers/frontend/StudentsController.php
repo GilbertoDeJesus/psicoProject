@@ -107,14 +107,5 @@ class StudentsController extends Controller
         return $groups;
     }
 
-    //Genera una contraseña única para cada estudiante
-    public static function generatePassword()
-    {
-
-        $clave = Str::random(8);
-        while (Student::where("password", $clave)->first() != null) {
-            $clave = Str::random(8);
-        }
-        return $clave;
-    }
+   
 }

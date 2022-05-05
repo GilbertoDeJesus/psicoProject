@@ -19,8 +19,8 @@ class UsersController extends Controller
         ]);
     }
 
-    public function deleteUser($user){
-        User::find($user)->delete();
+    public function deleteUser(User $user){
+        $user->delete();
         return back()->with('status', '¡El registro se elimino correctamente!');
     }
 
@@ -30,15 +30,15 @@ class UsersController extends Controller
         return back()->with('status', '¡El registro se creo correctamente!');
     }
 
-    public function editUser($user){
+    public function editUser(User $user){
         return view('backend.users.editUser')->with([
-            'user' => User::find($user),
+            'user' => $user,
             'educativePrograms' => EducativeProgram::all(),
         ]);
     }
 
-    public function updateUser(UserRequest $request, $user){
-        User::find($user)->update($request->validated());
+    public function updateUser(UserRequest $request, User $user){
+        $user->update($request->validated());
         return redirect()->route('admin.users')->with('status', '¡El registro se modificó  correctamente!');
     }
 
