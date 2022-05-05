@@ -172,8 +172,8 @@
                                 <div class="position-relative form-group">
                                     <label for="roles" class="">Rol</label><select type="select"
                                         id="roles" name="roles" class="custom-select" required>
-                                        <option value="">Tutor</option>
-                                        <option>Administrador</option>
+                                        <option value="Admin">Tutor</option>
+                                        <option value="Super-Admin">Administrador</option>
                                     </select>
                                 </div>
                             </div>

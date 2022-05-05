@@ -26,7 +26,7 @@ class UsersController extends Controller
 
     public function storeUser(UserRequest $request){
         $user = User::create($request->validated());
-        //$user->syncRoles($request->roles);
+        $user->syncRoles($request->roles);
         return back()->with('status', '¡El registro se creo correctamente!');
     }
 

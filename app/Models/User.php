@@ -54,4 +54,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(EducativeProgram::class);
     }
+
+    public function setPasswordAttribute($password){
+        $this->attributes['password'] = bcrypt($password);
+    }
 }
