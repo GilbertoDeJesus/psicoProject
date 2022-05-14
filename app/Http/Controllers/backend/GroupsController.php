@@ -11,10 +11,10 @@ use App\Http\Requests\GroupRequest;
 class GroupsController extends Controller
 {
     public function index(){
-        $groups = Group::with('educativeProgram')->get();
         return view('backend.groups.groups')->with([
-            'groups' => $groups,
-            'educativePrograms' => EducativeProgram::all()
+            'groups' => Group::paginate(20),
+            'educativePrograms' => EducativeProgram::all(),
+            'text' => 'prueba'
         ]);
     }
 
@@ -44,6 +44,13 @@ class GroupsController extends Controller
 
         $search = htmlspecialchars($request->input('search'));
 
-        return view('backend.groups.groupsSearch',['search'=>$search]);
+        $groups = Group::where('name', 'LIKE', '%'.$search.'%')
+        ->orderBy('name', 'asc')
+        ->paginate(20);
+
+        return view('backend.groups.groupsSearch')->with([
+            'searchs' => $groups,
+            'search' => $search
+        ]);;
     }
 }
