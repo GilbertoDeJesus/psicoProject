@@ -12,33 +12,32 @@ use Illuminate\Support\Facades\Auth;
 class UsersController extends Controller
 {
     public function index(){
-        $users = User::with('educativeProgram')->get();
         return view('backend.users.users')->with([
-            'users' => $users,
+            'users' => User::paginate(20),
             'educativePrograms' => EducativeProgram::all(),
         ]);
     }
 
-    public function deleteUser(User $user){
-        $user->delete();
+    public function deleteUser($user){
+        User::find($user)->delete();
         return back()->with('status', '¡El registro se elimino correctamente!');
     }
 
     public function storeUser(UserRequest $request){
         $user = User::create($request->validated());
-        //$user->syncRoles($request->roles);
+        $user->syncRoles($request->roles);
         return back()->with('status', '¡El registro se creo correctamente!');
     }
 
-    public function editUser(User $user){
+    public function editUser($user){
         return view('backend.users.editUser')->with([
-            'user' => $user,
+            'user' => User::find($user),
             'educativePrograms' => EducativeProgram::all(),
         ]);
     }
 
-    public function updateUser(UserRequest $request, User $user){
-        $user->update($request->validated());
+    public function updateUser(UserRequest $request, $user){
+        User::find($user)->update($request->validated());
         return redirect()->route('admin.users')->with('status', '¡El registro se modificó  correctamente!');
     }
 
@@ -46,6 +45,14 @@ class UsersController extends Controller
 
         $search = htmlspecialchars($request->input('search'));
 
-        return view('backend.users.usersSearch',['search'=>$search]);
+        $users = User::where('name', 'LIKE', '%'.$search.'%')
+        ->orWhere('lastname', 'LIKE', '%'.$search.'%')
+        ->orderBy('name', 'asc')
+        ->paginate(20);
+
+        return view('backend.users.usersSearch')->with([
+            'searchs' => $users,
+            'search' => $search
+        ]);
     }
 }

@@ -101,22 +101,8 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">
-                    <nav class="" aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Previous"><span aria-hidden="true">«</span><span
-                                        class="sr-only">Previous</span></a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
-                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">2</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Next"><span aria-hidden="true">»</span><span
-                                        class="sr-only">Next</span></a></li>
-                        </ul>
-                    </nav>
+                <div class="d-block text-center card-footer">                  
+                        {{ $users->links('vendor.pagination.default') }}   
                 </div>
             </div>
         </div>
@@ -172,8 +158,8 @@
                                 <div class="position-relative form-group">
                                     <label for="roles" class="">Rol</label><select type="select"
                                         id="roles" name="roles" class="custom-select" required>
-                                        <option value="">Tutor</option>
-                                        <option>Administrador</option>
+                                        <option value="Admin">Tutor</option>
+                                        <option value="Super-Admin">Administrador</option>
                                     </select>
                                 </div>
                             </div>

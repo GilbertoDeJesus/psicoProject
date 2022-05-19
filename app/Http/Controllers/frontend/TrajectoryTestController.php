@@ -8,6 +8,7 @@ use App\Models\Test;
 use App\Models\Answer;
 use App\Models\Student;
 use App\Models\EducativeProgram;
+use App\Models\Result as ModelsResult;
 use App\Models\Result;
 use Illuminate\Http\Request;
 
@@ -53,6 +54,30 @@ class TrajectoryTestController extends Controller
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
         $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
         $student->tests()->attach($student->id, $studentAnswers);
+
+        if ($answers[2] >= 8.5){
+            $answers[2] = 5;
+       }if($answers[2] <= 8.4 && $answers >= 6 ){
+            $answers[2] = 3;
+       }if($answers[2] <= 5.9){
+            $answers[2] = 0;
+       }
+
+       $totalResults = $answers[2]+intval($answers[4])+intval($answers[5])+intval($answers[7])+intval($answers[10])+intval($answers[11])+intval($answers[12])+intval($answers[13]);
+
+       if ($totalResults >=30){
+            $foco = 'Verde';
+       }if($totalResults <=29 && $totalResults >=21){
+            $foco = 'Amarillo';
+       }if ($totalResults <=20){
+            $foco = 'Rojo';
+       }
+       
+
+    $testResults = ModelsResult::where('student_id', session()->get('idAlumno'))->first();//Este busca el registro que se creo en el test anterior
+
+    $testResults->update(['test_status_academico' => $foco]);//Este agrega los resultados del test
+
         return redirect()->route('students.results');
     }
 
