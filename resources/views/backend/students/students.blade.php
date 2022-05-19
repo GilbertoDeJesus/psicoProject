@@ -129,8 +129,8 @@
                                         <div class="widget-content-wrapper">
                                         </div>
                                         <div class="widget-content-left flex2">
-                                            <div class="widget-heading">{{$student->name, $student->family_name}}</div>
-                                            <div class="widget-subheading opacity-7">Web Developer
+                                            <div class="widget-heading">{{$student->name}}</div>
+                                            <div class="widget-subheading opacity-7">{{$student->family_name}}
                                             </div>
                                         </div>
                                     </div>

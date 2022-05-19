@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Group;
+use Illuminate\Http\Request;
 use App\Models\EducativeProgram;
 use App\Http\Requests\GroupRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class GroupsController extends Controller
 {
     public function index(){
-        $groups = Group::with('educativeProgram')->get();
+        $user = Auth::user();
+        $groups = EducativeProgram::find($user->educative_program_id)->groups;
+
         return view('backend.groups.groups')->with([
             'groups' => $groups,
             'educativePrograms' => EducativeProgram::all()

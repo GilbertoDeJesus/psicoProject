@@ -23,12 +23,12 @@ class Result extends Model
 
     public function educativeProgramTestOrientaconal2()
     {
-        return $this->belongsTo(EducativeProgram::class, 'test_orientacional2');
+        return $this->belongsTo(EducativeProgram::class, 'test_orientacional2_id');
     }
 
     public function educativeProgramTestOrientaconal3()
     {
-        return $this->belongsTo(EducativeProgram::class, 'test_orientacional3');
+        return $this->belongsTo(EducativeProgram::class, 'test_orientacional3_id');
     }
 
     public function student()

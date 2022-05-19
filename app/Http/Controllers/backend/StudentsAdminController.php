@@ -45,7 +45,6 @@ class StudentsAdminController extends Controller
 
     public function infoStudent(Student $student){
         $s = Student::where('id',$student->id)->with('group.educativeProgram')->first();
-        // dd($s->group->educativeProgram->name);
         return view('backend.students.studentInfo',['student'=>$s]);
     }
 
