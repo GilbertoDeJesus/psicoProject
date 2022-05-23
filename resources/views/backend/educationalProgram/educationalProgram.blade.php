@@ -14,6 +14,7 @@
                 </div>
             </div>
             <div class="page-title-actions">
+                @can('Buscar programa educativo',)
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.educationalProgram.search') }}" method="get">
@@ -22,6 +23,7 @@
                         </form>
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
@@ -38,12 +40,14 @@
                 <div class="card-header">Lista de programas educativos
                     <div class="btn-actions-pane-right">
                         <div role="group" class="btn-group">
+                            @can('Agregar programa educativo',)
                             <button class="btn btn-primary mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">
                                 <span class="btn-icon-wrapper pr-2 opacity-7">
                                     <i class="fa fa-plus fa-w-20"></i>
                                 </span>
                                 Agregar
                             </button>
+                            @endcan
                         </div>
                     </div>
                 </div>
@@ -72,6 +76,7 @@
                                     </div>
                                 </td>
                                 <td class="text-center">{{$ep->created_at->diffForHumans()}}</td>
+                                @can('Ver alumnos avanzado',)
                                 <td class="text-center">
                                     <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
                                         class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
@@ -81,7 +86,9 @@
                                         </span>
                                     </a>
                                 </td>
+                                @endcan
                                 <td class="text-center">
+                                    @can('Editar programas educativo',)
                                     <a href="javascript:;" id="PopoverCustomT-1" class="btn btn-success btn-update btn-sm my-auto" 
                                     data-name="{{$ep->name}}" data-id="{{$ep->id}}" data-toggle="modal" data-placement="top" title="Editar" data-target="#editModal">
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
@@ -89,6 +96,8 @@
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
+                                    @endcan
+                                    @can('Eliminar programa educativo',)
                                     <a href="javascript:;" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
                                     data-id="{{$ep->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
                                         data-target="#deleteModal">
@@ -96,7 +105,8 @@
                                             title="Eliminar">
                                             <i class="fa fa-trash fa-w-20"></i>
                                         </span>
-                                    </a>
+                                    </a> 
+                                    @endcan 
                                 </td>
                             </tr>
                             @endforeach
@@ -171,25 +181,27 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                @can('Editar programas educativo1',)
                 <form id="formUpdate" action="{{ route('admin.educationalProgram.updateProgram', ['id' => 0]) }}" method="post" role="form"
-                data-action="{{ route('admin.educationalProgram.updateProgram', ['id' => 0]) }}">
-                    @method('PUT')
-                    @csrf
-                    <div class="modal-body mx-2 my-2">
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="position-relative form-group">
-                                    <label for="name" class="">Nombre</label><input id="inputName" value="" name="name" id="name"
-                                        placeholder="Nombre" type="text" class="form-control" required>
+                    data-action="{{ route('admin.educationalProgram.updateProgram', ['id' => 0]) }}">
+                        @method('PUT')
+                        @csrf
+                        <div class="modal-body mx-2 my-2">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="name" class="">Nombre</label><input id="inputName" value="" name="name" id="name"
+                                            placeholder="Nombre" type="text" class="form-control" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                @endcan
             </div>
         </div>
     </div>

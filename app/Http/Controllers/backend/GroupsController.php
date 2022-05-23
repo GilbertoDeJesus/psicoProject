@@ -10,6 +10,10 @@ use App\Http\Requests\GroupRequest;
 
 class GroupsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:Admin']);
+    }
     public function index(){
         $groups = Group::with('educativeProgram')->get();
         return view('backend.groups.groups')->with([

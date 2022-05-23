@@ -13,8 +13,9 @@ class StudentsAdminController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('auth');
+      //$this->middleware(['auth', 'role:Admin|SuperAdmin']);
       $group="";
+      $this->middleware(['auth', 'role_or_permission:Admin|Ver alumnos avanzado']);
     }
     public function index(Request $request){
         $user = Auth::user();

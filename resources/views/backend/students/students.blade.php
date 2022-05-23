@@ -33,14 +33,17 @@
                 </div>
             </div>
             <div class="page-title-actions">
+                @can('Buscar alumno sencillo')
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.students.search') }}" method="get">
                             <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
+                        
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
@@ -142,6 +145,7 @@
                                     {{$student->group->name}}
                                 </td>
                                 <td class="text-center">
+                                    @can('Ver info alumno sencillo')
                                     <a href="{{ route('admin.student.info', ['student' => $student->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
                                         title="Resultados">
@@ -157,6 +161,7 @@
                                             <i class="fa fa-id-card fa-w-20"></i>
                                         </span>
                                     </button>
+                                    @endcan
                                 </td>
                             </tr>
                                 

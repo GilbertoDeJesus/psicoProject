@@ -9,6 +9,11 @@ use App\Http\Requests\EducativeProgramRequest;
 
 class EducationalProgramController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:Super-Admin']);
+    }
+
     public function index(){
         return view('backend.educationalProgram.educationalProgram')->with([
             'educativePrograms' => EducativeProgram::all()
