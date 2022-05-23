@@ -58,13 +58,13 @@
                             <div class="no-gutters row">
                                 <div class="col-sm-6">
                                     <div class="p-1">
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-primary d-none">{{--Quitar la clase d-none para que se muestre--}}
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-primary {{$student->result->test_aprendizaje == 'Visual' ? '':'d-none'}}">{{--Quitar la clase d-none para que se muestre--}}
                                             <i class="pe-7s-look btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje visual
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-info">
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-info {{$student->result->test_aprendizaje == 'Auditivo' ? '':'d-none'}}">
                                             <i class="pe-7s-volume1 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Auditivo
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate d-none">
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate {{$student->result->test_aprendizaje == 'Kinestesico' ? '':'d-none'}}">
                                             <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestesico
                                         </button>
                                     </div>
@@ -96,13 +96,13 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="px-4">Tecnologias de la informacion</td>
+                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional1->name}}</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4">Enfermeria</td>
+                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional2->name}}</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4">Procesos industriales</td>
+                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional3->name}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

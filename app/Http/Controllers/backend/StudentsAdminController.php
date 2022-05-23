@@ -44,7 +44,14 @@ class StudentsAdminController extends Controller
     }
 
     public function infoStudent(Student $student){
-        $s = Student::where('id',$student->id)->with('group.educativeProgram')->first();
+        $s = Student::where('id',$student->id)->with('group.educativeProgram')
+        ->with('result', 'result.educativeProgramTestOrientacional1:id,name',
+        'result.educativeProgramTestOrientacional2:id,name',
+        'result.educativeProgramTestOrientacional3:id,name')
+        ->first();
+        if($s->result == null){
+            return back()->with('alert', 'El estudiante seleccionado aún no ha respondido ningún cuestionario');
+        }        
         return view('backend.students.studentInfo',['student'=>$s]);
     }
 

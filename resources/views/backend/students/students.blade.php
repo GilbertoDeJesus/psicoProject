@@ -44,6 +44,7 @@
             </div>
         </div>
     </div>
+    
     <div class="row">
         <div class="col-md-3">
             <div class="card mb-3">
@@ -99,6 +100,13 @@
                     <button type="button" class="close" aria-label="Close" data-dismiss="alert">
                         <span aria-hidden="true">&times;</span></button>
                     {{ session('status') }}
+                </div>
+            @endif
+            @if (session('alert'))
+                <div class="alert alert-success fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ session('alert') }}
                 </div>
             @endif
             <div class="main-card mb-3 card">
