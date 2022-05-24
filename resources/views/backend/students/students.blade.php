@@ -102,11 +102,11 @@
                     {{ session('status') }}
                 </div>
             @endif
-            @if (session('alert'))
-                <div class="alert alert-success fade alert-dismissible show" role="alert">
+            @if (session('alerta'))
+                <div class="alert alert-primary fade alert-dismissible show" role="alert">
                     <button type="button" class="close" aria-label="Close" data-dismiss="alert">
                         <span aria-hidden="true">&times;</span></button>
-                    {{ session('alert') }}
+                    {{ session('alerta') }}
                 </div>
             @endif
             <div class="main-card mb-3 card">
@@ -182,7 +182,7 @@
                     </table>
                 </div>
                 <div class="d-block text-center card-footer">                  
-                        {{ $students->links('vendor.pagination.default') }}   
+                        {{ $students->withQueryString()->links('vendor.pagination.default') }}   
                 </div>
             </div>
         </div>

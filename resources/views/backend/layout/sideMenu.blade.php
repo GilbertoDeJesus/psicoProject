@@ -79,12 +79,12 @@
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Estadisticas</li> --}}
-                <li>
+                {{-- <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-display1"></i>
                         Graficas
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="{{ route('admin.reports') }}" class="{{ (Route::is('admin.reports')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-print"></i>
