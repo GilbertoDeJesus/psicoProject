@@ -16,7 +16,7 @@ class EducationalProgramController extends Controller
 
     public function index(){
         return view('backend.educationalProgram.educationalProgram')->with([
-            'educativePrograms' => EducativeProgram::all()
+            'educativePrograms' => EducativeProgram::paginate(20)
         ]);
     }
 
@@ -38,7 +38,7 @@ class EducationalProgramController extends Controller
     public function updateProgram(EducativeProgramRequest $request, $educativeProgram){
         //dd(EducativeProgram::find($educativeProgram));
         EducativeProgram::find($educativeProgram)->update($request->validated());
-        return redirect()->route('admin.educationalProgram')->with('status', '¡El registro se modificó  correctamente!');
+        return back()->with('status', '¡El registro se modificó  correctamente!');
     }
 
     public function indexProgram(Request $request){
@@ -58,7 +58,14 @@ class EducationalProgramController extends Controller
 
         $search = htmlspecialchars($request->input('search'));
 
-        return view('backend.educationalProgram.educationalSearch',['search'=>$search]);
+        $eduactivePrograms = EducativeProgram::where('name', 'LIKE', '%'.$search.'%')
+        ->orderBy('name', 'asc')
+        ->paginate(20);
+
+        return view('backend.educationalProgram.educationalSearch')->with([
+            'searchs' => $eduactivePrograms,
+            'search' => $search
+        ]);
     }
 
     public function searchGroupStudent(Request $request){

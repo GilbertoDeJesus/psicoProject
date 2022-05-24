@@ -47,6 +47,7 @@
             </div>
         </div>
     </div>
+    
     <div class="row">
         <div class="col-md-3">
             <div class="card mb-3">
@@ -104,6 +105,13 @@
                     {{ session('status') }}
                 </div>
             @endif
+            @if (session('alert'))
+                <div class="alert alert-success fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ session('alert') }}
+                </div>
+            @endif
             <div class="main-card mb-3 card">
                 <div class="card-header">Lista de alumnos
                 </div>
@@ -132,8 +140,8 @@
                                         <div class="widget-content-wrapper">
                                         </div>
                                         <div class="widget-content-left flex2">
-                                            <div class="widget-heading">{{$student->name, $student->family_name}}</div>
-                                            <div class="widget-subheading opacity-7">Web Developer
+                                            <div class="widget-heading">{{$student->name}}</div>
+                                            <div class="widget-subheading opacity-7">{{$student->family_name}}
                                             </div>
                                         </div>
                                     </div>

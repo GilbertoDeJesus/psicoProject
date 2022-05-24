@@ -70,7 +70,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'name' => "Elena",
             'lastname' => "Manuel",
             'email' => "elena@gmail.com",
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
+            'password' => 'password', // password,
             'educative_program_id' => 7,
             'employee_key' => "superAdmin"
         ])->assignRole('Super-Admin');
