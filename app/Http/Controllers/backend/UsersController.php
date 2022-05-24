@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:Super-Admin']);
+    }
+    
     public function index(){
         return view('backend.users.users')->with([
             'users' => User::paginate(20),

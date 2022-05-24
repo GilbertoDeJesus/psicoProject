@@ -40,7 +40,7 @@
                 </div>
                 <button class="close  d-lg-block"></button>
             </div> --}}
-            <ul class="header-menu nav">
+            {{-- <ul class="header-menu nav">
                 <li class="nav-item">
                     <a href="javascript:void(0);" class="nav-link">
                         <i class="nav-link-icon fa fa-database"> </i>
@@ -59,7 +59,7 @@
                         Settings
                     </a>
                 </li>
-            </ul>
+            </ul> --}}
         </div>
         <div class="app-header-right">
             <div class="header-btn-lg pr-0">
@@ -82,10 +82,10 @@
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading">
-                                Jhon Doe
+                                {{auth()->user()->name}}
                             </div>
                             <div class="widget-subheading">
-                                Administrador
+                                {{auth()->user()->roles[0]->name}}
                             </div>
                         </div>
                     </div>

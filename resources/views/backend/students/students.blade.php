@@ -33,17 +33,21 @@
                 </div>
             </div>
             <div class="page-title-actions">
+                @can('Buscar alumno sencillo')
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.students.search') }}" method="get">
                             <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
+                        
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
+    
     <div class="row">
         <div class="col-md-3">
             <div class="card mb-3">
@@ -101,6 +105,13 @@
                     {{ session('status') }}
                 </div>
             @endif
+            @if (session('alerta'))
+                <div class="alert alert-primary fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ session('alerta') }}
+                </div>
+            @endif
             <div class="main-card mb-3 card">
                 <div class="card-header">Lista de alumnos
                 </div>
@@ -129,8 +140,8 @@
                                         <div class="widget-content-wrapper">
                                         </div>
                                         <div class="widget-content-left flex2">
-                                            <div class="widget-heading">{{$student->name, $student->family_name}}</div>
-                                            <div class="widget-subheading opacity-7">Web Developer
+                                            <div class="widget-heading">{{$student->name}}</div>
+                                            <div class="widget-subheading opacity-7">{{$student->family_name}}
                                             </div>
                                         </div>
                                     </div>
@@ -142,6 +153,7 @@
                                     {{$student->group->name}}
                                 </td>
                                 <td class="text-center">
+                                    @can('Ver info alumno sencillo')
                                     <a href="{{ route('admin.student.info', ['student' => $student->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
                                         title="Resultados">
@@ -157,6 +169,7 @@
                                             <i class="fa fa-id-card fa-w-20"></i>
                                         </span>
                                     </button>
+                                    @endcan
                                 </td>
                             </tr>
                                 
@@ -174,7 +187,7 @@
                     </table>
                 </div>
                 <div class="d-block text-center card-footer">                  
-                        {{ $students->links('vendor.pagination.default') }}   
+                        {{ $students->withQueryString()->links('vendor.pagination.default') }}   
                 </div>
             </div>
         </div>

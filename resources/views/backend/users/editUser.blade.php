@@ -52,10 +52,12 @@
                     </div>
                 </div>
             </div>
+            @can('Editar administrador1',)
             <div class="modal-footer">
                 <a href="{{ route('admin.users') }}" class="btn btn-dark" data-dismiss="modal">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
+            @endcan
         </form>
     </div>
 @endsection

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\Test;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\EducativeProgram;
 
 class DashboardController extends Controller
 { public function __construct()
@@ -17,7 +19,13 @@ class DashboardController extends Controller
       $numAprendizaje= Test::find(3)->student->count();
       $numOrientación= Test::find(2)->student->count();
       $numAcademico= Test::find(1)->student->count();
+
+      //Obtener info de Alumnos
+      $students = Student::all();
       
-        return view('backend.panel',['aprendizaje'=>$numAprendizaje,'orientacion'=>$numOrientación,'academico'=>$numAcademico]);
+        return view('backend.panel',['aprendizaje'=>$numAprendizaje,'orientacion'=>$numOrientación,'academico'=>$numAcademico, 'students' =>$students]);
     }
+
+
+
 }

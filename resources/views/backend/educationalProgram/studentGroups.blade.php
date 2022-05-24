@@ -33,6 +33,7 @@
                 </div>
             </div>
             <div class="page-title-actions">
+                @can('Buscar alumno avanzando',)
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.educationalProgram.searchStudent', ['id' => 1]) }}" method="get">
@@ -41,6 +42,7 @@
                         </form>
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>

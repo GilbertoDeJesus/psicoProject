@@ -58,13 +58,13 @@
                             <div class="no-gutters row">
                                 <div class="col-sm-6">
                                     <div class="p-1">
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-primary d-none">{{--Quitar la clase d-none para que se muestre--}}
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-primary {{$student->result->test_aprendizaje == 'Visual' ? '':'d-none'}}">{{--Quitar la clase d-none para que se muestre--}}
                                             <i class="pe-7s-look btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje visual
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-info">
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-info {{$student->result->test_aprendizaje == 'Auditivo' ? '':'d-none'}}">
                                             <i class="pe-7s-volume1 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Auditivo
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate d-none">
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate {{$student->result->test_aprendizaje == 'Kinestesico' ? '':'d-none'}}">
                                             <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestesico
                                         </button>
                                     </div>
@@ -96,13 +96,13 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="px-4">Tecnologias de la informacion</td>
+                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional1->name}}</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4">Enfermeria</td>
+                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional2->name}}</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4">Procesos industriales</td>
+                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional3->name}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -219,58 +219,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @forelse ($learningTest as $question)
                                             <tr>
-                                                <td class="text-center text-muted">#1</td>
+                                                <td class="text-center text-muted">#{{ $loop->iteration }}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Puedo recordar algo mejor si lo escribo</div>
+                                                                <div class="widget-heading">{{ $question->question }}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>Rara vez</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#2</td>
                                                 <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Al leer, oigo las palabras en mi cabeza o leo en voz alta.</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    @empty(!$answerLearningTest)
+                                                        {{$answerLearningTest[$question->id]}}
+                                                    @endempty
                                                 </td>
-                                                <td>Frecuentemente</td>
+                                               
                                             </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#3</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Necesito hablar las cosas para entenderlas mejor.</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>A veces</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#4</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">No me gusta leer o escuchar instrucciones, prefiero simplemente comenzar a hacer las cosas</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Casi siempre</td>
-                                            </tr>
+                                            @empty
+                                            <h5>No hay preguntas ni respuestas para este cuestionario</h5>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -292,58 +262,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @forelse ($vocationalTest as $question)
                                             <tr>
-                                                <td class="text-center text-muted">#1</td>
+                                                <td class="text-center text-muted">#{{ $loop->iteration }}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Conoces acerca de procesos económico administrativos</div>
+                                                                <div class="widget-heading">{{ $question->question }}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>Si</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#2</td>
                                                 <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Te gusta automatizar procesos mediante el uso de la computadora o procesadores</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Si</td>
+                                                    @empty(!$answerVocationalTest)
+                                                        {{$answerVocationalTest[$question->id]->answer == 1 ? "Sí": "No"}}
+                                                    @endempty
+                                                </td>   
                                             </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#3</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Te gusta cocinar y/o procesar alimentos</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>No</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#4</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Te gusta configurar equipos de computo</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Si</td>
-                                            </tr>
+                                            @empty
+                                            <h5>No hay preguntas ni respuestas para este cuestionario</h5>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -365,58 +304,36 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @forelse ($trayectoryTest as $question)
                                             <tr>
-                                                <td class="text-center text-muted">#1</td>
+                                                <td class="text-center text-muted">#{{ $loop->iteration }}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Escuela de procedencia</div>
+                                                                <div class="widget-heading">{{ $question->question }}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>CBTis 229</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#2</td>
                                                 <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Promedio</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    @empty(!$answerTrayectoryTest)
+                                                        @php                                                        
+                                                            if (is_array($answerTrayectoryTest[$question->id])){
+                                                                $answerTrayectoryTest[$question->id] = implode(", ",$answerTrayectoryTest[$question->id]);
+                                                            }
+                                                                                                        
+                                                        @endphp
+                                                        {{$answerTrayectoryTest[$question->id]}}
+                                                    @endempty
+                                                   
                                                 </td>
-                                                <td>9.6</td>
                                             </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#3</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">¿Cúal fue la especialidad que tomaste en el bachillerato?</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Tecnológico</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#4</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">¿Es la primer ocasión que estudias una carrera universitaria?</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>No</td>
-                                            </tr>
+                                            @empty
+                                                <h5>No hay preguntas ni respuestas para este cuestionario</h5>
+                                            @endforelse
+                                            
+                                           
                                         </tbody>
                                     </table>
                                 </div>
