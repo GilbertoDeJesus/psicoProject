@@ -61,7 +61,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'name' => "Karla",
             'lastname' => "Francisco",
             'email' => "karla@gmail.com",
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
+            'password' => 'password', // password,
             'educative_program_id' => 6,
             'employee_key' => "admin"
         ])->assignRole('Admin');
