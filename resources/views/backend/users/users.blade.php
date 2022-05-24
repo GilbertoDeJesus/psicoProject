@@ -14,6 +14,7 @@
                 </div>
             </div>
             <div class="page-title-actions">
+                @can('Buscar administrador')
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.users.search') }}" method="get">
@@ -22,6 +23,7 @@
                         </form>
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
@@ -37,6 +39,7 @@
             <div class="main-card mb-3 card">
                 <div class="card-header">Lista de usuarios
                     <div class="btn-actions-pane-right">
+                        @can('Agregar admnistrador',)
                         <div role="group" class="btn-group">
                             <button class="btn btn-primary mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">
                                 <span class="btn-icon-wrapper pr-2 opacity-7">
@@ -45,6 +48,7 @@
                                 Agregar
                             </button>
                         </div>
+                        @endcan
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -82,19 +86,23 @@
                                 <td>{{$user->educativeProgram->name}}</td>
                                 <td class="text-center">{{$user->created_at->diffForHumans()}}</td>
                                 <td class="text-center">
+                                    @can('Editar administrador',)
                                     <a href="{{ route('admin.users.editUser', ['user'=>$user->id]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
+                                    @endcan
+                                    @can('Eliminar administrador')
                                     <a href="javascript:; type="button" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
-                                        data-id="{{$user->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </a>
+                                    data-id="{{$user->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
+                                    data-target="#exampleModal">
+                                    <span class="btn-icon-wrapper">
+                                        <i class="fa fa-trash fa-w-20"></i>
+                                    </span>
+                                </a>
+                                    @endcan
                                 </td>
                             </tr>
                             @endforeach

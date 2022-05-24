@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class GroupsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:Admin']);
+    }
     public function index(){
         $user = Auth::user();
         $groups = EducativeProgram::find($user->educative_program_id)->groups;

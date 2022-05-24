@@ -14,6 +14,7 @@
                 </div>
             </div>
             <div class="page-title-actions">
+                @can('Buscar administrador',)
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.users.search') }}" method="get">
@@ -22,6 +23,7 @@
                         </form>
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>

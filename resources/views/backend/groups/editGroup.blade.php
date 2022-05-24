@@ -29,8 +29,10 @@
                 </div>
             </div>
             <div class="modal-footer">
+                @can('Editar grupo1',)
                 <a href="{{ route('admin.groups') }}" class="btn btn-dark" data-dismiss="modal">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
+                @endcan
             </div>
         </form>
     </div>
