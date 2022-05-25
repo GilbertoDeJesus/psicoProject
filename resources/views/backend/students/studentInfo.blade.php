@@ -65,20 +65,20 @@
                                             <i class="pe-7s-volume1 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Auditivo
                                         </button>
                                         <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate {{$student->result->test_aprendizaje == 'Kinestesico' ? '':'d-none'}}">
-                                            <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestesico
+                                            <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestésico
                                         </button>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="p-1">
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-success">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco verde
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-success" {{$student->result->test_status_academico == 'Verde' ? '':'d-none'}}">
+                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Verde' ? 'Foco Verde':''}}
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning d-none">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco amarillo
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning {{$student->result->test_status_academico == 'Amarillo' ? '':'d-none'}}">
+                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Amarillo' ? 'Foco Amarillo':''}}
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger d-none">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco rojo
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger {{$student->result->test_status_academico == 'Rojo' ? '':'d-none'}}">
+                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Rojo' ? 'Foco Rojo':''}}
                                         </button>
                                     </div>
                                 </div>
