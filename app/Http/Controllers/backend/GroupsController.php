@@ -22,7 +22,6 @@ class GroupsController extends Controller
         return view('backend.groups.groups')->with([
             'groups' => Group::paginate(20),
             'educativePrograms' => EducativeProgram::all(),
-            'text' => 'prueba'
         ]);
     }
 

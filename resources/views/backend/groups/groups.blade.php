@@ -12,10 +12,8 @@
                     <div class="page-title-subheading">A continuación se presentan todos los grupos activos
                     </div>
                 </div>
-                {{$text}}
             </div>
             <div class="page-title-actions">
-                @can('Buscar grupo')
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.groups.search') }}" method="get">
@@ -24,7 +22,6 @@
                         </form>
                     </div>
                 </div>
-                @endcan
             </div>
         </div>
     </div>
@@ -41,14 +38,12 @@
                 <div class="card-header">Lista de grupos
                     <div class="btn-actions-pane-right">
                         <div role="group" class="btn-group">
-                            @can('Agregar grupo',)
                             <button class="btn btn-primary mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">
                                 <span class="btn-icon-wrapper pr-2 opacity-7">
                                     <i class="fa fa-plus fa-w-20"></i>
                                 </span>
                                 Agregar
                             </button>
-                            @endcan
                         </div>
                     </div>
                 </div>
@@ -79,15 +74,12 @@
                                 <td>{{$group->educativeProgram->name}}</td>
                                 <td class="text-center">{{$group->created_at->diffForHumans()}}</td>
                                 <td class="text-center">
-                                    @can('Editar grupo',)
                                     <a href="{{ route('admin.groups.editGroup', ['id'=> $group->id]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
-                                    @endcan
-                                    @can('Eliminar grupo',)
                                     <a href="javascript:;" type="button" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
                                         data-id="{{$group->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
                                         data-target="#exampleModal">
@@ -95,7 +87,6 @@
                                             <i class="fa fa-trash fa-w-20"></i>
                                         </span>
                                     </a>
-                                    @endcan
                                 </td>
                             </tr>
                             @endforeach
