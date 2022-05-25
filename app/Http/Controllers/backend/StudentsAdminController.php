@@ -95,7 +95,16 @@ class StudentsAdminController extends Controller
 
         $search = htmlspecialchars($request->input('search'));
 
-        return view('backend.students.studentsSearch',['search'=>$search]);
+        $students = Student::where('name', 'LIKE', '%'.$search.'%')
+        ->orWhere('family_name', 'LIKE', '%'.$search.'%')
+        ->orWhere('last_name', 'LIKE', '%'.$search.'%')
+        ->orderBy('name', 'asc')
+        ->paginate(20);
+
+        return view('backend.students.studentsSearch')->with([
+            'searchs' => $students,
+            'search' => $search
+        ]);
     }
     public function getInfo(Request $request){
         $student = Student::where('id',$request->id)->with('group.educativeProgram')->first();
