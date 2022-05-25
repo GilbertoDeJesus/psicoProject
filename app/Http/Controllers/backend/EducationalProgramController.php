@@ -42,12 +42,17 @@ class EducationalProgramController extends Controller
     }
 
     public function indexProgram(Request $request){
-        if ($request->group == null) {
-            $request->group = "todos";
-        }
-        
-        $group = $request->group;
-        return view('backend.educationalProgram.studentGroups');
+        $this->group = $request->group;
+        $groups = EducativeProgram::find($request->id)->groups;
+        if ($request->group == null || $request->group == 'todos') {
+            $students=EducativeProgram::where('id',$request->id)->with('students', 'students.group')->paginate(20);
+         }else{
+             $students=EducativeProgram::with(['students' => function ($query) { 
+                 $query->where('group_id', $this->group)->with('group');
+             }])->where('id', $request->id)->paginate(20);
+         }
+            // dd($students,$groups);
+        return view('backend.educationalProgram.studentGroups',['students'=>$students,'groups'=>$groups]);
     }
 
     public function infoStudent(){
