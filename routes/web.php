@@ -86,3 +86,4 @@ Route::get('/admin/groups/search', 'backend\GroupsController@searchGroup')->name
 //--------REPORTS------------------------------
 Route::get('/admin/reports','backend\ReportsController@index')->name('admin.reports');
 Route::post('/admin/reports','backend\ReportsController@generateReport')->name('admin.reports.generate');
+Route::get('/admin/getStudent', 'backend\StudentsAdminController@getInfo')->name('admin.infoStudent');

@@ -97,5 +97,8 @@ class StudentsAdminController extends Controller
 
         return view('backend.students.studentsSearch',['search'=>$search]);
     }
-
+    public function getInfo(Request $request){
+        $student = Student::where('id',$request->id)->with('group.educativeProgram')->first();
+        return response(json_encode($student),200);
+    }
 }
