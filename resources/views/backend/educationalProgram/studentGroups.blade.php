@@ -153,7 +153,7 @@
                                     {{$student->group->name}}
                                 </td>
                                 <td class="text-center">
-                                    @can('Ver info alumno sencillo')
+                                    @can('Ver info de alumno avanzado')
                                     <a href="{{ route('admin.student.info', ['student' => $student->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
                                         title="Resultados">

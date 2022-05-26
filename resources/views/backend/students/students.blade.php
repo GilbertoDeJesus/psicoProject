@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="page-title-actions">
-                @can('Buscar alumno sencillo')
+                @can('Buscar alumno sencillo', 'Buscar alumno avanzado')
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.students.search') }}" method="get">
@@ -153,7 +153,7 @@
                                     {{$student->group->name}}
                                 </td>
                                 <td class="text-center">
-                                    @can('Ver info alumno sencillo')
+                                    @can('Ver info alumno sencillo','Ver info de alumno avanzado')
                                     <a href="{{ route('admin.student.info', ['student' => $student->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
                                         title="Resultados">
