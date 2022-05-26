@@ -122,4 +122,12 @@ class StudentsAdminController extends Controller
         $student = Student::where('id',$request->id)->with('group.educativeProgram')->first();
         return response(json_encode($student),200);
     }
+
+    public function vaciarAlumnos(){
+        foreach ( Student::all() as $studet) {
+            $studet->delete();
+        }
+       
+        return back()->with('status',"Alumnos eliminados");
+    }
 }

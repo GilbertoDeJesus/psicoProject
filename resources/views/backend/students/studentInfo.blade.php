@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div>
-                                <h5 class="menu-header-title">{{$student->name}} {{$student->family_name}} {{$student->last_name}}</h5>
+                                <h5 class="menu-header-title">{{Str::title($student->name)}} {{Str::title($student->family_name)}} {{Str::title($student->last_name)}}</h5>
                                 <h6 class="menu-header-subtitle">{{$student->group->educativeProgram->name}}</h6>
                             </div>
                         </div>
@@ -64,21 +64,21 @@
                                         <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-info {{$student->result->test_aprendizaje == 'Auditivo' ? '':'d-none'}}">
                                             <i class="pe-7s-volume1 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Auditivo
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate {{$student->result->test_aprendizaje == 'Kinestesico' ? '':'d-none'}}">
-                                            <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestesico
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate {{$student->result->test_aprendizaje == 'Kinestésico' ? '':'d-none'}}">
+                                            <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestésico
                                         </button>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="p-1">
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-success">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco verde
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-success" {{$student->result->test_status_academico == 'Verde' ? '':'d-none'}}">
+                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Verde' ? 'Foco Verde':''}}
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning d-none">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco amarillo
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning {{$student->result->test_status_academico == 'Amarillo' ? '':'d-none'}}">
+                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Amarillo' ? 'Foco Amarillo':''}}
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger d-none">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco rojo
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger {{$student->result->test_status_academico == 'Rojo' ? '':'d-none'}}">
+                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Rojo' ? 'Foco Rojo':''}}
                                         </button>
                                     </div>
                                 </div>
@@ -193,12 +193,12 @@
                         </li>
                         <li class="nav-item">
                             <a role="tab" class="nav-link mb-0" href="#orientacion-vocacional" data-toggle="tab" aria-selected="false">
-                                <span>Orientacion vocacional</span>
+                                <span>Orientación vocacional</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a role="tab" class="nav-link mb-0" href="#trayectoria-academica" data-toggle="tab" aria-selected="false">
-                                <span>Trayectoria academica</span>
+                                <span>Trayectoria académica</span>
                             </a>
                         </li>
                     </ul>
@@ -258,7 +258,7 @@
                                             <tr>
                                                 <th class="text-center">#</th>
                                                 <th>Pregunta</th>
-                                                <th>Respuesta</th>
+                                                <th class="pr-3">Respuesta</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -350,4 +350,11 @@
 @endsection
 
 @section('js')
+<script>
+    $(document).ready(function () {
+    $('#example').DataTable({
+        ajax: 'data/arrays.txt',
+    });
+});
+</script>
 @endsection
