@@ -76,7 +76,18 @@ class EducationalProgramController extends Controller
     public function searchGroupStudent(Request $request){
 
         $search = htmlspecialchars($request->input('search'));
-
-        return view('backend.educationalProgram.studentGroupSearch',['search'=>$search]);
+        $educativeProgram = EducativeProgram::find($request->input('educative_program'));
+        $students = $educativeProgram->students()->where(function($query) use($search){
+            $query->where('students.name', 'LIKE', '%'.$search.'%')
+            ->orWhere('students.family_name', 'LIKE', '%'.$search.'%')
+            ->orWhere('students.last_name', 'LIKE', '%'.$search.'%');
+        })
+        ->orderBy('students.name', 'asc')
+        ->paginate(20);;
+        
+        return view('backend.educationalProgram.studentGroupSearch')->with([
+            'searchs' => $students,
+            'search' => $search
+        ]);
     }
 }

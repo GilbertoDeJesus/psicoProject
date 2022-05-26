@@ -35,8 +35,9 @@
             <div class="page-title-actions">
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
-                        <form action="{{ route('admin.educationalProgram.searchStudent', ['id' => 1]) }}" method="get">
-                            <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
+                        <form action="{{ route('admin.educationalProgram.searchStudent', ['id' =>request()->id]) }}" method="get">
+                            <input type="text" class="search-input" placeholder="Escribe para buscar" value="{{ old('search') ?? $search}}" name="search" autocomplete="off" required minlength="2">
+                            <input name="educative_program" value="{{request()->id}}" type="hidden">
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
                     </div>
@@ -69,60 +70,25 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($searchs as $student)
                             <tr>
-                                <td class="text-center text-muted">#345</td>
+                                <td class="text-center text-muted">#{{$student->id}}</td>
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                         </div>
                                         <div class="widget-content-left flex2">
-                                            <div class="widget-heading">John Doe</div>
-                                            <div class="widget-subheading opacity-7">Web Developer
+                                            <div class="widget-heading">{{$student->name}} {{$student->family_name}} {{$student->last_name}}</div>
+                                            <div class="widget-subheading opacity-7">{{$student->group->educativeProgram->name}}
                                             </div>
                                         </div>
                                     </div>
 
                                 </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">3519110001</td>
+                                <td>{{$student->group->educativeProgram->name}}</td>
+                                <td class="text-center">{{$student->matricula}}</td>
                                 <td class="text-center">
-                                    1 A
-                                </td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.infoStudent', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Resultados">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-eye fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Información"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Información basica">
-                                            <i class="fa fa-id-card fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center text-muted">#347</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Ruben Tillman</div>
-                                                <div class="widget-subheading opacity-7">Etiam sit amet
-                                                    orci eget</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">3519110001</td>
-                                <td class="text-center">
-                                    1 A
+                                {{$student->group->name}}
                                 </td>
                                 <td class="text-center">
                                     <a href="{{ route('admin.educationalProgram.infoStudent', ['id' => 1]) }}" id="PopoverCustomT-1"
@@ -142,97 +108,12 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="text-center text-muted">#321</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Elliot Huber</div>
-                                                <div class="widget-subheading opacity-7">Lorem ipsum
-                                                    dolor sic</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">3519110001</td>
-                                <td class="text-center">
-                                    1 A
-                                </td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.infoStudent', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Resultados">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-eye fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Información"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Información basica">
-                                            <i class="fa fa-id-card fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center text-muted">#55</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Vinnie Wagstaff</div>
-                                                <div class="widget-subheading opacity-7">UI Designer
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">3519110001</td>
-                                <td class="text-center">
-                                    1 A
-                                </td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.infoStudent', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Resultados">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-eye fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Información"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Información basica">
-                                            <i class="fa fa-id-card fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">
-                    <nav class="" aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Previous"><span aria-hidden="true">«</span><span
-                                        class="sr-only">Previous</span></a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
-                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">2</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Next"><span aria-hidden="true">»</span><span
-                                        class="sr-only">Next</span></a></li>
-                        </ul>
-                    </nav>
+                <div class="d-block text-center card-footer">                  
+                        {{ $searchs->withQueryString()->links('vendor.pagination.default') }}   
                 </div>
             </div>
         </div>

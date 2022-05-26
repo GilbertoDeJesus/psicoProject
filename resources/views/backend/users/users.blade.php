@@ -1,6 +1,15 @@
 @extends('backend.layout.main')
 
 @section('contenido')
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+        <div class="alert alert-danger fade alert-dismissible show" role="alert">
+            <button type="button" class="close" aria-label="Close"  data-dismiss="alert">
+                <span aria-hidden="true">&times;</span></button>
+            {{ $error }}
+        </div>
+        @endforeach
+    @endif
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
