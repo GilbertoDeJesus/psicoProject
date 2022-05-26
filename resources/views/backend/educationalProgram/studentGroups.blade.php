@@ -33,17 +33,18 @@
                 </div>
             </div>
             <div class="page-title-actions">
-                @can('Buscar alumno avanzando')
+                
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
-                        <form action="{{ route('admin.educationalProgram.searchStudent') }}" method="get">
+                        <form action="{{ route ('admin.educationalProgram.searchStudent', ['id' =>request()->id]) }}" method="get">
                             <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
+                            <input name="educative_program" value="{{request()->id}}" type="hidden">
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
                         
                     </div>
                 </div>
-                @endcan
+                
             </div>
         </div>
     </div>

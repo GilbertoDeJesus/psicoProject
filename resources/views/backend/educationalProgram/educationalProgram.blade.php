@@ -78,7 +78,7 @@
                                 <td class="text-center">{{$ep->created_at->diffForHumans()}}</td>
                                 @can('Ver alumnos avanzado',)
                                 <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
+                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => $ep->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
                                         title="Ver lista de alumnos">
                                         <span class="btn-icon-wrapper">

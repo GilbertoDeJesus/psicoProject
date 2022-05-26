@@ -15,7 +15,7 @@
                         </div>
                     </div>
                 </div>
-                @can('Editar grupo')
+                @can('editarSuperAdmin')
                 <div class="form-row">
                     <div class="col-md-12">
                         <div class="position-relative form-group">

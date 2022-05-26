@@ -1,6 +1,15 @@
 @extends('backend.layout.main')
 
 @section('contenido')
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+        <div class="alert alert-danger fade alert-dismissible show" role="alert">
+            <button type="button" class="close" aria-label="Close"  data-dismiss="alert">
+                <span aria-hidden="true">&times;</span></button>
+            {{ $error }}
+        </div>
+        @endforeach
+    @endif
     <div class="main-card mb-3 card">
         <div class="card-header bg-primary text-white">Editar información de usuario</div>
         <form action="{{ route('admin.users.updateUser', ['id' => $user->id]) }}" method="post" role="form">
