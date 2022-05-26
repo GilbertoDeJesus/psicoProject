@@ -26,8 +26,6 @@ class StudentsAdminController extends Controller
             if ($request->group == null || $request->group == 'todos') {
                $students=EducativeProgram::where('id',$user->educative_program_id)->with('students', 'students.group')->paginate(20);
             }else{
-                // $students = EducativeProgram::find($user->educative_program_id)->students()
-                // ->where('group_id',$request->group)->paginate(20);
                 $students=EducativeProgram::with(['students' => function ($query) { 
                     $query->where('group_id', $this->group)->with('group');
                 }])->where('id', $user->educative_program_id)->paginate(20);
