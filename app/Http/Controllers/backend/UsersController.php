@@ -7,12 +7,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\EducativeProgram;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:Super-Admin']);
+    }
+    
     public function index(){
         return view('backend.users.users')->with([
             'users' => User::paginate(20),
@@ -25,7 +31,7 @@ class UsersController extends Controller
         return back()->with('status', '¡El registro se elimino correctamente!');
     }
 
-    public function storeUser(UserRequest $request){
+    public function storeUser(StoreUserRequest $request){
         $user = User::create($request->validated());
         $user->syncRoles($request->roles);
         return back()->with('status', '¡El registro se creo correctamente!');
@@ -38,7 +44,7 @@ class UsersController extends Controller
         ]);
     }
 
-    public function updateUser(UserRequest $request, $user){
+    public function updateUser(UpdateUserRequest $request, $user){
         User::find($user)->update($request->validated());
         return redirect()->route('admin.users')->with('status', '¡El registro se modificó  correctamente!');
     }

@@ -12,7 +12,6 @@
                     <div class="page-title-subheading">A continuación se presentan todos los grupos activos
                     </div>
                 </div>
-                {{$text}}
             </div>
             <div class="page-title-actions">
                 <div class="search-wrapper active mx-auto">

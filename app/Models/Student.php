@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Group;
 use App\Models\Result;
 use App\Models\Test;
+use App\Models\EducativeProgram;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
 
@@ -37,4 +38,5 @@ class Student extends Model
         // $this->attributes['password'] = bcrypt($password);
         $this->attributes['password'] = Hash::make($password);
     }
+
 }

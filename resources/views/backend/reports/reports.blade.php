@@ -34,8 +34,15 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row">       
         <div class="col-md-12">
+            @if (session('status'))
+                <div class="alert alert-success fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close"  data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ session('status') }}
+                </div>
+             @endif
             <div class="conatiner card">
                 <div class="card-header text-white bg-primary">
                     <div class="mx-auto">
@@ -105,6 +112,32 @@
                         <button type="submit" class="btn btn-outline-primary ml-auto btn-lg">Generar reporte</button>
                     </div>
                 </form>
+               
+               
+            </div>
+            
+        </div>
+        <div class="col-md-12 mt-5">
+            <div class="conatiner card">
+                <div class="card-body px-4 py-4">
+                    <div class="row">
+                        <div class="col-md-9 col-lg-9">
+                            <label>Si desea eliminar los datos de TODOS los alumnos de clic en el botón</label>
+                        </div>
+                        <div class="col-md-3 col-lg-3">
+                            <form action="{{ route('admin.deleteStudent') }}" method="delete"  >
+                                @csrf
+                                <button  id="PopoverCustomT-1" type="submit"
+                                class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top"
+                                title="Vaciar datos">
+                                Eliminar alumnos
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                   
+                    
+                </div>
             </div>
         </div>
     </div>

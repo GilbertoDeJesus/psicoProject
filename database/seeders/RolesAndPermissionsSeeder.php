@@ -29,7 +29,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $arrayOfPermissionNames = ['Ver alumnos sencillo','Ver info alumno sencillo','Buscar alumno sencillo',
         'Ver grupos', 'Ver reporte sencillo','Generar reporte sencillo','Agregar grupo', 'Eliminar grupo',
         'Editar grupo','Editar grupo1','Buscar grupo', 
-        'Ver alumnos avanzado','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
+        'Ver alumnos avanzado','editarSuperAdmin','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
         'Agregar admnistrador','Eliminar administrador','Editar administrador','Editar administrador1',
         'Buscar administrador','Ver programas educativos','Agregar programa educativo',
         'Eliminar programa educativo','Editar programas educativo','Editar programas educativo1',
@@ -47,7 +47,7 @@ class RolesAndPermissionsSeeder extends Seeder
         'Ver grupos', 'Ver reporte sencillo','Generar reporte sencillo','Agregar grupo', 'Eliminar grupo',
         'Editar grupo','Editar grupo1','Buscar grupo']);
         //se asignan los permisos para super-admin
-        $roleSuperAdmin->syncPermissions(['Agregar grupo', 'Eliminar grupo',
+        $roleSuperAdmin->syncPermissions([ 'Ver grupos','editarSuperAdmin','Agregar grupo', 'Eliminar grupo',
         'Editar grupo','Editar grupo1','Buscar grupo', 
         'Ver alumnos avanzado','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
         'Agregar admnistrador','Eliminar administrador','Editar administrador','Editar administrador1',
@@ -61,9 +61,9 @@ class RolesAndPermissionsSeeder extends Seeder
             'name' => "Karla",
             'lastname' => "Francisco",
             'email' => "karla@gmail.com",
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
+            'password' => 'password', // password,
             'educative_program_id' => 6,
-            'employee_key' => "karlatics"
+            'employee_key' => "admin"
         ])->assignRole('Admin');
         //crear usuario con rol super-admin
         User::create([
@@ -72,7 +72,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'email' => "elena@gmail.com",
             'password' => 'password', // password,
             'educative_program_id' => 7,
-            'employee_key' => "Elenaenf"
+            'employee_key' => "superAdmin"
         ])->assignRole('Super-Admin');
+
     }
 }

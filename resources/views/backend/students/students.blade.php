@@ -33,17 +33,21 @@
                 </div>
             </div>
             <div class="page-title-actions">
+                @can('Buscar alumno sencillo', 'Buscar alumno avanzado')
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.students.search') }}" method="get">
                             <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
+                        
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
+    
     <div class="row">
         <div class="col-md-3">
             <div class="card mb-3">
@@ -101,6 +105,13 @@
                     {{ session('status') }}
                 </div>
             @endif
+            @if (session('alerta'))
+                <div class="alert alert-primary fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ session('alerta') }}
+                </div>
+            @endif
             <div class="main-card mb-3 card">
                 <div class="card-header">Lista de alumnos
                 </div>
@@ -129,8 +140,8 @@
                                         <div class="widget-content-wrapper">
                                         </div>
                                         <div class="widget-content-left flex2">
-                                            <div class="widget-heading">{{$student->name, $student->family_name}}</div>
-                                            <div class="widget-subheading opacity-7">Web Developer
+                                            <div class="widget-heading">{{$student->name}}</div>
+                                            <div class="widget-subheading opacity-7">{{$student->family_name}}
                                             </div>
                                         </div>
                                     </div>
@@ -142,6 +153,7 @@
                                     {{$student->group->name}}
                                 </td>
                                 <td class="text-center">
+                                    @can('Ver info alumno sencillo','Ver info de alumno avanzado')
                                     <a href="{{ route('admin.student.info', ['student' => $student->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
                                         title="Resultados">
@@ -149,14 +161,15 @@
                                             <i class="fa fa-eye fa-w-20"></i>
                                         </span>
                                     </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Información"
-                                        data-target="#exampleModal">
+                                    <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm" onclick="mostrarInfo(this)"
+                                        data-toggle="modal" data-placement="top" title="Información" data-id = {{$student->id}}
+                                        data-target="#exampleModal" >
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
                                             title="Información basica">
                                             <i class="fa fa-id-card fa-w-20"></i>
                                         </span>
                                     </button>
+                                    @endcan
                                 </td>
                             </tr>
                                 
@@ -174,7 +187,7 @@
                     </table>
                 </div>
                 <div class="d-block text-center card-footer">                  
-                        {{ $students->links('vendor.pagination.default') }}   
+                        {{ $students->withQueryString()->links('vendor.pagination.default') }}   
                 </div>
             </div>
         </div>
@@ -200,7 +213,7 @@
                                 </div>
                                 <div>
                                     <h5 class="menu-header-title mt-1"><span id="nameI">Jhon</span>&nbsp;<span
-                                            id="lastNameI">Doe</span>&nbsp;<span id="familyI">Doe</span></h5>
+                                            id="familyI">Doe</span>&nbsp;<span id="lastNameI">Doe</span></h5>
                                     <h6 class="menu-header-subtitle"><span id="positionI">Desarrollo y gestión de
                                             software</span></h6>
                                 </div>
@@ -213,7 +226,7 @@
                         <div class="col-md-12">
                             <div class="position-relative form-group">
                                 <label for="email" class="">Email institucional</label><input name="email"
-                                    id="email" type="text" class="form-control" disabled
+                                    id="emailI" type="text" class="form-control" disabled
                                     value="a3519110001@alumno.uttehuacan.edu.mx" />
                             </div>
                         </div>
@@ -221,19 +234,19 @@
                     <div class="form-row">
                         <div class="col-md-4">
                             <div class="position-relative form-group">
-                                <label for="grupo" class="">Grupo</label><input name="grupo" id="grupo"
+                                <label for="grupo" class="">Grupo</label><input name="grupo" id="groupI"
                                     type="text" class="form-control" disabled value="4 A" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="position-relative form-group">
                                 <label for="matricula" class="">Matrícula</label><input name="matricula"
-                                    id="matricula" type="text" class="form-control" disabled value="3519110001" />
+                                    id="matriculaI" type="text" class="form-control" disabled value="3519110001" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="position-relative form-group">
-                                <label for="edad" class="">Edad</label><input name="edad" id="edad"
+                                <label for="edad" class="">Edad</label><input name="edad" id="edadI"
                                     type="text" class="form-control" disabled value="19" />
                             </div>
                         </div>
@@ -264,19 +277,40 @@
 @endsection
 
 @section('js')
-    {{-- <script type="text/javascript" src="{{ url('frontend/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url('backend/js/jquery.js') }}"></script>
 <script>
-    (function($) {
-    'use strict';
-    $(function() {
-      $('.file-upload-browse').on('click', function() {
-        var file = $(this).parent().parent().parent().find('.file-upload-default');
-        file.trigger('click');
-      });
-      $('.file-upload-default').on('change', function() {
-        $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
-      });
-    });
-  })(jQuery);
-</script> --}}
+    
+
+    function mostrarInfo(btn){
+        var id = $(btn).data('id')
+        $(document).ready(function () {
+                    $.ajax({
+                    type: "GET",
+                    url: "/admin/getStudent",
+                    data: "id="+id+"&_token={{ csrf_token()}}",
+                    success: function (data) {
+                        info= JSON.parse(data);
+                        console.log(info);
+                        $("#nameI").text(info.name);
+                        $("#familyI").text(info.family_name);
+                        $("#lastNameI").text(info.last_name);
+                        $("#positionI").text(info.group.educative_program.name);
+                        $("#emailI").val(info.email);
+                        $("#groupI").val(info.group.name);
+                        $("#matriculaI").val(info.matricula);
+                        $("#edadI").val(info.age);
+                        $("#telefonoP").val(info.phone);
+                        $("#telefonoC").val(info.contact_phone);
+
+                    },
+                });
+                });
+    }
+    
+
+</script>
+    
+
+
+
 @endsection
