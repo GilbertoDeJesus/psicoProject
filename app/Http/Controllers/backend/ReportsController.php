@@ -24,7 +24,12 @@ class ReportsController extends Controller
         $mesfin = date("m", strtotime($request->input('fin')));
         $diafin = date("d", strtotime($request->input('fin')));
         
-        return (new ResultsExport)->forYear((int)$añoinicio, (int)$mesinicio, (int)$diainicio, (int)$añofin, (int)$mesfin, (int)$diafin, $test, $educational, $grade)->download('users.xlsx');
+        return (new ResultsExport)->forYear((int)$añoinicio,
+          (int)$mesinicio, (int)$diainicio,
+          (int)$añofin, 
+          (int)$mesfin, 
+          (int)$diafin, $test, $educational, $grade)
+          ->download('alumnos.xlsx');
         
     }
 

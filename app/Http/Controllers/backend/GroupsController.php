@@ -22,7 +22,7 @@ class GroupsController extends Controller
             $grupos = Group::with('educativeProgram')->paginate(20);
             $educativePrograms = EducativeProgram::all();
         }else{
-            $grupos = EducativeProgram::find($user->educative_program_id)->groups()->paginate(20);
+            $grupos = EducativeProgram::find($user->educative_program_id)->groups()->with('educativeProgram')->paginate(20);
             $educativePrograms = EducativeProgram::where('id',$user->educative_program_id)->get();
         }
         return view('backend.groups.groups')->with([

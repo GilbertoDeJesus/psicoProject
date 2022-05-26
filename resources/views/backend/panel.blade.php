@@ -73,7 +73,7 @@
             <div class="card mb-3 widget-content bg-grow-early">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Orientacion Vocacional</div>
+                        <div class="widget-heading">Orientación Vocacional</div>
                         <div class="widget-subheading">Cuestionarios respondidos</div>
                     </div>
                     <div class="widget-content-right">
@@ -86,7 +86,7 @@
             <div class="card mb-3 widget-content bg-danger">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Trayectoria academica</div>
+                        <div class="widget-heading">Trayectoria académica</div>
                         <div class="widget-subheading">Cuestionarios respondidos</div>
                     </div>
                     <div class="widget-content-right">
@@ -101,15 +101,15 @@
         <div class="col-md-12 mb-3">
             <div class="main-card mb-3 card">
                 <div class="card-header">
-                    Alumnos registrados hoy
+                    Alumnos registrados hoy                
+                </div>
                 @if (session('alerta'))
-                <div class="alert alert-primary fade alert-dismissible show" role="alert">
+                <div class="alert alert-secondary fade alert-dismissible show" role="alert">
                     <button type="button" class="close" aria-label="Close" data-dismiss="alert">
                         <span aria-hidden="true">&times;</span></button>
                     {{ session('alerta') }}
                 </div>
                 @endif
-                </div>
                 <div class="table-responsive">
                     <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                         <thead>
@@ -169,8 +169,8 @@
                             {{ $students->links('vendor.pagination.default') }}
                           </div>
                           <div class="col order-1">
-                            <button class="mr-2 btn-icon btn-icon-only btn btn-outline-primary"><i
-                                class="pe-7s-refresh-2 btn-icon-wrapper"> </i></button>
+                            <a href="{{route('admin')}}" class="mr-2 btn-icon btn-icon-only btn btn-outline-primary"><i
+                                class="pe-7s-refresh-2 btn-icon-wrapper"> </i></a>
                           </div>
                           <div class="col order-5">
                             

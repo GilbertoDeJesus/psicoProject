@@ -95,15 +95,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional1->name}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional2->name}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional3->name}}</td>
-                                        </tr>
+                                        @if ($student->result->test_orientacional1_id !=  null)
+                                            <tr>
+                                                <td class="px-4">{{$student->result->educativeProgramTestOrientacional1->name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4">{{$student->result->educativeProgramTestOrientacional2->name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4">{{$student->result->educativeProgramTestOrientacional3->name}}</td>
+                                            </tr>
+                                        @else
+                                            <tr>
+                                                <td class="px-4">Aún no hay respuestas del alumno</td>
+                                            </tr>
+                                        @endif
+                                       
                                     </tbody>
                                 </table>
                             </div>

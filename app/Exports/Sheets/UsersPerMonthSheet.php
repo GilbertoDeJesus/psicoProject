@@ -79,7 +79,7 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings
         $array = [
             '#',
             'Nombre',
-            'Matricula',
+            'Matrícula',
             'Email',
             'Programa Educativo',
             'Grado',
@@ -87,7 +87,7 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings
             'Orientacional2',
             'Orientacional3',
             'Estilo de Aprendizaje',
-            'Trajectoria Academica',
+            'Trajectoria Académica',
             'Fecha',
         ];
         

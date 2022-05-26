@@ -16,7 +16,7 @@ class DashboardController extends Controller
       $this->middleware('auth');
     }
 
-    public function index(){
+    public function index(){      
       $numAprendizaje = Test::find(3)->student->count();      
       $numOrientación= Test::find(2)->student->count();
       $numAcademico= Test::find(1)->student->count();
@@ -27,13 +27,18 @@ class DashboardController extends Controller
                       $query->whereDate('students.created_at', '=', $today);
                     })
                   ->with('group.educativeProgram')
+                  ->orderBy('created_at','DESC')
                   ->paginate(20);
       }else{
         $students = Student::whereDate('created_at', '=',Carbon::today())
                   ->with('group.educativeProgram')
+                  ->orderBy('created_at','DESC')
                   ->paginate(20);
       }
-        return view('backend.panel',['aprendizaje'=>$numAprendizaje,'orientacion'=>$numOrientación,'academico'=>$numAcademico, 'students' =>$students]);
+        return view('backend.panel',['aprendizaje'=>$numAprendizaje,
+        'orientacion'=>$numOrientación,
+        'academico'=>$numAcademico, 
+        'students' =>$students]);
     }
 
 

@@ -157,8 +157,8 @@
                         <div class="form-row">
                             <div class="col-md-12">
                                 <div class="position-relative form-group">
-                                    <label for="email" class="">Correo electronico</label><input name="email" id="email"
-                                        placeholder="Correo electronico" type="email" class="form-control" required>
+                                    <label for="email" class="">Correo electrónico</label><input name="email" id="email"
+                                        placeholder="Correo electrónico" type="email" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
