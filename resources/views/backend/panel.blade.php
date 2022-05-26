@@ -96,12 +96,19 @@
             </div>
         </div>
     </div>
-
     <div class="row">
+
         <div class="col-md-12 mb-3">
             <div class="main-card mb-3 card">
                 <div class="card-header">
                     Alumnos registrados hoy
+                @if (session('alerta'))
+                <div class="alert alert-primary fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ session('alerta') }}
+                </div>
+                @endif
                 </div>
                 <div class="table-responsive">
                     <table class="align-middle mb-0 table table-borderless table-striped table-hover">
@@ -124,8 +131,8 @@
                                         <div class="widget-content-wrapper">
                                         </div>
                                         <div class="widget-content-left flex2">
-                                            <div class="widget-heading">{{$student->name, $student->family_name}}</div>
-                                            <div class="widget-subheading opacity-7">Web Developer
+                                            <div class="widget-heading">{{$student->name}}</div>
+                                            <div class="widget-subheading opacity-7">{{$student->family_name}}
                                             </div>
                                         </div>
                                     </div>
@@ -137,13 +144,13 @@
                                     {{$student->group->name}}
                                 </td>
                                 <td class="text-center">
-                                    @can('Ver info alumno sencillo')
+                                    @canany(['Ver info alumno sencillo', 'Ver info de alumno avanzado'])
                                     <a href="{{ route('admin.student.info', ['student' => $student->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top"
                                         title="Detalles">
                                         Detalles
                                     </a>
-                                    @endcan
+                                    @endcanany
                                 </td>
                             </tr>
                             
@@ -155,10 +162,23 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">
-                    <button class="mr-2 btn-icon btn-icon-only btn btn-outline-primary"><i
-                            class="pe-7s-refresh-2 btn-icon-wrapper"> </i></button>
+                <div class="d-block text-center card-footer">                  
+                    <div class="container">
+                        <div class="row">
+                          <div class="col">
+                            {{ $students->links('vendor.pagination.default') }}
+                          </div>
+                          <div class="col order-1">
+                            <button class="mr-2 btn-icon btn-icon-only btn btn-outline-primary"><i
+                                class="pe-7s-refresh-2 btn-icon-wrapper"> </i></button>
+                          </div>
+                          <div class="col order-5">
+                            
+                        </div>
+                        </div>
+                      </div>  
                 </div>
+                
             </div>
         </div>
     </div>
