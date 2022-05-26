@@ -9,7 +9,14 @@
                     </i>
                 </div>
                 <div>Resultados para {{Str::limit($search, 25)}}
-                    <div class="page-title-subheading">A continuación se presentan los resultados de la busqueda
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.educationalProgram') }}">Programas educativos</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Busqueda</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>

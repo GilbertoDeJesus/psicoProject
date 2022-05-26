@@ -28,7 +28,14 @@
                     </i>
                 </div>
                 <div>Registro de alumnos
-                    <div class="page-title-subheading">A continuación se presentan todos los alumnos registrados
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.educationalProgram') }}">Programas educativos</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Alumnos</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -57,14 +64,15 @@
                 <div class="card-body px-4 py-3">
                     <div class="dropdown-menu dropdown-menu-inline">
                         <form action="{{ route('admin.educationalProgram.indexGroups',['id' => request()->id]) }}" method="get">
-                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == 'todos' ? 'active card-shadow-primary' : '' }}">
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 @if (!request()->has('group') || request()->query('group') == 'todos')
+                                active card-shadow-primary
+                            @endif">
                                 <input type="radio" class="d-none" name="group" value="todos" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-drawer h4 mb-0 mr-2"></i><span>Todos</span>
                             </label>
                             @forelse ($groups as $group)
                                 <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == $group->id  ? 'active card-shadow-primary' : '' }}">
                                     <input type="radio" class="d-none" name="group" value="{{$group->id}}" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>{{$group->name}}</span>
                                 </label>
-                            
                             @empty
                                 
                             @endforelse

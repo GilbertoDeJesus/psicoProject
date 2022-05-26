@@ -18,7 +18,13 @@
                     </i>
                 </div>
                 <div>Registro de usuarios
-                    <div class="page-title-subheading">A continuación se presentan todos los usuarios activos
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Usuarios</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
