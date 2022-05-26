@@ -62,24 +62,26 @@
                                     <label for="educational" class="">Programa educativo</label><select type="select"
                                         id="educational" name="educational" class="custom-select" required>
                                         <option value="todos" selected>Todos</option>
-                                        <option value="ti">Tecnologias de la información</option>
-                                        <option>Enfermeria</option>
-                                        <option>Desarrollo de negocios</option>
-                                        <option>Mecatronica</option>
-                                        <option>Procesos industriales</option>
-                                        <option>Producción de alimentos</option>
+                                        <option value="1">Agricultura Sustentable y Protegida</option>
+                                        <option value="2">Desarrollo de Negocios Área Mercadotecnia</option>
+                                        <option value="3">Mecatronica Área Sistemas de Manufactura Flexible</option>
+                                        <option value="4">Procesos Alimentarios</option>
+                                        <option value="5">Procesos Industriales Área Automotriz</option>
+                                        <option value="6">Tecnologías de la Información</option>
+                                        <option value="7">Enfermería</option>
+                                        <option value="8">Mantenimiento Industrial</option>
+                                        <option value="9">Energias Renovables</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <div class="position-relative form-group">
                                     <label for="educational" class="">Grado y grupo</label><select type="select"
-                                        id="educational" name="educational" class="custom-select" required>
+                                        id="educational" name="grade" class="custom-select" required>
                                         <option value="todos" selected>Todos</option>
-                                        <option>1 A</option>
-                                        <option>1 B</option>
-                                        <option>1 C</option>
-                                        <option>1 D</option>
+                                        <option value="A">1 A</option>
+                                        <option value="B">1 B</option>
+                                        <option value="C">1 C</option>
                                     </select>
                                 </div>
                             </div>

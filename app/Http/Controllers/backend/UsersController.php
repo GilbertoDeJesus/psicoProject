@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\backend;
 
+use App\Exports\ResultsExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\EducativeProgram;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UsersController extends Controller
 {
@@ -54,5 +56,10 @@ class UsersController extends Controller
             'searchs' => $users,
             'search' => $search
         ]);
+    }
+
+    public function exportExcel()
+    {
+        
     }
 }
