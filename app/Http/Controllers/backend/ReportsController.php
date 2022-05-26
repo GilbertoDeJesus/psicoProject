@@ -12,7 +12,7 @@ class ReportsController extends Controller
     }
 
     public function generateReport(){
-        return back()->with('status', '¡El registro se elimino correctamente!');
+        return back()->with('status', '¡El registro se generó correctamente!');
     }
 
 }

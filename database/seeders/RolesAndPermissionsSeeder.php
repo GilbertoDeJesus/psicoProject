@@ -47,9 +47,9 @@ class RolesAndPermissionsSeeder extends Seeder
         'Ver grupos', 'Ver reporte sencillo','Generar reporte sencillo','Agregar grupo', 'Eliminar grupo',
         'Editar grupo','Editar grupo1','Buscar grupo']);
         //se asignan los permisos para super-admin
-        $roleSuperAdmin->syncPermissions([ //'Agregar grupo', 'Eliminar grupo',
-        //'Editar grupo','Editar grupo1','Buscar grupo', 
-        'Ver alumnos avanzado','editarSuperAdmin','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
+        $roleSuperAdmin->syncPermissions([ 'Ver grupos','editarSuperAdmin','Agregar grupo', 'Eliminar grupo',
+        'Editar grupo','Editar grupo1','Buscar grupo', 
+        'Ver alumnos avanzado','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
         'Agregar admnistrador','Eliminar administrador','Editar administrador','Editar administrador1',
         'Buscar administrador','Ver programas educativos','Agregar programa educativo',
         'Eliminar programa educativo','Editar programas educativo','Editar programas educativo1',
