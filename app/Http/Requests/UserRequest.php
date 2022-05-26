@@ -34,7 +34,9 @@ class UserRequest extends FormRequest
                 'max:300'],
             'educative_program_id' => ['required'],
             'roles' => ['nullable'],
-            'employee_key' => ['required'],
+            'employee_key' => [
+                'required',
+                Rule::unique('users')->ignore($this->user()->id)],
             'password' => ['required'],
         ];
     }

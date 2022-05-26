@@ -17,11 +17,16 @@ class GroupsController extends Controller
     }
     public function index(){
         $user = Auth::user();
-        $groups = EducativeProgram::find($user->educative_program_id)->groups;
-
+        if($user->educative_program_id ==null){
+            $grupos = Group::with('educativeProgram')->paginate(20);
+            $educativePrograms = EducativeProgram::all();
+        }else{
+            $grupos = EducativeProgram::find($user->educative_program_id)->groups()->paginate(20);
+            $educativePrograms = EducativeProgram::where('id',$user->educative_program_id)->get();
+        }
         return view('backend.groups.groups')->with([
-            'groups' => Group::paginate(20),
-            'educativePrograms' => EducativeProgram::all(),
+            'groups' => $grupos,
+            'educativePrograms' => $educativePrograms,
         ]);
     }
 
@@ -51,9 +56,17 @@ class GroupsController extends Controller
 
         $search = htmlspecialchars($request->input('search'));
 
-        $groups = Group::where('name', 'LIKE', '%'.$search.'%')
-        ->orderBy('name', 'asc')
-        ->paginate(20);
+        $user = Auth::user();
+        if($user->can('Buscar grupo')){
+            $groups = EducativeProgram::find($user->educative_program_id)->groups();
+            $groups = $groups->where('name', 'LIKE', '%'.$search.'%')
+            ->orderBy('name', 'asc')
+            ->paginate(20);
+        }else{
+            $groups = Group::where('name', 'LIKE', '%'.$search.'%')
+            ->orderBy('name', 'asc')
+            ->paginate(20);
+        }
 
         return view('backend.groups.groupsSearch')->with([
             'searchs' => $groups,

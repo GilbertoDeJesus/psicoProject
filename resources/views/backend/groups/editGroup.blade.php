@@ -15,6 +15,7 @@
                         </div>
                     </div>
                 </div>
+                @can('Editar grupo')
                 <div class="form-row">
                     <div class="col-md-12">
                         <div class="position-relative form-group">
@@ -27,6 +28,7 @@
                         </div>
                     </div>
                 </div>
+                @endcan
             </div>
             <div class="modal-footer">
                 @can('Editar grupo1',)

@@ -94,12 +94,23 @@ class StudentsAdminController extends Controller
     public function searchStudent(Request $request){
 
         $search = htmlspecialchars($request->input('search'));
-
-        $students = Student::where('name', 'LIKE', '%'.$search.'%')
-        ->orWhere('family_name', 'LIKE', '%'.$search.'%')
-        ->orWhere('last_name', 'LIKE', '%'.$search.'%')
-        ->orderBy('name', 'asc')
-        ->paginate(20);
+        $user = Auth::user();
+        $ep = EducativeProgram::where('id', Auth::user()->educative_program_id)->first();
+        if($user->can('Buscar alumno sencillo')){
+            $students = $ep->students()->where(function($query) use($search){
+                $query->where('students.name', 'LIKE', '%'.$search.'%')
+                ->orWhere('students.family_name', 'LIKE', '%'.$search.'%')
+                ->orWhere('students.last_name', 'LIKE', '%'.$search.'%');
+            })
+            ->orderBy('students.name', 'asc')
+            ->paginate(20);
+        }else{
+            $students = Student::where('name', 'LIKE', '%'.$search.'%')
+            ->orWhere('family_name', 'LIKE', '%'.$search.'%')
+            ->orWhere('last_name', 'LIKE', '%'.$search.'%')
+            ->orderBy('name', 'asc')
+            ->paginate(20);
+        }
 
         return view('backend.students.studentsSearch')->with([
             'searchs' => $students,
@@ -107,4 +118,8 @@ class StudentsAdminController extends Controller
         ]);
     }
 
+    public function getInfo(Request $request){
+        $student = Student::where('id',$request->id)->with('group.educativeProgram')->first();
+        return response(json_encode($student),200);
+    }
 }
