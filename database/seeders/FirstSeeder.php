@@ -31,16 +31,19 @@ class FirstSeeder extends Seeder
 
         $t1 = \App\Models\Test::factory(1)->create([
             'name' => "Trayectoria académica",
+            "clave"=>"trayectoria",
             'directions' => "Lee atentamente y escribe lo que se te pide",
             'order' => 1,
         ]);
         $t2 = \App\Models\Test::factory(1)->create([
             'name' => "Orientación Vocacional",
+            "clave"=>"vocacional",
             'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona SÍ o NO dependiendo de tus conocimientos e intereses",
             'order' => 2,
         ]);
         $t3 = \App\Models\Test::factory(1)->create([
             'name' => "Estilo de aprendizaje",
+            "clave"=>"aprendizaje",
             'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona una opción en escala de 'Siempre' a 'Nunca' según cuanto te identificas",
             'order' => 3,
         ]);

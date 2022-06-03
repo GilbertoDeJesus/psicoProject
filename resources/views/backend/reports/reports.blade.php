@@ -1,5 +1,7 @@
 @extends('backend.layout.main')
-
+<head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+</head>
 @section('css')
     <style>
         ::-webkit-file-upload-button {
@@ -49,6 +51,13 @@
                     {{ session('status') }}
                 </div>
             @endif
+            @if (session('alert'))
+                <div class="alert alert-danger fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ session('alert') }}
+                </div>
+            @endif
             <div class="conatiner card">
                 <div class="card-header text-white bg-primary">
                     <div class="mx-auto">
@@ -64,9 +73,11 @@
                                     <label for="test" class="">Cuestionario</label><select type="select"
                                         id="test" name="test" class="custom-select" required>
                                         <option value="todos" selected>Todos</option>
-                                        <option value="aprendizaje">Estilo de aprendizaje</option>
-                                        <option value="vocacional">Orientacion vocacional</option>
-                                        <option value="trayectoria">Trayectoria academica</option>
+                                        @forelse ($tests as $test)
+                                         <option value="{{$test->clave}}">{{$test->name}}</option>
+                                        @empty
+                                         <option value="0">No hay más opciones</option>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>
@@ -74,27 +85,25 @@
                                 <div class="position-relative form-group">
                                     <label for="educational" class="">Programa educativo</label><select
                                         type="select" id="educational" name="educational" class="custom-select" required>
-                                        <option value="todos" selected>Todos</option>
-                                        <option value="1">Agricultura Sustentable y Protegida</option>
-                                        <option value="2">Desarrollo de Negocios Área Mercadotecnia</option>
-                                        <option value="3">Mecatronica Área Sistemas de Manufactura Flexible</option>
-                                        <option value="4">Procesos Alimentarios</option>
-                                        <option value="5">Procesos Industriales Área Automotriz</option>
-                                        <option value="6">Tecnologías de la Información</option>
-                                        <option value="7">Enfermería</option>
-                                        <option value="8">Mantenimiento Industrial</option>
-                                        <option value="9">Energias Renovables</option>
+                                        <option value="" selected disabled>Selecciona una opción</option>
+                                        <option value="todos" >Todos</option>
+                                        @forelse ($educativePrograms as $educativeProgram)
+                                            <option value="{{$educativeProgram->id}}">{{$educativeProgram->name}}</option>
+                                        @empty
+                                            <option value="0">No hay opciones</option>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <div class="position-relative form-group">
-                                    <label for="educational" class="">Grado y grupo</label><select
-                                        type="select" id="educational" name="grade" class="custom-select" required>
-                                        <option value="todos" selected>Todos</option>
+                                    <label for="grade" class="">Grado y grupo</label><select
+                                        type="select" id="grade" name="grade" class="custom-select" required>
+                                        <option value="" selected disabled>Selecciona una opción</option>
+                                        {{-- <option value="todos" selected>Todos</option>
                                         <option value="A">1 A</option>
                                         <option value="B">1 B</option>
-                                        <option value="C">1 C</option>
+                                        <option value="C">1 C</option> --}}
                                     </select>
                                 </div>
                             </div>
@@ -173,5 +182,38 @@
 @endsection
 
 @section('js')
+<script>
+     //Selecciona el programa educativo
+     const selectElement = document.querySelector('#educational');
+        selectElement.addEventListener('change', (event) => {
+            var p_id = document.getElementById('educational').value;
+            //Vacia los datos del select 
+            $('#grade').find('option').remove();
+            if(p_id == "todos"){
+                console.log(p_id);
+                $("#grade").append('<option value="todos">Todos</option>');
+            }else{
+               //Busqueda AJAX para rellenar los options correspondientes de cada programa educativo
+                $.ajax({
+                url: "{{ route('student.getGroups') }}",
+                type: 'post',
+                data: {
+                    p_id: p_id
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+                success: function(data) {
+                    $.each(data, function(key, registro) {
+                        $("#grade").append('<option value=' + registro.id + '>' + registro
+                            .name + '</option>');
+                    });
+                }
+            });
+            }
+           
+        });
+</script>
     <script type="text/javascript" src="{{ url('backend/js/jquery.js') }}"></script>
 @endsection
