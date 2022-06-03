@@ -109,14 +109,14 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    <label for="inicio" class="">Fecha de incio</label><input name="inicio"
+                                    <label for="inicio" class="">Fecha de incio</label><input name="inicio" required
                                         id="inicio" type="text" class="form-control" data-toggle="datepicker"
                                         placeholder="dd/mm/aaaa" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    <label for="fin" class="">Fecha de fin</label><input name="fin" id="fin"
+                                    <label for="fin" class="">Fecha de fin</label><input name="fin" id="fin" required
                                         type="text" class="form-control" data-toggle="datepicker" placeholder="dd/mm/aaaa"
                                         autocomplete="off" />
                                 </div>
