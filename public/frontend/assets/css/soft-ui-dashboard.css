@@ -44,6 +44,14 @@
   }
 }
 
+@font-face {
+
+  font-family: var(--bs-font-sans-serif);
+  
+  src: url(../fonts/OpenSans-VariableFont.ttf);
+  
+}
+
 body {
   margin: 0;
   font-family: var(--bs-font-sans-serif);
@@ -24949,4 +24957,4 @@ pre[class*="language-"] {
   }
 }
 
-/*# sourceMappingURL=dashboard-free.css.map */
+/*# sourceMappingURL=soft-ui-dashboard.css.map */
