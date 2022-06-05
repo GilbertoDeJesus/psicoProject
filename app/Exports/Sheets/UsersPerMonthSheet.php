@@ -6,16 +6,17 @@ use App\Models\Student;
 use Illuminate\Support\Carbon;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithTitle;
-use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Events\AfterSheet;
 
-class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings
+class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAutoSize, WithEvents
 {
     private $añoinicio;
     private $mesinicio;
     private $diainicio;
     private $diafin;
-    private $añofin;
     private $mesfin;
     private $month;
     private $educational;
@@ -90,7 +91,6 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings
             'Trajectoria Academica',
             'Fecha',
         ];
-        
             if($this->test == "aprendizaje"){
                 unset($array[6]);
                 unset($array[7]);
@@ -107,6 +107,52 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings
             }
         
         return $array;
+    }
+/**
+     * @return array
+     */
+    public function registerEvents(): array
+    {
+        
+        return [
+            AfterSheet::class    => function(AfterSheet $event) {
+                $styleArray = [
+                    'font' => [
+                        'bold' => true,
+                    ],
+                    'alignment' => [
+                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,
+                    ],
+                    'borders' => [
+                        'outline' => [
+                            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            'color' => ['argb' => '1d576c'],
+                        ],
+                    ],
+                    'fill' => [
+                        'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                        'rotation' => 90,
+                        'startColor' => [
+                            'argb' => '07ae8b',
+                        ],
+                        'endColor' => [
+                            'argb' => 'FFFFFFFF',
+                        ],
+                    ],
+                ];
+                $cellRange = 'A1:L1'; // All headers
+                if($this->test == "aprendizaje"){
+                    $cellRange = 'A1:H1';
+                }elseif($this->test == "vocacional"){
+                    $cellRange = 'A1:J1';
+                }elseif($this->test == "trayectoria"){
+                    $cellRange = 'A1:H1';
+                }
+                $event->sheet->getDelegate()->getStyle($cellRange)
+                ->applyFromArray($styleArray);
+
+            },
+        ];
     }
 
     public function allQuery($array)

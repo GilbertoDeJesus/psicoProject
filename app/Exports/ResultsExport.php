@@ -6,7 +6,11 @@ use App\Models\User;
 use Illuminate\Contracts\View\View;
 use App\Exports\Sheets\UsersPerMonthSheet;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Style\Style;
+use PhpOffice\PhpSpreadsheet\Style\Color;
 
 class ResultsExport implements WithMultipleSheets
 {
@@ -34,6 +38,9 @@ class ResultsExport implements WithMultipleSheets
         $this->test = $test;
         return $this;
     }
+
+    
+
     /**
      * @inheritDoc
      */
@@ -46,4 +53,6 @@ class ResultsExport implements WithMultipleSheets
         }
         return $sheets;
     }
+    
+    
 }
