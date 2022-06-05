@@ -80,7 +80,7 @@
                                     <div class="card card-plain">
                                         <div class="card-header py-0 text-center">
                                             <h4 class="font-weight-bolder text-info text-gradient">Bienvenido de nuevo</h4>
-                                            <p class="mb-0 text-sm">Ingresa tú matrícula y contraseña para iniciar sesión</p>
+                                            <p class="mb-0 text-sm">Ingresa tu matrícula y contraseña para iniciar sesión</p>
                                         </div>
                                         <div class="card-body">
                                             <form role="form text-left" method="POST" action="{{ route('student.log-in') }}">

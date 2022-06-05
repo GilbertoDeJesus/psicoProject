@@ -1,5 +1,9 @@
 @extends('backend.layout.main')
 
+@section('links')
+    <link rel="stylesheet" href="{{ url('backend/css/datatable.css') }}">
+@endsection
+
 @section('css')
     <style>
         ::-webkit-file-upload-button {
@@ -28,7 +32,14 @@
                     </i>
                 </div>
                 <div>Información del alumno
-                    <div class="page-title-subheading">A continuación se presenta toda la información del alumno
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Alumnos</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Información</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -95,15 +106,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional1->name}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional2->name}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4">{{$student->result->educativeProgramTestOrientacional3->name}}</td>
-                                        </tr>
+                                        @if ($student->result->test_orientacional1_id !=  null)
+                                            <tr>
+                                                <td class="px-4">{{$student->result->educativeProgramTestOrientacional1->name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4">{{$student->result->educativeProgramTestOrientacional2->name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4">{{$student->result->educativeProgramTestOrientacional3->name}}</td>
+                                            </tr>
+                                        @else
+                                            <tr>
+                                                <td class="px-4">Aún no hay respuestas del alumno</td>
+                                            </tr>
+                                        @endif
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -210,7 +228,7 @@
                         <div class="col-md-12 mb-4">
                             <div class="main-card my-3 card">
                                 <div class="table-responsive pt-1">
-                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="aprendizaje">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">#</th>
@@ -253,7 +271,7 @@
                         <div class="col-md-12 mb-4">
                             <div class="main-card my-3 card">
                                 <div class="table-responsive pt-1">
-                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="vocacional">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">#</th>
@@ -295,7 +313,7 @@
                         <div class="col-md-12 mb-4">
                             <div class="main-card my-3 card">
                                 <div class="table-responsive pt-1">
-                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="trayectoria">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">#</th>
@@ -332,8 +350,6 @@
                                             @empty
                                                 <h5>No hay preguntas ni respuestas para este cuestionario</h5>
                                             @endforelse
-                                            
-                                           
                                         </tbody>
                                     </table>
                                 </div>
@@ -350,11 +366,58 @@
 @endsection
 
 @section('js')
+<script type="text/javascript" src="{{ url('backend/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url('backend/js/dataTable.min.js') }}"></script>
 <script>
-    $(document).ready(function () {
-    $('#example').DataTable({
-        ajax: 'data/arrays.txt',
-    });
-});
+    var spanish= {
+                    "processing": "Procesando...",
+                    "lengthMenu": "Mostrar  _MENU_  registros",
+                    "zeroRecords": "No se encontraron resultados",
+                    "emptyTable": "Ningún dato disponible en esta tabla",
+                    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "infoFiltered": "(filtrado de un total de MAX registros)",
+                    "search": "Buscar: ",
+                    "infoThousands": ",",
+                    "loadingRecords": "Cargando...",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    },
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                }
+    $(document).ready( function () {
+        $('#aprendizaje').DataTable({
+            "bAutoWidth": false,
+            lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'Todos'],
+            ],
+            ordering:  false,
+            language: spanish,
+            responsive: true
+        });
+        $('#vocacional').DataTable({
+            "bAutoWidth": false,
+            lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'Todos'],
+            ],
+            ordering:  false,
+            language: spanish,
+            responsive: true
+        });
+        $('#trayectoria').DataTable({
+            "bAutoWidth": false,
+            lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'Todos'],
+            ],
+            ordering:  false,
+            language: spanish,
+            responsive: true
+        });
+    } );
 </script>
 @endsection

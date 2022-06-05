@@ -122,10 +122,27 @@ class StudentsAdminController extends Controller
     }
 
     public function vaciarAlumnos(){
-        foreach ( Student::all() as $studet) {
-            $studet->delete();
-        }
-       
+        $user = Auth::user();
+        if($user->can('Eliminar alumno avanzado')){
+            $alumnos= Student::all();
+            if($alumnos->isEmpty()){
+                return back()->with('alert',"No hay alumnos para eliminar");
+            }
+            foreach ($alumnos as $studet) {
+                $studet->delete();
+            }            
+        }elseif($user->can('Eliminar alumno sencillo')){
+            $alumnos = EducativeProgram::find($user->educative_program_id)
+                       ->students;
+            if($alumnos->isEmpty()){
+                return back()->with('alert',"No hay alumnos para eliminar");
+            }
+            foreach($alumnos as $studet){
+                $studet->delete();
+            }        
+        }else{
+            return back()->with('alert',"No tienes permisos para eliminar");
+        }       
         return back()->with('status',"Alumnos eliminados");
     }
 }

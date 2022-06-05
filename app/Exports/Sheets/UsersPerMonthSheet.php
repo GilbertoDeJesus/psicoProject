@@ -80,7 +80,7 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAu
         $array = [
             '#',
             'Nombre',
-            'Matricula',
+            'Matrícula',
             'Email',
             'Programa Educativo',
             'Grado',
@@ -88,7 +88,7 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAu
             'Orientacional2',
             'Orientacional3',
             'Estilo de Aprendizaje',
-            'Trajectoria Academica',
+            'Trajectoria Académica',
             'Fecha',
         ];
             if($this->test == "aprendizaje"){
@@ -177,7 +177,7 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAu
             $query = $query->where('dus.educative_program_id', '=', $this->educational); 
         }
         if($this->grade != "todos"){
-            $query = $query->where('dus.name', '=', $this->grade); 
+            $query = $query->where('dus.id', '=', $this->grade); 
         }
         return $query;
     }

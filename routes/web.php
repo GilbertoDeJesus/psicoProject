@@ -63,7 +63,7 @@ Route::get('/admin/students', 'backend\StudentsAdminController@index')->name('ad
 Route::get('/admin/student/{student}', 'backend\StudentsAdminController@infoStudent')->name('admin.student.info');
 Route::get('/admin/students/search', 'backend\StudentsAdminController@searchStudent')->name('admin.students.search');
 Route::get('/admin/getStudent', 'backend\StudentsAdminController@getInfo')->name('admin.infoStudent');
-Route::get('/admin/deleteStudent','backend\StudentsAdminController@vaciarAlumnos')->name('admin.deleteStudent');
+Route::delete('/admin/deleteStudent','backend\StudentsAdminController@vaciarAlumnos')->name('admin.deleteStudent');
 
 
 //-------EDUCATIONAL PROGRAM--------------------

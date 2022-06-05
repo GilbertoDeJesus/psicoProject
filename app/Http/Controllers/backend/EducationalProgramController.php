@@ -14,58 +14,65 @@ class EducationalProgramController extends Controller
         $this->middleware(['role:Super-Admin']);
     }
 
-    public function index(){
+    public function index()
+    {
         return view('backend.educationalProgram.educationalProgram')->with([
             'educativePrograms' => EducativeProgram::paginate(20)
         ]);
     }
 
-    public function deleteProgram($educativeProgram){
+    public function deleteProgram($educativeProgram)
+    {
         //dd(EducativeProgram::find($educativeProgram));
         EducativeProgram::find($educativeProgram)->delete();
         return back()->with('status', '¡El registro se elimino correctamente!');
     }
 
-    public function storeProgram(EducativeProgramRequest $request){
+    public function storeProgram(EducativeProgramRequest $request)
+    {
         EducativeProgram::create($request->validated());
         return back()->with('status', '¡El registro se creo correctamente!');
     }
 
-    public function editProgram(){
+    public function editProgram()
+    {
         return view('backend.users.editUser');
     }
 
-    public function updateProgram(EducativeProgramRequest $request, $educativeProgram){
+    public function updateProgram(EducativeProgramRequest $request, $educativeProgram)
+    {
         //dd(EducativeProgram::find($educativeProgram));
         EducativeProgram::find($educativeProgram)->update($request->validated());
         return back()->with('status', '¡El registro se modificó  correctamente!');
     }
 
-    public function indexProgram(Request $request){
+    public function indexProgram(Request $request)
+    {
         $this->group = $request->group;
         $groups = EducativeProgram::find($request->id)->groups;
         if ($request->group == null || $request->group == 'todos') {
-            $students=EducativeProgram::where('id',$request->id)->with('students', 'students.group')->paginate(20);
-         }else{
-             $students=EducativeProgram::with(['students' => function ($query) { 
-                 $query->where('group_id', $this->group)->with('group');
-             }])->where('id', $request->id)->paginate(20);
-         }
-            // dd($students,$groups);
-        return view('backend.educationalProgram.studentGroups',['students'=>$students,'groups'=>$groups]);
+            $students = EducativeProgram::where('id', $request->id)->with('students', 'students.group')->paginate(20);
+        } else {
+            $students = EducativeProgram::with(['students' => function ($query) {
+                $query->where('group_id', $this->group)->with('group');
+            }])->where('id', $request->id)->paginate(20);
+        }
+        return view('backend.educationalProgram.studentGroups', ['students' => $students, 'groups' => $groups]);
     }
 
-    public function infoStudent(){
+    public function infoStudent()
+    {
         return view('backend.students.studentInfo');
     }
 
-    public function searchProgram(Request $request){
+    public function searchProgram(Request $request)
+    {
 
         $search = htmlspecialchars($request->input('search'));
 
-        $eduactivePrograms = EducativeProgram::where('name', 'LIKE', '%'.$search.'%')
-        ->orderBy('name', 'asc')
-        ->paginate(20);
+        $eduactivePrograms = EducativeProgram::where('name', 'LIKE', '%' . $search . '%')
+            ->orderBy('name', 'asc')
+            ->paginate(20);
 
         return view('backend.educationalProgram.educationalSearch')->with([
             'searchs' => $eduactivePrograms,
@@ -73,18 +80,19 @@ class EducationalProgramController extends Controller
         ]);
     }
 
-    public function searchGroupStudent(Request $request){
+    public function searchGroupStudent(Request $request)
+    {
 
         $search = htmlspecialchars($request->input('search'));
         $educativeProgram = EducativeProgram::find($request->input('educative_program'));
-        $students = $educativeProgram->students()->where(function($query) use($search){
-            $query->where('students.name', 'LIKE', '%'.$search.'%')
-            ->orWhere('students.family_name', 'LIKE', '%'.$search.'%')
-            ->orWhere('students.last_name', 'LIKE', '%'.$search.'%');
+        $students = $educativeProgram->students()->where(function ($query) use ($search) {
+            $query->where('students.name', 'LIKE', '%' . $search . '%')
+                ->orWhere('students.family_name', 'LIKE', '%' . $search . '%')
+                ->orWhere('students.last_name', 'LIKE', '%' . $search . '%');
         })
-        ->orderBy('students.name', 'asc')
-        ->paginate(20);;
-        
+            ->orderBy('students.name', 'asc')
+            ->paginate(20);;
+
         return view('backend.educationalProgram.studentGroupSearch')->with([
             'searchs' => $students,
             'search' => $search

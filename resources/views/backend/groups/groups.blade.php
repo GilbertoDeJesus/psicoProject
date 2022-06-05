@@ -9,7 +9,13 @@
                     </i>
                 </div>
                 <div>Registro de grupos
-                    <div class="page-title-subheading">A continuación se presentan todos los grupos activos
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Grupos</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
