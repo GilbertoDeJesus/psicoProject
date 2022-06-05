@@ -131,7 +131,7 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings
             $query = $query->where('dus.educative_program_id', '=', $this->educational); 
         }
         if($this->grade != "todos"){
-            $query = $query->where('dus.name', '=', $this->grade); 
+            $query = $query->where('dus.id', '=', $this->grade); 
         }
         return $query;
     }
