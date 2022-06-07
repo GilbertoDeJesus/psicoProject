@@ -593,15 +593,6 @@ class FirstSeeder extends Seeder
             'type_id' => 1
         ]);
         foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Estudio",
-                'is_correct' => 1,
-                'value' => 5,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
             \App\Models\Answer::factory(1)->create([
                 'answer' => "Trabajo",
                 'is_correct' => 1,
