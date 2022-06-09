@@ -56,7 +56,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($searchs as $ep)
+                            @forelse($searchs as $ep)
                             <tr>
                                 <td class="text-center text-muted">{{$ep->id}}</td>
                                 <td>
@@ -96,7 +96,13 @@
                                     </a>
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="8" align="center">
+                                    No hay resultados
+                                </td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

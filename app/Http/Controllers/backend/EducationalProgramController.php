@@ -5,6 +5,8 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\EducativeProgram;
+use App\Models\Student;
+use App\Models\Test;
 use App\Http\Requests\EducativeProgramRequest;
 
 class EducationalProgramController extends Controller
@@ -60,9 +62,53 @@ class EducationalProgramController extends Controller
         return view('backend.educationalProgram.studentGroups', ['students' => $students, 'groups' => $groups]);
     }
 
-    public function infoStudent()
+    public function infoStudent($st)
     {
-        return view('backend.students.studentInfo');
+        $student = Student::find($st);
+        //dd($student->id);
+        $s = Student::where('id',$student->id)->with('group.educativeProgram')
+        ->with('result', 'result.educativeProgramTestOrientacional1:id,name',
+        'result.educativeProgramTestOrientacional2:id,name',
+        'result.educativeProgramTestOrientacional3:id,name')
+        ->with('tests')
+        ->first();
+        if($s->result == null){
+            return back()->with('alerta', 'El estudiante seleccionado aún no ha respondido ningún cuestionario');
+        }        
+        $test1 =  Test::where('name', 'Estilo de aprendizaje')->first();
+        $learningTest = $test1->questions()->orderBy('order', 'ASC')->get();
+
+        $test2 = Test::where('name', 'Orientación Vocacional')->first();
+        $vocationalTest = $test2->questions()->orderBy('order', 'ASC')->get();
+      
+        $test3 = Test::where('name', 'Trayectoria académica')->first();
+        $trayectoryTest = $test3->questions()->orderBy('order', 'ASC')->get();
+        if($s->tests->count() == 3){
+            $answerTrayectoryTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
+            $answerVocationalTest = (array) json_decode(stripslashes($s->tests[1]->pivot->answers));
+            $answerLearningTest = (array) json_decode(stripslashes($s->tests[2]->pivot->answers));
+
+        }else if($s->tests->count() == 2){
+            $answerTrayectoryTest = [];
+            $answerVocationalTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
+            $answerLearningTest = (array) json_decode(stripslashes($s->tests[1]->pivot->answers));
+            
+        }else if($s->tests->count() == 1){
+            $answerLearningTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
+            $answerTrayectoryTest = [];
+            $answerVocationalTest = [];
+        }else{
+            $answerLearningTest = [];
+            $answerTrayectoryTest = [];
+            $answerVocationalTest = [];
+        }
+        // dd($answerVocationalTest);
+        return view('backend.students.studentInfo',['student'=>$s,'learningTest'=>$learningTest,
+        'vocationalTest'=>$vocationalTest,
+        'trayectoryTest'=>$trayectoryTest,
+        'answerTrayectoryTest'=>$answerTrayectoryTest,
+        'answerVocationalTest'=> $answerVocationalTest,
+        'answerLearningTest'=>$answerLearningTest]);
     }
 
     public function searchProgram(Request $request)

@@ -76,7 +76,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($searchs as $student)
+                            @forelse($searchs as $student)
                             <tr>
                                 <td class="text-center text-muted">#{{$student->id}}</td>
                                 <td>
@@ -114,7 +114,13 @@
                                     </button>
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="8" align="center">
+                                    No hay resultados
+                                </td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
