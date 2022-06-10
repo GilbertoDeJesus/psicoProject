@@ -57,7 +57,7 @@
                         </a>
                     </li>
                 @endcan
-                @can('Ver grupos')
+                @can('Ver grupos avanzado')
                     <li>
                         <a href="{{ route('admin.groups') }}" class="{{ Route::is('admin.groups', 'admin.groups.editGroup', 'admin.groups.search') ? 'mm-active' : '' }}">
                             <i class="metismenu-icon pe-7s-network"></i>

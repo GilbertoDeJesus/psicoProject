@@ -30,7 +30,7 @@ class DashboardController extends Controller
                   ->orderBy('created_at','DESC')
                   ->paginate(20);
       }else{
-        $students = Student::whereDate('created_at', '=',Carbon::today())
+        $students = Student::whereDate('created_at',Carbon::today())
                   ->with('group.educativeProgram')
                   ->orderBy('created_at','DESC')
                   ->paginate(20);
