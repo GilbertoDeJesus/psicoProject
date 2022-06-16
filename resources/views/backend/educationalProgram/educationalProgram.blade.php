@@ -9,11 +9,19 @@
                     </i>
                 </div>
                 <div>Programas educativos
-                    <div class="page-title-subheading">A continuación se presentan todos los programas activos
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                {{-- <li class="breadcrumb-item"><a href="javascript:void(0);">Library</a></li> --}}
+                                <li class="active breadcrumb-item" aria-current="page">Programas educativos</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
             <div class="page-title-actions">
+                @can('Buscar programa educativo',)
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.educationalProgram.search') }}" method="get">
@@ -22,6 +30,7 @@
                         </form>
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
@@ -38,12 +47,14 @@
                 <div class="card-header">Lista de programas educativos
                     <div class="btn-actions-pane-right">
                         <div role="group" class="btn-group">
+                            @can('Agregar programa educativo',)
                             <button class="btn btn-primary mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">
                                 <span class="btn-icon-wrapper pr-2 opacity-7">
                                     <i class="fa fa-plus fa-w-20"></i>
                                 </span>
                                 Agregar
                             </button>
+                            @endcan
                         </div>
                     </div>
                 </div>
@@ -72,8 +83,9 @@
                                     </div>
                                 </td>
                                 <td class="text-center">{{$ep->created_at->diffForHumans()}}</td>
+                                @can('Ver alumnos avanzado',)
                                 <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
+                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => $ep->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
                                         title="Ver lista de alumnos">
                                         <span class="btn-icon-wrapper">
@@ -81,7 +93,9 @@
                                         </span>
                                     </a>
                                 </td>
+                                @endcan
                                 <td class="text-center">
+                                    @can('Editar programas educativo',)
                                     <a href="javascript:;" id="PopoverCustomT-1" class="btn btn-success btn-update btn-sm my-auto" 
                                     data-name="{{$ep->name}}" data-id="{{$ep->id}}" data-toggle="modal" data-placement="top" title="Editar" data-target="#editModal">
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
@@ -89,6 +103,8 @@
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
+                                    @endcan
+                                    @can('Eliminar programa educativo',)
                                     <a href="javascript:;" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
                                     data-id="{{$ep->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
                                         data-target="#deleteModal">
@@ -96,29 +112,16 @@
                                             title="Eliminar">
                                             <i class="fa fa-trash fa-w-20"></i>
                                         </span>
-                                    </a>
+                                    </a> 
+                                    @endcan 
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">
-                    <nav class="" aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Previous"><span aria-hidden="true">«</span><span
-                                        class="sr-only">Previous</span></a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
-                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">2</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Next"><span aria-hidden="true">»</span><span
-                                        class="sr-only">Next</span></a></li>
-                        </ul>
-                    </nav>
+                <div class="d-block text-center card-footer">                  
+                        {{ $educativePrograms->links('vendor.pagination.default') }}   
                 </div>
             </div>
         </div>
@@ -171,25 +174,27 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                @can('Editar programas educativo1',)
                 <form id="formUpdate" action="{{ route('admin.educationalProgram.updateProgram', ['id' => 0]) }}" method="post" role="form"
-                data-action="{{ route('admin.educationalProgram.updateProgram', ['id' => 0]) }}">
-                    @method('PUT')
-                    @csrf
-                    <div class="modal-body mx-2 my-2">
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="position-relative form-group">
-                                    <label for="name" class="">Nombre</label><input id="inputName" value="" name="name" id="name"
-                                        placeholder="Nombre" type="text" class="form-control" required>
+                    data-action="{{ route('admin.educationalProgram.updateProgram', ['id' => 0]) }}">
+                        @method('PUT')
+                        @csrf
+                        <div class="modal-body mx-2 my-2">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="name" class="">Nombre</label><input id="inputName" value="" name="name" id="name"
+                                            placeholder="Nombre" type="text" class="form-control" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                @endcan
             </div>
         </div>
     </div>
@@ -199,7 +204,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro? de eliminar</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

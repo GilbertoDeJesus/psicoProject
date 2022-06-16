@@ -4,15 +4,50 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Exports\ResultsExport;
+use App\Models\EducativeProgram;
+use App\Models\Group;
+use App\Models\Test;
+use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportsController extends Controller
 {
     public function index(){
-        return view('backend.reports.reports');
+        $user = Auth::user();
+        $tests = Test::all();
+        if($user->can('Generar reporte avanzado')){
+            $grupos = Group::with('educativeProgram')->paginate(20);
+            $educativePrograms = EducativeProgram::all();
+        }elseif($user->can('Generar reporte sencillo')){
+            $grupos = EducativeProgram::find($user->educative_program_id)->groups()->with('educativeProgram')->paginate(20);
+            $educativePrograms = EducativeProgram::where('id',$user->educative_program_id)->get();
+        }
+        return view('backend.reports.reports')->with([
+            'tests' => $tests,
+            'groups' => $grupos,
+            'educativePrograms' => $educativePrograms,
+        ]);
     }
 
-    public function generateReport(){
-        return back()->with('status', '¡El registro se elimino correctamente!');
+    public function generateReport(Request $request){
+        $test = htmlspecialchars($request->input('test'));
+        $educational = htmlspecialchars($request->input('educational'));
+        $grade = htmlspecialchars($request->input('grade'));
+        $añoinicio = date("Y", strtotime($request->input('inicio')));
+        $mesinicio = date("m", strtotime($request->input('inicio')));
+        $diainicio = date("d", strtotime($request->input('inicio')));
+        $añofin = date("Y", strtotime($request->input('fin')));
+        $mesfin = date("m", strtotime($request->input('fin')));
+        $diafin = date("d", strtotime($request->input('fin')));
+        
+        return (new ResultsExport)->forYear((int)$añoinicio,
+          (int)$mesinicio, (int)$diainicio,
+          (int)$añofin, 
+          (int)$mesfin, 
+          (int)$diafin, $test, $educational, $grade)
+          ->download('alumnos.xlsx');
+        
     }
 
 }

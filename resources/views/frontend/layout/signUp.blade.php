@@ -59,135 +59,197 @@
                 <div class="col-xl-7 col-lg-7 col-md-7 mx-auto">
                     <div class="card z-index-0">
                         <div class="card-header text-center mt-1 pt-4">
-                            <h5>Registrar alumno</h5>
+                            <div class="nav-wrapper position-relative end-0">
+                                <ul class="nav nav-pills nav-pills-dark-green nav-fill p-1" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#log-in" role="tab" aria-controls="preview" aria-selected="true">
+                                            <i class="ni ni-key-25 text-sm me-2"></i> Iniciar sesión
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#sign-up" role="tab" aria-controls="code" aria-selected="false">
+                                            <i class="ni ni-badge text-sm me-2"></i> Registrarse
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="card-body mx-2">
-                            <form role="form text-left" method="POST" action="{{ route('student.storeStudent') }}">
-                                @csrf
-                                @if ($errors->any())
-                                    @foreach ($errors->all() as $error)
-                                        <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
-                                            <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
-                                            <span class="alert-text">{{ $error }}</span>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                aria-label="Close">
-                                                <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
-                                            </button>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="log-in" role="tabpanel" aria-labelledby="pills-home-tab">
+                                    <div class="card card-plain">
+                                        <div class="card-header py-0 text-center">
+                                            <h4 class="font-weight-bolder text-info text-gradient">Bienvenido de nuevo</h4>
+                                            <p class="mb-0 text-sm">Ingresa tu matrícula y contraseña para iniciar sesión</p>
                                         </div>
-                                    @endforeach
-                                @endif
-                                @if (isset($message))
-                                    <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
-                                        <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
-                                        <span class="alert-text">{{ $message }}</span>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close">
-                                            <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
-                                        </button>
-                                    </div>
-                                @endif
-
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <label>Nombre</label>
-                                        <div class="mb-3">
-                                            <input type="text" class="form-control " placeholder="Nombre" name="name"
-                                                required value="{{old('name')}}">
+                                        <div class="card-body">
+                                            <form role="form text-left" method="POST" action="{{ route('student.log-in') }}">
+                                                @csrf
+                                                <div class="row">
+                                                    <div class="col-xl-10 col-lg-10 col-md-12 mx-auto">
+                                                        @if ($errors->any())
+                                                            @foreach ($errors->all() as $error)
+                                                                <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
+                                                                    <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
+                                                                    <span class="alert-text">{{ $error }}</span>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                                        aria-label="Close">
+                                                                        <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
+                                                                    </button>
+                                                                </div>
+                                                            @endforeach
+                                                        @endif
+                                                        <label>Matrícula</label>
+                                                        <div class="input-group mb-3">
+                                                            <input type="number" name="matricula" class="form-control" placeholder="Matricula"
+                                                                aria-label="Email" required>
+                                                        </div>
+                                                        <label>Contraseña</label>
+                                                        <div class="input-group mb-3">
+                                                            <input type="password" name="password" class="form-control" placeholder="Contraseña"
+                                                                aria-label="Password" autocomplete="false" required>
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <button type="submit"
+                                                                class="btn bg-gradient-dark-green btn-lg w-100 mt-4 mb-0 text-white">Iniciar
+                                                                sesión</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
-
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <label>Apellido paterno</label>
-                                        <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="Apellido paterno"
-                                                name="family_name" required value="{{old('family_name')}}">
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <label>Apellido materno</label>
-                                        <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="Apellido materno"
-                                                name="last_name" required value="{{old('last_name')}}">
+                                        <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                            <p class="text-sm mt-3 mb-0">Regístrate si aún no lo has hecho</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-4">
-                                        <label>Edad</label>
-                                        <div class="mb-3">
-                                            <input type="number" class="form-control" placeholder="Edad" name="age"
-                                                required value="{{old('age')}}">
+                                <div class="tab-pane fade" id="sign-up" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                    <form role="form text-left" method="POST" action="{{ route('student.storeStudent') }}">
+                                        @csrf
+                                        @if ($errors->any())
+                                            @foreach ($errors->all() as $error)
+                                                <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
+                                                    <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
+                                                    <span class="alert-text">{{ $error }}</span>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
+                                                    </button>
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                        @if (isset($message))
+                                            <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
+                                                <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
+                                                <span class="alert-text">{{ $message }}</span>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
+                                                </button>
+                                            </div>
+                                        @endif
+        
+                                        <div class="row">
+                                            <div class="col-xl-4 col-lg-4 col-md-12">
+                                                <label>Nombre</label>
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control " placeholder="Nombre" name="name"
+                                                        required value="{{old('name')}}">
+                                                </div>
+        
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12">
+                                                <label>Apellido paterno</label>
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" placeholder="Apellido paterno"
+                                                        name="family_name" required value="{{old('family_name')}}">
+                                                </div>
+        
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12">
+                                                <label>Apellido materno</label>
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" placeholder="Apellido materno"
+                                                        name="last_name" required value="{{old('last_name')}}">
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-8 col-lg-8 col-md-8">
-                                        <label>Email institucional</label>
-                                        <div class="mb-3">
-                                            <input type="email" class="form-control" placeholder="Email institucional"
-                                                name="email" required value="{{old('email')}}">
+                                        <div class="row">
+                                            <div class="col-xl-4 col-lg-4 col-md-4">
+                                                <label>Edad</label>
+                                                <div class="mb-3">
+                                                    <input type="number" class="form-control" placeholder="Edad" name="age"
+                                                        required value="{{old('age')}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                                <label>Email institucional</label>
+                                                <div class="mb-3">
+                                                    <input type="email" class="form-control" placeholder="Email institucional"
+                                                        name="email" required value="{{old('email')}}">
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="row">
+                                            <div class="col-xl-4 col-lg-4 col-md-12">
+                                                <label>Teléfono</label>
+                                                <div class="mb-3">
+                                                    <input type="tel" class="form-control" placeholder="Teléfono" name="phone"
+                                                    onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
+                                                    pattern="[0-9]+" maxlength="10"  value="{{old('phone')}}" required>
+                                                </div>
+        
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12">
+                                                <label>Teléfono de contacto</label>
+                                                <div class="mb-3">
+                                                    <input type="tel" class="form-control" placeholder="Teléfono de contacto"
+                                                    {{-- Con esto solo tomamos en cuenta los números, no letras, no símbolos. --}}
+                                                    onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
+                                                    pattern="[0-9]+" name="contact_phone" maxlength="10" required value="{{old('contact_phone')}}">
+                                                </div>
+        
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12">
+                                                <label>Matrícula</label>
+                                                <div class="mb-3">
+                                                    <input type="number" class="form-control" placeholder="Matrícula"
+                                                        name="matricula" required value={{old('matricula')}}>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-8 col-lg-8 col-md-12">
+                                                <label>Programa educativo</label>
+                                                <div class="mb-3">
+                                                    <select type="select" id="p_id" name="p_id" class="form-control" required>
+                                                        <option value="0" selected>Seleccione su programa educativo</option>
+                                                        @foreach ($educativePrograms as $educativeProgram)
+                                                        <option {{$educativeProgram->id  == old('p_id') ? "selected":""}} value="{{$educativeProgram->id}}">
+                                                                {{ $educativeProgram->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12">
+                                                <label>Cuatrimestre y grupo</label>
+                                                <div class="mb-3">
+                                                    <select type="select" id="areaSelect" name="group_id" class="form-control"
+                                                        required>
+                                                        <option value="0" selected>Seleccione su cuatrimestre y grupo</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit"
+                                                class="btn bg-gradient-dark-green text-white w-100 my-4 mb-2">Registrarse</button>
+                                        </div>
+                                        <p class="text-sm mt-3 mb-0">¿Ya te registraste? <span class="text-dark font-weight-bolder icon-move-right"> Inicia sesión</span></p>
+                                    </form>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <label>Teléfono</label>
-                                        <div class="mb-3">
-                                            <input type="tel" class="form-control" placeholder="Teléfono" name="phone"
-                                            onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
-                                            pattern="[0-9]+" maxlength="10"  value="{{old('phone')}}" required>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <label>Teléfono de contacto</label>
-                                        <div class="mb-3">
-                                            <input type="tel" class="form-control" placeholder="Teléfono de contacto"
-                                            {{-- Con esto solo tomamos en cuenta los números, no letras, no símbolos. --}}
-                                            onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
-                                            pattern="[0-9]+" name="contact_phone" maxlength="10" required value="{{old('contact_phone')}}">
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <label>Matrícula</label>
-                                        <div class="mb-3">
-                                            <input type="number" class="form-control" placeholder="Matrícula"
-                                                name="matricula" required value={{old('matricula')}}>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-8 col-lg-8 col-md-12">
-                                        <label>Programa educativo</label>
-                                        <div class="mb-3">
-                                            <select type="select" id="p_id" name="p_id" class="form-control" required>
-                                                <option value="0" selected>Seleccione su programa educativo</option>
-                                                @foreach ($educativePrograms as $educativeProgram)
-                                                <option {{$educativeProgram->id  == old('p_id') ? "selected":""}} value="{{$educativeProgram->id}}">
-                                                        {{ $educativeProgram->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <label>Cuatrimestre y grupo</label>
-                                        <div class="mb-3">
-                                            <select type="select" id="areaSelect" name="group_id" class="form-control"
-                                                required>
-                                                <option value="0" selected>Seleccione su cuatrimestre y grupo</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit"
-                                        class="btn bg-gradient-dark-green text-white w-100 my-4 mb-2">Registrarse</button>
-                                </div>
-                                <p class="text-sm mt-3 mb-0">¿Ya te registraste? <a href="javascript:;"
-                                        class="text-dark font-weight-bolder icon-move-right" data-bs-toggle="modal"
-                                        data-bs-target="#modal-form"> Inicia sesión</a></p>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -237,7 +299,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
-<div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+{{-- <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-body p-0">
@@ -288,6 +350,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 </html>

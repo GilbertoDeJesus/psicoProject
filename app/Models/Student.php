@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Group;
 use App\Models\Result;
 use App\Models\Test;
+use App\Models\EducativeProgram;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
 
@@ -30,6 +31,18 @@ class Student extends Model
     {
         return $this->belongsToMany(Test::class)->withPivot('answers', 'finished');
     }
+    public function test1()
+    {
+        return $this->belongsToMany(Test::class)->where('test_id',1);
+    }
+    public function test2()
+    {
+        return $this->belongsToMany(Test::class)->where('test_id',2);
+    }
+    public function test3()
+    {
+        return $this->belongsToMany(Test::class)->where('test_id',3);
+    }
    
 
     //Encripta la contraseña del alumno
@@ -37,4 +50,5 @@ class Student extends Model
         // $this->attributes['password'] = bcrypt($password);
         $this->attributes['password'] = Hash::make($password);
     }
+
 }

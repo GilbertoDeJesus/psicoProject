@@ -1,5 +1,9 @@
 @extends('backend.layout.main')
 
+@section('links')
+    <link rel="stylesheet" href="{{ url('backend/css/datatable.css') }}">
+@endsection
+
 @section('css')
     <style>
         ::-webkit-file-upload-button {
@@ -28,7 +32,14 @@
                     </i>
                 </div>
                 <div>Información del alumno
-                    <div class="page-title-subheading">A continuación se presenta toda la información del alumno
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Alumnos</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Información</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -46,7 +57,7 @@
                                 </div>
                             </div>
                             <div>
-                                <h5 class="menu-header-title">{{$student->name}} {{$student->family_name}} {{$student->last_name}}</h5>
+                                <h5 class="menu-header-title">{{Str::title($student->name)}} {{Str::title($student->family_name)}} {{Str::title($student->last_name)}}</h5>
                                 <h6 class="menu-header-subtitle">{{$student->group->educativeProgram->name}}</h6>
                             </div>
                         </div>
@@ -58,27 +69,27 @@
                             <div class="no-gutters row">
                                 <div class="col-sm-6">
                                     <div class="p-1">
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-primary d-none">{{--Quitar la clase d-none para que se muestre--}}
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-primary {{$student->result->test_aprendizaje == 'Visual' ? '':'d-none'}}">{{--Quitar la clase d-none para que se muestre--}}
                                             <i class="pe-7s-look btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje visual
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-info">
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-info {{$student->result->test_aprendizaje == 'Auditivo' ? '':'d-none'}}">
                                             <i class="pe-7s-volume1 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Auditivo
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate d-none">
-                                            <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestesico
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate {{$student->result->test_aprendizaje == 'Kinestésico' ? '':'d-none'}}">
+                                            <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestésico
                                         </button>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="p-1">
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-success">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco verde
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-success {{$student->result->test_status_academico == 'Verde' ? '':'d-none'}}">
+                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Verde' ? 'Foco Verde':''}}
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning d-none">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco amarillo
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning {{$student->result->test_status_academico == 'Amarillo' ? '':'d-none'}}">
+                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Amarillo' ? 'Foco Amarillo':''}}
                                         </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger d-none">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco rojo
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger {{$student->result->test_status_academico == 'Rojo' ? '':'d-none'}}">
+                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Rojo' ? 'Foco Rojo':''}}
                                         </button>
                                     </div>
                                 </div>
@@ -95,15 +106,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="px-4">Tecnologias de la informacion</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4">Enfermeria</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4">Procesos industriales</td>
-                                        </tr>
+                                        @if ($student->result->test_orientacional1_id !=  null)
+                                            <tr>
+                                                <td class="px-4">{{$student->result->educativeProgramTestOrientacional1->name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4">{{$student->result->educativeProgramTestOrientacional2->name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4">{{$student->result->educativeProgramTestOrientacional3->name}}</td>
+                                            </tr>
+                                        @else
+                                            <tr>
+                                                <td class="px-4">Aún no hay respuestas del alumno</td>
+                                            </tr>
+                                        @endif
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -193,12 +211,12 @@
                         </li>
                         <li class="nav-item">
                             <a role="tab" class="nav-link mb-0" href="#orientacion-vocacional" data-toggle="tab" aria-selected="false">
-                                <span>Orientacion vocacional</span>
+                                <span>Orientación vocacional</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a role="tab" class="nav-link mb-0" href="#trayectoria-academica" data-toggle="tab" aria-selected="false">
-                                <span>Trayectoria academica</span>
+                                <span>Trayectoria académica</span>
                             </a>
                         </li>
                     </ul>
@@ -210,7 +228,7 @@
                         <div class="col-md-12 mb-4">
                             <div class="main-card my-3 card">
                                 <div class="table-responsive pt-1">
-                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="aprendizaje">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">#</th>
@@ -219,58 +237,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @forelse ($learningTest as $question)
                                             <tr>
-                                                <td class="text-center text-muted">#1</td>
+                                                <td class="text-center text-muted">#{{ $loop->iteration }}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Puedo recordar algo mejor si lo escribo</div>
+                                                                <div class="widget-heading">{{ $question->question }}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>Rara vez</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#2</td>
                                                 <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Al leer, oigo las palabras en mi cabeza o leo en voz alta.</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    @empty(!$answerLearningTest)
+                                                        {{$answerLearningTest[$question->id]}}
+                                                    @endempty
                                                 </td>
-                                                <td>Frecuentemente</td>
+                                               
                                             </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#3</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Necesito hablar las cosas para entenderlas mejor.</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>A veces</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#4</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">No me gusta leer o escuchar instrucciones, prefiero simplemente comenzar a hacer las cosas</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Casi siempre</td>
-                                            </tr>
+                                            @empty
+                                            <h5>No hay preguntas ni respuestas para este cuestionario</h5>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -283,67 +271,36 @@
                         <div class="col-md-12 mb-4">
                             <div class="main-card my-3 card">
                                 <div class="table-responsive pt-1">
-                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="vocacional">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">#</th>
                                                 <th>Pregunta</th>
-                                                <th>Respuesta</th>
+                                                <th class="pr-3">Respuesta</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @forelse ($vocationalTest as $question)
                                             <tr>
-                                                <td class="text-center text-muted">#1</td>
+                                                <td class="text-center text-muted">#{{ $loop->iteration }}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Conoces acerca de procesos económico administrativos</div>
+                                                                <div class="widget-heading">{{ $question->question }}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>Si</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#2</td>
                                                 <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Te gusta automatizar procesos mediante el uso de la computadora o procesadores</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Si</td>
+                                                    @empty(!$answerVocationalTest)
+                                                        {{$answerVocationalTest[$question->id]->answer == 1 ? "Sí": "No"}}
+                                                    @endempty
+                                                </td>   
                                             </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#3</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Te gusta cocinar y/o procesar alimentos</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>No</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#4</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Te gusta configurar equipos de computo</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Si</td>
-                                            </tr>
+                                            @empty
+                                            <h5>No hay preguntas ni respuestas para este cuestionario</h5>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -356,7 +313,7 @@
                         <div class="col-md-12 mb-4">
                             <div class="main-card my-3 card">
                                 <div class="table-responsive pt-1">
-                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="trayectoria">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">#</th>
@@ -365,58 +322,34 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @forelse ($trayectoryTest as $question)
                                             <tr>
-                                                <td class="text-center text-muted">#1</td>
+                                                <td class="text-center text-muted">#{{ $loop->iteration }}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Escuela de procedencia</div>
+                                                                <div class="widget-heading">{{ $question->question }}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>CBTis 229</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#2</td>
                                                 <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">Promedio</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    @empty(!$answerTrayectoryTest)
+                                                        @php                                                        
+                                                            if (is_array($answerTrayectoryTest[$question->id])){
+                                                                $answerTrayectoryTest[$question->id] = implode(", ",$answerTrayectoryTest[$question->id]);
+                                                            }
+                                                                                                        
+                                                        @endphp
+                                                        {{$answerTrayectoryTest[$question->id]}}
+                                                    @endempty
+                                                   
                                                 </td>
-                                                <td>9.6</td>
                                             </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#3</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">¿Cúal fue la especialidad que tomaste en el bachillerato?</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Tecnológico</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center text-muted">#4</td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">¿Es la primer ocasión que estudias una carrera universitaria?</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>No</td>
-                                            </tr>
+                                            @empty
+                                                <h5>No hay preguntas ni respuestas para este cuestionario</h5>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -433,4 +366,58 @@
 @endsection
 
 @section('js')
+<script type="text/javascript" src="{{ url('backend/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url('backend/js/dataTable.min.js') }}"></script>
+<script>
+    var spanish= {
+                    "processing": "Procesando...",
+                    "lengthMenu": "Mostrar  _MENU_  registros",
+                    "zeroRecords": "No se encontraron resultados",
+                    "emptyTable": "Ningún dato disponible en esta tabla",
+                    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "infoFiltered": "(filtrado de un total de MAX registros)",
+                    "search": "Buscar: ",
+                    "infoThousands": ",",
+                    "loadingRecords": "Cargando...",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    },
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                }
+    $(document).ready( function () {
+        $('#aprendizaje').DataTable({
+            "bAutoWidth": false,
+            lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'Todos'],
+            ],
+            ordering:  false,
+            language: spanish,
+            responsive: true
+        });
+        $('#vocacional').DataTable({
+            "bAutoWidth": false,
+            lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'Todos'],
+            ],
+            ordering:  false,
+            language: spanish,
+            responsive: true
+        });
+        $('#trayectoria').DataTable({
+            "bAutoWidth": false,
+            lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'Todos'],
+            ],
+            ordering:  false,
+            language: spanish,
+            responsive: true
+        });
+    } );
+</script>
 @endsection

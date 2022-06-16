@@ -1,6 +1,15 @@
 @extends('backend.layout.main')
 
 @section('contenido')
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+        <div class="alert alert-danger fade alert-dismissible show" role="alert">
+            <button type="button" class="close" aria-label="Close"  data-dismiss="alert">
+                <span aria-hidden="true">&times;</span></button>
+            {{ $error }}
+        </div>
+        @endforeach
+    @endif
     <div class="main-card mb-3 card">
         <div class="card-header bg-primary text-white">Editar información de usuario</div>
         <form action="{{ route('admin.users.updateUser', ['id' => $user->id]) }}" method="post" role="form">
@@ -24,8 +33,8 @@
                 <div class="form-row">
                     <div class="col-md-12">
                         <div class="position-relative form-group">
-                            <label for="email" class="">Correo electronico</label><input value="{{$user->email}}" name="email" id="email"
-                                placeholder="Correo electronico" type="email" class="form-control" required>
+                            <label for="email" class="">Correo electrónico</label><input value="{{$user->email}}" name="email" id="email"
+                                placeholder="Correo electrónico" type="email" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -52,10 +61,12 @@
                     </div>
                 </div>
             </div>
+            @can('Editar administrador1',)
             <div class="modal-footer">
                 <a href="{{ route('admin.users') }}" class="btn btn-dark" data-dismiss="modal">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
+            @endcan
         </form>
     </div>
 @endsection

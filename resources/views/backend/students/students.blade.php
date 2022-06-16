@@ -28,19 +28,29 @@
                     </i>
                 </div>
                 <div>Registro de alumnos
-                    <div class="page-title-subheading">A continuación se presentan todos los alumnos registrados
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Alumnos</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
             <div class="page-title-actions">
-                <div class="search-wrapper active mx-auto">
-                    <div class="input-holder mx-auto">
-                        <form action="{{ route('admin.students.search') }}" method="get">
-                            <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
-                            <button class="search-icon" type="submit"><span></span></button>
-                        </form>
+                @can('Buscar alumno sencillo', 'Buscar alumno avanzado')
+                    <div class="search-wrapper active mx-auto">
+                        <div class="input-holder mx-auto">
+                            <form action="{{ route('admin.students.search') }}" method="get">
+                                <input type="text" class="search-input" placeholder="Escribe para buscar" name="search"
+                                    autocomplete="off" required minlength="2">
+                                <button class="search-icon" type="submit"><span></span></button>
+                            </form>
+
+                        </div>
                     </div>
-                </div>
+                @endcan
             </div>
         </div>
     </div>
@@ -51,18 +61,17 @@
                 <div class="card-body px-4 py-3">
                     <div class="dropdown-menu dropdown-menu-inline">
                         <form action="{{ route('admin.students') }}" method="get">
-                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == 'todos' ? 'active card-shadow-primary' : '' }}">
+                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 @if (!request()->has('group') || request()->query('group') == 'todos')
+                                active card-shadow-primary
+                            @endif">
                                 <input type="radio" class="d-none" name="group" value="todos" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-drawer h4 mb-0 mr-2"></i><span>Todos</span>
                             </label>
                             @forelse ($groups as $group)
-                                <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == $group->id  ? 'active card-shadow-primary' : '' }}">
-                                    <input type="radio" class="d-none" name="group" value="{{$group->id}}" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>{{$group->name}}</span>
+                                <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == $group->id ? 'active card-shadow-primary' : '' }}">
+                                    <input type="radio" class="d-none" name="group" value="{{ $group->id }}" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>{{ $group->name }}</span>
                                 </label>
-                            
                             @empty
-                                
                             @endforelse
-                          
                             {{-- <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '1a'  ? 'active card-shadow-primary' : '' }}">
                                 <input type="radio" class="d-none" name="group" value="1a" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>1A</span>
                             </label>
@@ -101,6 +110,13 @@
                     {{ session('status') }}
                 </div>
             @endif
+            @if (session('alerta'))
+                <div class="alert alert-primary fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ session('alerta') }}
+                </div>
+            @endif
             <div class="main-card mb-3 card">
                 <div class="card-header">Lista de alumnos
                 </div>
@@ -118,63 +134,59 @@
                         </thead>
                         <tbody>
                             @forelse ($students as $item)
-                            @php
-                                $program = $item->name;
-                            @endphp
-                            @forelse ($item->students as $student)
-                             <tr>
-                                <td class="text-center text-muted">{{$student->id}}</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                        </div>
-                                        <div class="widget-content-left flex2">
-                                            <div class="widget-heading">{{$student->name, $student->family_name}}</div>
-                                            <div class="widget-subheading opacity-7">Web Developer
+                                @php
+                                    $program = $item->name;
+                                @endphp
+                                @forelse ($item->students as $student)
+                                    <tr>
+                                        <td class="text-center text-muted">{{ $student->id }}</td>
+                                        <td>
+                                            <div class="widget-content p-0">
+                                                <div class="widget-content-wrapper">
+                                                </div>
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">{{ $student->name }}</div>
+                                                    <div class="widget-subheading opacity-7">{{ $student->family_name }}
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                </td>
-                                <td>{{$program}}</td>
-                                <td class="text-center">{{$student->matricula}}</td>
-                                <td class="text-center">
-                                    {{$student->group->name}}
-                                </td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.student.info', ['student' => $student->id]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Resultados">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-eye fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Información"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Información basica">
-                                            <i class="fa fa-id-card fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                                
+                                        </td>
+                                        <td>{{ $program }}</td>
+                                        <td class="text-center">{{ $student->matricula }}</td>
+                                        <td class="text-center">
+                                            {{ $student->group->name }}
+                                        </td>
+                                        <td class="text-center">
+                                            @can('Ver info alumno sencillo', 'Ver info de alumno avanzado')
+                                                <a href="{{ route('admin.student.info', ['student' => $student->id]) }}"
+                                                    id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                                    data-toggle="tooltip" data-placement="top" title="Resultados">
+                                                    <span class="btn-icon-wrapper">
+                                                        <i class="fa fa-eye fa-w-20"></i>
+                                                    </span>
+                                                </a>
+                                                <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm"
+                                                    onclick="mostrarInfo(this)" data-toggle="modal" data-placement="top"
+                                                    title="Información" data-id={{ $student->id }}
+                                                    data-target="#exampleModal">
+                                                    <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
+                                                        title="Información basica">
+                                                        <i class="fa fa-id-card fa-w-20"></i>
+                                                    </span>
+                                                </button>
+                                            @endcan
+                                        </td>
+                                    </tr>
+                                @empty
+                                @endforelse
                             @empty
-                                
+                                <h6>No hay alumnos inscritos aquí</h6>
                             @endforelse
-                           
-                           
-                            
-                            @empty
-                            <h6>No hay almnos inscritos aquí</h6>
-                            @endforelse
-                           
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">                  
-                        {{ $students->links('vendor.pagination.default') }}   
+                <div class="d-block text-center card-footer">
+                    {{ $students->withQueryString()->links('vendor.pagination.default') }}
                 </div>
             </div>
         </div>
@@ -200,7 +212,7 @@
                                 </div>
                                 <div>
                                     <h5 class="menu-header-title mt-1"><span id="nameI">Jhon</span>&nbsp;<span
-                                            id="lastNameI">Doe</span>&nbsp;<span id="familyI">Doe</span></h5>
+                                            id="familyI">Doe</span>&nbsp;<span id="lastNameI">Doe</span></h5>
                                     <h6 class="menu-header-subtitle"><span id="positionI">Desarrollo y gestión de
                                             software</span></h6>
                                 </div>
@@ -213,7 +225,7 @@
                         <div class="col-md-12">
                             <div class="position-relative form-group">
                                 <label for="email" class="">Email institucional</label><input name="email"
-                                    id="email" type="text" class="form-control" disabled
+                                    id="emailI" type="text" class="form-control" disabled
                                     value="a3519110001@alumno.uttehuacan.edu.mx" />
                             </div>
                         </div>
@@ -221,19 +233,19 @@
                     <div class="form-row">
                         <div class="col-md-4">
                             <div class="position-relative form-group">
-                                <label for="grupo" class="">Grupo</label><input name="grupo" id="grupo"
+                                <label for="grupo" class="">Grupo</label><input name="grupo" id="groupI"
                                     type="text" class="form-control" disabled value="4 A" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="position-relative form-group">
                                 <label for="matricula" class="">Matrícula</label><input name="matricula"
-                                    id="matricula" type="text" class="form-control" disabled value="3519110001" />
+                                    id="matriculaI" type="text" class="form-control" disabled value="3519110001" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="position-relative form-group">
-                                <label for="edad" class="">Edad</label><input name="edad" id="edad"
+                                <label for="edad" class="">Edad</label><input name="edad" id="edadI"
                                     type="text" class="form-control" disabled value="19" />
                             </div>
                         </div>
@@ -264,19 +276,32 @@
 @endsection
 
 @section('js')
-    {{-- <script type="text/javascript" src="{{ url('frontend/js/jquery.js') }}"></script>
-<script>
-    (function($) {
-    'use strict';
-    $(function() {
-      $('.file-upload-browse').on('click', function() {
-        var file = $(this).parent().parent().parent().find('.file-upload-default');
-        file.trigger('click');
-      });
-      $('.file-upload-default').on('change', function() {
-        $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
-      });
-    });
-  })(jQuery);
-</script> --}}
+    <script type="text/javascript" src="{{ url('backend/js/jquery.js') }}"></script>
+    <script>
+        function mostrarInfo(btn) {
+            var id = $(btn).data('id')
+            $(document).ready(function() {
+                $.ajax({
+                    type: "GET",
+                    url: "/admin/getStudent",
+                    data: "id=" + id + "&_token={{ csrf_token() }}",
+                    success: function(data) {
+                        info = JSON.parse(data);
+                        console.log(info);
+                        $("#nameI").text(info.name);
+                        $("#familyI").text(info.family_name);
+                        $("#lastNameI").text(info.last_name);
+                        $("#positionI").text(info.group.educative_program.name);
+                        $("#emailI").val(info.email);
+                        $("#groupI").val(info.group.name);
+                        $("#matriculaI").val(info.matricula);
+                        $("#edadI").val(info.age);
+                        $("#telefonoP").val(info.phone);
+                        $("#telefonoC").val(info.contact_phone);
+
+                    },
+                });
+            });
+        }
+    </script>
 @endsection

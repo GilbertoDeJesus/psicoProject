@@ -44,6 +44,14 @@
   }
 }
 
+@font-face {
+
+  font-family: var(--bs-font-sans-serif);
+  
+  src: url(../fonts/OpenSans-VariableFont.ttf);
+  
+}
+
 body {
   margin: 0;
   font-family: var(--bs-font-sans-serif);
@@ -4925,7 +4933,7 @@ fieldset:disabled .btn {
 }
 
 .nav-pills .nav-link {
-  background: none;
+  background: #fafafa;
   border: 0;
   border-radius: 0.75rem;
 }
@@ -4933,7 +4941,8 @@ fieldset:disabled .btn {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color: #344767;
-  background-color: #fff;
+  background: #ffffff;
+  background-color: #ffffff;
 }
 
 .nav-fill>.nav-link,
@@ -21930,7 +21939,7 @@ hr.horizontal.gray-light {
 }
 
 .nav.nav-pills {
-  background: #f8f9fa;
+  background: #e9ecef;
   border-radius: 0.75rem;
   position: relative;
 }
@@ -21951,6 +21960,7 @@ hr.horizontal.gray-light {
 }
 
 .nav.nav-pills .nav-link.active {
+  background: #fff;
   animation: 0.2s ease;
 }
 
@@ -21991,8 +22001,16 @@ hr.horizontal.gray-light {
   color: #fff;
 }
 
+.nav.nav-pills.nav-pills-dark-green {
+  color: #fff;
+}
+
 .nav.nav-pills.nav-pills-success .nav-link.active {
   color: #fff;
+}
+
+.nav.nav-pills.nav-pills-dark-green .nav-link.active {
+  color: #03aa86;
 }
 
 .nav.nav-pills.nav-pills-success .moving-tab .nav-link.active {
@@ -24939,4 +24957,4 @@ pre[class*="language-"] {
   }
 }
 
-/*# sourceMappingURL=dashboard-free.css.map */
+/*# sourceMappingURL=soft-ui-dashboard.css.map */

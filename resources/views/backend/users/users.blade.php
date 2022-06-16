@@ -1,6 +1,15 @@
 @extends('backend.layout.main')
 
 @section('contenido')
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+        <div class="alert alert-danger fade alert-dismissible show" role="alert">
+            <button type="button" class="close" aria-label="Close"  data-dismiss="alert">
+                <span aria-hidden="true">&times;</span></button>
+            {{ $error }}
+        </div>
+        @endforeach
+    @endif
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
@@ -9,11 +18,18 @@
                     </i>
                 </div>
                 <div>Registro de usuarios
-                    <div class="page-title-subheading">A continuación se presentan todos los usuarios activos
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Usuarios</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
             <div class="page-title-actions">
+                @can('Buscar administrador')
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.users.search') }}" method="get">
@@ -22,6 +38,7 @@
                         </form>
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
@@ -37,6 +54,7 @@
             <div class="main-card mb-3 card">
                 <div class="card-header">Lista de usuarios
                     <div class="btn-actions-pane-right">
+                        @can('Agregar admnistrador',)
                         <div role="group" class="btn-group">
                             <button class="btn btn-primary mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">
                                 <span class="btn-icon-wrapper pr-2 opacity-7">
@@ -45,6 +63,7 @@
                                 Agregar
                             </button>
                         </div>
+                        @endcan
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -79,44 +98,39 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>{{$user->educativeProgram->name}}</td>
+                                @if($user->educativeProgram == null)
+                                    <td> </td>
+                                @else
+                                    <td>{{$user->educativeProgram->name}}</td>
+                                @endif
+
                                 <td class="text-center">{{$user->created_at->diffForHumans()}}</td>
                                 <td class="text-center">
+                                    @can('Editar administrador')
                                     <a href="{{ route('admin.users.editUser', ['user'=>$user->id]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
-                                    <a href="javascript:; type="button" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
-                                        data-id="{{$user->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </a>
+                                    @endcan
+                                    @can('Eliminar administrador')
+                                    <a href="javascript:;" type="button" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
+                                    data-id="{{$user->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
+                                    data-target="#exampleModal">
+                                    <span class="btn-icon-wrapper">
+                                        <i class="fa fa-trash fa-w-20"></i>
+                                    </span>
+                                </a>
+                                    @endcan
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">
-                    <nav class="" aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Previous"><span aria-hidden="true">«</span><span
-                                        class="sr-only">Previous</span></a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
-                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">2</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Next"><span aria-hidden="true">»</span><span
-                                        class="sr-only">Next</span></a></li>
-                        </ul>
-                    </nav>
+                <div class="d-block text-center card-footer">                  
+                        {{ $users->links('vendor.pagination.default') }}   
                 </div>
             </div>
         </div>
@@ -154,8 +168,8 @@
                         <div class="form-row">
                             <div class="col-md-12">
                                 <div class="position-relative form-group">
-                                    <label for="email" class="">Correo electronico</label><input name="email" id="email"
-                                        placeholder="Correo electronico" type="email" class="form-control" required>
+                                    <label for="email" class="">Correo electrónico</label><input name="email" id="email"
+                                        placeholder="Correo electrónico" type="email" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-12">

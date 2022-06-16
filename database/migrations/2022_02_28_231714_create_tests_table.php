@@ -16,6 +16,7 @@ class CreateTestsTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
             $table->string('name',150);
+            $table->string('clave',60);
             $table->text('directions');
             $table->mediumInteger('order');
             $table->softDeletes();

@@ -62,6 +62,8 @@ Route::get('/admin', 'backend\DashboardController@index')->name('admin');
 Route::get('/admin/students', 'backend\StudentsAdminController@index')->name('admin.students');
 Route::get('/admin/student/{student}', 'backend\StudentsAdminController@infoStudent')->name('admin.student.info');
 Route::get('/admin/students/search', 'backend\StudentsAdminController@searchStudent')->name('admin.students.search');
+Route::get('/admin/getStudent', 'backend\StudentsAdminController@getInfo')->name('admin.infoStudent');
+Route::delete('/admin/deleteStudent','backend\StudentsAdminController@vaciarAlumnos')->name('admin.deleteStudent');
 
 
 //-------EDUCATIONAL PROGRAM--------------------
@@ -86,3 +88,4 @@ Route::get('/admin/groups/search', 'backend\GroupsController@searchGroup')->name
 //--------REPORTS------------------------------
 Route::get('/admin/reports','backend\ReportsController@index')->name('admin.reports');
 Route::post('/admin/reports','backend\ReportsController@generateReport')->name('admin.reports.generate');
+Route::get('/admin/results', 'backend\UsersController@exportExcel')->name('result.reports');

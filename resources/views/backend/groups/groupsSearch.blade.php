@@ -9,7 +9,14 @@
                     </i>
                 </div>
                 <div>Resultados para {{Str::limit($search, 25)}}
-                    <div class="page-title-subheading">A continuación se presentan los resultados de la busqueda
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.groups')  }}">Grupos</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Busqueda</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -17,7 +24,7 @@
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.groups.search') }}" method="get">
-                            <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
+                            <input type="text" class="search-input" placeholder="Escribe para buscar" value="{{ old('search') ?? $search}}" name="search" autocomplete="off" required minlength="1">
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
                     </div>
@@ -49,141 +56,48 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse ($searchs as $group)
                             <tr>
-                                <td class="text-center text-muted">#345</td>
+                                <td class="text-center text-muted">#{{$group->id}}</td>
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Jhon Doe</div>
+                                                <div class="widget-heading">{{$group->name}}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">24/12/2002</td>
+                                <td>{{$group->educativeProgram->name}}</td>
+                                <td class="text-center">{{$group->created_at->diffForHumans()}}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
+                                    <a href="{{ route('admin.groups.editGroup', ['id'=>$group->id]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
+                                    <a href="javascript:;" type="button" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
+                                        data-id="{{$group->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
                                         data-target="#exampleModal">
                                         <span class="btn-icon-wrapper">
                                             <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center text-muted">#347</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Vinnie Wagstaff</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">12/03/2009</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
-                                        data-toggle="tooltip" data-placement="top" title="Editar">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
                                 </td>
                             </tr>
+                            @empty
                             <tr>
-                                <td class="text-center text-muted">#321</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Jhon Doe</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">09/04/2017</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
-                                        data-toggle="tooltip" data-placement="top" title="Editar">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
+                                <td colspan="8" align="center">
+                                    No hay resultados
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="text-center text-muted">#55</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Vinnie Wagstaff</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Desarrollo y gestión de software</td>
-                                <td class="text-center">30/01/2022</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.groups.editGroup', ['id'=>1]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
-                                        data-toggle="tooltip" data-placement="top" title="Editar">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#exampleModal">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">
-                    <nav class="" aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Previous"><span aria-hidden="true">«</span><span
-                                        class="sr-only">Previous</span></a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
-                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">2</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Next"><span aria-hidden="true">»</span><span
-                                        class="sr-only">Next</span></a></li>
-                        </ul>
-                    </nav>
+                <div class="d-block text-center card-footer">                  
+                        {{ $searchs->withQueryString()->links('vendor.pagination.default') }}   
                 </div>
             </div>
         </div>
@@ -201,7 +115,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.groups.deleteGroup', ['id' => 1]) }}" method="post" data-action="">
+                <form id="formDelete" action="{{ route('admin.groups.deleteGroup', ['id' => 0]) }}" method="post" 
+                data-action="{{ route('admin.groups.deleteGroup', ['id' => 0]) }}">
                     @method('DELETE')
                     @csrf
                     <div class="modal-body text-center">
@@ -222,5 +137,13 @@
 @endsection
 
 @section('js')
-
+<script>
+    document.querySelectorAll(".btn-delete").forEach(link => link.addEventListener('click', function() {
+        id = link.getAttribute("data-id");
+        form = document.getElementById('formDelete');
+        action = form.getAttribute('data-action').slice(0, -1);
+        action += id;
+        form.setAttribute('action', action);
+    }));
+</script>
 @endsection

@@ -27,14 +27,15 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // se guarda en un array todos los permisos
         $arrayOfPermissionNames = ['Ver alumnos sencillo','Ver info alumno sencillo','Buscar alumno sencillo',
-        'Ver grupos', 'Ver reporte sencillo','Generar reporte sencillo','Agregar grupo', 'Eliminar grupo',
-        'Editar grupo','Editar grupo1','Buscar grupo', 
+        'Ver reporte sencillo','Generar reporte sencillo','Ver grupos sencillo','Agregar grupo', 'Eliminar grupo',
+        'Editar grupo','Editar grupo1','Buscar grupo', 'Eliminar alumno sencillo', 
         'Ver alumnos avanzado','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
         'Agregar admnistrador','Eliminar administrador','Editar administrador','Editar administrador1',
         'Buscar administrador','Ver programas educativos','Agregar programa educativo',
         'Eliminar programa educativo','Editar programas educativo','Editar programas educativo1',
-        'Buscar programa educativo','Eliminar alumnos','Eliminar registros',
-        'Ver reporte avanzado','Generar reporte avanzando'];
+        'Buscar programa educativo','Eliminar alumno avanzado',
+        'Ver reporte avanzado','Generar reporte avanzado','editarSuperAdmin', 'Ver grupos avanzado',
+        'Buscar grupo avanzado'];
 
         //se insertan los permisos a bd
         $permissions = collect($arrayOfPermissionNames)->map(function ($permission) {
@@ -44,35 +45,36 @@ class RolesAndPermissionsSeeder extends Seeder
 
         //se asignan los permisos para admin
         $roleAdmin->syncPermissions(['Ver alumnos sencillo','Ver info alumno sencillo','Buscar alumno sencillo',
-        'Ver grupos', 'Ver reporte sencillo','Generar reporte sencillo','Agregar grupo', 'Eliminar grupo',
-        'Editar grupo','Editar grupo1','Buscar grupo']);
+        'Ver reporte sencillo','Generar reporte sencillo', 'Ver grupos sencillo', 'Agregar grupo', 'Eliminar grupo',
+        'Editar grupo','Editar grupo1','Buscar grupo', 'Eliminar alumno sencillo']);
         //se asignan los permisos para super-admin
-        $roleSuperAdmin->syncPermissions(['Agregar grupo', 'Eliminar grupo',
-        'Editar grupo','Editar grupo1','Buscar grupo', 
+        $roleSuperAdmin->syncPermissions([ 'Ver grupos avanzado','Agregar grupo', 'Eliminar grupo',
+        'Editar grupo','Editar grupo1', 
         'Ver alumnos avanzado','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
         'Agregar admnistrador','Eliminar administrador','Editar administrador','Editar administrador1',
         'Buscar administrador','Ver programas educativos','Agregar programa educativo',
         'Eliminar programa educativo','Editar programas educativo','Editar programas educativo1',
-        'Buscar programa educativo','Eliminar alumnos','Eliminar registros',
-        'Ver reporte avanzado','Generar reporte avanzando']);
+        'Buscar programa educativo','Eliminar alumno avanzado',
+        'Ver reporte avanzado','Generar reporte avanzado','editarSuperAdmin','Buscar grupo avanzado']);
 
         //crear usuario con rol admin
         User::create([
             'name' => "Karla",
             'lastname' => "Francisco",
             'email' => "karla@gmail.com",
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
+            'password' => 'password', // password,
             'educative_program_id' => 6,
-            'employee_key' => "karlatics"
+            'employee_key' => "admin"
         ])->assignRole('Admin');
         //crear usuario con rol super-admin
         User::create([
             'name' => "Elena",
             'lastname' => "Manuel",
             'email' => "elena@gmail.com",
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
-            'educative_program_id' => 7,
-            'employee_key' => "Elenaenf"
+            'password' => 'password', // password,
+            'educative_program_id' => null,
+            'employee_key' => "superAdmin"
         ])->assignRole('Super-Admin');
+
     }
 }

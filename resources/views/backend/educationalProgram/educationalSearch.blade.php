@@ -9,7 +9,14 @@
                     </i>
                 </div>
                 <div>Resultados para {{Str::limit($search, 25)}}
-                    <div class="page-title-subheading">A continuación se presentan los resultados de la busqueda
+                    <div class="page-title-subheading">
+                        <nav class="" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.educationalProgram') }}">Programas educativos</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Busqueda</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -17,7 +24,7 @@
                 <div class="search-wrapper active mx-auto">
                     <div class="input-holder mx-auto">
                         <form action="{{ route('admin.educationalProgram.search') }}" method="get">
-                            <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
+                            <input type="text" class="search-input" placeholder="Escribe para buscar" value="{{ old('search') ?? $search}}" name="search" autocomplete="off" required minlength="2">
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
                     </div>
@@ -49,18 +56,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse($searchs as $ep)
                             <tr>
-                                <td class="text-center text-muted">#345</td>
+                                <td class="text-center text-muted">{{$ep->id}}</td>
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Tecnologias de la informacion</div>
+                                                <div class="widget-heading">{{$ep->name}}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center">24/12/2002</td>
+                                <td class="text-center">{{$ep->created_at->diffForHumans()}}</td>
                                 <td class="text-center">
                                     <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
                                         class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
@@ -71,159 +79,35 @@
                                     </a>
                                 </td>
                                 <td class="text-center">
-                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
-                                        data-placement="top" title="Editar" data-target="#editModal">
+                                    <a href="javascript:;" id="PopoverCustomT-1" class="btn btn-success btn-update btn-sm my-auto" 
+                                    data-name="{{$ep->name}}" data-id="{{$ep->id}}" data-toggle="modal" data-placement="top" title="Editar" data-target="#editModal">
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
                                             title="Editar">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
-                                    </button>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
+                                    </a>
+                                    <a href="javascript:;" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
+                                    data-id="{{$ep->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
                                         data-target="#deleteModal">
                                         <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
                                             title="Eliminar">
                                             <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center text-muted">#347</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Enfermeria</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">12/03/2009</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Ver lista de alumnos">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-users fa-w-20"></i>
                                         </span>
                                     </a>
                                 </td>
-                                <td class="text-center">
-                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
-                                        data-placement="top" title="Editar" data-target="#editModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Editar">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#deleteModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Eliminar">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
                             </tr>
+                            @empty
                             <tr>
-                                <td class="text-center text-muted">#321</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Desarrollo de negocios</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">09/04/2017</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Ver lista de alumnos">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-users fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
-                                        data-placement="top" title="Editar" data-target="#editModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Editar">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#deleteModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Eliminar">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
+                                <td colspan="8" align="center">
+                                    No hay resultados
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="text-center text-muted">#55</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Mecatronica</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">30/01/2022</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.educationalProgram.indexGroups', ['id' => 1]) }}" id="PopoverCustomT-1"
-                                        class="btn btn-warning btn-sm my-auto" data-toggle="tooltip" data-placement="top"
-                                        title="Ver lista de alumnos">
-                                        <span class="btn-icon-wrapper">
-                                            <i class="fa fa-users fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <button id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto" data-toggle="modal"
-                                        data-placement="top" title="Editar" data-target="#editModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Editar">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-placement="top" title="Eliminar"
-                                        data-target="#deleteModal">
-                                        <span class="btn-icon-wrapper" data-toggle="tooltip" data-placement="top"
-                                            title="Eliminar">
-                                            <i class="fa fa-trash fa-w-20"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">
-                    <nav class="" aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Previous"><span aria-hidden="true">«</span><span
-                                        class="sr-only">Previous</span></a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
-                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">2</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Next"><span aria-hidden="true">»</span><span
-                                        class="sr-only">Next</span></a></li>
-                        </ul>
-                    </nav>
+                <div class="d-block text-center card-footer">                  
+                        {{ $searchs->withQueryString()->links('vendor.pagination.default') }}   
                 </div>
             </div>
         </div>
@@ -243,14 +127,15 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.educationalProgram.updateProgram', ['id' => 1]) }}" method="post" role="form">
+                <form id="formUpdate" action="{{ route('admin.educationalProgram.updateProgram', ['id' => 0]) }}" method="post" role="form"
+                data-action="{{ route('admin.educationalProgram.updateProgram', ['id' => 0]) }}">
                     @method('PUT')
                     @csrf
                     <div class="modal-body mx-2 my-2">
                         <div class="form-row">
                             <div class="col-md-12">
                                 <div class="position-relative form-group">
-                                    <label for="name" class="">Nombre</label><input name="name" id="name"
+                                    <label for="name" class="">Nombre</label><input id="inputName" value="" name="name" id="name"
                                         placeholder="Nombre" type="text" class="form-control" required>
                                 </div>
                             </div>
@@ -275,8 +160,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.educationalProgram.deleteProgram', ['id' => 1]) }}" method="post"
-                    data-action="">
+                <form id="formDelete" action="{{ route('admin.educationalProgram.deleteProgram', ['id' => 0]) }}" method="post"
+                    data-action="{{ route('admin.educationalProgram.deleteProgram', ['id' => 0]) }}">
                     @method('DELETE')
                     @csrf
                     <div class="modal-body text-center">
@@ -296,4 +181,25 @@
 @endsection
 
 @section('js')
+<script>
+    document.querySelectorAll(".btn-delete").forEach(link => link.addEventListener('click', function() {
+        id = link.getAttribute("data-id");
+        form = document.getElementById('formDelete');
+        action = form.getAttribute('data-action').slice(0, -1);
+        action += id;
+        form.setAttribute('action', action);
+    }));
+</script>
+<script>
+    document.querySelectorAll(".btn-update").forEach(link => link.addEventListener('click', function() {
+        id = link.getAttribute("data-id");
+        name = link.getAttribute("data-name");
+        form = document.getElementById('formUpdate');
+        input = document.getElementById('inputName');
+        action = form.getAttribute('data-action').slice(0, -1);
+        action += id;
+        form.setAttribute('action', action);
+        input.setAttribute('value', name);
+    }));
+</script>
 @endsection
