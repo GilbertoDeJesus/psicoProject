@@ -31,6 +31,18 @@ class Student extends Model
     {
         return $this->belongsToMany(Test::class)->withPivot('answers', 'finished');
     }
+    public function test1()
+    {
+        return $this->belongsToMany(Test::class)->where('test_id',1);
+    }
+    public function test2()
+    {
+        return $this->belongsToMany(Test::class)->where('test_id',2);
+    }
+    public function test3()
+    {
+        return $this->belongsToMany(Test::class)->where('test_id',3);
+    }
    
 
     //Encripta la contraseña del alumno
