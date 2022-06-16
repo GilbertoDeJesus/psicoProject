@@ -57,14 +57,14 @@
                         </a>
                     </li>
                 @endcan
-                @can('Ver grupos avanzado')
+                @if(Gate::check('Ver grupos avanzado') || Gate::check('Ver grupos sencillo'))
                     <li>
                         <a href="{{ route('admin.groups') }}" class="{{ Route::is('admin.groups', 'admin.groups.editGroup', 'admin.groups.search') ? 'mm-active' : '' }}">
                             <i class="metismenu-icon pe-7s-network"></i>
                             Grupos
                         </a>
                     </li>
-                @endcan
+                @endif
                 <li class="app-sidebar__heading">Cuestionarios</li>
                 {{-- <li>
                     <a href="#">

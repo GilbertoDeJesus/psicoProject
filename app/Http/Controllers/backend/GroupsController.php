@@ -18,7 +18,7 @@ class GroupsController extends Controller
     }
     public function index(){
         $user = Auth::user();
-        if($user->educative_program_id ==null){
+        if($user->can('Ver grupos avanzado')){
             $grupos = Group::with('educativeProgram')->paginate(20);
             $educativePrograms = EducativeProgram::all();
         }else{
