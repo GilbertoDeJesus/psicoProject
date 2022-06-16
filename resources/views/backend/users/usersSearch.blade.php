@@ -58,7 +58,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($searchs as $user)
+                            @forelse($searchs as $user)
                             <tr>
                                 <td class="text-center text-muted">#{{$user->id}}</td>
                                 <td>
@@ -96,7 +96,13 @@
                                     </a>
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="8" align="center">
+                                    No hay resultados
+                                </td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

@@ -56,7 +56,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($searchs as $group)
+                            @forelse ($searchs as $group)
                             <tr>
                                 <td class="text-center text-muted">#{{$group->id}}</td>
                                 <td>
@@ -86,7 +86,13 @@
                                     </a>
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="8" align="center">
+                                    No hay resultados
+                                </td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

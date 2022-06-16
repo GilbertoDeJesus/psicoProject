@@ -27,14 +27,14 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // se guarda en un array todos los permisos
         $arrayOfPermissionNames = ['Ver alumnos sencillo','Ver info alumno sencillo','Buscar alumno sencillo',
-        'Ver grupos', 'Ver reporte sencillo','Generar reporte sencillo','Agregar grupo', 'Eliminar grupo',
+        'Ver reporte sencillo','Generar reporte sencillo','Ver grupos sencillo','Agregar grupo', 'Eliminar grupo',
         'Editar grupo','Editar grupo1','Buscar grupo', 'Eliminar alumno sencillo', 
-        'Ver alumnos avanzado','editarSuperAdmin','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
+        'Ver alumnos avanzado','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
         'Agregar admnistrador','Eliminar administrador','Editar administrador','Editar administrador1',
         'Buscar administrador','Ver programas educativos','Agregar programa educativo',
         'Eliminar programa educativo','Editar programas educativo','Editar programas educativo1',
         'Buscar programa educativo','Eliminar alumno avanzado',
-        'Ver reporte avanzado','Generar reporte avanzado'];
+        'Ver reporte avanzado','Generar reporte avanzado','editarSuperAdmin', 'Ver grupos avanzado'];
 
         //se insertan los permisos a bd
         $permissions = collect($arrayOfPermissionNames)->map(function ($permission) {
@@ -44,17 +44,17 @@ class RolesAndPermissionsSeeder extends Seeder
 
         //se asignan los permisos para admin
         $roleAdmin->syncPermissions(['Ver alumnos sencillo','Ver info alumno sencillo','Buscar alumno sencillo',
-        'Ver grupos', 'Ver reporte sencillo','Generar reporte sencillo','Agregar grupo', 'Eliminar grupo',
+        'Ver reporte sencillo','Generar reporte sencillo', 'Ver grupos sencillo', 'Agregar grupo', 'Eliminar grupo',
         'Editar grupo','Editar grupo1','Buscar grupo', 'Eliminar alumno sencillo']);
         //se asignan los permisos para super-admin
-        $roleSuperAdmin->syncPermissions([ 'Ver grupos','editarSuperAdmin','Agregar grupo', 'Eliminar grupo',
+        $roleSuperAdmin->syncPermissions([ 'Ver grupos avanzado','Agregar grupo', 'Eliminar grupo',
         'Editar grupo','Editar grupo1','Buscar grupo', 
         'Ver alumnos avanzado','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
         'Agregar admnistrador','Eliminar administrador','Editar administrador','Editar administrador1',
         'Buscar administrador','Ver programas educativos','Agregar programa educativo',
         'Eliminar programa educativo','Editar programas educativo','Editar programas educativo1',
         'Buscar programa educativo','Eliminar alumno avanzado',
-        'Ver reporte avanzado','Generar reporte avanzado']);
+        'Ver reporte avanzado','Generar reporte avanzado','editarSuperAdmin']);
 
         //crear usuario con rol admin
         User::create([
