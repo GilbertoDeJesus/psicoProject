@@ -98,10 +98,15 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>{{$user->educativeProgram->name}}</td>
+                                @if($user->educativeProgram == null)
+                                    <td> </td>
+                                @else
+                                    <td>{{$user->educativeProgram->name}}</td>
+                                @endif
+
                                 <td class="text-center">{{$user->created_at->diffForHumans()}}</td>
                                 <td class="text-center">
-                                    @can('Editar administrador',)
+                                    @can('Editar administrador')
                                     <a href="{{ route('admin.users.editUser', ['user'=>$user->id]) }}" id="PopoverCustomT-1" class="btn btn-success btn-sm my-auto"
                                         data-toggle="tooltip" data-placement="top" title="Editar">
                                         <span class="btn-icon-wrapper">
@@ -110,7 +115,7 @@
                                     </a>
                                     @endcan
                                     @can('Eliminar administrador')
-                                    <a href="javascript:; type="button" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
+                                    <a href="javascript:;" type="button" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
                                     data-id="{{$user->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
                                     data-target="#exampleModal">
                                     <span class="btn-icon-wrapper">

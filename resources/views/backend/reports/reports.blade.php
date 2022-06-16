@@ -86,7 +86,9 @@
                                     <label for="educational" class="">Programa educativo</label><select
                                         type="select" id="educational" name="educational" class="custom-select" required>
                                         <option value="" selected disabled>Selecciona una opción</option>
+                                        @can('Generar reporte avanzado')
                                         <option value="todos" >Todos</option>
+                                        @endcan
                                         @forelse ($educativePrograms as $educativeProgram)
                                             <option value="{{$educativeProgram->id}}">{{$educativeProgram->name}}</option>
                                         @empty
@@ -98,12 +100,8 @@
                             <div class="col-md-6 col-lg-4">
                                 <div class="position-relative form-group">
                                     <label for="grade" class="">Grado y grupo</label><select
-                                        type="select" id="grade" name="grade" class="custom-select" required>
+                                        type="select" id="grade" name="grade" class="custom-select" required>                                        
                                         <option value="" selected disabled>Selecciona una opción</option>
-                                        {{-- <option value="todos" selected>Todos</option>
-                                        <option value="A">1 A</option>
-                                        <option value="B">1 B</option>
-                                        <option value="C">1 C</option> --}}
                                     </select>
                                 </div>
                             </div>
@@ -209,8 +207,10 @@
                         $("#grade").append('<option value=' + registro.id + '>' + registro
                             .name + '</option>');
                     });
+                    
                 }
             });
+            $("#grade").append('<option selected value= todos> Todos </option>');
             }
            
         });

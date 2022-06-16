@@ -34,7 +34,8 @@ class RolesAndPermissionsSeeder extends Seeder
         'Buscar administrador','Ver programas educativos','Agregar programa educativo',
         'Eliminar programa educativo','Editar programas educativo','Editar programas educativo1',
         'Buscar programa educativo','Eliminar alumno avanzado',
-        'Ver reporte avanzado','Generar reporte avanzado','editarSuperAdmin', 'Ver grupos avanzado'];
+        'Ver reporte avanzado','Generar reporte avanzado','editarSuperAdmin', 'Ver grupos avanzado',
+        'Buscar grupo avanzado'];
 
         //se insertan los permisos a bd
         $permissions = collect($arrayOfPermissionNames)->map(function ($permission) {
@@ -48,13 +49,13 @@ class RolesAndPermissionsSeeder extends Seeder
         'Editar grupo','Editar grupo1','Buscar grupo', 'Eliminar alumno sencillo']);
         //se asignan los permisos para super-admin
         $roleSuperAdmin->syncPermissions([ 'Ver grupos avanzado','Agregar grupo', 'Eliminar grupo',
-        'Editar grupo','Editar grupo1','Buscar grupo', 
+        'Editar grupo','Editar grupo1', 
         'Ver alumnos avanzado','Ver info de alumno avanzado','Buscar alumno avanzado','Ver administradores',
         'Agregar admnistrador','Eliminar administrador','Editar administrador','Editar administrador1',
         'Buscar administrador','Ver programas educativos','Agregar programa educativo',
         'Eliminar programa educativo','Editar programas educativo','Editar programas educativo1',
         'Buscar programa educativo','Eliminar alumno avanzado',
-        'Ver reporte avanzado','Generar reporte avanzado','editarSuperAdmin']);
+        'Ver reporte avanzado','Generar reporte avanzado','editarSuperAdmin','Buscar grupo avanzado']);
 
         //crear usuario con rol admin
         User::create([
@@ -71,7 +72,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'lastname' => "Manuel",
             'email' => "elena@gmail.com",
             'password' => 'password', // password,
-            'educative_program_id' => 7,
+            'educative_program_id' => null,
             'employee_key' => "superAdmin"
         ])->assignRole('Super-Admin');
 
