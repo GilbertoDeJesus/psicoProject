@@ -32,7 +32,11 @@ class UsersController extends Controller
     }
 
     public function storeUser(StoreUserRequest $request){
-        $user = User::create($request->validated());
+        $newRequest = $request->validated();
+        if($newRequest['educative_program_id'] == "null"){
+            $newRequest['educative_program_id'] = null;
+        }
+        $user = User::create($newRequest);
         $user->syncRoles($request->roles);
         return back()->with('status', '¡El registro se creo correctamente!');
     }
