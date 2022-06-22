@@ -55,28 +55,42 @@ class TrajectoryTestController extends Controller
         $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
         $student->tests()->attach($student->id, $studentAnswers);
 
-        if ($answers[2] >= 8.5){
+
+        if (floatval($answers[2]) >= 8.5) {
             $answers[2] = 5;
-       }if($answers[2] <= 8.4 && $answers >= 6 ){
+        }
+        elseif (floatval($answers[2]) <= 8.4 && floatval($answers[2]) >= 6) {
             $answers[2] = 3;
-       }if($answers[2] <= 5.9){
+        }
+        elseif (floatval($answers[2]) <= 5.9) {
             $answers[2] = 0;
-       }
+        }
 
-       $totalResults = $answers[2]+intval($answers[4])+intval($answers[5])+intval($answers[7])+intval($answers[10])+intval($answers[11])+intval($answers[12])+intval($answers[13]);
+        $answers[3] = 1;
 
-       if ($totalResults >=30){
+        $answers[4] == "No" ? $answers[4]=0:$answers[4]=5;
+        $answers[5] == "No" ? $answers[5]=5:$answers[5]=0;
+        $answers[7] == "No" ? $answers[7]=5:$answers[7]=0;
+        $answers[10] == "No" ? $answers[10]=3:$answers[10]=5;
+        $answers[11] == "No" ? $answers[11]=3:$answers[11]=5;
+        $answers[12] == "No" ? $answers[12]=3:$answers[12]=5;
+        $answers[13] == "Trabajo" ? $answers[13]=0:$answers[13]=3;
+        
+        $totalResults = $answers[2] + $answers[3] + intval($answers[4]) + intval($answers[5]) + intval($answers[7]) + intval($answers[10]) + intval($answers[11]) + intval($answers[12]) + intval($answers[13]);
+
+        if ($totalResults >= 30) {
             $foco = 'Verde';
-       }if($totalResults <=29 && $totalResults >=21){
+        }
+        if ($totalResults <= 29 && $totalResults >= 21) {
             $foco = 'Amarillo';
-       }if ($totalResults <=20){
+        }
+        if ($totalResults <= 20) {
             $foco = 'Rojo';
-       }
-       
+        }
 
-    $testResults = ModelsResult::where('student_id', session()->get('idAlumno'))->first();//Este busca el registro que se creo en el test anterior
+        $testResults = ModelsResult::where('student_id', session()->get('idAlumno'))->first(); //Este busca el registro que se creo en el test anterior
 
-    $testResults->update(['test_status_academico' => $foco]);//Este agrega los resultados del test
+        $testResults->update(['test_status_academico' => $foco]); //Este agrega los resultados del test
 
         return redirect()->route('students.results');
     }
