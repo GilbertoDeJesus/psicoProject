@@ -26,7 +26,10 @@ class LoginController extends Controller
         return view('backend.layout.login');
     }
 
-    public function logOut(){
+    public function logOut(Request $request){
+        Auth::logout();
+        $request->session()->invalidate(); //Invalidamos session y genera otra
+        $request->session()->regenerateToken(); //regeneramos token
         return redirect()->route('admin.log-in');
     }
 }
