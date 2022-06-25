@@ -59,7 +59,7 @@
                                                         <div class="form-group">
                                                             <label class="container_radio version_2">{{ $ans->answer }}
                                                                 <input type="radio" name="question_{{ $questions->id }}" data-answ="{{ $ans->answer }}"
-                                                                    value="{{ $ans->value }}" class="required">
+                                                                    value="{{ $ans->answer }}" class="required">
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </div>

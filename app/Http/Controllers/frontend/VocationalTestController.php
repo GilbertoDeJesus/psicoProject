@@ -79,6 +79,7 @@ class VocationalTestController extends Controller
         }
         arsort($count);
         $maxPe = array_keys($count);
+
         $testResults = ModelsResult::where('student_id', session()->get('idAlumno'))->first();//Este busca el registro que se creo en el test anterior
         $testResults->update(['test_orientacional1_id' => $maxPe[0], 'test_orientacional2_id' => $maxPe[1], 'test_orientacional3_id' => $maxPe[2]]);//Este agrega los resultados del test
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
