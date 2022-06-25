@@ -37,16 +37,18 @@
                                 placeholder="Correo electrónico" type="email" class="form-control" required>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="position-relative form-group">
-                            <label for="educative_program_id" class="">Programa educativo</label><select type="select"
-                                id="educative_program_id" name="educative_program_id" class="custom-select" required>
-                                @foreach($educativePrograms as $ep)
-                                <option {{ $user->educativeProgram->id == $ep->id ? 'selected' : '' }} value="{{$ep->id}}">{{$ep->name}}</option>
-                                @endforeach
-                            </select>
+                    @if( $user->educativeProgram != null)
+                        <div class="col-md-12">
+                            <div class="position-relative form-group">
+                                <label for="educative_program_id" class="">Programa educativo</label><select type="select"
+                                    id="educative_program_id" name="educative_program_id" class="custom-select" required>
+                                    @foreach($educativePrograms as $ep)
+                                    <option {{ $user->educativeProgram->id == $ep->id ? 'selected' : '' }} value="{{$ep->id}}">{{$ep->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                     <div class="col-md-6">
                         <div class="position-relative form-group">
                             <label for="employee_key" class="">Clave de trabajador</label><input value="{{$user->employee_key}}" name="employee_key" id="employee_key"

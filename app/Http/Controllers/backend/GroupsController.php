@@ -59,14 +59,14 @@ class GroupsController extends Controller
 
         $user = Auth::user();
         if($user->can('Buscar grupo avanzado')){
-            $groups = EducativeProgram::find($user->educative_program_id)->groups();
-            $groups = $groups->where('name', 'LIKE', '%'.$search.'%')
-            ->orderBy('name', 'asc')
-            ->paginate(20);
-        }elseif($user->can('Buscar grupo')){
             $groups = Group::where('name', 'LIKE', '%'.$search.'%')
             ->orderBy('name', 'asc')
             ->paginate(20);
+        }elseif($user->can('Buscar grupo')){
+            $groups = EducativeProgram::find($user->educative_program_id)->groups();
+            $groups = $groups->where('name', 'LIKE', '%'.$search.'%')
+            ->orderBy('name', 'asc')
+            ->paginate(20);            
         }
 
         return view('backend.groups.groupsSearch')->with([
