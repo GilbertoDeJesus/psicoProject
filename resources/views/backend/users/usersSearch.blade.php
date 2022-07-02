@@ -87,7 +87,7 @@
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
-                                    <a href="javascript:; type="button" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
+                                    <a href="javascript:;" type="button" id="PopoverCustomT-1" class="btn btn-danger btn-delete btn-sm"
                                         data-id="{{$user->id}}" data-toggle="modal" data-placement="top" title="Eliminar"
                                         data-target="#exampleModal">
                                         <span class="btn-icon-wrapper">
