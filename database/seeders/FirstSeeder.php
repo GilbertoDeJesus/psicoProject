@@ -6976,13 +6976,13 @@ class FirstSeeder extends Seeder
             $student->tests()->attach(1, ['answers' => '{
                 "1": "CBTis 229",
                 "2": "9.6",
-                "3": "1",
-                "4": "5",
-                "5": "5",
+                "3": "Tecnológico",
+                "4": "Sí",
+                "5": "No",
                 "6": [
                     "Ninguna"
                 ],
-                "7": "5",
+                "7": "Sí",
                 "8": [
                     "Matemáticas",
                     "Inglés",
@@ -6993,10 +6993,10 @@ class FirstSeeder extends Seeder
                     "Inglés",
                     "Administración"
                 ],
-                "10": "5",
-                "11": "5",
-                "12": "5",
-                "13": "3"
+                "10": "Sí",
+                "11": "Sí",
+                "12": "Sí",
+                "13": "Ambas"
          }','finished'=>1]);
 
             $pe1 = random_int(1,3);
