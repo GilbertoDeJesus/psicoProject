@@ -66,7 +66,7 @@
                                         </p>
                                     </div>
                                     <div class="text-center">
-                                        <a href="{{ route('admin.logIn') }}" class="btn bg-gradient-dark btn-lg w-100 mt-4 text-white">Regresar</a>
+                                        <a href="{{ route('admin.sign-up') }}" class="btn bg-gradient-dark btn-lg w-100 mt-4 text-white">Regresar</a>
                                     </div>
                                 </div>
                             </div>

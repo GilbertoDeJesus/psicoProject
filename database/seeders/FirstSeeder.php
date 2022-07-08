@@ -183,7 +183,7 @@ class FirstSeeder extends Seeder
         //
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "Durante el bachillerato o Carrera Universitaria anterior ¿Reprobaste alguna materia o presentaste exámenes extraordinarios?",
+            'question' => "Durante el bachillerato o carrera universitaria anterior ¿reprobaste alguna materia o presentaste exámenes extraordinarios?",
             'status' => 1,
             'is_example' => 0,
             'order' => 5,
@@ -328,7 +328,7 @@ class FirstSeeder extends Seeder
         //
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Cuál o Cuáles materias no fueron de tu interés durante la preparatoria?",
+            'question' => "¿Cuál o cuáles materias no fueron de tu interés durante la preparatoria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 8,
@@ -594,7 +594,7 @@ class FirstSeeder extends Seeder
         ]);
         foreach ($q as $question) {
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Trabajo",
+                'answer' => "Solamente estudió",
                 'is_correct' => 1,
                 'value' => 0,
                 'status' => 1,
@@ -1582,7 +1582,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿te agradaría tomar um curso de primeros auxilios?",
+            'question' => "¿Te agradaría tomar um curso de primeros auxilios?",
             'status' => 1,
             'is_example' => 0,
             'order' => 35,
@@ -4134,7 +4134,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Planificar detalladamente tus trabajos antes de empezar?",
+            'question' => "¿Planificás detalladamente tus trabajos antes de empezar?",
             'status' => 1,
             'is_example' => 0,
             'order' => 127,
@@ -4502,7 +4502,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Conoces la definición de Energias renovables?",
+            'question' => "¿Conoces la definicion de energías renovables?",
             'status' => 1,
             'is_example' => 0,
             'order' => 142,
@@ -6976,13 +6976,13 @@ class FirstSeeder extends Seeder
             $student->tests()->attach(1, ['answers' => '{
                 "1": "CBTis 229",
                 "2": "9.6",
-                "3": "1",
-                "4": "5",
-                "5": "5",
+                "3": "Tecnológico",
+                "4": "Sí",
+                "5": "No",
                 "6": [
                     "Ninguna"
                 ],
-                "7": "5",
+                "7": "Sí",
                 "8": [
                     "Matemáticas",
                     "Inglés",
@@ -6993,10 +6993,10 @@ class FirstSeeder extends Seeder
                     "Inglés",
                     "Administración"
                 ],
-                "10": "5",
-                "11": "5",
-                "12": "5",
-                "13": "3"
+                "10": "Sí",
+                "11": "Sí",
+                "12": "Sí",
+                "13": "Ambas"
          }','finished'=>1]);
 
             $pe1 = random_int(1,3);

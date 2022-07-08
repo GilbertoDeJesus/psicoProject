@@ -58,7 +58,7 @@ class TrajectoryTestController extends Controller
         }
 
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
-        $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
+        $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers, JSON_UNESCAPED_UNICODE), 'finished' => 1);
         $student->tests()->attach($student->id, $studentAnswers);
 
 
