@@ -30,6 +30,8 @@ class VocationalTestController extends Controller
                     return redirect()->route('students.trajectory'); //Si ya se ha contestado redireccionamos al siguiente test
                 }
              } 
+        }else{
+            return redirect()->route('students.tests');
         }
         
         return view('frontend.vocationalOrientation.vocationalTest',['vocationalTest'=> $vocationalTest, 'answers'=>$answers]);
