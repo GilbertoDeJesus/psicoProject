@@ -36,9 +36,7 @@ class UpdateUserRequest extends FormRequest
             'roles' => ['nullable'],
             'employee_key' => [
                 'required',
-                Rule::unique('users')->where(function ($query) {
-                    return $query->where('id', $this->user()->id);
-                })],
+                Rule::unique('users')->ignore($this->id)],
             'password' => ['required'],
         ];
     }
