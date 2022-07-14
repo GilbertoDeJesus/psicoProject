@@ -11,8 +11,11 @@
             <div class="modal-body">
                 <div class="py-3 text-center">
                     <i class="ni ni-bell-55 ni-3x"></i>
-                    <h4 class="text-gradient text-danger mt-4">{{ Session::get('passwordAlumno') }}</h4>
+                    <h4 class="text-gradient text-danger mt-4" id="password">{{ Session::get('passwordAlumno') }}</h4>
                     <p>Copia y guarda tu contraseña, la necesitaras para iniciar sesión de nuevo</p>
+                    <button type="button" class="btn bg-gradient-dark text-white ml-auto mb-0 btn-tooltip" 
+                    data-toggle="popover" data-bs-placement = "top" title = "Copiado" data-bs-content = "Copiado"
+                    id="copy_password" >Copiar </button>
                 </div>
             </div>
             <div class="modal-footer">
