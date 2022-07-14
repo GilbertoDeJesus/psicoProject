@@ -177,4 +177,20 @@
 @endsection
 
 @section('js')
+<script>
+    document.querySelector("#copy_password").addEventListener("click",function(){
+        var aux = document.createElement("input");
+        // Asigna la URL al valor del campo
+        aux.setAttribute("value",document.getElementById("password").textContent);
+        // Añade el campo a la página
+        document.body.appendChild(aux);
+        // Selecciona el contenido del campo
+        aux.select();
+        aux.focus();
+        // Copia el texto seleccionado
+        document.execCommand("copy")
+        // Elimina el campo de la página
+        document.body.removeChild(aux); 
+    });
+</script>
 @endsection

@@ -49,7 +49,13 @@ class UsersController extends Controller
     }
 
     public function updateUser(UpdateUserRequest $request, $user){
-        User::find($user)->update($request->validated());
+        $user = User::find($user);
+        $newRequest = $request->validated();
+        if($newRequest['educative_program_id'] == "null"){
+            $newRequest['educative_program_id'] = null;
+        }
+        $user->update($newRequest);
+        $user->syncRoles($request->roles);
         return redirect()->route('admin.users')->with('status', '¡El registro se modificó  correctamente!');
     }
 

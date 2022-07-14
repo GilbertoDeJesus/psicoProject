@@ -28,11 +28,17 @@ class TrajectoryTestController extends Controller
 
         $student = Student::with('tests')->find(session()->get('idAlumno')); //buscamos en la tabla student_test los test que ha realizado el estudiante
         if ($student->tests->isNotEmpty()) {
+            if($student->tests->count() <= 1){
+                return redirect()->route('students.tests');
+            }
             foreach ($student->tests as $testF) {
                 if ($testF->pivot->test_id == $test->id && $testF->pivot->finished == 1) { //Evaluamos si el test actual ha sido finalizado por el estudiante o no
                     return redirect()->route('students.results'); //Si ya se ha contestado redireccionamos al siguiente test
                 }
+                
             }
+        }else{
+            return redirect()->route('students.tests');
         }
 
         return view('frontend.educationalTrajectory.trajectoryTest', ['trajectoryTest' => $trajectoryTest, 'answers' => $answers]);
