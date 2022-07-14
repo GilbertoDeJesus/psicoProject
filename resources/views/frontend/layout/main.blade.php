@@ -46,7 +46,6 @@
     </main>
     @include('frontend.layout.modals')
     <!--   Core JS Files   -->
-    <script src="{{ url('frontend/testsAssets/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ url('frontend/assets/js/core/popper.min.js') }}"></script>
     <script src="{{ url('frontend/assets/js/core/bootstrap.min.js') }}"></script>
 
@@ -60,8 +59,6 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
-    
-
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

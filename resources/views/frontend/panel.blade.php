@@ -177,6 +177,8 @@
 @endsection
 
 @section('js')
+<script src="{{ url('frontend/testsAssets/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url('frontend/assets/js/docs.min.js') }}"></script>
 <script>
     document.querySelector("#copy_password").addEventListener("click",function(){
         var aux = document.createElement("input");
