@@ -63,7 +63,14 @@ class Handler extends ExceptionHandler
             if(Str::is('*admin*', request()->path())){
                 return response()->view('backend.errors.403', [], 403);
             } else {
-                return response()->view('frontend.layout.403', [], 403);
+                return response()->view('frontend.errors.403', [], 403);
+            }
+        }
+        if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+            if(Str::is('*admin*', request()->path())){
+                return response()->view('backend.errors.403', [], 403);
+            } else {
+                return response()->view('frontend.errors.403', [], 403);
             }
         }
         if ($exception instanceof \Illuminate\Session\TokenMismatchException) {
