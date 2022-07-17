@@ -91,7 +91,7 @@
                                                 </div>
                                             </div>
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">{{$user->name}}</div>
+                                                <div class="widget-heading">{{$user->name}} {{$user->lastname}}</div>
                                                 <div class="widget-subheading opacity-7">{{$user->email}}
                                                 </div>
                                             </div>

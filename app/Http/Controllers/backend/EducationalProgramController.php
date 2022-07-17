@@ -134,7 +134,8 @@ class EducationalProgramController extends Controller
         $students = $educativeProgram->students()->where(function ($query) use ($search) {
             $query->where('students.name', 'LIKE', '%' . $search . '%')
                 ->orWhere('students.family_name', 'LIKE', '%' . $search . '%')
-                ->orWhere('students.last_name', 'LIKE', '%' . $search . '%');
+                ->orWhere('students.last_name', 'LIKE', '%' . $search . '%')
+                ->orWhere('students.matricula', 'LIKE', '%'.$search.'%');
         })
             ->orderBy('students.name', 'asc')
             ->paginate(20);;
