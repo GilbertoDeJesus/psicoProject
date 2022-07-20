@@ -50,6 +50,7 @@ class StudentsAdminController extends Controller
         'result.educativeProgramTestOrientacional3:id,name')
         ->with('tests')
         ->first();
+
         if($s->result == null){
             return back()->with('alerta', 'El estudiante seleccionado aún no ha respondido ningún cuestionario');
         }        
@@ -60,18 +61,20 @@ class StudentsAdminController extends Controller
         $vocationalTest = $test2->questions()->orderBy('order', 'ASC')->get();
       
         $test3 = Test::where('name', 'Trayectoria académica')->first();
+
+        
         $trayectoryTest = $test3->questions()->orderBy('order', 'ASC')->get();
-        if($s->tests->count() == 3){
+        if($s->tests->contains(Test::find(3)) && $s->tests->contains(Test::find(2)) && $s->tests->contains(Test::find(1))){
             $answerTrayectoryTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
             $answerVocationalTest = (array) json_decode(stripslashes($s->tests[1]->pivot->answers));
             $answerLearningTest = (array) json_decode(stripslashes($s->tests[2]->pivot->answers));
 
-        }else if($s->tests->count() == 2){
+        }else if($s->tests->contains(Test::find(3)) && $s->tests->contains(Test::find(2))){
             $answerTrayectoryTest = [];
             $answerVocationalTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
             $answerLearningTest = (array) json_decode(stripslashes($s->tests[1]->pivot->answers));
             
-        }else if($s->tests->count() == 1){
+        }else if($s->tests->contains(Test::find(3))){
             $answerLearningTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
             $answerTrayectoryTest = [];
             $answerVocationalTest = [];
