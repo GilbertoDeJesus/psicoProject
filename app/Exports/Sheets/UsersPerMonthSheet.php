@@ -42,10 +42,18 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAu
 
     public function query()
     {   
-        $array = array('students.id','students.name', 'matricula', 'email', 'dos.name as dos', 
+        $array = array('students.id',
+                            'students.name', 
+                            'matricula', 
+                            'email', 
+                            'dos.name as dos', 
                             'dus.name as dus',
-                            'das.name as das', 'des.name as des', 'dis.name as dis',
-                            'results.test_aprendizaje', 'results.test_status_academico', 'results.created_at');
+                            'das.name as das', 
+                            'des.name as des', 
+                            'dis.name as dis',
+                            'results.test_aprendizaje', 
+                            'results.test_status_academico', 
+                            'results.created_at');
             
             if($this->test == "aprendizaje"){
                                 unset($array[6]);
@@ -159,14 +167,19 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAu
     {
         $query = Student::select($array)
         ->join('results', 'students.id', '=', 'results.student_id')
-        ->join('educative_programs as das', 'results.test_orientacional1_id', '=', 'das.id')
-        ->join('educative_programs as des', 'results.test_orientacional2_id', '=', 'des.id')
-        ->join('educative_programs as dis', 'results.test_orientacional3_id', '=', 'dis.id')
-        ->join('groups as dus', 'students.group_id', '=', 'dus.id')
-        ->join('educative_programs as dos', 'dus.educative_program_id', '=', 'dos.id')
-        ->whereYear('students.created_at', $this->añoinicio)
-        ->whereMonth('students.created_at', $this->month)
         ;
+        if($this->test == "vocacional"){
+            $query = $query
+            ->join('educative_programs as das', 'results.test_orientacional1_id', '=', 'das.id')
+            ->join('educative_programs  as des', 'results.test_orientacional2_id', '=', 'des.id')
+            ->join('educative_programs as dis', 'results.test_orientacional3_id', '=', 'dis.id')
+            ;
+        }
+        $query = $query->join('groups as dus', 'students.group_id', '=', 'dus.id')
+                        ->join('educative_programs as dos', 'dus.educative_program_id', '=', 'dos.id')
+                        ->whereYear('students.created_at', $this->añoinicio)
+                        ->whereMonth('students.created_at', $this->month)
+                        ;
         if($this->mesinicio == $this->month){
             $query = $query->whereDay('students.created_at', '>=', $this->diainicio);
         }elseif($this->mesfin == $this->month){
@@ -179,6 +192,7 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAu
         if($this->grade != "todos"){
             $query = $query->where('dus.id', '=', $this->grade); 
         }
+        
         return $query;
     }
 
