@@ -168,6 +168,13 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAu
         $query = Student::select($array)
         ->join('results', 'students.id', '=', 'results.student_id')
         ;
+        if($this->test == "todos" ){
+            $query = $query
+            ->crossJoin('educative_programs as das', 'results.test_orientacional1_id', '=', 'das.id')
+            ->crossJoin('educative_programs  as des', 'results.test_orientacional2_id', '=', 'des.id')
+            ->crossJoin('educative_programs as dis', 'results.test_orientacional3_id', '=', 'dis.id')
+            ;
+        }
         if($this->test == "vocacional"){
             $query = $query
             ->join('educative_programs as das', 'results.test_orientacional1_id', '=', 'das.id')
