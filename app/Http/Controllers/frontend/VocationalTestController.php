@@ -86,7 +86,15 @@ class VocationalTestController extends Controller
         $testResults->update(['test_orientacional1_id' => $maxPe[0], 'test_orientacional2_id' => $maxPe[1], 'test_orientacional3_id' => $maxPe[2]]);//Este agrega los resultados del test
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
         $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
-        $student->tests()->attach($student->id, $studentAnswers);
+
+        if ($student->tests->isNotEmpty()) {
+            $statusVocational = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id', 2)->first();
+            if (!empty($statusVocational)) {
+                $statusVocational->pivot->update(['finished' => 1]);
+            }else{
+                $student->tests()->attach($student->id, $studentAnswers);
+            }
+        }
 
         return redirect()->route('students.trajectory');
     }

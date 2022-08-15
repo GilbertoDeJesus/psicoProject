@@ -39,6 +39,7 @@ class LearningTestController extends Controller
 
     public function storeTest(Request $request)
     {
+
         $test = Test::query()
             ->where('name', 'LIKE', "%aprendizaje%")
             ->orderByDesc('id')
@@ -93,11 +94,24 @@ class LearningTestController extends Controller
         $results['test_status_academico'] = 'Sin definir';
         $results['student_id']= session()->get('idAlumno');
 
-        Result::create($results);
+        $noRepeatResult = Result::where('student_id', session()->get('idAlumno'))->first();
+        if($noRepeatResult == null){
+            Result::create($results);
+        }else{
+            $noRepeatResult->update(['test_aprendizaje' => $estilo]);
+        }
 
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
         $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
-        $student->tests()->attach($student->id, $studentAnswers);
+
+        if ($student->tests->isNotEmpty()) {
+            $statusAprendizaje = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id', 3)->first();
+            if (!empty($statusAprendizaje)) {
+                $statusAprendizaje->pivot->update(['finished' => 1]);
+            }else{
+                $student->tests()->attach($student->id, $studentAnswers);
+            }
+        }
 
         return redirect()->route('students.vocational');
     }
