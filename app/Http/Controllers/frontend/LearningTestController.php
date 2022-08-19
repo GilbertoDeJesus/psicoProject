@@ -104,14 +104,7 @@ class LearningTestController extends Controller
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
         $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
 
-        if ($student->tests->isNotEmpty()) {
-            $statusAprendizaje = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id', 3)->first();
-            if (!empty($statusAprendizaje)) {
-                $statusAprendizaje->pivot->update(['finished' => 1]);
-            }else{
-                $student->tests()->attach($student->id, $studentAnswers);
-            }
-        }
+        $student->tests()->attach($student->id, $studentAnswers);
 
         return redirect()->route('students.vocational');
     }
