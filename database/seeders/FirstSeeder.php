@@ -708,7 +708,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gusta configurar equipos de computo?",
+            'question' => "¿Te gusta configurar equipos de cómputo?",
             'status' => 1,
             'is_example' => 0,
             'order' => 4,
@@ -1218,7 +1218,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gusta trabajar con lenguaje de programación?",
+            'question' => "¿Te gustaría trabajar con lenguaje de programación?",
             'status' => 1,
             'is_example' => 0,
             'order' => 22,
@@ -1638,7 +1638,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gusta diseñar y planificar la producción de artículos o nuevos productos?",
+            'question' => "¿Te gustaría diseñar y planificar la producción de artículos o nuevos productos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 37,
@@ -1862,7 +1862,7 @@ class FirstSeeder extends Seeder
         // }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Participarias en una campaña de reforestación empleando técnicas y conocimientos agrícolas?",
+            'question' => "¿Participarías en una campaña de reforestación empleando técnicas y conocimientos agrícolas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 45,
@@ -2087,7 +2087,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaria conocer los alcances de la agricultura protegida?",
+            'question' => "¿Te gustaría conocer los alcances de la agricultura protegida?",
             'status' => 1,
             'is_example' => 0,
             'order' => 54,
@@ -2508,7 +2508,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaria tener tu propia empresa en la cadena de suministro y servicios a la industria automotriz y de autopartes?",
+            'question' => "¿Te gustaría tener tu propia empresa en la cadena de suministro y servicios a la industria automotriz y de autopartes?",
             'status' => 1,
             'is_example' => 0,
             'order' => 68,
@@ -2536,7 +2536,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te interesa realizar programas para mantenimiento preventivo de instalaciones industriales y maquinaria?",
+            'question' => "¿Te interesaría realizar programas para mantenimiento preventivo de instalaciones industriales y maquinaria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 69,
@@ -2564,7 +2564,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Participarias en una campaña de prevención de enfermedades?",
+            'question' => "¿Participarías en una campaña de prevención de enfermedades?",
             'status' => 1,
             'is_example' => 0,
             'order' => 70,
@@ -3181,7 +3181,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaria trabajar en una empresa que se dedique a la fabricación de componentes eléctricos?",
+            'question' => "¿Te gustaría trabajar en una empresa que se dedique a la fabricación de componentes eléctricos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 92,
@@ -3265,7 +3265,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaria trabajar en la industria automotriz en el área de producción, calidad, ingeniería de producto/manufactura, logística, proyectos y soporte técnico?",
+            'question' => "¿Te gustaría trabajar en la industria automotriz en el área de producción, calidad, ingeniería de producto/manufactura, logística, proyectos y soporte técnico?",
             'status' => 1,
             'is_example' => 0,
             'order' => 95,
@@ -3349,7 +3349,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaria trabajar como supervisor de mantenimiento de instalaciones eléctricas?",
+            'question' => "¿Te gustaría trabajar como supervisor de mantenimiento de instalaciones eléctricas?",
             'status' => 1,
             'is_example' => 0,
             'order' => 98,
@@ -3993,7 +3993,7 @@ class FirstSeeder extends Seeder
         // }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te gustaria trabajar en una empresa dedicada al desarrollo de Software?",
+            'question' => "¿Te gustaría trabajar en una empresa dedicada al desarrollo de Software?",
             'status' => 1,
             'is_example' => 0,
             'order' => 121,
@@ -4134,7 +4134,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Planificás detalladamente tus trabajos antes de empezar?",
+            'question' => "¿Planificas detalladamente tus trabajos antes de empezar?",
             'status' => 1,
             'is_example' => 0,
             'order' => 127,
@@ -4390,7 +4390,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Conoces a que se refiere la microbiologia?",
+            'question' => "¿Conoces a que se refiere la microbiología?",
             'status' => 1,
             'is_example' => 0,
             'order' => 138,
@@ -4446,7 +4446,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Conoces la definición de Diastólica y sistólica ?",
+            'question' => "¿Conoces la definición de Diastólica y Sistólica ?",
             'status' => 1,
             'is_example' => 0,
             'order' => 140,
@@ -4502,7 +4502,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Conoces la definicion de energías renovables?",
+            'question' => "¿Conoces la definición de energías renovables?",
             'status' => 1,
             'is_example' => 0,
             'order' => 142,
