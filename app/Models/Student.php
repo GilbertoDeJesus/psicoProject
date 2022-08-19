@@ -33,15 +33,15 @@ class Student extends Model
     }
     public function test1()
     {
-        return $this->belongsToMany(Test::class)->where('test_id',1)->first();
+        return $this->belongsToMany(Test::class)->where('test_id',1)->latest('created_at');
     }
     public function test2()
     {
-        return $this->belongsToMany(Test::class)->where('test_id',2)->first();
+        return $this->belongsToMany(Test::class)->where('test_id',2)->latest('created_at');
     }
     public function test3()
     {
-        return $this->belongsToMany(Test::class)->where('test_id',3)->first();
+        return $this->belongsToMany(Test::class)->where('test_id',3)->latest('created_at');
     }
    
 
