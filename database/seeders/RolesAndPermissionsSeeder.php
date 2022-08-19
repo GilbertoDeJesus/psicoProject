@@ -59,8 +59,8 @@ class RolesAndPermissionsSeeder extends Seeder
 
         //crear usuario con rol admin
         User::create([
-            'name' => "Karla",
-            'lastname' => "Francisco",
+            'name' => "Usuario",
+            'lastname' => "Tests",
             'email' => "karla@gmail.com",
             'password' => 'password', // password,
             'educative_program_id' => 6,
@@ -68,12 +68,12 @@ class RolesAndPermissionsSeeder extends Seeder
         ])->assignRole('Admin');
         //crear usuario con rol super-admin
         User::create([
-            'name' => "Elena",
-            'lastname' => "Manuel",
-            'email' => "elena@gmail.com",
-            'password' => 'password', // password,
+            'name' => "Liliana",
+            'lastname' => "Cruz Barbosa",
+            'email' => "Liliana.Cruz@uttehuacan.edu.mx",
+            'password' => '5LS7yw337', // password,
             'educative_program_id' => null,
-            'employee_key' => "superAdmin"
+            'employee_key' => "superTutorias"
         ])->assignRole('Super-Admin');
 
     }
