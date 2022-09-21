@@ -25,8 +25,11 @@ class EducationalProgramController extends Controller
 
     public function deleteProgram($educativeProgram)
     {
-        //dd(EducativeProgram::find($educativeProgram));
-        EducativeProgram::find($educativeProgram)->delete();
+        $ep = EducativeProgram::find($educativeProgram);
+        if($ep->groups()->count() > 0 || $ep->users()->count() > 0){
+            return back()->with('error', '¡No se pudo eliminar ya que contiene usuarios o grupos asignados!');
+        }
+        $ep->delete();
         return back()->with('status', '¡El registro se elimino correctamente!');
     }
 
