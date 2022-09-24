@@ -29,6 +29,9 @@ class EducationalProgramController extends Controller
         if($ep->groups()->count() > 0 || $ep->users()->count() > 0){
             return back()->with('error', '¡No se pudo eliminar ya que contiene usuarios o grupos asignados!');
         }
+        if($ep->questions()->count() > 0){
+            return back()->with('error', '¡No se pudo eliminar!. Comunícate con los desarrolladores para más información');
+        }
         $ep->delete();
         return back()->with('status', '¡El registro se elimino correctamente!');
     }

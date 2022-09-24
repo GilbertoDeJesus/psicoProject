@@ -32,7 +32,11 @@ class GroupsController extends Controller
     }
 
     public function deleteGroup($group){
-        Group::find($group)->delete();
+        $g =Group::find($group);
+        if($g->students()->count() > 0 ){
+            return back()->with('error', '¡No se pudo eliminar ya que contiene estudiantes inscritos!');
+        }
+        $g->delete();
         return back()->with('status', '¡El registro se elimino correctamente!');
     }
 
