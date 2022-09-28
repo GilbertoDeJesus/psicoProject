@@ -59,7 +59,19 @@ class TrajectoryTestController extends Controller
 
         $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
         $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers, JSON_UNESCAPED_UNICODE), 'finished' => 1);
-        $student->tests()->attach($student->id, $studentAnswers);
+
+        $statusAprendizaje = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id', 1)->first();
+        
+        if ($student->tests->isEmpty() || $statusAprendizaje == null) {
+            
+            if (!empty($statusAprendizaje)) {
+                $statusAprendizaje->pivot->update(['finished' => 1]);
+            }else{
+                $student->tests()->attach($student->id, $studentAnswers);
+            }
+        }else{
+            $statusAprendizaje->pivot->update(['finished' => 1]);
+        }
 
         if (floatval($answers[2]) >= 8.5) {
             $answers[2] = 5;
