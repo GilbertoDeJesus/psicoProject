@@ -47,7 +47,12 @@ class FirstSeeder extends Seeder
             'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona una opción en escala de 'Siempre' a 'Nunca' según cuanto te identificas",
             'order' => 3,
         ]);
-
+        $t4 = \App\Models\Test::factory(1)->create([
+            'name' => "Orientacion vocacional 2",
+            "clave"=>"vocacional 2",
+            'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona una opción en escala de 'Siempre' a 'Nunca' según cuanto te identificas",
+            'order' => 4,
+        ]);
 
 
         //////////////////////////////////// Información académica 
@@ -6393,7 +6398,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 3,
-            'type_id' => 3,
+            'type_id' => 1,
 
         ]);
         foreach ($q as $question) {
@@ -6437,7 +6442,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 5,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6488,7 +6493,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 7,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6523,7 +6528,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 9,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6598,7 +6603,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 16,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6625,7 +6630,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 17,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6652,7 +6657,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 18,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6711,7 +6716,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 21,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6746,7 +6751,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 23,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6773,7 +6778,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 24,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6800,7 +6805,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 25,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6827,7 +6832,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 26,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6854,7 +6859,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 27,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6881,7 +6886,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 28,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6908,7 +6913,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 29,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6935,7 +6940,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 30,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6962,7 +6967,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 31,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -6989,7 +6994,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 32,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7016,7 +7021,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 33,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7043,7 +7048,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 34,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7070,7 +7075,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 35,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7097,7 +7102,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 36,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7124,7 +7129,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 37,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7152,7 +7157,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 38,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7179,7 +7184,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 39,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7222,7 +7227,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 41,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7257,7 +7262,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 42,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7284,7 +7289,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 43,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7311,7 +7316,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 44,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7338,7 +7343,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 45,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7365,7 +7370,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 46,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7392,7 +7397,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 47,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7419,7 +7424,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 48,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7446,7 +7451,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 49,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7473,7 +7478,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 50,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7500,7 +7505,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 51,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7535,7 +7540,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 53,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7562,7 +7567,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 54,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7589,7 +7594,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 55,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7624,7 +7629,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 56,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7651,7 +7656,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 57,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7678,7 +7683,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 58,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7705,7 +7710,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 59,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7732,7 +7737,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 60,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7759,7 +7764,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 61,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7786,7 +7791,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 62,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
