@@ -6654,6 +6654,41 @@ class FirstSeeder extends Seeder
             'order' => 18,
             'type_id' => 3,
         ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Solo",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Familia",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Conyuge",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Otro",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 4,
+                'question_id' => $question->id
+            ]);
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Cuántos hermanos tienes?",
@@ -7146,6 +7181,33 @@ class FirstSeeder extends Seeder
             'order' => 39,
             'type_id' => 3,
         ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Padre o madre",
+                'is_correct' => 1,
+                'value' => 2,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Algun familiar",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Yo",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+        }
         //    
         $q = \App\Models\Question::factory(1)->create([
             'question' => "Aparte de ti ¿Cuántas personas dependen económicamente de tus padres o pareja?",
@@ -7162,6 +7224,33 @@ class FirstSeeder extends Seeder
             'order' => 41,
             'type_id' => 3,
         ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Mas que suficiente",
+                'is_correct' => 1,
+                'value' => 2,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Suficiente",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Insuficiente",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Económicamente, depende alguien de ti?",
@@ -7525,7 +7614,7 @@ class FirstSeeder extends Seeder
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
-                'order' => 2,
+                'order' => 3,
                 'question_id' => $question->id
             ]);
         }
