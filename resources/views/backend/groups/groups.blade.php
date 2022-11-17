@@ -47,6 +47,15 @@
                     {{ session('error') }}
                 </div>
             @endif
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                <div class="alert alert-danger fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close"  data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ $error }}
+                </div>
+                @endforeach
+             @endif
             <div class="main-card mb-3 card">
                 <div class="card-header">Lista de grupos
                     <div class="btn-actions-pane-right">
@@ -106,8 +115,8 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">                  
-                        {{ $groups->links('vendor.pagination.default') }}   
+                <div class="d-block text-center card-footer">
+                        {{ $groups->links('vendor.pagination.default') }}
                 </div>
             </div>
         </div>
@@ -168,7 +177,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="formDelete" action="{{ route('admin.groups.deleteGroup', ['id' => 0]) }}" method="post" 
+                <form id="formDelete" action="{{ route('admin.groups.deleteGroup', ['id' => 0]) }}" method="post"
                 data-action="{{ route('admin.groups.deleteGroup', ['id' => 0]) }}">
                     @method('DELETE')
                     @csrf
