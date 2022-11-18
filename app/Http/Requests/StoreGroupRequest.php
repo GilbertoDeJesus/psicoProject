@@ -24,7 +24,7 @@ class StoreGroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required','string', 'max:10'],
+            'name' => ['required','string','min:2', 'max:3','regex:/^(?:[1-9]|1[0-2])[A-Z]$/'],
             'educative_program_id' => ['required'],
         ];
     }
