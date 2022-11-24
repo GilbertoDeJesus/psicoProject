@@ -55,7 +55,7 @@
                     {{ $error }}
                 </div>
                 @endforeach
-             @endif
+            @endif
             <div class="main-card mb-3 card">
                 <div class="card-header">Lista de grupos
                     <div class="btn-actions-pane-right">
