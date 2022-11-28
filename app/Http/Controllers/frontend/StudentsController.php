@@ -60,7 +60,13 @@ class StudentsController extends Controller
                 'matriculaAlumno' => $student->matricula,
                 'passwordAlumno' => "p" . $student->matricula . "s" . $student->id
             ]);
-            return redirect()->route('students.tests');
+            $group = Group::where('id', $student->group_id)->select('name')->first();
+            $gn = mb_eregi_replace("[a-zA-Z]", "", $group->name);
+            if ((int)$gn > 1) {
+                return redirect()->route('students.advancedTrajectory');
+            } else {
+                return redirect()->route('students.tests');
+            }
         } else {
             //agregamos a variable 'errors' un error de validación en credenciales y regresamos a ruta anterior
             // en este caso la correspondiente a sing-up.
@@ -84,20 +90,24 @@ class StudentsController extends Controller
                 'programa educativo' => __('validation.requiredPE')
             ]);
         }
+        $group = Group::where('id', $request->group_id)->select('name')->first();
+        $gn = mb_eregi_replace("[a-zA-Z]", "", $group->name);
         $publicacion = $request->all(); //Pasamos todos los datos del request a la variable llamada publicación
         $publicacion['password'] = $request->matricula;
         $student = Student::create($publicacion); //Creamos el nuevo estudiante.
         $pass = "p" . $student->matricula . "s" . $student->id; //Creamos una contraseña con más dígitos 
         $student->update(['password' => $pass]); //Guardamos la contraseña con matrícula letras y id
-
         session([
             'idAlumno' => $student->id,
             'nameAlumno' => $student->name,
             'matriculaAlumno' => $student->matricula,
             'passwordAlumno' => "p" . $student->matricula . "s" . $student->id
         ]);
-
-        return redirect()->route('students.tests');
+        if ((int)$gn > 1) {
+            return redirect()->route('students.advancedTrajectory');
+        } else {
+            return redirect()->route('students.tests');
+        }
     }
 
     //Obtener los grupos de cada programa educativo seleccionado en blade
@@ -106,6 +116,4 @@ class StudentsController extends Controller
         $groups = Group::where('educative_program_id', $request->p_id)->select('id', 'name')->get();
         return $groups;
     }
-
-   
 }

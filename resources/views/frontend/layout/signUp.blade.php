@@ -239,7 +239,8 @@
                                                 <label>Matrícula</label>
                                                 <div class="mb-3">
                                                     <input type="number" class="form-control"
-                                                        placeholder="Matrícula" name="matricula"  id="matricula" value="{{ old('matricula') }}" required>
+                                                        placeholder="Matrícula" name="matricula" id="matricula"
+                                                        value="{{ old('matricula') }}" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -353,14 +354,15 @@
                 var group = document.getElementsByName("group_id")[0];
                 group = group.options[group.selectedIndex].innerText;
                 document.getElementById("content_confirm").innerHTML =
-                "<div class='d-flex pb-3'><div><span class='badge badge-md bg-gradient-dark'>Nombre:</span></div><div class='ps-3'><span>" + nom + "&nbsp" + apm + "&nbsp" + app + "</span></div></div>"+
-                "<div class='d-flex pb-3'><div><span class='badge badge-md bg-gradient-dark'>Email:</span></div><div class='ps-3'><span>" + mail + "</span></div></div>"+
-                "<div class='d-flex pb-3'><div><span class='badge badge-md bg-gradient-dark'>Carrera:</span></div><div class='ps-3'><span>" +pedu+ "</span></div></div>" + 
-                "<div class='row pb-3'><div class='col-6 mb-3'><div><span class='badge badge-md bg-gradient-dark'>Grupo:</span></div><div><span>" +group+ "</span></div></div>"+
-                "<div class='col-6 mb-3'><div><span class='badge badge-md bg-gradient-dark'>Matricula:</span></div><div ><span>" + matri + "</span></div></div>" + 
-                "<div class='col-6 mb-3'><div><span class='badge badge-md bg-gradient-dark'>Telefono:</span></div><div ><span>" + phone + "</span></div></div>" + 
-                "<div class='col-6 mb-3'><div><span class='badge badge-md bg-gradient-dark'>Tel. Contacto:</span></div><div><span>" + cphone + "</span></div></div></div>";
-                document.getElementById("content_confirm").classList.add('text-center', 'my-4');
+                    "<div class='card'><div class='table-responsive'><table class='table table-striped table-hover align-items-center mb-0'><thead><tr><th class='text-uppercase text-dark text-xs font-weight-bolder opacity-7'>Dato</th><th class='text-uppercase text-dark text-xs font-weight-bolder opacity-7 ps-2'>Información</th></tr></thead>" +
+                    "<tbody><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Nombre</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + nom + "&nbsp" + apm + "&nbsp" + app +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Email</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + mail +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Carrera</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + pedu +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Grupo</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + group +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Matrícula</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + matri +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Télefono</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + phone +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Tél. Contacto</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + cphone + "</p></td></tr></tbody></table></div></div>";
+                document.getElementById("content_confirm").classList.add('text-center', 'mb-4');
             } else {
                 document.getElementById("acceptData").classList.add("d-none");
                 document.getElementById("content_confirm").classList.add('text-center', 'my-4');
@@ -376,11 +378,13 @@
             <div class="modal-body p-0">
                 <div class="card card-plain">
                     <div class="card-header pb-0 text-center my-2">
-                        <h4 class="font-weight-bolder text-warning text-gradient mb-4">¿Estás seguro de la información que ingresaste?</h4>
+                        <h4 class="font-weight-bolder text-warning text-gradient mb-4">¿Estás seguro de la información
+                            que ingresaste?</h4>
                         <p class="mb-0 text-sm">Verifica que tu información sea la correcta</p>
                     </div>
                     <div class="card-body">
                         <div id="content_confirm"></div>
+
                         <div class="text-center">
                             <button class="btn bg-gradient-dark-green btn-lg w-100 mt-4 mb-0 text-white d-none"
                                 onclick="register();" id="acceptData">Aceptar</button>
