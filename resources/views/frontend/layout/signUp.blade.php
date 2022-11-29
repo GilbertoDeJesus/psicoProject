@@ -62,12 +62,14 @@
                             <div class="nav-wrapper position-relative end-0">
                                 <ul class="nav nav-pills nav-pills-dark-green nav-fill p-1" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#log-in" role="tab" aria-controls="preview" aria-selected="true">
+                                        <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#log-in"
+                                            role="tab" aria-controls="preview" aria-selected="true">
                                             <i class="ni ni-key-25 text-sm me-2"></i> Iniciar sesión
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#sign-up" role="tab" aria-controls="code" aria-selected="false">
+                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#sign-up"
+                                            role="tab" aria-controls="code" aria-selected="false">
                                             <i class="ni ni-badge text-sm me-2"></i> Registrarse
                                         </a>
                                     </li>
@@ -76,37 +78,46 @@
                         </div>
                         <div class="card-body mx-2">
                             <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="log-in" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="tab-pane fade show active" id="log-in" role="tabpanel"
+                                    aria-labelledby="pills-home-tab">
                                     <div class="card card-plain">
                                         <div class="card-header py-0 text-center">
-                                            <h4 class="font-weight-bolder text-info text-gradient">Bienvenido de nuevo</h4>
-                                            <p class="mb-0 text-sm">Ingresa tu matrícula y contraseña para iniciar sesión</p>
+                                            <h4 class="font-weight-bolder text-info text-gradient">Bienvenido de nuevo
+                                            </h4>
+                                            <p class="mb-0 text-sm">Ingresa tu matrícula y contraseña para iniciar
+                                                sesión</p>
                                         </div>
                                         <div class="card-body">
-                                            <form role="form text-left" method="POST" action="{{ route('student.log-in') }}">
+                                            <form role="form text-left" method="POST"
+                                                action="{{ route('student.log-in') }}">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-xl-10 col-lg-10 col-md-12 mx-auto">
                                                         @if ($errors->any())
                                                             @foreach ($errors->all() as $error)
-                                                                <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
-                                                                    <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
+                                                                <div class="alert alert-danger alert-dismissible fade show text-white"
+                                                                    role="alert">
+                                                                    <span class="alert-icon"><i
+                                                                            class="ni ni-notification-70 me-1"></i></span>
                                                                     <span class="alert-text">{{ $error }}</span>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                                        aria-label="Close">
-                                                                        <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="alert" aria-label="Close">
+                                                                        <span aria-hidden="true"><i
+                                                                                class="ni ni-fat-remove me-1"></i></span>
                                                                     </button>
                                                                 </div>
                                                             @endforeach
                                                         @endif
                                                         <label>Matrícula</label>
                                                         <div class="input-group mb-3">
-                                                            <input type="number" name="matricula" class="form-control" placeholder="Matricula"
+                                                            <input type="number" name="matricula"
+                                                                class="form-control" placeholder="Matricula"
                                                                 aria-label="Email" required>
                                                         </div>
                                                         <label>Contraseña</label>
                                                         <div class="input-group mb-3">
-                                                            <input type="password" name="password" class="form-control" placeholder="Contraseña"
+                                                            <input type="password" name="password"
+                                                                class="form-control" placeholder="Contraseña"
                                                                 aria-label="Password" autocomplete="false" required>
                                                         </div>
                                                         <div class="text-center">
@@ -123,54 +134,64 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="sign-up" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                    <form role="form text-left" method="POST" action="{{ route('student.storeStudent') }}">
+                                <div class="tab-pane fade" id="sign-up" role="tabpanel"
+                                    aria-labelledby="pills-profile-tab">
+                                    <form role="form text-left" method="POST"
+                                        action="{{ route('student.storeStudent') }}" id="studentRegister">
                                         @csrf
                                         @if ($errors->any())
                                             @foreach ($errors->all() as $error)
-                                                <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
-                                                    <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
+                                                <div class="alert alert-danger alert-dismissible fade show text-white"
+                                                    role="alert">
+                                                    <span class="alert-icon"><i
+                                                            class="ni ni-notification-70 me-1"></i></span>
                                                     <span class="alert-text">{{ $error }}</span>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                         aria-label="Close">
-                                                        <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
+                                                        <span aria-hidden="true"><i
+                                                                class="ni ni-fat-remove me-1"></i></span>
                                                     </button>
                                                 </div>
                                             @endforeach
                                         @endif
                                         @if (isset($message))
-                                            <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
-                                                <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
+                                            <div class="alert alert-danger alert-dismissible fade show text-white"
+                                                role="alert">
+                                                <span class="alert-icon"><i
+                                                        class="ni ni-notification-70 me-1"></i></span>
                                                 <span class="alert-text">{{ $message }}</span>
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                     aria-label="Close">
-                                                    <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
+                                                    <span aria-hidden="true"><i
+                                                            class="ni ni-fat-remove me-1"></i></span>
                                                 </button>
                                             </div>
                                         @endif
-        
+
                                         <div class="row">
                                             <div class="col-xl-4 col-lg-4 col-md-12">
                                                 <label>Nombre</label>
                                                 <div class="mb-3">
-                                                    <input type="text" class="form-control " placeholder="Nombre" name="name"
-                                                        required value="{{old('name')}}">
+                                                    <input type="text" class="form-control " placeholder="Nombre"
+                                                        name="name" required value="{{ old('name') }}">
                                                 </div>
-        
+
                                             </div>
                                             <div class="col-xl-4 col-lg-4 col-md-12">
                                                 <label>Apellido paterno</label>
                                                 <div class="mb-3">
-                                                    <input type="text" class="form-control" placeholder="Apellido paterno"
-                                                        name="family_name" required value="{{old('family_name')}}">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Apellido paterno" name="family_name" required
+                                                        value="{{ old('family_name') }}">
                                                 </div>
-        
+
                                             </div>
                                             <div class="col-xl-4 col-lg-4 col-md-12">
                                                 <label>Apellido materno</label>
                                                 <div class="mb-3">
-                                                    <input type="text" class="form-control" placeholder="Apellido materno"
-                                                        name="last_name" required value="{{old('last_name')}}">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Apellido materno" name="last_name" required
+                                                        value="{{ old('last_name') }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -178,15 +199,16 @@
                                             <div class="col-xl-4 col-lg-4 col-md-4">
                                                 <label>Edad</label>
                                                 <div class="mb-3">
-                                                    <input type="number" class="form-control" placeholder="Edad" name="age"
-                                                        required value="{{old('age')}}">
+                                                    <input type="number" class="form-control" placeholder="Edad"
+                                                        name="age" required value="{{ old('age') }}">
                                                 </div>
                                             </div>
                                             <div class="col-xl-8 col-lg-8 col-md-8">
                                                 <label>Email institucional</label>
                                                 <div class="mb-3">
-                                                    <input type="email" class="form-control" placeholder="Email institucional"
-                                                        name="email" required value="{{old('email')}}">
+                                                    <input type="email" class="form-control"
+                                                        placeholder="Email institucional" name="email" required
+                                                        value="{{ old('email') }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -194,39 +216,46 @@
                                             <div class="col-xl-4 col-lg-4 col-md-12">
                                                 <label>Teléfono</label>
                                                 <div class="mb-3">
-                                                    <input type="tel" class="form-control" placeholder="Teléfono" name="phone"
-                                                    onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
-                                                    pattern="[0-9]+" maxlength="10"  value="{{old('phone')}}" required>
+                                                    <input type="tel" class="form-control" placeholder="Teléfono"
+                                                        name="phone"
+                                                        onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
+                                                        pattern="[0-9]+" maxlength="10" value="{{ old('phone') }}"
+                                                        required>
                                                 </div>
-        
+
                                             </div>
                                             <div class="col-xl-4 col-lg-4 col-md-12">
                                                 <label>Teléfono de contacto</label>
                                                 <div class="mb-3">
-                                                    <input type="tel" class="form-control" placeholder="Teléfono de contacto"
-                                                    {{-- Con esto solo tomamos en cuenta los números, no letras, no símbolos. --}}
-                                                    onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
-                                                    pattern="[0-9]+" name="contact_phone" maxlength="10" required value="{{old('contact_phone')}}">
+                                                    <input type="tel" class="form-control"
+                                                        placeholder="Teléfono de contacto" {{-- Con esto solo tomamos en cuenta los números, no letras, no símbolos. --}}
+                                                        onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
+                                                        pattern="[0-9]+" name="contact_phone" maxlength="10" required
+                                                        value="{{ old('contact_phone') }}">
                                                 </div>
-        
+
                                             </div>
                                             <div class="col-xl-4 col-lg-4 col-md-12">
                                                 <label>Matrícula</label>
                                                 <div class="mb-3">
-                                                    <input type="number" class="form-control" placeholder="Matrícula"
-                                                        name="matricula" required value={{old('matricula')}}>
+                                                    <input type="number" class="form-control"
+                                                        placeholder="Matrícula" name="matricula" id="matricula"
+                                                        value="{{ old('matricula') }}" required>
                                                 </div>
-        
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-xl-8 col-lg-8 col-md-12">
                                                 <label>Programa educativo</label>
                                                 <div class="mb-3">
-                                                    <select type="select" id="p_id" name="p_id" class="form-control" required>
-                                                        <option value="0" selected>Seleccione su programa educativo</option>
+                                                    <select type="select" id="p_id" name="p_id"
+                                                        class="form-control" required>
+                                                        <option value="0" selected>Seleccione su programa
+                                                            educativo</option>
                                                         @foreach ($educativePrograms as $educativeProgram)
-                                                        <option {{$educativeProgram->id  == old('p_id') ? "selected":""}} value="{{$educativeProgram->id}}">
+                                                            <option
+                                                                {{ $educativeProgram->id == old('p_id') ? 'selected' : '' }}
+                                                                value="{{ $educativeProgram->id }}">
                                                                 {{ $educativeProgram->name }}</option>
                                                         @endforeach
                                                     </select>
@@ -235,19 +264,23 @@
                                             <div class="col-xl-4 col-lg-4 col-md-12">
                                                 <label>Cuatrimestre y grupo</label>
                                                 <div class="mb-3">
-                                                    <select type="select" id="areaSelect" name="group_id" class="form-control"
-                                                        required>
-                                                        <option value="0" selected>Seleccione su cuatrimestre y grupo</option>
+                                                    <select type="select" id="areaSelect" name="group_id"
+                                                        class="form-control" required>
+                                                        <option value="0" selected>Seleccione su cuatrimestre y
+                                                            grupo</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="text-center">
-                                            <button type="submit"
-                                                class="btn bg-gradient-dark-green text-white w-100 my-4 mb-2">Registrarse</button>
-                                        </div>
-                                        <p class="text-sm mt-3 mb-0">¿Ya te registraste? <span class="text-dark font-weight-bolder icon-move-right"> Inicia sesión</span></p>
                                     </form>
+                                    <div class="text-center">
+                                        <button class="btn bg-gradient-dark-green text-white w-100 my-4 mb-2"
+                                            data-bs-toggle="modal" data-bs-target="#modal-form"
+                                            onclick="confirm();">Registrarse</button>
+                                    </div>
+                                    <p class="text-sm mt-3 mb-0">¿Ya te registraste? <span
+                                            class="text-dark font-weight-bolder icon-move-right"> Inicia sesión</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -298,47 +331,64 @@
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+        function register() {
+            document.forms["studentRegister"].submit();
+        };
+
+        function confirm() {
+            val = document.getElementById('studentRegister');
+            if (val.reportValidity() && document.getElementById("p_id").value != "0" && document.getElementById(
+                    "areaSelect").value != "0") {
+                document.getElementById("acceptData").classList.remove("d-none");
+                var nom = document.getElementsByName("name")[0].value;
+                var apm = document.getElementsByName("family_name")[0].value;
+                var app = document.getElementsByName("last_name")[0].value;
+                var age = document.getElementsByName("age")[0].value;
+                var mail = document.getElementsByName("email")[0].value;
+                var phone = document.getElementsByName("phone")[0].value;
+                var cphone = document.getElementsByName("contact_phone")[0].value;
+                var matri = document.getElementById("matricula").value;
+                var pedu = document.getElementsByName("p_id")[0];
+                pedu = pedu.options[pedu.selectedIndex].innerText;
+                var group = document.getElementsByName("group_id")[0];
+                group = group.options[group.selectedIndex].innerText;
+                document.getElementById("content_confirm").innerHTML =
+                    "<div class='card'><div class='table-responsive'><table class='table table-striped table-hover align-items-center mb-0'><thead><tr><th class='text-uppercase text-dark text-xs font-weight-bolder opacity-7'>Dato</th><th class='text-uppercase text-dark text-xs font-weight-bolder opacity-7 ps-2'>Información</th></tr></thead>" +
+                    "<tbody><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Nombre</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + nom + "&nbsp" + apm + "&nbsp" + app +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Email</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + mail +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Carrera</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + pedu +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Grupo</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + group +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Matrícula</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + matri +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Télefono</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + phone +
+                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Tél. Contacto</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + cphone + "</p></td></tr></tbody></table></div></div>";
+                document.getElementById("content_confirm").classList.add('text-center', 'mb-4');
+            } else {
+                document.getElementById("acceptData").classList.add("d-none");
+                document.getElementById("content_confirm").classList.add('text-center', 'my-4');
+                document.getElementById("content_confirm").innerHTML = "\ <strong>¡Hay campos sin rellenar!</strong>";
+            }
+        }
+    </script>
 </body>
-{{-- <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+<div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body p-0">
                 <div class="card card-plain">
-                    <div class="card-header pb-0 text-center">
-                        <h4 class="font-weight-bolder text-info text-gradient">Bienvenido de nuevo</h4>
-                        <p class="mb-0 text-sm">Ingresa tú matrícula y contraseña para iniciar sesión</p>
+                    <div class="card-header pb-0 text-center my-2">
+                        <h4 class="font-weight-bolder text-warning text-gradient mb-4">¿Estás seguro de la información
+                            que ingresaste?</h4>
+                        <p class="mb-0 text-sm">Verifica que tu información sea la correcta</p>
                     </div>
                     <div class="card-body">
-                        <form role="form text-left" method="POST" action="{{ route('student.log-in') }}">
-                            @csrf
-                            @if ($errors->any())
-                                @foreach ($errors->all() as $error)
-                                    <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
-                                        <span class="alert-icon"><i class="ni ni-notification-70 me-1"></i></span>
-                                        <span class="alert-text">{{ $error }}</span>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close">
-                                            <span aria-hidden="true"><i class="ni ni-fat-remove me-1"></i></span>
-                                        </button>
-                                    </div>
-                                 @endforeach
-                            @endif
-                            <label>Matrícula</label>
-                            <div class="input-group mb-3">
-                                <input type="number" name="matricula" class="form-control" placeholder="Matricula"
-                                    aria-label="Email" required>
-                            </div>
-                            <label>Contraseña</label>
-                            <div class="input-group mb-3">
-                                <input type="password" name="password" class="form-control" placeholder="Contraseña"
-                                    aria-label="Password" autocomplete="false" required>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit"
-                                    class="btn bg-gradient-dark-green btn-lg w-100 mt-4 mb-0 text-white">Iniciar
-                                    sesión</button>
-                            </div>
-                        </form>
+                        <div id="content_confirm"></div>
+
+                        <div class="text-center">
+                            <button class="btn bg-gradient-dark-green btn-lg w-100 mt-4 mb-0 text-white d-none"
+                                onclick="register();" id="acceptData">Aceptar</button>
+                        </div>
                     </div>
                     <div class="card-footer text-center pt-0 px-lg-2 px-1">
                         <p class="mb-0 text-sm mx-auto">
@@ -350,6 +400,6 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 
 </html>

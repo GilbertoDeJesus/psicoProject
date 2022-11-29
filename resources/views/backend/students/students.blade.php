@@ -117,6 +117,15 @@
                     {{ session('alerta') }}
                 </div>
             @endif
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                <div class="alert alert-danger fade alert-dismissible show" role="alert">
+                    <button type="button" class="close" aria-label="Close"  data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span></button>
+                    {{ $error }}
+                </div>
+                @endforeach
+            @endif
             <div class="main-card mb-3 card">
                 <div class="card-header">Lista de alumnos
                 </div>
