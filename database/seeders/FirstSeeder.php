@@ -16,9 +16,9 @@ class FirstSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
+    {
 
- 
+
 //////////////////////////////////////////////
         \App\Models\Type::factory(1)->create(['name' => "Opcion Multiple"]);
         \App\Models\Type::factory(1)->create(['name' => "Desplegable"]);
@@ -27,7 +27,7 @@ class FirstSeeder extends Seeder
 
 
 
-        $this->call(EducativeProgramSeeder::class); 
+        $this->call(EducativeProgramSeeder::class);
 
         $t1 = \App\Models\Test::factory(1)->create([
             'name' => "Trayectoria académica",
@@ -48,14 +48,14 @@ class FirstSeeder extends Seeder
             'order' => 3,
         ]);
         $t4 = \App\Models\Test::factory(1)->create([
-            'name' => "Orientacion vocacional 2",
-            "clave"=>"vocacional 2",
+            'name' => "Trayectoria académica avanzado",
+            "clave"=>"trayectoria 2",
             'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona una opción en escala de 'Siempre' a 'Nunca' según cuanto te identificas",
             'order' => 4,
         ]);
 
 
-        //////////////////////////////////// Información académica 
+        //////////////////////////////////// Información académica
         $q = \App\Models\Question::factory(1)->create([
             'question' => "Escuela de procedencia",
             'status' => 1,
@@ -641,7 +641,7 @@ class FirstSeeder extends Seeder
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
-                
+
             ]);
             \App\Models\Answer::factory(1)->create([
                 'answer' => "No",
@@ -2062,7 +2062,7 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-      
+
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te interesa formular proyectos de energías renovables mediante diagnósticos energéticos y estudios especializados de los recursos naturales del entorno?",
             'status' => 1,
@@ -2398,7 +2398,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-       
+
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te gusta identificar, formular y resolver problemas aplicando conocimientos de las matemáticas, la física mecánica e ingeniería?",
@@ -2743,7 +2743,7 @@ class FirstSeeder extends Seeder
             'order' => 75,
             'type_id' => 1,
             'educative_program_id'=>4
-            
+
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2932,7 +2932,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-        //        
+        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te interesa trabajar con maquinaria y dispositivos electrónicos?",
             'status' => 1,
@@ -4081,7 +4081,7 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-       
+
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te interesa ocupar la energía solar para instalaciones eléctricas?",
             'status' => 1,
@@ -4194,7 +4194,7 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        
+
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te apasiona facilitar tareas cotidianas mediante el internet de las cosas?",
@@ -4279,7 +4279,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-       
+
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Tienes conocimientos básicos en electrónica y electricidad?",
@@ -6702,7 +6702,7 @@ class FirstSeeder extends Seeder
             'order' => 19,
             'type_id' => 3,
         ]);
-        //      
+        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "En general, ¿Cómo calificarías tu salud hoy?",
             'status' => 1,
@@ -6933,7 +6933,7 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Has tenido sentimientos de minusvalía (sentirte menos)?",
@@ -6960,7 +6960,7 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "Durante las últimas dos semanas... ¿Te has sentido deprimido(a) todos los días?",
@@ -6987,7 +6987,7 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Has sentido que te quieres morir o has pensado en la muerte?",
@@ -7014,7 +7014,7 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Has tenido problemas para relajarte?",
@@ -7041,7 +7041,7 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te has sentido tan inquieto(a) que te cuesta trabajo dejar de moverte?",
@@ -7068,7 +7068,7 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Has tenido temor de que algo horrible pueda suceder?",
@@ -7095,7 +7095,7 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te observas (tocar, mirar, etcétera) para ver si notas o sientes algo en tu cuerpo?",
@@ -7122,7 +7122,7 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Comentas tus dolores o molestias físicas a familiares y amigos?",
@@ -7149,10 +7149,10 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Realizas conductas como guardar cama, ponerte el termómetro, tomarte el pulso, modificar tu dieta alimenticia, 
+            'question' => "¿Realizas conductas como guardar cama, ponerte el termómetro, tomarte el pulso, modificar tu dieta alimenticia,
                 tomar medicación, etcétera? esto sin estar seguro(a) de si estas enfermo(a).",
             'status' => 1,
             'is_example' => 0,
@@ -7213,7 +7213,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-        //    
+        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "Aparte de ti ¿Cuántas personas dependen económicamente de tus padres o pareja?",
             'status' => 1,
@@ -7221,7 +7221,7 @@ class FirstSeeder extends Seeder
             'order' => 40,
             'type_id' => 3,
         ]);
-        //      
+        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "Los Recursos Económicos con los que cuenta tu familia para desarrollar tus actividades académicas son:",
             'status' => 1,
@@ -7623,7 +7623,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-        //       
+        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Tienes internet en tu domicilio para realizar tus actividades académicas?",
             'status' => 1,
@@ -7820,22 +7820,22 @@ class FirstSeeder extends Seeder
             30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
             50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
             70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
-            90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 
-            108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 
-            124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 
+            90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107,
+            108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123,
+            124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139,
             140, 141, 142, 143, 144, 145, 146, 147, 148
         ]);
         \App\Models\Test::find(3)->questions()->attach([
-            149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 
-            161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 
+            149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160,
+            161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172,
             173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184
         ]);
 
 
 
 
-        // $students  =Student::Factory(80)->create();       
-        
+        // $students  =Student::Factory(80)->create();
+
         // foreach ($students as $student) {
         //     $student->tests()->attach(3,['answers' => '{
         //         "149": "Casi siempre",
@@ -7874,7 +7874,7 @@ class FirstSeeder extends Seeder
         //         "182": "Regularmente",
         //         "183": "Casi siempre",
         //         "184": "Regularmente"
-        //     }','finished'=>1]);            
+        //     }','finished'=>1]);
         //     $student->tests()->attach(2, ['answers' => '{
         //      "14": {
         //          "answer": "0",
@@ -8452,12 +8452,12 @@ class FirstSeeder extends Seeder
         //     \App\Models\Result::create([
         //         'test_orientacional1_id' => $pe1,
         //         'test_orientacional2_id' => $pe2,
-        //         'test_orientacional3_id' => $pe3, 
+        //         'test_orientacional3_id' => $pe3,
         //         'test_aprendizaje' => $testAprendizaje[rand(0,2)],
         //         'test_status_academico' => $status_academico[rand(0,2)],
         //         'student_id' => $student->id
         //     ]);
-         
+
         // }
     }
 }
