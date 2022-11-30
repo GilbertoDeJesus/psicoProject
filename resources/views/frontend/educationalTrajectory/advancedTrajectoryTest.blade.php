@@ -37,56 +37,56 @@
                         <!-- Leave for security protection, read docs for details -->
                         <div id="middle-wizard">
                             <!-- /step-->
-                            <div class="step">
-                                <h3 class="main_question"><strong>1/3</strong>Conoces acerca de procesos económico
-                                    administrativos</h3>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Si
-                                        <input type="radio" name="question_2" value="1" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
+                            @foreach ($trajectoryTest as $questions)
+                                <div class="step">
+                                    <h3 class="main_question">
+                                        <strong>{{ $loop->iteration }}/{{ $trajectoryTest->count() }}</strong>
+                                        {{ $questions->question }}
+                                    </h3>
+                                    @if ($questions->type_id == 3)
+                                        <div class="form-group">
+                                            <input type="text" name="question_{{ $questions->id }}"
+                                                class="form-control required" placeholder="">
+                                        </div>
+                                    @else
+                                        @foreach ($answers as $an)
+                                            @foreach ($an as $ans)
+                                                @if ($ans->question_id == $questions->id)
+                                                    @if ($questions->type_id == 1)
+                                                        <div class="form-group">
+                                                            <label class="container_radio version_2">{{ $ans->answer }}
+                                                                <input type="radio" name="question_{{ $questions->id }}" data-answ="{{ $ans->answer }}"
+                                                                    value="{{ $ans->answer }}" class="required">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </div>
+                                                       
+                                                    @endif
+                                                    @if ($questions->type_id == 4)
+                                                        <div class="form-group">
+                                                            <label class="container_check version_2">{{ $ans->answer }}
+                                                                <input type="checkbox"
+                                                                    name="question_{{ $questions->id }}[]"
+                                                                    value="{{ $ans->answer }}" class="required">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </div>
+                                                    @endif                                                    
+                                                @endif
+                                                
+                                            @endforeach                                            
+                                        @endforeach
+                                        <div id="extra" class="form-group" style="display:none;">
+                                            <input type="text"  class="form-control" placeholder="Escriba cual" id="otro" >
+                                        </div>
+                                    @endif
+                                  
                                 </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">No
-                                        <input type="radio" name="question_2" value="2" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="step">
-                                <h3 class="main_question"><strong>2/3</strong>Te gusta el manejo de redes sociales</h3>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Si
-                                        <input type="radio" name="question_2" value="1" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">No
-                                        <input type="radio" name="question_2" value="2" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="step">
-                                <h3 class="main_question"><strong>3/3</strong>Te gustaria analizar y resolver problemas
-                                    dentro de un negocio o empresa</h3>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">Si
-                                        <input type="radio" name="question_2" value="1" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="container_radio version_2">No
-                                        <input type="radio" name="question_2" value="2" class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
+                            @endforeach
+                            
                             <!-- /step-->
                             <div class="submit step">
-                                <h3 class="main_question"><strong>3/3</strong>Finalizar</h3>
+                                <h3 class="main_question"><strong>{{ $trajectoryTest->count() }}/{{ $trajectoryTest->count() }}</strong>Finalizar</h3>
                                 <div class="summary">
                                     <ul>
                                         <li><strong><i class="icon-check-1"></i></strong>
@@ -94,8 +94,8 @@
                                             <p id="question_1"></p>
                                         </li>
                                         <li><strong><i class="icon-check-1"></i></strong>
-                                            <h5>Da clic en el boton <span class="bold">enviar</span> para finalizar el
-                                                cuestionario</h5>
+                                            <h5>Da clic en el boton <span class="bold">enviar</span> para
+                                                finalizar el cuestionario</h5>
                                             <p id="question_1"></p>
                                         </li>
                                     </ul>
