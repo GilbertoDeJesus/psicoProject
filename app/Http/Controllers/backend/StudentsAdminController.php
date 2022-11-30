@@ -50,8 +50,8 @@ class StudentsAdminController extends Controller
         'result.educativeProgramTestOrientacional3:id,name')
         ->with('tests')
         ->first();
-
-        if($s->result == null){
+    ///Queda pendiente ara cuando se registre en la tabla result el resultado del último test
+        if((int)mb_eregi_replace("[a-zA-Z]", "", $student->group->name)  == 1  && $s->result == null){
             return back()->with('alerta', 'El estudiante seleccionado aún no ha respondido ningún cuestionario');
         }
         $test1 =  Test::where('name', 'Estilo de aprendizaje')->first();
@@ -103,7 +103,6 @@ class StudentsAdminController extends Controller
 
         }
 
-        // dd($answerVocationalTest);
         return view('backend.students.studentInfo',['student'=>$s,'learningTest'=>$learningTest,
         'vocationalTest'=>$vocationalTest,
         'trayectoryTest'=>$trayectoryTest,

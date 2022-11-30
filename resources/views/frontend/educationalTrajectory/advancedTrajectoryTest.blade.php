@@ -14,7 +14,7 @@
                                 class="img-fluid"></figure>
                         <h2>Cuestionario de trayectoria académica</h2>
                         <p>En este cuestionario se te presentarán una serie de preguntas para conocer un poco más acerca de
-                            tus conocimientos.
+                            tu trayectoria académica.
                             <br>Selecciona una de las opciones dependiendo de la pregunta que se te presente.
                         </p>
 
@@ -60,7 +60,7 @@
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </div>
-                                                       
+
                                                     @endif
                                                     @if ($questions->type_id == 4)
                                                         <div class="form-group">
@@ -71,19 +71,19 @@
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </div>
-                                                    @endif                                                    
+                                                    @endif
                                                 @endif
-                                                
-                                            @endforeach                                            
+
+                                            @endforeach
                                         @endforeach
                                         <div id="extra" class="form-group" style="display:none;">
                                             <input type="text"  class="form-control" placeholder="Escriba cual" id="otro" >
                                         </div>
                                     @endif
-                                  
+
                                 </div>
                             @endforeach
-                            
+
                             <!-- /step-->
                             <div class="submit step">
                                 <h3 class="main_question"><strong>{{ $trajectoryTest->count() }}/{{ $trajectoryTest->count() }}</strong>Finalizar</h3>
