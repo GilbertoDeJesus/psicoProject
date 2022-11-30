@@ -6374,30 +6374,11 @@ class FirstSeeder extends Seeder
         }
         //
         ///////////////////////////////////////////////////////////// Cuestionario nuevo
-
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "Dirección de correo electrónico",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 1,
-            'type_id' => 3,
-
-        ]);
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "Nombre completo ",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 2,
-            'type_id' => 3,
-
-        ]);
-        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "Sexo",
             'status' => 1,
             'is_example' => 0,
-            'order' => 3,
+            'order' => 1,
             'type_id' => 1,
 
         ]);
@@ -6430,18 +6411,10 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "Edad",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 4,
-            'type_id' => 3,
-        ]);
-        //
-        $q = \App\Models\Question::factory(1)->create([
             'question' => "Estado civil",
             'status' => 1,
             'is_example' => 0,
-            'order' => 5,
+            'order' => 2,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -6484,7 +6457,7 @@ class FirstSeeder extends Seeder
             'question' => "Localidad de origen",
             'status' => 1,
             'is_example' => 0,
-            'order' => 6,
+            'order' => 3,
             'type_id' => 3,
         ]);
         //
@@ -6492,13 +6465,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Tu localidad de origen pertenece a una población indígena?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 7,
+            'order' => 4,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6519,7 +6492,7 @@ class FirstSeeder extends Seeder
             'question' => "Específica grupo/s étnico/s y Municipio",
             'status' => 1,
             'is_example' => 0,
-            'order' => 8,
+            'order' => 5,
             'type_id' => 3,
         ]);
         //
@@ -6527,13 +6500,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Hablas alguna lengua indígena?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 9,
+            'order' => 6,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6554,7 +6527,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Cual?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 10,
+            'order' => 7,
             'type_id' => 3,
         ]);
         //
@@ -6562,7 +6535,7 @@ class FirstSeeder extends Seeder
             'question' => "Localidad donde radicas actualmente",
             'status' => 1,
             'is_example' => 0,
-            'order' => 11,
+            'order' => 8,
             'type_id' => 3,
         ]);
         //
@@ -6570,23 +6543,7 @@ class FirstSeeder extends Seeder
             'question' => "Domicilio Calle/número/Colonia/Municipio",
             'status' => 1,
             'is_example' => 0,
-            'order' => 12,
-            'type_id' => 3,
-        ]);
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "Número de teléfono celular",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 13,
-            'type_id' => 3,
-        ]);
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "Número de teléfono particular (casa) (de no contar con teléfono en casa coloca el número celular de algún familiar)",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 14,
+            'order' => 9,
             'type_id' => 3,
         ]);
         //
@@ -6594,7 +6551,7 @@ class FirstSeeder extends Seeder
             'question' => "Correo electrónico personal",
             'status' => 1,
             'is_example' => 0,
-            'order' => 15,
+            'order' => 10,
             'type_id' => 3,
         ]);
         //
@@ -6602,13 +6559,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Tienes hijos?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 16,
+            'order' => 11,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6629,13 +6586,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Eres padre o madre soltera?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 17,
+            'order' => 12,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6656,7 +6613,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Actualmente con quién vives?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 18,
+            'order' => 13,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -6699,7 +6656,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Cuántos hermanos tienes?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 19,
+            'order' => 14,
             'type_id' => 3,
         ]);
         //
@@ -6707,21 +6664,56 @@ class FirstSeeder extends Seeder
             'question' => "En general, ¿Cómo calificarías tu salud hoy?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 20,
+            'order' => 15,
             'type_id' => 3,
         ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Muy buena",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Buena",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Regular",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Mala",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 4,
+                'question_id' => $question->id
+            ]);
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Estás bajo tratamiento médico por enfermedad  (hipertensión, epilepsia, diabetes, cáncer, anemia, etc.)?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 21,
+            'order' => 16,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6742,7 +6734,7 @@ class FirstSeeder extends Seeder
             'question' => "Tipo de padecimiento",
             'status' => 1,
             'is_example' => 0,
-            'order' => 22,
+            'order' => 17,
             'type_id' => 3,
         ]);
         //
@@ -6750,13 +6742,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Tu pareja o tú actualmente se encuentran esperando un hijo?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 23,
+            'order' => 18,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6777,13 +6769,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Consumes algún tipo de Droga (tabaco, marihuana, cocaína, inhallable, etc.)?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 24,
+            'order' => 19,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6804,13 +6796,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has vivido una situación emocional significativa (ruptura amorosa, problemas familiares, desempleo, ansiedad, depresión, etc.) en los últimos 6 meses?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 25,
+            'order' => 20,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6831,13 +6823,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Acudiste a atención psicológica por la situación emocional significativa?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 26,
+            'order' => 21,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6858,13 +6850,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has tenido menos interés o placer por tus actividades cotidianas?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 27,
+            'order' => 22,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6885,13 +6877,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has sentido que no eres capaz de controlar tus preocupaciones?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 28,
+            'order' => 23,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6912,13 +6904,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has tenido problemas para concentrarte?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 29,
+            'order' => 24,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6939,13 +6931,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has tenido sentimientos de minusvalía (sentirte menos)?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 30,
+            'order' => 25,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6966,13 +6958,13 @@ class FirstSeeder extends Seeder
             'question' => "Durante las últimas dos semanas... ¿Te has sentido deprimido(a) todos los días?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 31,
+            'order' => 26,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6993,13 +6985,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has sentido que te quieres morir o has pensado en la muerte?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 32,
+            'order' => 27,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7020,13 +7012,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has tenido problemas para relajarte?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 33,
+            'order' => 28,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7047,13 +7039,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Te has sentido tan inquieto(a) que te cuesta trabajo dejar de moverte?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 34,
+            'order' => 29,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7074,13 +7066,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has tenido temor de que algo horrible pueda suceder?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 35,
+            'order' => 30,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7101,13 +7093,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Te observas (tocar, mirar, etcétera) para ver si notas o sientes algo en tu cuerpo?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 36,
+            'order' => 31,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7128,13 +7120,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Comentas tus dolores o molestias físicas a familiares y amigos?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 37,
+            'order' => 32,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7156,13 +7148,13 @@ class FirstSeeder extends Seeder
                 tomar medicación, etcétera? esto sin estar seguro(a) de si estas enfermo(a).",
             'status' => 1,
             'is_example' => 0,
-            'order' => 38,
+            'order' => 33,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7183,7 +7175,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Quién paga tus estudios?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 39,
+            'order' => 34,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -7218,7 +7210,7 @@ class FirstSeeder extends Seeder
             'question' => "Aparte de ti ¿Cuántas personas dependen económicamente de tus padres o pareja?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 40,
+            'order' => 35,
             'type_id' => 3,
         ]);
         //
@@ -7226,7 +7218,7 @@ class FirstSeeder extends Seeder
             'question' => "Los Recursos Económicos con los que cuenta tu familia para desarrollar tus actividades académicas son:",
             'status' => 1,
             'is_example' => 0,
-            'order' => 41,
+            'order' => 36,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -7261,13 +7253,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Económicamente, depende alguien de ti?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 42,
+            'order' => 37,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7288,7 +7280,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Quién es tu dependiente económico?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 43,
+            'order' => 38,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -7339,13 +7331,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Cuentas con alguna Beca?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 44,
+            'order' => 39,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7366,13 +7358,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Trabajas?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 45,
+            'order' => 40,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7393,13 +7385,13 @@ class FirstSeeder extends Seeder
             'question' => "Antes de postularte a alguna carrera de la UTT ¿Pausaste tus estudios por 1, 2 o mas años?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 46,
+            'order' => 41,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7420,13 +7412,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Es la primer ocasión que estas cursando estudios de nivel universitario?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 47,
+            'order' => 42,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7447,13 +7439,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Cuentas con una carrera universitaria trunca?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 48,
+            'order' => 43,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7474,13 +7466,13 @@ class FirstSeeder extends Seeder
             'question' => "¿La carrera que elegiste fue tu primer opción para estudiar?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 49,
+            'order' => 44,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7501,13 +7493,13 @@ class FirstSeeder extends Seeder
             'question' => "¿La escuela dónde cursaste el bachillera fue de escolaridad abierta?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 50,
+            'order' => 45,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7528,13 +7520,13 @@ class FirstSeeder extends Seeder
             'question' => "Durante el bachillerato o Carrera Universitaria anterior ¿Reprobaste alguna materia o presentaste exámenes extraordinarios?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 51,
+            'order' => 46,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7555,7 +7547,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Cuál o cuáles materias reprobaste(s)?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 52,
+            'order' => 47,
             'type_id' => 3,
         ]);
         //
@@ -7563,13 +7555,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Tienes computadora de escritorio o laptop como apoyo para trabajos y tareas escolares?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 53,
+            'order' => 48,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7590,13 +7582,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Es de uso exclusivo para ti?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 54,
+            'order' => 49,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7617,7 +7609,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Cuál es el estado de tu equipo de cómputo?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 55,
+            'order' => 50,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -7652,13 +7644,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Tienes internet en tu domicilio para realizar tus actividades académicas?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 56,
+            'order' => 51,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7676,16 +7668,16 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La UTTehuacán fue tu primera opción para estudiar una carrera universitaria?",
+            'question' => "La UTTehuacán fue tu:",
             'status' => 1,
             'is_example' => 0,
-            'order' => 57,
+            'order' => 52,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Mi primera opción para estudiar",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7693,65 +7685,19 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
             \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
+                'answer' => "Mi segunda opción para estudiar",
                 'is_correct' => 1,
                 'value' => 3,
                 'status' => 1,
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        }
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La UTTehuacán fue tu segunda opción para estudiar una carrera universitaria?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 58,
-            'type_id' => 1,
-        ]);
-        foreach ($q as $question) {
-            $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Mi tercera opción para estudiar",
                 'is_correct' => 1,
-                'value' => 2,
+                'value' => 3,
                 'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La UTTehuacán fue tu tercer opción para estudiar una carrera universitaria?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 59,
-            'type_id' => 1,
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
+                'order' => 3,
                 'question_id' => $question->id
             ]);
         }
@@ -7760,13 +7706,13 @@ class FirstSeeder extends Seeder
             'question' => "¿La carrera en la que estás inscrito en  UTTehuacán fue tu primera opción para estudiar?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 60,
+            'order' => 53,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7787,13 +7733,13 @@ class FirstSeeder extends Seeder
             'question' => "¿La carrera en la que estás inscrito en  UTTehuacán fue tu segunda opción para estudiar?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 61,
+            'order' => 54,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 2,
                 'status' => 1,
@@ -7814,13 +7760,13 @@ class FirstSeeder extends Seeder
             'question' => "¿La carrera en la que estás inscrito en UTTehuacán fue tu tercer opción para estudiar?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 62,
+            'order' => 55,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7859,8 +7805,7 @@ class FirstSeeder extends Seeder
             197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 
             209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 
             221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 
-            233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244,
-            245, 246
+            233, 234, 235, 236, 237, 238, 239
         ]);
 
 
