@@ -142,6 +142,7 @@
                                 <div class="position-relative form-group">
                                     <label for="name" class="">Nombre</label><input name="name" id="name"
                                         placeholder="Nombre" type="text" class="form-control" required>
+                                        <small class="form-text text-muted">Indica primero el grado y después grupo. Ej. 5A sin espacios.</small>
                                 </div>
                             </div>
                         </div>
