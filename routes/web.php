@@ -40,6 +40,7 @@ Route::post('/students/educational-trajectory', 'frontend\TrajectoryTestControll
 Route::get('/students/advanced-educational-trajectory', 'frontend\AdvancedTrajectoryTestController@index')->name('students.advancedTrajectory')->middleware('auth.students');
 Route::post('/students/advanced-educational-trajectory', 'frontend\AdvancedTrajectoryTestController@storeTest')->name('students.advancedStoreTrajectoryTest')->middleware('auth.students');
 Route::get('/students/results', 'frontend\TrajectoryTestController@showResults')->name('students.results')->middleware('auth.students');
+Route::get('/students/trajectory-results', 'frontend\AdvancedTrajectoryTestController@showResults')->name('students.advancedStoreTrajectoryTest.results')->middleware('auth.students');
 
 //-------------BACKEND-----------------------------------------------------------------------------------------------------------------
 
