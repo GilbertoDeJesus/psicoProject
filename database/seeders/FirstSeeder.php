@@ -7291,25 +7291,7 @@ class FirstSeeder extends Seeder
             'order' => 43,
             'type_id' => 1,
         ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
+        
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Cuentas con alguna Beca?",
@@ -7366,7 +7348,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "Antes de postularte a alguna carrera de la UTT ¿Pausastes tus estudios por 1, 2 o mas años?",
+            'question' => "Antes de postularte a alguna carrera de la UTT ¿Pausaste tus estudios por 1, 2 o mas años?",
             'status' => 1,
             'is_example' => 0,
             'order' => 46,
@@ -7652,7 +7634,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La Uttehuacán fue tu primera opción para estudiar una carrera universitaria?",
+            'question' => "¿La UTTehuacán fue tu primera opción para estudiar una carrera universitaria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 57,
@@ -7679,7 +7661,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La Uttehuacán fue tu segunda opción para estudiar una carrera universitaria?",
+            'question' => "¿La UTTehuacán fue tu segunda opción para estudiar una carrera universitaria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 58,
@@ -7706,7 +7688,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La Uttehuacán fue tu tercer opción para estudiar una carrera universitaria?",
+            'question' => "¿La UTTehuacán fue tu tercer opción para estudiar una carrera universitaria?",
             'status' => 1,
             'is_example' => 0,
             'order' => 59,
