@@ -7855,10 +7855,10 @@ class FirstSeeder extends Seeder
             173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184
         ]);
         \App\Models\Test::find(4)->questions()->attach([
-            185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 
-            197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 
-            209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 
-            221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 
+            185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196,
+            197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208,
+            209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220,
+            221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232,
             233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244,
             245, 246
         ]);
@@ -7866,630 +7866,630 @@ class FirstSeeder extends Seeder
 
 
 
-        // $students  =Student::Factory(80)->create();
+        $students  =Student::Factory(80)->create();
 
-        // foreach ($students as $student) {
-        //     $student->tests()->attach(3,['answers' => '{
-        //         "149": "Casi siempre",
-        //         "150": "Casi siempre",
-        //         "151": "Regularmente",
-        //         "152": "Siempre",
-        //         "153": "Regularmente",
-        //         "154": "Casi siempre",
-        //         "155": "Casi siempre",
-        //         "156": "Siempre",
-        //         "157": "Regularmente",
-        //         "158": "Casi siempre",
-        //         "159": "Casi siempre",
-        //         "160": "Regularmente",
-        //         "161": "Siempre",
-        //         "162": "Regularmente",
-        //         "163": "Casi siempre",
-        //         "164": "Regularmente",
-        //         "165": "Casi siempre",
-        //         "166": "Regularmente",
-        //         "167": "Siempre",
-        //         "168": "Casi siempre",
-        //         "169": "Regularmente",
-        //         "170": "Siempre",
-        //         "171": "Regularmente",
-        //         "172": "Ocasionalmente",
-        //         "173": "Siempre",
-        //         "174": "Ocasionalmente",
-        //         "175": "Casi siempre",
-        //         "176": "Regularmente",
-        //         "177": "Ocasionalmente",
-        //         "178": "Siempre",
-        //         "179": "Ocasionalmente",
-        //         "180": "Siempre",
-        //         "181": "Regularmente",
-        //         "182": "Regularmente",
-        //         "183": "Casi siempre",
-        //         "184": "Regularmente"
-        //     }','finished'=>1]);
-        //     $student->tests()->attach(2, ['answers' => '{
-        //      "14": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "15": {
-        //          "answer": "1",
-        //          "program": 3
-        //      },
-        //      "16": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "17": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "18": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "19": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "20": {
-        //          "answer": "1",
-        //          "program": 7
-        //      },
-        //      "21": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "22": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "23": {
-        //          "answer": "1",
-        //          "program": 2
-        //      },
-        //      "24": {
-        //          "answer": "1",
-        //          "program": 3
-        //      },
-        //      "25": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "26": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "27": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "28": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "29": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "30": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "31": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "32": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "33": {
-        //          "answer": "1",
-        //          "program": 3
-        //      },
-        //      "34": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "35": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "36": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "37": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "38": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "39": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "40": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "41": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "42": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "43": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "44": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "45": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "46": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "47": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "48": {
-        //          "answer": "1",
-        //          "program": 7
-        //      },
-        //      "49": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "50": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "51": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "52": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "53": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "54": {
-        //          "answer": "1",
-        //          "program": 5
-        //      },
-        //      "55": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "56": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "57": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "58": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "59": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "60": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "61": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "62": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "63": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "64": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "65": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "66": {
-        //          "answer": "1",
-        //          "program": 2
-        //      },
-        //      "67": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "68": {
-        //          "answer": "1",
-        //          "program": 3
-        //      },
-        //      "69": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "70": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "71": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "72": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "73": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "74": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "75": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "76": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "77": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "78": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "79": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "80": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "81": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "82": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "83": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "84": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "85": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "86": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "87": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "88": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "89": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "90": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "91": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "92": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "93": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "94": {
-        //          "answer": "1",
-        //          "program": 3
-        //      },
-        //      "95": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "96": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "97": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "98": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "99": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "100": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "101": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "102": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "103": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "104": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "105": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "106": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "107": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "108": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "109": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "110": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "111": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "112": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "113": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "114": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "115": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "116": {
-        //          "answer": "1",
-        //          "program": 8
-        //      },
-        //      "117": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "118": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "119": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "120": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "121": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "122": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "123": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "124": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "125": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "126": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "127": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "128": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "129": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "130": {
-        //          "answer": "0",
-        //          "program": 6
-        //      },
-        //      "131": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "132": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "133": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "134": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "135": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "136": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "137": {
-        //          "answer": "0",
-        //          "program": 6
-        //      },
-        //      "138": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "139": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "140": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "141": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "142": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "143": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "144": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "145": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "146": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "147": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "148": {
-        //          "answer": "0",
-        //          "program": 9
-        //      }
-        //  }','finished'=>1]);
-        //     $student->tests()->attach(1, ['answers' => '{
-        //         "1": "CBTis 229",
-        //         "2": "9.6",
-        //         "3": "Tecnológico",
-        //         "4": "Sí",
-        //         "5": "No",
-        //         "6": [
-        //             "Ninguna"
-        //         ],
-        //         "7": "Sí",
-        //         "8": [
-        //             "Matemáticas",
-        //             "Inglés",
-        //             "Administración"
-        //         ],
-        //         "9": [
-        //             "Matemáticas",
-        //             "Inglés",
-        //             "Administración"
-        //         ],
-        //         "10": "Sí",
-        //         "11": "Sí",
-        //         "12": "Sí",
-        //         "13": "Ambas"
-        //  }','finished'=>1]);
+        foreach ($students as $student) {
+            $student->tests()->attach(3,['answers' => '{
+                "149": "Casi siempre",
+                "150": "Casi siempre",
+                "151": "Regularmente",
+                "152": "Siempre",
+                "153": "Regularmente",
+                "154": "Casi siempre",
+                "155": "Casi siempre",
+                "156": "Siempre",
+                "157": "Regularmente",
+                "158": "Casi siempre",
+                "159": "Casi siempre",
+                "160": "Regularmente",
+                "161": "Siempre",
+                "162": "Regularmente",
+                "163": "Casi siempre",
+                "164": "Regularmente",
+                "165": "Casi siempre",
+                "166": "Regularmente",
+                "167": "Siempre",
+                "168": "Casi siempre",
+                "169": "Regularmente",
+                "170": "Siempre",
+                "171": "Regularmente",
+                "172": "Ocasionalmente",
+                "173": "Siempre",
+                "174": "Ocasionalmente",
+                "175": "Casi siempre",
+                "176": "Regularmente",
+                "177": "Ocasionalmente",
+                "178": "Siempre",
+                "179": "Ocasionalmente",
+                "180": "Siempre",
+                "181": "Regularmente",
+                "182": "Regularmente",
+                "183": "Casi siempre",
+                "184": "Regularmente"
+            }','finished'=>1]);
+            $student->tests()->attach(2, ['answers' => '{
+             "14": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "15": {
+                 "answer": "1",
+                 "program": 3
+             },
+             "16": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "17": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "18": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "19": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "20": {
+                 "answer": "1",
+                 "program": 7
+             },
+             "21": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "22": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "23": {
+                 "answer": "1",
+                 "program": 2
+             },
+             "24": {
+                 "answer": "1",
+                 "program": 3
+             },
+             "25": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "26": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "27": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "28": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "29": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "30": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "31": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "32": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "33": {
+                 "answer": "1",
+                 "program": 3
+             },
+             "34": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "35": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "36": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "37": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "38": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "39": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "40": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "41": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "42": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "43": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "44": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "45": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "46": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "47": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "48": {
+                 "answer": "1",
+                 "program": 7
+             },
+             "49": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "50": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "51": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "52": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "53": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "54": {
+                 "answer": "1",
+                 "program": 5
+             },
+             "55": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "56": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "57": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "58": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "59": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "60": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "61": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "62": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "63": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "64": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "65": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "66": {
+                 "answer": "1",
+                 "program": 2
+             },
+             "67": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "68": {
+                 "answer": "1",
+                 "program": 3
+             },
+             "69": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "70": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "71": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "72": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "73": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "74": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "75": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "76": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "77": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "78": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "79": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "80": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "81": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "82": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "83": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "84": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "85": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "86": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "87": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "88": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "89": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "90": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "91": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "92": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "93": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "94": {
+                 "answer": "1",
+                 "program": 3
+             },
+             "95": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "96": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "97": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "98": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "99": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "100": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "101": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "102": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "103": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "104": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "105": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "106": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "107": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "108": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "109": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "110": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "111": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "112": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "113": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "114": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "115": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "116": {
+                 "answer": "1",
+                 "program": 8
+             },
+             "117": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "118": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "119": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "120": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "121": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "122": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "123": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "124": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "125": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "126": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "127": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "128": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "129": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "130": {
+                 "answer": "0",
+                 "program": 6
+             },
+             "131": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "132": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "133": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "134": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "135": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "136": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "137": {
+                 "answer": "0",
+                 "program": 6
+             },
+             "138": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "139": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "140": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "141": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "142": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "143": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "144": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "145": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "146": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "147": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "148": {
+                 "answer": "0",
+                 "program": 9
+             }
+         }','finished'=>1]);
+            $student->tests()->attach(1, ['answers' => '{
+                "1": "CBTis 229",
+                "2": "9.6",
+                "3": "Tecnológico",
+                "4": "Sí",
+                "5": "No",
+                "6": [
+                    "Ninguna"
+                ],
+                "7": "Sí",
+                "8": [
+                    "Matemáticas",
+                    "Inglés",
+                    "Administración"
+                ],
+                "9": [
+                    "Matemáticas",
+                    "Inglés",
+                    "Administración"
+                ],
+                "10": "Sí",
+                "11": "Sí",
+                "12": "Sí",
+                "13": "Ambas"
+         }','finished'=>1]);
 
-        //     $pe1 = random_int(1,3);
-        //     $pe2 = random_int(4,6);
-        //     $pe3 = random_int(7,9);
-        //     $testAprendizaje = ["Kinestesico","Auditivo","Visual"];
-        //     $status_academico = ["Verde","Amarillo","Rojo"];
+            $pe1 = random_int(1,3);
+            $pe2 = random_int(4,6);
+            $pe3 = random_int(7,9);
+            $testAprendizaje = ["Kinestesico","Auditivo","Visual"];
+            $status_academico = ["Verde","Amarillo","Rojo"];
 
-        //     \App\Models\Result::create([
-        //         'test_orientacional1_id' => $pe1,
-        //         'test_orientacional2_id' => $pe2,
-        //         'test_orientacional3_id' => $pe3,
-        //         'test_aprendizaje' => $testAprendizaje[rand(0,2)],
-        //         'test_status_academico' => $status_academico[rand(0,2)],
-        //         'student_id' => $student->id
-        //     ]);
+            \App\Models\Result::create([
+                'test_orientacional1_id' => $pe1,
+                'test_orientacional2_id' => $pe2,
+                'test_orientacional3_id' => $pe3,
+                'test_aprendizaje' => $testAprendizaje[rand(0,2)],
+                'test_status_academico' => $status_academico[rand(0,2)],
+                'student_id' => $student->id
+            ]);
 
-        // }
+        }
     }
 }
