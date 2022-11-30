@@ -68,38 +68,38 @@
                         <div class="grid-menu grid-menu-2col">
                             <div class="no-gutters row">
                                 @if((int)mb_eregi_replace("[a-zA-Z]", "", $student->group->name)  == 1 )
-                                <div class="col-sm-6">
-                                    <div class="p-1">
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-primary {{$student->result->test_aprendizaje == 'Visual' ? '':'d-none'}}">{{--Quitar la clase d-none para que se muestre--}}
-                                            <i class="pe-7s-look btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje visual
-                                        </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-info {{$student->result->test_aprendizaje == 'Auditivo' ? '':'d-none'}}">
-                                            <i class="pe-7s-volume1 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Auditivo
-                                        </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate {{$student->result->test_aprendizaje == 'Kinestésico' ? '':'d-none'}}">
-                                            <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestésico
-                                        </button>
+                                    <div class="col-sm-6">
+                                        <div class="p-1">
+                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-primary {{$student->result->test_aprendizaje == 'Visual' ? '':'d-none'}}">{{--Quitar la clase d-none para que se muestre--}}
+                                                <i class="pe-7s-look btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje visual
+                                            </button>
+                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-info {{$student->result->test_aprendizaje == 'Auditivo' ? '':'d-none'}}">
+                                                <i class="pe-7s-volume1 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Auditivo
+                                            </button>
+                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate {{$student->result->test_aprendizaje == 'Kinestésico' ? '':'d-none'}}">
+                                                <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestésico
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="p-1">
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-success {{$student->result->test_status_academico == 'Verde' ? '':'d-none'}}">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Verde' ? 'Foco Verde':''}}
-                                        </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning  {{$student->result->test_status_academico == 'Amarillo' ? '':'d-none'}}">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Amarillo' ? 'Foco Amarillo':''}}
-                                        </button>
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger {{$student->result->test_status_academico == 'Rojo' ? '':'d-none'}}">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Rojo' ? 'Foco Rojo':''}}
-                                        </button>
+                                    <div class="col-sm-6">
+                                        <div class="p-1">
+                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-success {{$student->result->test_status_academico == 'Verde' ? '':'d-none'}}">
+                                                <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Verde' ? 'Foco Verde':''}}
+                                            </button>
+                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning  {{$student->result->test_status_academico == 'Amarillo' ? '':'d-none'}}">
+                                                <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Amarillo' ? 'Foco Amarillo':''}}
+                                            </button>
+                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger {{$student->result->test_status_academico == 'Rojo' ? '':'d-none'}}">
+                                                <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Rojo' ? 'Foco Rojo':''}}
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
                                 @else
-                                <div class="col-sm-12">
-                                    <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning">
-                                        <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Amarillo' ? 'Foco Amarillo':''}}
-                                    </button>
-                                </div>
+                                    <div class="col-sm-12">
+                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning">
+                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco Amarillo
+                                        </button>
+                                    </div>
                                 @endif
 
                             </div>
