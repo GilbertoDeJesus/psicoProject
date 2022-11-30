@@ -7291,7 +7291,49 @@ class FirstSeeder extends Seeder
             'order' => 43,
             'type_id' => 1,
         ]);
-        
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Padre-Madre",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Conyuge",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Hijos",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Otro",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Ninguno",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Cuentas con alguna Beca?",
