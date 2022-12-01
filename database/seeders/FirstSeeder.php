@@ -6665,7 +6665,7 @@ class FirstSeeder extends Seeder
             'status' => 1,
             'is_example' => 0,
             'order' => 15,
-            'type_id' => 3,
+            'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -7490,7 +7490,7 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La escuela dónde cursaste el bachillera fue de escolaridad abierta?",
+            'question' => "¿La escuela dónde cursaste el bachillerato fue de escolaridad abierta?",
             'status' => 1,
             'is_example' => 0,
             'order' => 45,
