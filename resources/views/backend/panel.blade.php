@@ -101,7 +101,7 @@
         <div class="col-md-12 mb-3">
             <div class="main-card mb-3 card">
                 <div class="card-header">
-                    Alumnos registrados hoy                
+                    Alumnos registrados hoy
                 </div>
                 @if (session('alerta'))
                 <div class="alert alert-secondary fade alert-dismissible show" role="alert">
@@ -116,9 +116,7 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
-                                <th>Programa educativo</th>
-                                <th class="text-center">Matrícula</th>
-                                <th class="text-center">Grupo</th>
+                                <th>Email</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
@@ -138,10 +136,8 @@
                                     </div>
 
                                 </td>
-                                <td>{{$student->group->educativeProgram->name}}</td>
-                                <td class="text-center">{{$student->matricula}}</td>
                                 <td class="text-center">
-                                    {{$student->group->name}}
+                                    {{$student->email}}
                                 </td>
                                 <td class="text-center">
                                     @canany(['Ver info alumno sencillo', 'Ver info de alumno avanzado'])
@@ -153,16 +149,14 @@
                                     @endcanany
                                 </td>
                             </tr>
-                            
+
                             @empty
                             <h6 class="text-center">No hay alumnos inscritos aquí</h6>
                             @endforelse
-                            
-                           
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">                  
+                <div class="d-block text-center card-footer">
                     <div class="container">
                         <div class="row">
                           <div class="col">
@@ -173,12 +167,12 @@
                                 class="pe-7s-refresh-2 btn-icon-wrapper"> </i></a>
                           </div>
                           <div class="col order-5">
-                            
+
                         </div>
                         </div>
-                      </div>  
+                      </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

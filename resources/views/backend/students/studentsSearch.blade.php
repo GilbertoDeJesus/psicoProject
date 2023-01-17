@@ -69,9 +69,8 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
-                                <th>Programa educativo</th>
-                                <th class="text-center">Matrícula</th>
-                                <th class="text-center">Grupo</th>
+                                <th>Email</th>
+                                <th class="text-center">Edad</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
@@ -91,11 +90,8 @@
                                     </div>
 
                                 </td>
-                                <td>{{$student->group->educativeProgram->name}}</td>
-                                <td class="text-center">{{$student->matricula}}</td>
-                                <td class="text-center">
-                                    {{$student->group->name}}
-                                </td>
+                                <td>{{$student->email}}</td>
+                                <td class="text-center">{{$student->edad}}</td>
                                 <td class="text-center">
                                     <a href="{{ route('admin.student.info', ['student' => 1]) }}" id="PopoverCustomT-1"
                                         class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
@@ -124,8 +120,8 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">                  
-                        {{ $searchs->withQueryString()->links('vendor.pagination.default') }}   
+                <div class="d-block text-center card-footer">
+                        {{ $searchs->withQueryString()->links('vendor.pagination.default') }}
                 </div>
             </div>
         </div>

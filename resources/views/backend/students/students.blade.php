@@ -66,36 +66,6 @@
                             @endif">
                                 <input type="radio" class="d-none" name="group" value="todos" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-drawer h4 mb-0 mr-2"></i><span>Todos</span>
                             </label>
-                            @forelse ($groups as $group)
-                                <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == $group->id ? 'active card-shadow-primary' : '' }}">
-                                    <input type="radio" class="d-none" name="group" value="{{ $group->id }}" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>{{ $group->name }}</span>
-                                </label>
-                            @empty
-                            @endforelse
-                            {{-- <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '1a'  ? 'active card-shadow-primary' : '' }}">
-                                <input type="radio" class="d-none" name="group" value="1a" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>1A</span>
-                            </label>
-                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '1b'  ? 'active card-shadow-primary' : '' }}">
-                                <input type="radio" class="d-none" name="group" value="1b" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>1B</span>
-                            </label>
-                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '2a'  ? 'active card-shadow-primary' : '' }}">
-                                <input type="radio" class="d-none" name="group" value="2a" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>2A</span>
-                            </label>
-                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '2b'  ? 'active card-shadow-primary' : '' }}">
-                                <input type="radio" class="d-none" name="group" value="2b" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>2B</span>
-                            </label>
-                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '3a'  ? 'active card-shadow-primary' : '' }}">
-                                <input type="radio" class="d-none" name="group" value="3a" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>3A</span>
-                            </label>
-                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '3b'  ? 'active card-shadow-primary' : '' }}">
-                                <input type="radio" class="d-none" name="group" value="3b" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>3B</span>
-                            </label>
-                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '4a'  ? 'active card-shadow-primary' : '' }}">
-                                <input type="radio" class="d-none" name="group" value="4a" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>4A</span>
-                            </label>
-                            <label tabindex="0" class="dropdown-item rounded mb-2 py-2 px-3 {{ request()->group == '4b'  ? 'active card-shadow-primary' : '' }}">
-                                <input type="radio" class="d-none" name="group" value="4b" onchange='this.form.submit();'><i class="nav-link-icon pe-7s-folder h4 mb-0 mr-2"></i><span>4B</span>
-                            </label> --}}
                         </form>
                         <div class="divider"></div>
                     </div>
@@ -135,17 +105,13 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
-                                <th>Programa educativo</th>
-                                <th class="text-center">Matrícula</th>
-                                <th class="text-center">Grupo</th>
+                                <th>Email</th>
+                                <th class="text-center">Edad</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($students as $item)
-                                @php
-                                    $program = $item->name;
-                                @endphp
                                 @forelse ($item->students as $student)
                                     <tr>
                                         <td class="text-center text-muted">{{ $student->id }}</td>
@@ -160,11 +126,8 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>{{ $program }}</td>
-                                        <td class="text-center">{{ $student->matricula }}</td>
-                                        <td class="text-center">
-                                            {{ $student->group->name }}
-                                        </td>
+                                        <td>{{ $student->email }}</td>
+                                        <td class="text-center">{{ $student->edad }}</td>
                                         <td class="text-center">
                                             @can('Ver info alumno sencillo', 'Ver info de alumno avanzado')
                                                 <a href="{{ route('admin.student.info', ['student' => $student->id]) }}"
@@ -222,8 +185,7 @@
                                 <div>
                                     <h5 class="menu-header-title mt-1"><span id="nameI">Jhon</span>&nbsp;<span
                                             id="familyI">Doe</span>&nbsp;<span id="lastNameI">Doe</span></h5>
-                                    <h6 class="menu-header-subtitle"><span id="positionI">Desarrollo y gestión de
-                                            software</span></h6>
+                                    <h6 class="menu-header-subtitle"><span id="positionI">Aspirante</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -242,18 +204,6 @@
                     <div class="form-row">
                         <div class="col-md-4">
                             <div class="position-relative form-group">
-                                <label for="grupo" class="">Grupo</label><input name="grupo" id="groupI"
-                                    type="text" class="form-control" disabled value="4 A" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="position-relative form-group">
-                                <label for="matricula" class="">Matrícula</label><input name="matricula"
-                                    id="matriculaI" type="text" class="form-control" disabled value="3519110001" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="position-relative form-group">
                                 <label for="edad" class="">Edad</label><input name="edad" id="edadI"
                                     type="text" class="form-control" disabled value="19" />
                             </div>
@@ -262,18 +212,12 @@
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="telefonoP" class="">Teléfono personal</label><input
+                                <label for="telefonoP" class="">Teléfono</label><input
                                     name="telefonoP" id="telefonoP" type="text" class="form-control" disabled
                                     value="2381234567" />
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="telefonoC" class="">Teléfono de contacto</label><input
-                                    name="telefonoC" id="telefonoC" type="text" class="form-control" disabled
-                                    value="2381234567" />
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -300,13 +244,10 @@
                         $("#nameI").text(info.name);
                         $("#familyI").text(info.family_name);
                         $("#lastNameI").text(info.last_name);
-                        $("#positionI").text(info.group.educative_program.name);
                         $("#emailI").val(info.email);
                         $("#groupI").val(info.group.name);
-                        $("#matriculaI").val(info.matricula);
                         $("#edadI").val(info.age);
                         $("#telefonoP").val(info.phone);
-                        $("#telefonoC").val(info.contact_phone);
 
                     },
                 });

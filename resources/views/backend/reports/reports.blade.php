@@ -72,12 +72,7 @@
                                 <div class="position-relative form-group">
                                     <label for="test" class="">Cuestionario</label><select type="select"
                                         id="test" name="test" class="custom-select" required>
-                                        <option value="todos" selected>Todos</option>
-                                        @forelse ($tests as $test)
-                                         <option value="{{$test->clave}}">{{$test->name}}</option>
-                                        @empty
-                                         <option value="0">No hay más opciones</option>
-                                        @endforelse
+                                        <option value="todos" selected>Vocacional</option>
                                     </select>
                                 </div>
                             </div>
@@ -86,22 +81,16 @@
                                     <label for="educational" class="">Programa educativo</label><select
                                         type="select" id="educational" name="educational" class="custom-select" required>
                                         <option value="" selected disabled>Selecciona una opción</option>
-                                        @can('Generar reporte avanzado')
                                         <option value="todos" >Todos</option>
-                                        @endcan
-                                        @forelse ($educativePrograms as $educativeProgram)
-                                            <option value="{{$educativeProgram->id}}">{{$educativeProgram->name}}</option>
-                                        @empty
-                                            <option value="0">No hay opciones</option>
-                                        @endforelse
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <div class="position-relative form-group">
                                     <label for="grade" class="">Grado y grupo</label><select
-                                        type="select" id="grade" name="grade" class="custom-select" required>                                        
+                                        type="select" id="grade" name="grade" class="custom-select" required>
                                         <option value="" selected disabled>Selecciona una opción</option>
+                                        <option value="todos" >Todos</option>
                                     </select>
                                 </div>
                             </div>
@@ -185,7 +174,7 @@
      const selectElement = document.querySelector('#educational');
         selectElement.addEventListener('change', (event) => {
             var p_id = document.getElementById('educational').value;
-            //Vacia los datos del select 
+            //Vacia los datos del select
             $('#grade').find('option').remove();
             if(p_id == "todos"){
                 console.log(p_id);
@@ -207,12 +196,12 @@
                         $("#grade").append('<option value=' + registro.id + '>' + registro
                             .name + '</option>');
                     });
-                    
+
                 }
             });
             $("#grade").append('<option selected value= todos> Todos </option>');
             }
-           
+
         });
 </script>
     <script type="text/javascript" src="{{ url('backend/js/jquery.js') }}"></script>
