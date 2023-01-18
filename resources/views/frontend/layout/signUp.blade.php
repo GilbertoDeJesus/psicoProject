@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ url('frontend/assets/img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ url('frontend/assets/img/favicon.png') }}">
     <title>
-        Registro de alumnos
+        Registro de aspirantes
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -49,14 +49,14 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
                         <h1 class="text-white mb-2 mt-5">¡Bienvenido!</h1>
-                        <p class="text-lead text-white">Ingresa tus datos para acceder a los cuestionarios.</p>
+                        <p class="text-lead text-white">Ingresa tus datos para acceder al cuestionario.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row mt-lg-n10 mt-md-n11 mt-n10">
-                <div class="col-xl-7 col-lg-7 col-md-7 mx-auto">
+                <div class="col-xl-6 col-lg-6 col-md-6 mx-auto">
                     <div class="card z-index-0">
                         <div class="card-header text-center mt-1 pt-4">
                             <div class="nav-wrapper position-relative end-0">
@@ -84,7 +84,7 @@
                                         <div class="card-header py-0 text-center">
                                             <h4 class="font-weight-bolder text-info text-gradient">Bienvenido de nuevo
                                             </h4>
-                                            <p class="mb-0 text-sm">Ingresa tu matrícula y contraseña para iniciar
+                                            <p class="mb-0 text-sm">Ingresa tu correo y contraseña para iniciar
                                                 sesión</p>
                                         </div>
                                         <div class="card-body">
@@ -108,10 +108,10 @@
                                                                 </div>
                                                             @endforeach
                                                         @endif
-                                                        <label>Matrícula</label>
+                                                        <label>Correo</label>
                                                         <div class="input-group mb-3">
-                                                            <input type="number" name="matricula"
-                                                                class="form-control" placeholder="Matricula"
+                                                            <input type="email" name="correo"
+                                                                class="form-control" placeholder="correo"
                                                                 aria-label="Email" required>
                                                         </div>
                                                         <label>Contraseña</label>
@@ -137,7 +137,7 @@
                                 <div class="tab-pane fade" id="sign-up" role="tabpanel"
                                     aria-labelledby="pills-profile-tab">
                                     <form role="form text-left" method="POST"
-                                        action="{{ route('student.storeStudent') }}" id="studentRegister">
+                                        action="{{ route('student.storeStudent') }}" id="studentRegister" class="px-4">
                                         @csrf
                                         @if ($errors->any())
                                             @foreach ($errors->all() as $error)
@@ -196,6 +196,16 @@
                                             </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                                <label>Correo electrónico</label>
+                                                <div class="mb-3">
+                                                    <input type="email" class="form-control"
+                                                    placeholder="Email institucional" name="email" required
+                                                    value="{{ old('email') }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-xl-4 col-lg-4 col-md-4">
                                                 <label>Edad</label>
                                                 <div class="mb-3">
@@ -203,16 +213,6 @@
                                                         name="age" required value="{{ old('age') }}">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-8 col-lg-8 col-md-8">
-                                                <label>Email institucional</label>
-                                                <div class="mb-3">
-                                                    <input type="email" class="form-control"
-                                                        placeholder="Email institucional" name="email" required
-                                                        value="{{ old('email') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-xl-4 col-lg-4 col-md-12">
                                                 <label>Teléfono</label>
                                                 <div class="mb-3">
@@ -233,52 +233,15 @@
                                                         pattern="[0-9]+" name="contact_phone" maxlength="10" required
                                                         value="{{ old('contact_phone') }}">
                                                 </div>
-
-                                            </div>
-                                            <div class="col-xl-4 col-lg-4 col-md-12">
-                                                <label>Matrícula</label>
-                                                <div class="mb-3">
-                                                    <input type="number" class="form-control"
-                                                        placeholder="Matrícula" name="matricula" id="matricula"
-                                                        value="{{ old('matricula') }}" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xl-8 col-lg-8 col-md-12">
-                                                <label>Programa educativo</label>
-                                                <div class="mb-3">
-                                                    <select type="select" id="p_id" name="p_id"
-                                                        class="form-control" required>
-                                                        <option value="0" selected>Seleccione su programa
-                                                            educativo</option>
-                                                        @foreach ($educativePrograms as $educativeProgram)
-                                                            <option
-                                                                {{ $educativeProgram->id == old('p_id') ? 'selected' : '' }}
-                                                                value="{{ $educativeProgram->id }}">
-                                                                {{ $educativeProgram->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-4 col-lg-4 col-md-12">
-                                                <label>Cuatrimestre y grupo</label>
-                                                <div class="mb-3">
-                                                    <select type="select" id="areaSelect" name="group_id"
-                                                        class="form-control" required>
-                                                        <option value="0" selected>Seleccione su cuatrimestre y
-                                                            grupo</option>
-                                                    </select>
-                                                </div>
                                             </div>
                                         </div>
                                     </form>
-                                    <div class="text-center">
+                                    <div class="text-center px-4">
                                         <button class="btn bg-gradient-dark-green text-white w-100 my-4 mb-2"
                                             data-bs-toggle="modal" data-bs-target="#modal-form"
                                             onclick="confirm();">Registrarse</button>
                                     </div>
-                                    <p class="text-sm mt-3 mb-0">¿Ya te registraste? <span
+                                    <p class="text-sm mt-3 mb-0 px-4">¿Ya te registraste? <span
                                             class="text-dark font-weight-bolder icon-move-right"> Inicia sesión</span>
                                     </p>
                                 </div>
@@ -303,31 +266,6 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
-        //Selecciona el programa educativo
-        const selectElement = document.querySelector('#p_id');
-        selectElement.addEventListener('change', (event) => {
-            var p_id = document.getElementById('p_id').value;
-            //Vacia los datos del select 
-            $('#areaSelect').find('option').remove();
-            //Busqueda AJAX para rellenar los options correspondientes de cada programa educativo
-            $.ajax({
-                url: "{{ route('student.getGroups') }}",
-                type: 'post',
-                data: {
-                    p_id: p_id
-                },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                dataType: 'json',
-                success: function(data) {
-                    $.each(data, function(key, registro) {
-                        $("#areaSelect").append('<option value=' + registro.id + '>' + registro
-                            .name + '</option>');
-                    });
-                }
-            });
-        });
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -338,8 +276,7 @@
 
         function confirm() {
             val = document.getElementById('studentRegister');
-            if (val.reportValidity() && document.getElementById("p_id").value != "0" && document.getElementById(
-                    "areaSelect").value != "0") {
+            if (val.reportValidity()) {
                 document.getElementById("acceptData").classList.remove("d-none");
                 var nom = document.getElementsByName("name")[0].value;
                 var apm = document.getElementsByName("family_name")[0].value;
@@ -348,18 +285,11 @@
                 var mail = document.getElementsByName("email")[0].value;
                 var phone = document.getElementsByName("phone")[0].value;
                 var cphone = document.getElementsByName("contact_phone")[0].value;
-                var matri = document.getElementById("matricula").value;
-                var pedu = document.getElementsByName("p_id")[0];
-                pedu = pedu.options[pedu.selectedIndex].innerText;
-                var group = document.getElementsByName("group_id")[0];
-                group = group.options[group.selectedIndex].innerText;
+                console.log(mail);
                 document.getElementById("content_confirm").innerHTML =
                     "<div class='card'><div class='table-responsive'><table class='table table-striped table-hover align-items-center mb-0'><thead><tr><th class='text-uppercase text-dark text-xs font-weight-bolder opacity-7'>Dato</th><th class='text-uppercase text-dark text-xs font-weight-bolder opacity-7 ps-2'>Información</th></tr></thead>" +
                     "<tbody><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Nombre</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + nom + "&nbsp" + apm + "&nbsp" + app +
                     "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Email</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + mail +
-                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Carrera</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + pedu +
-                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Grupo</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + group +
-                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Matrícula</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + matri +
                     "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Télefono</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + phone +
                     "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Tél. Contacto</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + cphone + "</p></td></tr></tbody></table></div></div>";
                 document.getElementById("content_confirm").classList.add('text-center', 'mb-4');

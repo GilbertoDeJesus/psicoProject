@@ -42,36 +42,24 @@ class StudentsController extends Controller
 
     public function signUp()
     {
-
-        $educativePrograms = EducativeProgram::all();
-        return view('frontend.layout.signUp', compact('educativePrograms'));
+        return view('frontend.layout.signUp');
     }
 
     public function logIn(LogInStudentRequest $request)
     {
 
-
-        $student = Student::where('matricula', $request->matricula)->first();
+        $student = Student::where('email', $request->correo)->first();
 
         if ($student != null && Hash::check($request->password, $student->password)) {
             session([
                 'idAlumno' => $student->id,
                 'nameAlumno' => $student->name,
-                'matriculaAlumno' => $student->matricula,
                 'passwordAlumno' => "p" . $student->matricula . "s" . $student->id
             ]);
-            $group = Group::where('id', $student->group_id)->select('name')->first();
-            $gn = mb_eregi_replace("[a-zA-Z]", "", $group->name);
-            if ((int)$gn > 1) {
-                return redirect()->route('students.advancedTrajectory');
-            } else {
-                return redirect()->route('students.tests');
-            }
+            return redirect()->route('students.tests');
         } else {
-            //agregamos a variable 'errors' un error de validación en credenciales y regresamos a ruta anterior
-            // en este caso la correspondiente a sing-up.
             throw ValidationException::withMessages([
-                'matricula' => __('auth.failed')
+                'correo' => __('auth.failed')
             ]);
         }
     }
@@ -85,29 +73,17 @@ class StudentsController extends Controller
 
     public function storeStudent(StoreStudentRequest $request)
     {
-        if ($request->p_id == 0) {
-            throw ValidationException::withMessages([
-                'programa educativo' => __('validation.requiredPE')
-            ]);
-        }
-        $group = Group::where('id', $request->group_id)->select('name')->first();
-        $gn = mb_eregi_replace("[a-zA-Z]", "", $group->name);
-        $publicacion = $request->all(); //Pasamos todos los datos del request a la variable llamada publicación
+        $publicacion = $request->all();
         $publicacion['password'] = $request->matricula;
-        $student = Student::create($publicacion); //Creamos el nuevo estudiante.
-        $pass = "p" . $student->matricula . "s" . $student->id; //Creamos una contraseña con más dígitos 
-        $student->update(['password' => $pass]); //Guardamos la contraseña con matrícula letras y id
+        $student = Student::create($publicacion);
+        $pass = "p" . $student->matricula . "s" . $student->id;
+        $student->update(['password' => $pass]);
         session([
             'idAlumno' => $student->id,
             'nameAlumno' => $student->name,
-            'matriculaAlumno' => $student->matricula,
             'passwordAlumno' => "p" . $student->matricula . "s" . $student->id
         ]);
-        if ((int)$gn > 1) {
-            return redirect()->route('students.advancedTrajectory');
-        } else {
-            return redirect()->route('students.tests');
-        }
+        return redirect()->route('students.tests');
     }
 
     //Obtener los grupos de cada programa educativo seleccionado en blade

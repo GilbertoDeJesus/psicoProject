@@ -27,11 +27,9 @@ class StoreStudentRequest extends FormRequest
             'name'=>'required',
             'family_name'=>'required',
             'last_name'=>'required',
-            'group_id'=>'required',
             'phone'=>'required|max:10',
             'contact_phone'=>'required|max:10',
             'email'=>'required|email',
-            'matricula'=>'required|unique:students|min:2|max:10',
             'age'=>'required',
         ];
     }
