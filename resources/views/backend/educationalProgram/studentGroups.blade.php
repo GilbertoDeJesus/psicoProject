@@ -41,7 +41,6 @@
             <div class="page-title-actions">
 
                 <div class="search-wrapper active mx-auto">
-                    @can('Buscar alumno avanzado')
                     <div class="input-holder mx-auto">
                         <form action="{{ route ('admin.educationalProgram.searchStudent', ['id' =>request()->id]) }}" method="get">
                             <input type="text" class="search-input" placeholder="Escribe para buscar" name="search" autocomplete="off" required minlength="2">
@@ -49,7 +48,6 @@
                             <button class="search-icon" type="submit"><span></span></button>
                         </form>
                     </div>
-                    @endcan
                 </div>
 
             </div>
@@ -122,7 +120,6 @@
                                 <td>{{$student->email}}</td>
                                 <td class="text-center">{{$student->age}}</td>
                                 <td class="text-center">
-                                    @can('Ver info de alumno avanzado')
                                     <a href="{{ route('admin.student.info', ['student' => $student->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
                                         title="Resultados">
@@ -138,7 +135,6 @@
                                             <i class="fa fa-id-card fa-w-20"></i>
                                         </span>
                                     </button>
-                                    @endcan
                                 </td>
                             </tr>
                             @empty

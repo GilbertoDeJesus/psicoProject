@@ -41,53 +41,14 @@
                     </a>
                 </li>
                 <li class="app-sidebar__heading">ADMINISTRACIÓN</li>
-                @can('Ver alumnos sencillo')
-                    <li>
-                        <a href="{{ route('admin.students') }}" class="{{ Route::is('admin.students', 'admin.student.info', 'admin.students.search') ? 'mm-active' : '' }}">
-                            <i class="metismenu-icon pe-7s-users"></i>
-                            Alumnos
-                        </a>
-                    </li>
-                @endcan
-
-                    {{-- <li>
-                        <a href="{{ route('admin.educationalProgram') }}" class="{{ Route::is('admin.educationalProgram', 'admin.educationalProgram.indexGroups', 'admin.educationalProgram.infoStudent', 'admin.educationalProgram.search', 'admin.educationalProgram.searchStudent') ? 'mm-active' : '' }}">
-                            <i class="metismenu-icon pe-7s-portfolio"></i>
-                            Programas educativos
-                        </a>
-                    </li> --}}
                 <li>
-                    <a href="{{ route('admin.educationalProgram.indexGroups') }}" class="{{ Route::is('admin.educationalProgram', 'admin.educationalProgram.indexGroups', 'admin.educationalProgram.infoStudent', 'admin.educationalProgram.search', 'admin.educationalProgram.searchStudent') ? 'mm-active' : '' }}">
+                    <a href="{{ route('admin.educationalProgram.indexGroups') }}" class="{{ Route::is('admin.educationalProgram', 'admin.educationalProgram.indexGroups', 'admin.educationalProgram.infoStudent', 'admin.educationalProgram.search', 'admin.educationalProgram.searchStudent','admin.student.info') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-portfolio"></i>
                         Aspitantes
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Cuestionarios</li>
-                {{-- <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-box2"></i>
-                        Estilo de aprendizaje
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-study"></i>
-                        Orientacion Vocacional
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-notebook"></i>
-                        Trayectoria academica
-                    </a>
-                </li>
-                <li class="app-sidebar__heading">Estadisticas</li> --}}
-                {{-- <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-display1"></i>
-                        Graficas
-                    </a>
-                </li> --}}
+
                 <li>
                     <a href="{{ route('admin.reports') }}" class="{{ Route::is('admin.reports') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-print"></i>

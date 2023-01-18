@@ -32,7 +32,7 @@
                         <nav class="" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Alumnos</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Aspirantes</a></li>
                                 <li class="active breadcrumb-item" aria-current="page">Busqueda</li>
                             </ol>
                         </nav>
@@ -70,9 +70,6 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
-                                <th>Programa educativo</th>
-                                <th class="text-center">Matrícula</th>
-                                <th class="text-center">Grupo</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
@@ -86,20 +83,14 @@
                                         </div>
                                         <div class="widget-content-left flex2">
                                             <div class="widget-heading">{{$student->name}} {{$student->family_name}} {{$student->last_name}}</div>
-                                            <div class="widget-subheading opacity-7">{{$student->group->educativeProgram->name}}
+                                            <div class="widget-subheading opacity-7">{{$student->email}}
                                             </div>
                                         </div>
                                     </div>
 
                                 </td>
-                                <td>{{$student->group->educativeProgram->name}}</td>
-                                <td class="text-center">{{$student->matricula}}</td>
                                 <td class="text-center">
-                                {{$student->group->name}}
-                                </td>
-                                <td class="text-center">
-                                    @can('Ver info de alumno avanzado')
-                                    <a href="{{ route('admin.educationalProgram.infoStudent', ['id' => $student->id]) }}" id="PopoverCustomT-1"
+                                    <a href="{{ route('admin.student.info', ['student' => $student->id]) }}" id="PopoverCustomT-1"
                                         class="btn btn-success btn-sm my-auto" data-toggle="tooltip" data-placement="top"
                                         title="Resultados">
                                         <span class="btn-icon-wrapper">
@@ -116,7 +107,6 @@
                                             <i class="fa fa-id-card fa-w-20"></i>
                                         </span>
                                     </button>
-                                    @endcan
                                 </td>
                             </tr>
                             @empty
@@ -129,8 +119,8 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">                  
-                        {{ $searchs->withQueryString()->links('vendor.pagination.default') }}   
+                <div class="d-block text-center card-footer">
+                        {{ $searchs->withQueryString()->links('vendor.pagination.default') }}
                 </div>
             </div>
         </div>
@@ -157,8 +147,7 @@
                                 <div>
                                     <h5 class="menu-header-title mt-1"><span id="nameI">Jhon</span>&nbsp;<span
                                             id="lastNameI">Doe</span>&nbsp;<span id="familyI">Doe</span></h5>
-                                    <h6 class="menu-header-subtitle"><span id="positionI">Desarrollo y gestión de
-                                            software</span></h6>
+                                    <h6 class="menu-header-subtitle"><span id="positionI">Aspirante</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -168,25 +157,13 @@
                     <div class="form-row">
                         <div class="col-md-12">
                             <div class="position-relative form-group">
-                                <label for="email" class="">Email institucional</label><input name="email"
+                                <label for="email" class="">Email</label><input name="email"
                                     id="emailI" type="text" class="form-control" disabled
                                     value="a3519110001@alumno.uttehuacan.edu.mx" />
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-md-4">
-                            <div class="position-relative form-group">
-                                <label for="grupo" class="">Grupo</label><input name="grupo" id="grupoI"
-                                    type="text" class="form-control" disabled value="4 A" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="position-relative form-group">
-                                <label for="matricula" class="">Matrícula</label><input name="matricula"
-                                    id="matriculaI" type="text" class="form-control" disabled value="3519110001" />
-                            </div>
-                        </div>
                         <div class="col-md-4">
                             <div class="position-relative form-group">
                                 <label for="edad" class="">Edad</label><input name="edad" id="edadI"
@@ -197,15 +174,8 @@
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="telefonoP" class="">Telefono personal</label><input
+                                <label for="telefonoP" class="">Teléfono</label><input
                                     name="telefonoP" id="telefonoP" type="text" class="form-control" disabled
-                                    value="2381234567" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="telefonoC" class="">Telefono de contacto</label><input
-                                    name="telefonoC" id="telefonoC" type="text" class="form-control" disabled
                                     value="2381234567" />
                             </div>
                         </div>
@@ -222,7 +192,7 @@
 @section('js')
 <script type="text/javascript" src="{{ url('backend/js/jquery.js') }}"></script>
 <script>
-    
+
 
     function mostrarInfo(btn){
         var id = $(btn).data('id')
@@ -237,19 +207,15 @@
                         $("#nameI").text(info.name);
                         $("#familyI").text(info.family_name);
                         $("#lastNameI").text(info.last_name);
-                        $("#positionI").text(info.group.educative_program.name);
                         $("#emailI").val(info.email);
-                        $("#groupI").val(info.group.name);
-                        $("#matriculaI").val(info.matricula);
                         $("#edadI").val(info.age);
                         $("#telefonoP").val(info.phone);
-                        $("#telefonoC").val(info.contact_phone);
 
                     },
                 });
                 });
     }
-    
+
 
 </script>
     {{-- <script type="text/javascript" src="{{ url('frontend/js/jquery.js') }}"></script>

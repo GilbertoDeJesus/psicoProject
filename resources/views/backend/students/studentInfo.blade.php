@@ -36,7 +36,7 @@
                         <nav class="" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Alumnos</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Aspirantes</a></li>
                                 <li class="active breadcrumb-item" aria-current="page">Información</li>
                             </ol>
                         </nav>
@@ -58,7 +58,7 @@
                             </div>
                             <div>
                                 <h5 class="menu-header-title">{{Str::title($student->name)}} {{Str::title($student->family_name)}} {{Str::title($student->last_name)}}</h5>
-                                <h6 class="menu-header-subtitle">{{$student->group->educativeProgram->name}}</h6>
+                                <h6 class="menu-header-subtitle">{{$student->email}}</h6>
                             </div>
                         </div>
                     </div>
@@ -107,13 +107,13 @@
                 </div>
             @endif
             <div class="main-card mb-3 card card-shadow-primary">
-                <div class="card-header bg-primary text-white">Información basica
+                <div class="card-header bg-primary text-white">Información básica
                 </div>
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col-md-12">
                             <div class="position-relative form-group">
-                                <label for="email" class="">Email institucional</label><input name="email"
+                                <label for="email" class="">Email</label><input name="email"
                                     id="email" type="text" class="form-control" disabled
                                     value="{{$student->email}}" />
                             </div>

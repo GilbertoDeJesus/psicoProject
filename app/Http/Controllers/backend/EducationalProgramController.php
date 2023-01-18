@@ -13,7 +13,7 @@ class EducationalProgramController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['role:Super-Admin']);
+        $this->middleware(['role:Super-Admin|Admin']);
     }
 
     public function index()
@@ -127,8 +127,7 @@ class EducationalProgramController extends Controller
     {
 
         $search = htmlspecialchars($request->input('search'));
-        $educativeProgram = EducativeProgram::find($request->input('educative_program'));
-        $students = $educativeProgram->students()->where(function ($query) use ($search) {
+        $students = Student::where(function ($query) use ($search) {
             $query->where('students.name', 'LIKE', '%' . $search . '%')
                 ->orWhere('students.family_name', 'LIKE', '%' . $search . '%')
                 ->orWhere('students.last_name', 'LIKE', '%' . $search . '%')

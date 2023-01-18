@@ -32,8 +32,8 @@
                         <nav class="" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.students') }}">Alumnos</a></li>
-                                <li class="active breadcrumb-item" aria-current="page">Busqueda</li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.students') }}">Aspirantes</a></li>
+                                <li class="active breadcrumb-item" aria-current="page">Búsqueda</li>
                             </ol>
                         </nav>
                     </div>
@@ -148,8 +148,7 @@
                                 <div>
                                     <h5 class="menu-header-title mt-1"><span id="nameI">Jhon</span>&nbsp;<span
                                             id="lastNameI">Doe</span>&nbsp;<span id="familyI">Doe</span></h5>
-                                    <h6 class="menu-header-subtitle"><span id="positionI">Desarrollo y gestión de
-                                            software</span></h6>
+                                    <h6 class="menu-header-subtitle"><span id="positionI">Aspirante</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -159,25 +158,13 @@
                     <div class="form-row">
                         <div class="col-md-12">
                             <div class="position-relative form-group">
-                                <label for="email" class="">Email institucional</label><input name="email"
+                                <label for="email" class="">Email</label><input name="email"
                                     id="email" type="text" class="form-control" disabled
                                     value="a3519110001@alumno.uttehuacan.edu.mx" />
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-md-4">
-                            <div class="position-relative form-group">
-                                <label for="grupo" class="">Grupo</label><input name="grupo" id="grupo"
-                                    type="text" class="form-control" disabled value="4 A" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="position-relative form-group">
-                                <label for="matricula" class="">Matrícula</label><input name="matricula"
-                                    id="matricula" type="text" class="form-control" disabled value="3519110001" />
-                            </div>
-                        </div>
                         <div class="col-md-4">
                             <div class="position-relative form-group">
                                 <label for="edad" class="">Edad</label><input name="edad" id="edad"
@@ -188,15 +175,8 @@
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="telefonoP" class="">Telefono personal</label><input
+                                <label for="telefonoP" class="">Teléfono</label><input
                                     name="telefonoP" id="telefonoP" type="text" class="form-control" disabled
-                                    value="2381234567" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="telefonoC" class="">Telefono de contacto</label><input
-                                    name="telefonoC" id="telefonoC" type="text" class="form-control" disabled
                                     value="2381234567" />
                             </div>
                         </div>
