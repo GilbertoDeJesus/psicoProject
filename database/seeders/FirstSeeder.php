@@ -16,9 +16,9 @@ class FirstSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
+    {
 
- 
+
 //////////////////////////////////////////////
         \App\Models\Type::factory(1)->create(['name' => "Opcion Multiple"]);
         \App\Models\Type::factory(1)->create(['name' => "Desplegable"]);
@@ -27,7 +27,7 @@ class FirstSeeder extends Seeder
 
 
 
-        $this->call(EducativeProgramSeeder::class); 
+        $this->call(EducativeProgramSeeder::class);
 
         $t1 = \App\Models\Test::factory(1)->create([
             'name' => "Trayectoria académica",
@@ -48,14 +48,14 @@ class FirstSeeder extends Seeder
             'order' => 3,
         ]);
         $t4 = \App\Models\Test::factory(1)->create([
-            'name' => "Orientacion vocacional 2",
-            "clave"=>"vocacional 2",
+            'name' => "Trayectoria académica avanzado",
+            "clave"=>"trayectoria 2",
             'directions' => "Lee cuidadosamente cada una de las oraciones y selecciona una opción en escala de 'Siempre' a 'Nunca' según cuanto te identificas",
             'order' => 4,
         ]);
 
 
-        //////////////////////////////////// Información académica 
+        //////////////////////////////////// Información académica
         $q = \App\Models\Question::factory(1)->create([
             'question' => "Escuela de procedencia",
             'status' => 1,
@@ -641,7 +641,7 @@ class FirstSeeder extends Seeder
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
-                
+
             ]);
             \App\Models\Answer::factory(1)->create([
                 'answer' => "No",
@@ -2062,7 +2062,7 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-      
+
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te interesa formular proyectos de energías renovables mediante diagnósticos energéticos y estudios especializados de los recursos naturales del entorno?",
             'status' => 1,
@@ -2398,7 +2398,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-       
+
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te gusta identificar, formular y resolver problemas aplicando conocimientos de las matemáticas, la física mecánica e ingeniería?",
@@ -2743,7 +2743,7 @@ class FirstSeeder extends Seeder
             'order' => 75,
             'type_id' => 1,
             'educative_program_id'=>4
-            
+
         ]);
         foreach ($q as $question) {
             $question->save();
@@ -2932,7 +2932,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-        //        
+        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te interesa trabajar con maquinaria y dispositivos electrónicos?",
             'status' => 1,
@@ -4081,7 +4081,7 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-       
+
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te interesa ocupar la energía solar para instalaciones eléctricas?",
             'status' => 1,
@@ -4194,7 +4194,7 @@ class FirstSeeder extends Seeder
             ]);
         }
         //
-        
+
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Te apasiona facilitar tareas cotidianas mediante el internet de las cosas?",
@@ -4279,7 +4279,7 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-       
+
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Tienes conocimientos básicos en electrónica y electricidad?",
@@ -6374,30 +6374,11 @@ class FirstSeeder extends Seeder
         }
         //
         ///////////////////////////////////////////////////////////// Cuestionario nuevo
-
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "Dirección de correo electrónico",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 1,
-            'type_id' => 3,
-
-        ]);
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "Nombre completo ",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 2,
-            'type_id' => 3,
-
-        ]);
-        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "Sexo",
             'status' => 1,
             'is_example' => 0,
-            'order' => 3,
+            'order' => 1,
             'type_id' => 1,
 
         ]);
@@ -6430,18 +6411,10 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "Edad",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 4,
-            'type_id' => 3,
-        ]);
-        //
-        $q = \App\Models\Question::factory(1)->create([
             'question' => "Estado civil",
             'status' => 1,
             'is_example' => 0,
-            'order' => 5,
+            'order' => 2,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -6484,7 +6457,7 @@ class FirstSeeder extends Seeder
             'question' => "Localidad de origen",
             'status' => 1,
             'is_example' => 0,
-            'order' => 6,
+            'order' => 3,
             'type_id' => 3,
         ]);
         //
@@ -6492,13 +6465,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Tu localidad de origen pertenece a una población indígena?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 7,
+            'order' => 4,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6519,7 +6492,7 @@ class FirstSeeder extends Seeder
             'question' => "Específica grupo/s étnico/s y Municipio",
             'status' => 1,
             'is_example' => 0,
-            'order' => 8,
+            'order' => 5,
             'type_id' => 3,
         ]);
         //
@@ -6527,13 +6500,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Hablas alguna lengua indígena?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 9,
+            'order' => 6,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6554,7 +6527,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Cual?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 10,
+            'order' => 7,
             'type_id' => 3,
         ]);
         //
@@ -6562,7 +6535,7 @@ class FirstSeeder extends Seeder
             'question' => "Localidad donde radicas actualmente",
             'status' => 1,
             'is_example' => 0,
-            'order' => 11,
+            'order' => 8,
             'type_id' => 3,
         ]);
         //
@@ -6570,23 +6543,7 @@ class FirstSeeder extends Seeder
             'question' => "Domicilio Calle/número/Colonia/Municipio",
             'status' => 1,
             'is_example' => 0,
-            'order' => 12,
-            'type_id' => 3,
-        ]);
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "Número de teléfono celular",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 13,
-            'type_id' => 3,
-        ]);
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "Número de teléfono particular (casa) (de no contar con teléfono en casa coloca el número celular de algún familiar)",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 14,
+            'order' => 9,
             'type_id' => 3,
         ]);
         //
@@ -6594,7 +6551,7 @@ class FirstSeeder extends Seeder
             'question' => "Correo electrónico personal",
             'status' => 1,
             'is_example' => 0,
-            'order' => 15,
+            'order' => 10,
             'type_id' => 3,
         ]);
         //
@@ -6602,13 +6559,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Tienes hijos?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 16,
+            'order' => 11,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6629,13 +6586,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Eres padre o madre soltera?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 17,
+            'order' => 12,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6656,7 +6613,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Actualmente con quién vives?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 18,
+            'order' => 13,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -6699,29 +6656,64 @@ class FirstSeeder extends Seeder
             'question' => "¿Cuántos hermanos tienes?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 19,
-            'type_id' => 3,
-        ]);
-        //      
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "En general, ¿Cómo calificarías tu salud hoy?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 20,
+            'order' => 14,
             'type_id' => 3,
         ]);
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Estás bajo tratamiento médico por enfermedad  (hipertensión, epilepsia, diabetes, cáncer, anemia, etc.)?",
+            'question' => "En general, ¿Cómo calificarías tu salud hoy?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 21,
+            'order' => 15,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Muy buena",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Buena",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Regular",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Mala",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 4,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Estás bajo tratamiento médico por enfermedad  (hipertensión, epilepsia, diabetes, cáncer, anemia, etc.)?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 16,
+            'type_id' => 1,
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6742,7 +6734,7 @@ class FirstSeeder extends Seeder
             'question' => "Tipo de padecimiento",
             'status' => 1,
             'is_example' => 0,
-            'order' => 22,
+            'order' => 17,
             'type_id' => 3,
         ]);
         //
@@ -6750,13 +6742,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Tu pareja o tú actualmente se encuentran esperando un hijo?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 23,
+            'order' => 18,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6777,13 +6769,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Consumes algún tipo de Droga (tabaco, marihuana, cocaína, inhallable, etc.)?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 24,
+            'order' => 19,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6804,13 +6796,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has vivido una situación emocional significativa (ruptura amorosa, problemas familiares, desempleo, ansiedad, depresión, etc.) en los últimos 6 meses?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 25,
+            'order' => 20,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6831,13 +6823,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Acudiste a atención psicológica por la situación emocional significativa?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 26,
+            'order' => 21,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6858,13 +6850,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has tenido menos interés o placer por tus actividades cotidianas?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 27,
+            'order' => 22,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6885,13 +6877,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has sentido que no eres capaz de controlar tus preocupaciones?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 28,
+            'order' => 23,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6912,13 +6904,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Has tenido problemas para concentrarte?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 29,
+            'order' => 24,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6933,10 +6925,145 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Has tenido sentimientos de minusvalía (sentirte menos)?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 25,
+            'type_id' => 1,
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Sí",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "Durante las últimas dos semanas... ¿Te has sentido deprimido(a) todos los días?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 26,
+            'type_id' => 1,
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Sí",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Has sentido que te quieres morir o has pensado en la muerte?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 27,
+            'type_id' => 1,
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Sí",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Has tenido problemas para relajarte?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 28,
+            'type_id' => 1,
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Sí",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Te has sentido tan inquieto(a) que te cuesta trabajo dejar de moverte?",
+            'status' => 1,
+            'is_example' => 0,
+            'order' => 29,
+            'type_id' => 1,
+        ]);
+        foreach ($q as $question) {
+            $question->save();
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Sí",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 1,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "No",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 2,
+                'question_id' => $question->id
+            ]);
+        }
+        //
+        $q = \App\Models\Question::factory(1)->create([
+            'question' => "¿Has tenido temor de que algo horrible pueda suceder?",
             'status' => 1,
             'is_example' => 0,
             'order' => 30,
@@ -6945,7 +7072,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6960,10 +7087,10 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "Durante las últimas dos semanas... ¿Te has sentido deprimido(a) todos los días?",
+            'question' => "¿Te observas (tocar, mirar, etcétera) para ver si notas o sientes algo en tu cuerpo?",
             'status' => 1,
             'is_example' => 0,
             'order' => 31,
@@ -6972,7 +7099,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -6987,10 +7114,10 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Has sentido que te quieres morir o has pensado en la muerte?",
+            'question' => "¿Comentas tus dolores o molestias físicas a familiares y amigos?",
             'status' => 1,
             'is_example' => 0,
             'order' => 32,
@@ -6999,7 +7126,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7014,10 +7141,11 @@ class FirstSeeder extends Seeder
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        } 
+        }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Has tenido problemas para relajarte?",
+            'question' => "¿Realizas conductas como guardar cama, ponerte el termómetro, tomarte el pulso, modificar tu dieta alimenticia,
+                tomar medicación, etcétera? esto sin estar seguro(a) de si estas enfermo(a).",
             'status' => 1,
             'is_example' => 0,
             'order' => 33,
@@ -7026,143 +7154,7 @@ class FirstSeeder extends Seeder
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        } 
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te has sentido tan inquieto(a) que te cuesta trabajo dejar de moverte?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 34,
-            'type_id' => 1,
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        } 
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Has tenido temor de que algo horrible pueda suceder?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 35,
-            'type_id' => 1,
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        } 
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Te observas (tocar, mirar, etcétera) para ver si notas o sientes algo en tu cuerpo?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 36,
-            'type_id' => 1,
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        } 
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Comentas tus dolores o molestias físicas a familiares y amigos?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 37,
-            'type_id' => 1,
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        } 
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿Realizas conductas como guardar cama, ponerte el termómetro, tomarte el pulso, modificar tu dieta alimenticia, 
-                tomar medicación, etcétera? esto sin estar seguro(a) de si estas enfermo(a).",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 38,
-            'type_id' => 1,
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7183,7 +7175,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Quién paga tus estudios?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 39,
+            'order' => 34,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -7213,20 +7205,20 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-        //    
+        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "Aparte de ti ¿Cuántas personas dependen económicamente de tus padres o pareja?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 40,
+            'order' => 35,
             'type_id' => 3,
         ]);
-        //      
+        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "Los Recursos Económicos con los que cuenta tu familia para desarrollar tus actividades académicas son:",
             'status' => 1,
             'is_example' => 0,
-            'order' => 41,
+            'order' => 36,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -7261,13 +7253,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Económicamente, depende alguien de ti?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 42,
+            'order' => 37,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7288,25 +7280,49 @@ class FirstSeeder extends Seeder
             'question' => "¿Quién es tu dependiente económico?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 43,
+            'order' => 38,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
+                'answer' => "Padre-Madre",
+                'is_correct' => 0,
+                'value' => 0,
                 'status' => 1,
                 'order' => 1,
                 'question_id' => $question->id
             ]);
             \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
+                'answer' => "Conyuge",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
                 'order' => 2,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Hijos",
+                'is_correct' => 0,
+                'value' => 0,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Otro",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 3,
+                'question_id' => $question->id
+            ]);
+            \App\Models\Answer::factory(1)->create([
+                'answer' => "Ninguno",
+                'is_correct' => 1,
+                'value' => 1,
+                'status' => 1,
+                'order' => 3,
                 'question_id' => $question->id
             ]);
         }
@@ -7315,13 +7331,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Cuentas con alguna Beca?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 44,
+            'order' => 39,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7342,13 +7358,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Trabajas?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 45,
+            'order' => 40,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7366,16 +7382,16 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "Antes de postularte a alguna carrera de la UTT ¿Pausastes tus estudios por 1, 2 o mas años?",
+            'question' => "Antes de postularte a alguna carrera de la UTT ¿Pausaste tus estudios por 1, 2 o mas años?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 46,
+            'order' => 41,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7396,13 +7412,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Es la primer ocasión que estas cursando estudios de nivel universitario?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 47,
+            'order' => 42,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7423,13 +7439,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Cuentas con una carrera universitaria trunca?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 48,
+            'order' => 43,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7450,13 +7466,13 @@ class FirstSeeder extends Seeder
             'question' => "¿La carrera que elegiste fue tu primer opción para estudiar?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 49,
+            'order' => 44,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7474,16 +7490,16 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La escuela dónde cursaste el bachillera fue de escolaridad abierta?",
+            'question' => "¿La escuela dónde cursaste el bachillerato fue de escolaridad abierta?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 50,
+            'order' => 45,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7504,13 +7520,13 @@ class FirstSeeder extends Seeder
             'question' => "Durante el bachillerato o Carrera Universitaria anterior ¿Reprobaste alguna materia o presentaste exámenes extraordinarios?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 51,
+            'order' => 46,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7531,7 +7547,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Cuál o cuáles materias reprobaste(s)?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 52,
+            'order' => 47,
             'type_id' => 3,
         ]);
         //
@@ -7539,13 +7555,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Tienes computadora de escritorio o laptop como apoyo para trabajos y tareas escolares?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 53,
+            'order' => 48,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7566,13 +7582,13 @@ class FirstSeeder extends Seeder
             'question' => "¿Es de uso exclusivo para ti?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 54,
+            'order' => 49,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7593,7 +7609,7 @@ class FirstSeeder extends Seeder
             'question' => "¿Cuál es el estado de tu equipo de cómputo?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 55,
+            'order' => 50,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
@@ -7623,18 +7639,18 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
         }
-        //       
+        //
         $q = \App\Models\Question::factory(1)->create([
             'question' => "¿Tienes internet en tu domicilio para realizar tus actividades académicas?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 56,
+            'order' => 51,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7652,16 +7668,16 @@ class FirstSeeder extends Seeder
         }
         //
         $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La Uttehuacán fue tu primera opción para estudiar una carrera universitaria?",
+            'question' => "La UTTehuacán fue tu:",
             'status' => 1,
             'is_example' => 0,
-            'order' => 57,
+            'order' => 52,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Mi primera opción para estudiar",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7669,65 +7685,19 @@ class FirstSeeder extends Seeder
                 'question_id' => $question->id
             ]);
             \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
+                'answer' => "Mi segunda opción para estudiar",
                 'is_correct' => 1,
                 'value' => 3,
                 'status' => 1,
                 'order' => 2,
                 'question_id' => $question->id
             ]);
-        }
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La Uttehuacán fue tu segunda opción para estudiar una carrera universitaria?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 58,
-            'type_id' => 1,
-        ]);
-        foreach ($q as $question) {
-            $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Mi tercera opción para estudiar",
                 'is_correct' => 1,
-                'value' => 2,
+                'value' => 3,
                 'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
-                'question_id' => $question->id
-            ]);
-        }
-        //
-        $q = \App\Models\Question::factory(1)->create([
-            'question' => "¿La Uttehuacán fue tu tercer opción para estudiar una carrera universitaria?",
-            'status' => 1,
-            'is_example' => 0,
-            'order' => 59,
-            'type_id' => 1,
-        ]);
-        foreach ($q as $question) {
-            $question->save();
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
-                'is_correct' => 1,
-                'value' => 1,
-                'status' => 1,
-                'order' => 1,
-                'question_id' => $question->id
-            ]);
-            \App\Models\Answer::factory(1)->create([
-                'answer' => "No",
-                'is_correct' => 0,
-                'value' => 0,
-                'status' => 1,
-                'order' => 2,
+                'order' => 3,
                 'question_id' => $question->id
             ]);
         }
@@ -7736,13 +7706,13 @@ class FirstSeeder extends Seeder
             'question' => "¿La carrera en la que estás inscrito en  UTTehuacán fue tu primera opción para estudiar?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 60,
+            'order' => 53,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 0,
                 'value' => 0,
                 'status' => 1,
@@ -7763,13 +7733,13 @@ class FirstSeeder extends Seeder
             'question' => "¿La carrera en la que estás inscrito en  UTTehuacán fue tu segunda opción para estudiar?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 61,
+            'order' => 54,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 2,
                 'status' => 1,
@@ -7790,13 +7760,13 @@ class FirstSeeder extends Seeder
             'question' => "¿La carrera en la que estás inscrito en UTTehuacán fue tu tercer opción para estudiar?",
             'status' => 1,
             'is_example' => 0,
-            'order' => 62,
+            'order' => 55,
             'type_id' => 1,
         ]);
         foreach ($q as $question) {
             $question->save();
             \App\Models\Answer::factory(1)->create([
-                'answer' => "Si",
+                'answer' => "Sí",
                 'is_correct' => 1,
                 'value' => 1,
                 'status' => 1,
@@ -7820,644 +7790,651 @@ class FirstSeeder extends Seeder
             30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
             50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
             70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
-            90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 
-            108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 
-            124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 
+            90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107,
+            108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123,
+            124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139,
             140, 141, 142, 143, 144, 145, 146, 147, 148
         ]);
         \App\Models\Test::find(3)->questions()->attach([
-            149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 
-            161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 
+            149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160,
+            161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172,
             173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184
+        ]);
+        \App\Models\Test::find(4)->questions()->attach([
+            185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 
+            197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 
+            209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 
+            221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 
+            233, 234, 235, 236, 237, 238, 239
         ]);
 
 
 
 
-        // $students  =Student::Factory(80)->create();       
-        
-        // foreach ($students as $student) {
-        //     $student->tests()->attach(3,['answers' => '{
-        //         "149": "Casi siempre",
-        //         "150": "Casi siempre",
-        //         "151": "Regularmente",
-        //         "152": "Siempre",
-        //         "153": "Regularmente",
-        //         "154": "Casi siempre",
-        //         "155": "Casi siempre",
-        //         "156": "Siempre",
-        //         "157": "Regularmente",
-        //         "158": "Casi siempre",
-        //         "159": "Casi siempre",
-        //         "160": "Regularmente",
-        //         "161": "Siempre",
-        //         "162": "Regularmente",
-        //         "163": "Casi siempre",
-        //         "164": "Regularmente",
-        //         "165": "Casi siempre",
-        //         "166": "Regularmente",
-        //         "167": "Siempre",
-        //         "168": "Casi siempre",
-        //         "169": "Regularmente",
-        //         "170": "Siempre",
-        //         "171": "Regularmente",
-        //         "172": "Ocasionalmente",
-        //         "173": "Siempre",
-        //         "174": "Ocasionalmente",
-        //         "175": "Casi siempre",
-        //         "176": "Regularmente",
-        //         "177": "Ocasionalmente",
-        //         "178": "Siempre",
-        //         "179": "Ocasionalmente",
-        //         "180": "Siempre",
-        //         "181": "Regularmente",
-        //         "182": "Regularmente",
-        //         "183": "Casi siempre",
-        //         "184": "Regularmente"
-        //     }','finished'=>1]);            
-        //     $student->tests()->attach(2, ['answers' => '{
-        //      "14": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "15": {
-        //          "answer": "1",
-        //          "program": 3
-        //      },
-        //      "16": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "17": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "18": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "19": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "20": {
-        //          "answer": "1",
-        //          "program": 7
-        //      },
-        //      "21": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "22": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "23": {
-        //          "answer": "1",
-        //          "program": 2
-        //      },
-        //      "24": {
-        //          "answer": "1",
-        //          "program": 3
-        //      },
-        //      "25": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "26": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "27": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "28": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "29": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "30": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "31": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "32": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "33": {
-        //          "answer": "1",
-        //          "program": 3
-        //      },
-        //      "34": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "35": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "36": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "37": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "38": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "39": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "40": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "41": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "42": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "43": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "44": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "45": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "46": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "47": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "48": {
-        //          "answer": "1",
-        //          "program": 7
-        //      },
-        //      "49": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "50": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "51": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "52": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "53": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "54": {
-        //          "answer": "1",
-        //          "program": 5
-        //      },
-        //      "55": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "56": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "57": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "58": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "59": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "60": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "61": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "62": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "63": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "64": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "65": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "66": {
-        //          "answer": "1",
-        //          "program": 2
-        //      },
-        //      "67": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "68": {
-        //          "answer": "1",
-        //          "program": 3
-        //      },
-        //      "69": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "70": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "71": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "72": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "73": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "74": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "75": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "76": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "77": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "78": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "79": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "80": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "81": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "82": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "83": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "84": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "85": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "86": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "87": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "88": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "89": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "90": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "91": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "92": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "93": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "94": {
-        //          "answer": "1",
-        //          "program": 3
-        //      },
-        //      "95": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "96": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "97": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "98": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "99": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "100": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "101": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "102": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "103": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "104": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "105": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "106": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "107": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "108": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "109": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "110": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "111": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "112": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "113": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "114": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "115": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "116": {
-        //          "answer": "1",
-        //          "program": 8
-        //      },
-        //      "117": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "118": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "119": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "120": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "121": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "122": {
-        //          "answer": "1",
-        //          "program": 6
-        //      },
-        //      "123": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "124": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "125": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "126": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "127": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "128": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "129": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "130": {
-        //          "answer": "0",
-        //          "program": 6
-        //      },
-        //      "131": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "132": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "133": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "134": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "135": {
-        //          "answer": "0",
-        //          "program": 2
-        //      },
-        //      "136": {
-        //          "answer": "0",
-        //          "program": 3
-        //      },
-        //      "137": {
-        //          "answer": "0",
-        //          "program": 6
-        //      },
-        //      "138": {
-        //          "answer": "0",
-        //          "program": 5
-        //      },
-        //      "139": {
-        //          "answer": "0",
-        //          "program": 8
-        //      },
-        //      "140": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "141": {
-        //          "answer": "0",
-        //          "program": 1
-        //      },
-        //      "142": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "143": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "144": {
-        //          "answer": "0",
-        //          "program": 4
-        //      },
-        //      "145": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "146": {
-        //          "answer": "0",
-        //          "program": 7
-        //      },
-        //      "147": {
-        //          "answer": "0",
-        //          "program": 9
-        //      },
-        //      "148": {
-        //          "answer": "0",
-        //          "program": 9
-        //      }
-        //  }','finished'=>1]);
-        //     $student->tests()->attach(1, ['answers' => '{
-        //         "1": "CBTis 229",
-        //         "2": "9.6",
-        //         "3": "Tecnológico",
-        //         "4": "Sí",
-        //         "5": "No",
-        //         "6": [
-        //             "Ninguna"
-        //         ],
-        //         "7": "Sí",
-        //         "8": [
-        //             "Matemáticas",
-        //             "Inglés",
-        //             "Administración"
-        //         ],
-        //         "9": [
-        //             "Matemáticas",
-        //             "Inglés",
-        //             "Administración"
-        //         ],
-        //         "10": "Sí",
-        //         "11": "Sí",
-        //         "12": "Sí",
-        //         "13": "Ambas"
-        //  }','finished'=>1]);
+        $students  =Student::Factory(80)->create();
 
-        //     $pe1 = random_int(1,3);
-        //     $pe2 = random_int(4,6);
-        //     $pe3 = random_int(7,9);
-        //     $testAprendizaje = ["Kinestesico","Auditivo","Visual"];
-        //     $status_academico = ["Verde","Amarillo","Rojo"];
+        foreach ($students as $student) {
+            $student->tests()->attach(3,['answers' => '{
+                "149": "Casi siempre",
+                "150": "Casi siempre",
+                "151": "Regularmente",
+                "152": "Siempre",
+                "153": "Regularmente",
+                "154": "Casi siempre",
+                "155": "Casi siempre",
+                "156": "Siempre",
+                "157": "Regularmente",
+                "158": "Casi siempre",
+                "159": "Casi siempre",
+                "160": "Regularmente",
+                "161": "Siempre",
+                "162": "Regularmente",
+                "163": "Casi siempre",
+                "164": "Regularmente",
+                "165": "Casi siempre",
+                "166": "Regularmente",
+                "167": "Siempre",
+                "168": "Casi siempre",
+                "169": "Regularmente",
+                "170": "Siempre",
+                "171": "Regularmente",
+                "172": "Ocasionalmente",
+                "173": "Siempre",
+                "174": "Ocasionalmente",
+                "175": "Casi siempre",
+                "176": "Regularmente",
+                "177": "Ocasionalmente",
+                "178": "Siempre",
+                "179": "Ocasionalmente",
+                "180": "Siempre",
+                "181": "Regularmente",
+                "182": "Regularmente",
+                "183": "Casi siempre",
+                "184": "Regularmente"
+            }','finished'=>1]);
+            $student->tests()->attach(2, ['answers' => '{
+             "14": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "15": {
+                 "answer": "1",
+                 "program": 3
+             },
+             "16": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "17": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "18": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "19": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "20": {
+                 "answer": "1",
+                 "program": 7
+             },
+             "21": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "22": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "23": {
+                 "answer": "1",
+                 "program": 2
+             },
+             "24": {
+                 "answer": "1",
+                 "program": 3
+             },
+             "25": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "26": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "27": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "28": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "29": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "30": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "31": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "32": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "33": {
+                 "answer": "1",
+                 "program": 3
+             },
+             "34": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "35": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "36": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "37": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "38": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "39": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "40": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "41": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "42": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "43": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "44": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "45": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "46": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "47": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "48": {
+                 "answer": "1",
+                 "program": 7
+             },
+             "49": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "50": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "51": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "52": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "53": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "54": {
+                 "answer": "1",
+                 "program": 5
+             },
+             "55": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "56": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "57": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "58": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "59": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "60": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "61": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "62": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "63": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "64": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "65": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "66": {
+                 "answer": "1",
+                 "program": 2
+             },
+             "67": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "68": {
+                 "answer": "1",
+                 "program": 3
+             },
+             "69": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "70": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "71": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "72": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "73": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "74": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "75": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "76": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "77": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "78": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "79": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "80": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "81": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "82": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "83": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "84": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "85": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "86": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "87": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "88": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "89": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "90": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "91": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "92": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "93": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "94": {
+                 "answer": "1",
+                 "program": 3
+             },
+             "95": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "96": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "97": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "98": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "99": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "100": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "101": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "102": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "103": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "104": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "105": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "106": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "107": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "108": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "109": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "110": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "111": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "112": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "113": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "114": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "115": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "116": {
+                 "answer": "1",
+                 "program": 8
+             },
+             "117": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "118": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "119": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "120": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "121": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "122": {
+                 "answer": "1",
+                 "program": 6
+             },
+             "123": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "124": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "125": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "126": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "127": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "128": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "129": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "130": {
+                 "answer": "0",
+                 "program": 6
+             },
+             "131": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "132": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "133": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "134": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "135": {
+                 "answer": "0",
+                 "program": 2
+             },
+             "136": {
+                 "answer": "0",
+                 "program": 3
+             },
+             "137": {
+                 "answer": "0",
+                 "program": 6
+             },
+             "138": {
+                 "answer": "0",
+                 "program": 5
+             },
+             "139": {
+                 "answer": "0",
+                 "program": 8
+             },
+             "140": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "141": {
+                 "answer": "0",
+                 "program": 1
+             },
+             "142": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "143": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "144": {
+                 "answer": "0",
+                 "program": 4
+             },
+             "145": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "146": {
+                 "answer": "0",
+                 "program": 7
+             },
+             "147": {
+                 "answer": "0",
+                 "program": 9
+             },
+             "148": {
+                 "answer": "0",
+                 "program": 9
+             }
+         }','finished'=>1]);
+            $student->tests()->attach(1, ['answers' => '{
+                "1": "CBTis 229",
+                "2": "9.6",
+                "3": "Tecnológico",
+                "4": "Sí",
+                "5": "No",
+                "6": [
+                    "Ninguna"
+                ],
+                "7": "Sí",
+                "8": [
+                    "Matemáticas",
+                    "Inglés",
+                    "Administración"
+                ],
+                "9": [
+                    "Matemáticas",
+                    "Inglés",
+                    "Administración"
+                ],
+                "10": "Sí",
+                "11": "Sí",
+                "12": "Sí",
+                "13": "Ambas"
+         }','finished'=>1]);
 
-        //     \App\Models\Result::create([
-        //         'test_orientacional1_id' => $pe1,
-        //         'test_orientacional2_id' => $pe2,
-        //         'test_orientacional3_id' => $pe3, 
-        //         'test_aprendizaje' => $testAprendizaje[rand(0,2)],
-        //         'test_status_academico' => $status_academico[rand(0,2)],
-        //         'student_id' => $student->id
-        //     ]);
-         
-        // }
+            $pe1 = random_int(1,3);
+            $pe2 = random_int(4,6);
+            $pe3 = random_int(7,9);
+            $testAprendizaje = ["Kinestesico","Auditivo","Visual"];
+            $status_academico = ["Verde","Amarillo","Rojo"];
+
+            \App\Models\Result::create([
+                'test_orientacional1_id' => $pe1,
+                'test_orientacional2_id' => $pe2,
+                'test_orientacional3_id' => $pe3,
+                'test_aprendizaje' => $testAprendizaje[rand(0,2)],
+                'test_status_academico' => $status_academico[rand(0,2)],
+                'student_id' => $student->id
+            ]);
+
+        }
     }
 }

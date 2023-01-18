@@ -95,7 +95,10 @@
                             </div>
                         </div>
                     </li>
+                    @endif
                 </ul>
+
+
             </div>
         </div>
         <div class="col-lg-7">
@@ -145,6 +148,173 @@
     </div>
     <div class="row">
         <div class="col-md-12">
+            @if((int)mb_eregi_replace("[a-zA-Z]", "", $student->group->name)  == 1 )
+                <div class="conatiner card">
+                    <div class="card-header text-dark">
+                        <div class="mx-auto">
+                            Respuestas de cuestionarios
+                        </div>
+                    </div>
+
+
+                    <div class="card-body">
+                        <ul class="tabs-animated-shadow tabs-animated nav nav-justified tabs-rounded-lg">
+                            <li class="nav-item">
+                                <a role="tab" class="nav-link mb-0 active show" href="#estilo-aprendizaje" data-toggle="tab" aria-selected="true">
+                                    <span>Estilo de aprendizaje</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a role="tab" class="nav-link mb-0" href="#orientacion-vocacional" data-toggle="tab" aria-selected="false">
+                                    <span>Orientación vocacional</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a role="tab" class="nav-link mb-0" href="#trayectoria-academica" data-toggle="tab" aria-selected="false">
+                                    <span>Trayectoria académica</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane tabs-animation fade show active" id="estilo-aprendizaje" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <div class="main-card my-3 card">
+                                    <div class="table-responsive pt-1">
+                                        <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="aprendizaje">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">#</th>
+                                                    <th>Pregunta</th>
+                                                    <th>Respuesta</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @forelse ($learningTest as $question)
+                                                <tr>
+                                                    <td class="text-center text-muted">#{{ $loop->iteration }}</td>
+                                                    <td>
+                                                        <div class="widget-content p-0">
+                                                            <div class="widget-content-wrapper">
+                                                                <div class="widget-content-left flex2">
+                                                                    <div class="widget-heading">{{ $question->question }}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        @empty(!$answerLearningTest)
+                                                            {{$answerLearningTest[$question->id]}}
+                                                        @endempty
+                                                    </td>
+
+                                                </tr>
+                                                @empty
+                                                <h5>No hay preguntas ni respuestas para este cuestionario</h5>
+                                                @endforelse
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane tabs-animation fade" id="orientacion-vocacional" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <div class="main-card my-3 card">
+                                    <div class="table-responsive pt-1">
+                                        <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="vocacional">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">#</th>
+                                                    <th>Pregunta</th>
+                                                    <th class="pr-3">Respuesta</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @forelse ($vocationalTest as $question)
+                                                <tr>
+                                                    <td class="text-center text-muted">#{{ $loop->iteration }}</td>
+                                                    <td>
+                                                        <div class="widget-content p-0">
+                                                            <div class="widget-content-wrapper">
+                                                                <div class="widget-content-left flex2">
+                                                                    <div class="widget-heading">{{ $question->question }}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        @empty(!$answerVocationalTest)
+                                                            {{$answerVocationalTest[$question->id]->answer == 1 ? "Sí": "No"}}
+                                                        @endempty
+                                                    </td>
+                                                </tr>
+                                                @empty
+                                                <h5>No hay preguntas ni respuestas para este cuestionario</h5>
+                                                @endforelse
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane tabs-animation fade" id="trayectoria-academica" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <div class="main-card my-3 card">
+                                    <div class="table-responsive pt-1">
+                                        <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="trayectoria">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">#</th>
+                                                    <th>Pregunta</th>
+                                                    <th>Respuesta</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @forelse ($trayectoryTest as $question)
+                                                <tr>
+                                                    <td class="text-center text-muted">#{{ $loop->iteration }}</td>
+                                                    <td>
+                                                        <div class="widget-content p-0">
+                                                            <div class="widget-content-wrapper">
+                                                                <div class="widget-content-left flex2">
+                                                                    <div class="widget-heading">{{ $question->question }}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        @empty(!$answerTrayectoryTest)
+                                                            @php
+                                                                if (is_array($answerTrayectoryTest[$question->id])){
+                                                                    $answerTrayectoryTest[$question->id] = implode(", ",$answerTrayectoryTest[$question->id]);
+                                                                }
+
+                                                            @endphp
+                                                            {{$answerTrayectoryTest[$question->id]}}
+                                                        @endempty
+
+                                                    </td>
+                                                </tr>
+                                                @empty
+                                                    <h5>No hay preguntas ni respuestas para este cuestionario</h5>
+                                                @endforelse
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @else
+
             <div class="conatiner card">
                 <div class="card-header text-dark">
                     <div class="mx-auto">
@@ -205,6 +375,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection

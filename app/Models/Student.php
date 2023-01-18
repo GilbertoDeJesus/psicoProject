@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Hash;
 class Student extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['name','family_name','last_name','group_id','phone',
-        'contact_phone','email','matricula','password','age'];
+    protected $fillable = ['name','family_name','last_name','phone',
+        'contact_phone','email','password','age'];
 
     public function group()
     {

@@ -7,45 +7,35 @@ use App\Models\Questions;
 use App\Models\Test;
 use App\Models\Answer;
 use App\Models\EducativeProgram;
-use App\Models\Result as ModelsResult;
+use App\Models\Result;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
 class VocationalTestController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $test = Test::where('name', 'Orientación Vocacional')->first();
+        $vocationalTest = $test->questions()->orderBy('order', 'ASC')->get();
 
-        $test= Test::where('name', 'Orientación Vocacional')->first();
-        $vocationalTest = $test->questions()->orderBy('order','ASC')->get();
-
-        $answers=[];
-        foreach($vocationalTest as $lt){
-            array_push($answers, Answer::where('question_id',$lt->id)->get());
+        $answers = [];
+        foreach ($vocationalTest as $lt) {
+            array_push($answers, Answer::where('question_id', $lt->id)->get());
         }
 
-        $student = Student::with('tests')->find(session()->get('idAlumno')); //buscamos en la tabla student_test los test que ha realizado el estudiante
-        if($student->tests->isNotEmpty()){
-             foreach ($student->tests as $testF){
-                if($testF->pivot->test_id == $test->id && $testF->pivot->finished==1){ //Evaluamos si el test actual ha sido finalizado por el estudiante o no
-                    return redirect()->route('students.trajectory'); //Si ya se ha contestado redireccionamos al siguiente test
-                }
-             } 
-        }else{
-            return redirect()->route('students.tests');
-        }
-        
-        return view('frontend.vocationalOrientation.vocationalTest',['vocationalTest'=> $vocationalTest, 'answers'=>$answers]);
-
+        return view('frontend.vocationalOrientation.vocationalTest', ['vocationalTest' => $vocationalTest, 'answers' => $answers]);
     }
-    public function storeTest(Request $request){
-        $test= Test::where('name', 'Orientación Vocacional')->first();
-        $vocationalTest = $test->questions()->orderBy('order','ASC')->get();
+
+    public function storeTest(Request $request)
+    {
+        $test = Test::where('name', 'Orientación Vocacional')->first();
+        $vocationalTest = $test->questions()->orderBy('order', 'ASC')->get();
 
         $answers = [];
 
-        foreach($vocationalTest as $lt){
+        foreach ($vocationalTest as $lt) {
             $question = 'question_' . $lt->id;
-            $answers[$lt->id] = ['answer' => $request->$question, 'program' => $lt->educative_program_id ];
+            $answers[$lt->id] = ['answer' => $request->$question, 'program' => $lt->educative_program_id];
         }
 
         $asp = 0;
@@ -57,40 +47,52 @@ class VocationalTestController extends Controller
         $enf = 0;
         $mto = 0;
         $enr = 0;
-        
+
         foreach ($answers as $ans => $val) {
-            $asp = ($val['program']===1 && $val['answer']==1) ? ++$asp : $asp+0;
-            $dsn = ($val['program']===2 && $val['answer']==1) ? ++$dsn : $dsn+0;
-            $mct = ($val['program']===3 && $val['answer']==1) ? ++$mct : $mct+0;
-            $pal = ($val['program']===4 && $val['answer']==1) ? ++$pal : $pal+0;
-            $pin = ($val['program']===5 && $val['answer']==1) ? ++$pin : $pin+0;
-            $tic = ($val['program']===6 && $val['answer']==1) ? ++$tic : $tic+0;
-            $enf = ($val['program']===7 && $val['answer']==1) ? ++$enf : $enf+0;
-            $mto = ($val['program']===8 && $val['answer']==1) ? ++$mto : $mto+0;
-            $enr = ($val['program']===9 && $val['answer']==1) ? ++$enr : $enr+0;
+            $asp = ($val['program'] === 1 && $val['answer'] == 1) ? ++$asp : $asp + 0;
+            $dsn = ($val['program'] === 2 && $val['answer'] == 1) ? ++$dsn : $dsn + 0;
+            $mct = ($val['program'] === 3 && $val['answer'] == 1) ? ++$mct : $mct + 0;
+            $pal = ($val['program'] === 4 && $val['answer'] == 1) ? ++$pal : $pal + 0;
+            $pin = ($val['program'] === 5 && $val['answer'] == 1) ? ++$pin : $pin + 0;
+            $tic = ($val['program'] === 6 && $val['answer'] == 1) ? ++$tic : $tic + 0;
+            $enf = ($val['program'] === 7 && $val['answer'] == 1) ? ++$enf : $enf + 0;
+            $mto = ($val['program'] === 8 && $val['answer'] == 1) ? ++$mto : $mto + 0;
+            $enr = ($val['program'] === 9 && $val['answer'] == 1) ? ++$enr : $enr + 0;
         }
-        $countP = array($asp,$dsn,$mct,$pal,$pin,$tic,$enf,$mto,$enf);
+        $countP = array($asp, $dsn, $mct, $pal, $pin, $tic, $enf, $mto, $enf);
         $count = [];
         $id = 1;
         foreach ($countP as $c) {
             $count[$id++] = $c;
         }
-        for ($i=0; $i <= 5; $i++) {
+        for ($i = 0; $i <= 5; $i++) {
             $min = min($count);
             unset($count[array_search($min, $count)]);
         }
         arsort($count);
         $maxPe = array_keys($count);
 
-        $testResults = ModelsResult::where('student_id', session()->get('idAlumno'))->first();//Este busca el registro que se creo en el test anterior
-        $testResults->update(['test_orientacional1_id' => $maxPe[0], 'test_orientacional2_id' => $maxPe[1], 'test_orientacional3_id' => $maxPe[2]]);//Este agrega los resultados del test
-        $student = Student::where('matricula', session()->get('matriculaAlumno'))->first();
-        $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
-
-        $statusAprendizaje = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id', 2)->first();
         
-        if ($student->tests->isEmpty() || $statusAprendizaje == null) {
-            
+        $results = [];
+        $results['test_orientacional1_id'] = $maxPe[0]; 
+        $results['test_orientacional2_id'] = $maxPe[1]; 
+        $results['test_orientacional3_id'] = $maxPe[2];
+        $results['test_aprendizaje'] = "Sin definir";
+        $results['test_status_academico'] = 'Sin definir';
+        $results['student_id']= session()->get('idAlumno');
+
+        $noRepeatResult = Result::where('student_id', session()->get('idAlumno'))->first();
+        if($noRepeatResult == null){
+            Result::create($results);
+        }else{
+            $noRepeatResult->update(['test_orientacional1_id' => $maxPe[0], 'test_orientacional2_id' => $maxPe[1], 'test_orientacional3_id' => $maxPe[2]]);
+        }
+
+        $student = Student::where('email', session()->get('emailAlumno'))->first();
+        $studentAnswers = array('student_id' => $student->id, 'test_id' => $test->id, 'answers' => json_encode($answers), 'finished' => 1);
+        $statusAprendizaje = $student->tests()->where('student_id', session()->get('idAlumno'))->where('test_id', 2)->first();
+
+        if ($student->tests->isEmpty()) {
             if (!empty($statusAprendizaje)) {
                 $statusAprendizaje->pivot->update(['finished' => 1]);
             }else{
@@ -100,6 +102,6 @@ class VocationalTestController extends Controller
             $statusAprendizaje->pivot->update(['finished' => 1]);
         }
 
-        return redirect()->route('students.trajectory');
+        return redirect()->route('students.tests');
     }
 }
