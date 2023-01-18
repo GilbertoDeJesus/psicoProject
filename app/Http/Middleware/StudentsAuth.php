@@ -18,8 +18,8 @@ class StudentsAuth
     public function handle(Request $request, Closure $next)
     {   
         
-        if (session()->has('matriculaAlumno') && session()->has('passwordAlumno')) {//Verificamos que existan las variables de sesión matriculaAlumno y passwordAlumno
-            if (!Student::where('matricula',session()->get('matriculaAlumno'))) { //Comprobamos si la matrícula de la variable coincide con un registro en la bd
+        if (session()->has('emailAlumno') && session()->has('passwordAlumno')) {//Verificamos que existan las variables de sesión matriculaAlumno y passwordAlumno
+            if (!Student::where('email',session()->get('emailAlumno'))) { //Comprobamos si la matrícula de la variable coincide con un registro en la bd
                 return redirect()->route('sign-up'); //Al no encontrar coincidencias se redirige a sign-up
             }
         }else{

@@ -49,22 +49,19 @@
                         </a>
                     </li>
                 @endcan
-                @can('Ver alumnos avanzado')
-                    <li>
+
+                    {{-- <li>
                         <a href="{{ route('admin.educationalProgram') }}" class="{{ Route::is('admin.educationalProgram', 'admin.educationalProgram.indexGroups', 'admin.educationalProgram.infoStudent', 'admin.educationalProgram.search', 'admin.educationalProgram.searchStudent') ? 'mm-active' : '' }}">
                             <i class="metismenu-icon pe-7s-portfolio"></i>
                             Programas educativos
                         </a>
-                    </li>
-                @endcan
-                @if(Gate::check('Ver grupos avanzado') || Gate::check('Ver grupos sencillo'))
-                    <li>
-                        <a href="{{ route('admin.groups') }}" class="{{ Route::is('admin.groups', 'admin.groups.editGroup', 'admin.groups.search') ? 'mm-active' : '' }}">
-                            <i class="metismenu-icon pe-7s-network"></i>
-                            Grupos
-                        </a>
-                    </li>
-                @endif
+                    </li> --}}
+                <li>
+                    <a href="{{ route('admin.educationalProgram.indexGroups') }}" class="{{ Route::is('admin.educationalProgram', 'admin.educationalProgram.indexGroups', 'admin.educationalProgram.infoStudent', 'admin.educationalProgram.search', 'admin.educationalProgram.searchStudent') ? 'mm-active' : '' }}">
+                        <i class="metismenu-icon pe-7s-portfolio"></i>
+                        Aspitantes
+                    </a>
+                </li>
                 <li class="app-sidebar__heading">Cuestionarios</li>
                 {{-- <li>
                     <a href="#">

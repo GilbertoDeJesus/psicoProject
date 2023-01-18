@@ -18,16 +18,13 @@ class CreateStudentsTable extends Migration
             $table->string('name',100);
             $table->string('family_name',60);
             $table->string('last_name',60);
-            $table->unsignedBigInteger('group_id')->nullable();
             $table->smallInteger('age');
             $table->string('phone',15);
             $table->string('contact_phone',15);
             $table->string('email',300);
-            $table->string('matricula',15)->unique();
             $table->string('password',300);
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('group_id')->references('id')->on('groups');
         });
     }
 

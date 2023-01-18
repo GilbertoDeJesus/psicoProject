@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row mt-lg-n10 mt-md-n11 mt-n10">
             <div class="col-md-4 mb-4">
-                <div class="card card-pricing">
+                <div class="card card-pricing d-none">
                     <div class="card-header bg-gradient-info text-center pt-4 pb-5 position-relative">
                         <div class="z-index-1 position-relative">
                             <h5 class="text-white">Estilo de aprendizaje</h5>
@@ -108,21 +108,19 @@
                                 <hr class="horizontal dark">
                             </li>
                         </ul>
-                        @if( $aprendizaje == 1 )
-                            <a href="{{ route('students.vocational') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0 {{$vocacional == 1 ? 'disabled' : ''}}">
-                                Comenzar
-                            </a>
+                        @if ($vocacional == 1)
+                            <a href="{{ route('students.results') }}" type="button" class="btn bg-gradient-dark-green btn-lg w-100 mt-4 mb-0 text-white"
+                            data-bs-dismiss="modal">Consulta tus resultados</a>
                         @else
-                            <a href="javascript:;" class="btn bg-gradient-dark w-100 mt-4 mb-0" data-bs-toggle="modal"
-                            data-bs-target="#modal-warning-1">
-                                Comenzar
+                            <a href="{{ route('students.vocational') }}" class="btn bg-gradient-dark w-100 mt-4 mb-0 {{$vocacional == 1 ? 'disabled' : ''}}">
+                                    Comenzar
                             </a>
                         @endif
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="card card-pricing">
+                <div class="card card-pricing d-none">
                     <div class="card-header bg-gradient-dark text-center pt-4 pb-5 position-relative">
                         <div class="z-index-1 position-relative">
                             <h5 class="text-white">Trayectoria académica</h5>

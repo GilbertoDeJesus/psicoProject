@@ -65,49 +65,6 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="p-0 list-group-item">
-                        <div class="grid-menu grid-menu-2col">
-                            <div class="no-gutters row">
-                                @if((int)mb_eregi_replace("[a-zA-Z]", "", $student->group->name)  == 1 )
-                                    <div class="col-sm-6">
-                                        <div class="p-1">
-                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-primary {{$student->result->test_aprendizaje == 'Visual' ? '':'d-none'}}">{{--Quitar la clase d-none para que se muestre--}}
-                                                <i class="pe-7s-look btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje visual
-                                            </button>
-                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-info {{$student->result->test_aprendizaje == 'Auditivo' ? '':'d-none'}}">
-                                                <i class="pe-7s-volume1 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Auditivo
-                                            </button>
-                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-alternate {{$student->result->test_aprendizaje == 'Kinestésico' ? '':'d-none'}}">
-                                                <i class="pe-7s-box2 btn-icon-wrapper btn-icon-lg mb-3"> </i>Aprendizaje Kinestésico
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="p-1">
-                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-success {{$student->result->test_status_academico == 'Verde' ? '':'d-none'}}">
-                                                <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Verde' ? 'Foco Verde':''}}
-                                            </button>
-                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning  {{$student->result->test_status_academico == 'Amarillo' ? '':'d-none'}}">
-                                                <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Amarillo' ? 'Foco Amarillo':''}}
-                                            </button>
-                                            <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger {{$student->result->test_status_academico == 'Rojo' ? '':'d-none'}}">
-                                                <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>{{$student->result->test_status_academico == 'Rojo' ? 'Foco Rojo':''}}
-                                            </button>
-                                        </div>
-                                    </div>
-                                @else
-                                    <div class="col-sm-12">
-                                        <button class="btn-icon-vertical btn-transition-text btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning">
-                                            <i class="pe-7s-light btn-icon-wrapper btn-icon-lg mb-3"> </i>Foco Amarillo
-                                        </button>
-                                    </div>
-                                @endif
-
-                            </div>
-                        </div>
-                    </li>
-                    @if((int)mb_eregi_replace("[a-zA-Z]", "", $student->group->name)  == 1 )
-
-                    <li class="p-0 list-group-item">
                         <div class="row">
                             <div class="col-sm-12">
                                 <table class="mb-0 table table-striped table-hover table-borderless mt-1">
@@ -168,31 +125,12 @@
                     <div class="form-row">
                         <div class="col-md-4">
                             <div class="position-relative form-group">
-                                <label for="grupo" class="">Grupo</label><input name="grupo" id="grupo"
-                                    type="text" class="form-control" disabled value="{{$student->group->name}}" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="position-relative form-group">
-                                <label for="matricula" class="">Matrícula</label><input name="matricula"
-                                    id="matricula" type="text" class="form-control" disabled value="{{$student->matricula}}" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="position-relative form-group">
                                 <label for="edad" class="">Edad</label><input name="edad" id="edad"
                                     type="text" class="form-control" disabled value="{{$student->age}}" />
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="telefonoP" class="">Teléfono personal</label><input
-                                    name="telefonoP" id="telefonoP" type="text" class="form-control" disabled
-                                    value="{{$student->phone}}" />
-                            </div>
-                        </div>
                         <div class="col-md-6">
                             <div class="position-relative form-group">
                                 <label for="telefonoC" class="">Teléfono de contacto</label><input
@@ -386,29 +324,29 @@
                 <div class="card-body">
                     <ul class="tabs-animated-shadow tabs-animated nav nav-justified tabs-rounded-lg">
                         <li class="nav-item">
-                            <a role="tab" class="nav-link mb-0 active show" href="#trayectoria-academica" data-toggle="tab" aria-selected="false">
-                                <span>Trayectoria académica</span>
+                            <a role="tab" class="nav-link mb-0 active show" href="#orientacion-vocacional" data-toggle="tab" aria-selected="false">
+                                <span>Orientación vocacional</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="tab-content">
-                <div class="tab-pane tabs-animation fade show active" id="trayectoria-academica" role="tabpanel">
+                <div class="tab-pane tabs-animation fade show active" id="orientacion-vocacional" role="tabpanel">
                     <div class="row">
                         <div class="col-md-12 mb-4">
                             <div class="main-card my-3 card">
                                 <div class="table-responsive pt-1">
-                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="trayectoria">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="vocacional">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">#</th>
                                                 <th>Pregunta</th>
-                                                <th>Respuesta</th>
+                                                <th class="pr-3">Respuesta</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @forelse ($trayectoryTest as $question)
+                                            @forelse ($vocationalTest as $question)
                                             <tr>
                                                 <td class="text-center text-muted">#{{ $loop->iteration }}</td>
                                                 <td>
@@ -421,18 +359,13 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    @empty(!$answerTrayectoryTest)
-                                                        @php
-                                                            if (is_array($answerTrayectoryTest[$question->id])){
-                                                                $answerTrayectoryTest[$question->id] = implode(", ",$answerTrayectoryTest[$question->id]);
-                                                            }
-                                                        @endphp
-                                                        {{$answerTrayectoryTest[$question->id]}}
+                                                    @empty(!$answerVocationalTest)
+                                                        {{$answerVocationalTest[$question->id]->answer == 1 ? "Sí": "No"}}
                                                     @endempty
                                                 </td>
                                             </tr>
                                             @empty
-                                                <h5>No hay preguntas ni respuestas para este cuestionario</h5>
+                                            <h5>No hay preguntas ni respuestas para este cuestionario</h5>
                                             @endforelse
                                         </tbody>
                                     </table>

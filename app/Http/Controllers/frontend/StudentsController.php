@@ -54,7 +54,8 @@ class StudentsController extends Controller
             session([
                 'idAlumno' => $student->id,
                 'nameAlumno' => $student->name,
-                'passwordAlumno' => "p" . $student->matricula . "s" . $student->id
+                'emailAlumno' => $student->email,
+                'passwordAlumno' => "p" . "newEntry" . "s" . $student->id
             ]);
             return redirect()->route('students.tests');
         } else {
@@ -74,14 +75,15 @@ class StudentsController extends Controller
     public function storeStudent(StoreStudentRequest $request)
     {
         $publicacion = $request->all();
-        $publicacion['password'] = $request->matricula;
+        $publicacion['password'] = $request->phone;
         $student = Student::create($publicacion);
-        $pass = "p" . $student->matricula . "s" . $student->id;
+        $pass = "p" . "newEntry" . "s" . $student->id;
         $student->update(['password' => $pass]);
         session([
             'idAlumno' => $student->id,
             'nameAlumno' => $student->name,
-            'passwordAlumno' => "p" . $student->matricula . "s" . $student->id
+            'emailAlumno' => $student->email,
+            'passwordAlumno' => "p" . "newEntry" . "s" . $student->id
         ]);
         return redirect()->route('students.tests');
     }

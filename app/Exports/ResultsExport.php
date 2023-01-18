@@ -22,10 +22,8 @@ class ResultsExport implements WithMultipleSheets
     private $mesfin;
     private $diafin;
     private $test;
-    private $educational;
-    private $grade;
 
-    public function forYear($añoinicio, $mesinicio, $diainicio, $añofin, $mesfin, $diafin, $test, $educational, $grade)
+    public function forYear($añoinicio, $mesinicio, $diainicio, $añofin, $mesfin, $diafin, $test)
     {
         $this->añoinicio = $añoinicio;
         $this->mesinicio = $mesinicio;
@@ -33,13 +31,11 @@ class ResultsExport implements WithMultipleSheets
         $this->diafin = $diafin;
         $this->añofin = $añofin;
         $this->mesfin = $mesfin;
-        $this->educational = $educational;
-        $this->grade = $grade;
         $this->test = $test;
         return $this;
     }
 
-    
+
 
     /**
      * @inheritDoc
@@ -48,11 +44,11 @@ class ResultsExport implements WithMultipleSheets
     {
         $sheets = [];
         foreach(range($this->mesinicio, $this->mesfin) as $month) {
-            
-            $sheets[] = new UsersPerMonthSheet($month, $this->añoinicio, $this->mesinicio, $this->diainicio, $this->añofin, $this->mesfin, $this->diafin, $this->educational, $this->grade, $this->test);
+
+            $sheets[] = new UsersPerMonthSheet($month, $this->añoinicio, $this->mesinicio, $this->diainicio, $this->añofin, $this->mesfin, $this->diafin);
         }
         return $sheets;
     }
-    
-    
+
+
 }

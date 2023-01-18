@@ -22,15 +22,16 @@ class StudentsAdminController extends Controller
         $user = Auth::user();
         $this->group = $request->group;
         $groups = EducativeProgram::find($user->educative_program_id)->groups;
-        if($user->educative_program_id!=null){
-            if ($request->group == null || $request->group == 'todos') {
-               $students=EducativeProgram::where('id',$user->educative_program_id)->with('students', 'students.group')->paginate(20);
-            }else{
-                $students=EducativeProgram::with(['students' => function ($query) {
-                    $query->where('group_id', $this->group)->with('group');
-                }])->where('id', $user->educative_program_id)->paginate(20);
-            }
-        }
+        // if($user->educative_program_id!=null){
+        //     if ($request->group == null || $request->group == 'todos') {
+        //        $students=EducativeProgram::where('id',$user->educative_program_id)->with('students', 'students.group')->paginate(20);
+        //     }else{
+        //         $students=EducativeProgram::with(['students' => function ($query) {
+        //             $query->where('group_id', $this->group)->with('group');
+        //         }])->where('id', $user->educative_program_id)->paginate(20);
+        //     }
+        // }
+        $students=EducativeProgram::with('students')->paginate(20);
 
         return view('backend.students.students',['students'=>$students,'groups'=>$groups]);
     }
@@ -63,10 +64,20 @@ class StudentsAdminController extends Controller
         $test3 = Test::where('name', 'Trayectoria académica')->first();
 
 
+        $trayectoryTest = $test3->questions()->orderBy('order', 'ASC')->get();
+        if($s->tests->contains(Test::find(3)) && $s->tests->contains(Test::find(2)) && $s->tests->contains(Test::find(1))){
+            $answerTrayectoryTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
+            $answerVocationalTest = (array) json_decode(stripslashes($s->tests[1]->pivot->answers));
+            $answerLearningTest = (array) json_decode(stripslashes($s->tests[2]->pivot->answers));
 
-        if((int)mb_eregi_replace("[a-zA-Z]", "", $student->group->name)  > 1 ){
-            $learningTest = [];
-            $vocationalTest=[];
+        }else if($s->tests->contains(Test::find(3)) && $s->tests->contains(Test::find(2))){
+            $answerTrayectoryTest = [];
+            $answerVocationalTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
+            $answerLearningTest = (array) json_decode(stripslashes($s->tests[1]->pivot->answers));
+
+        }else if($s->tests->contains(Test::find(3))){
+            $answerLearningTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
+            $answerTrayectoryTest = [];
             $answerVocationalTest = [];
             $answerLearningTest = [];
             $test3 = Test::where('name', 'Trayectoria académica avanzado')->first();

@@ -54,18 +54,9 @@ class EducationalProgramController extends Controller
         return back()->with('status', '¡El registro se modificó  correctamente!');
     }
 
-    public function indexProgram(Request $request)
-    {
-        $this->group = $request->group;
-        $groups = EducativeProgram::find($request->id)->groups;
-        if ($request->group == null || $request->group == 'todos') {
-            $students = EducativeProgram::where('id', $request->id)->with('students', 'students.group')->paginate(20);
-        } else {
-            $students = EducativeProgram::with(['students' => function ($query) {
-                $query->where('group_id', $this->group)->with('group');
-            }])->where('id', $request->id)->paginate(20);
-        }
-        return view('backend.educationalProgram.studentGroups', ['students' => $students, 'groups' => $groups]);
+    public function indexProgram(Request $request)    {
+        $students=Student::paginate(15);
+        return view('backend.educationalProgram.studentGroups', ['students' => $students]);
     }
 
     public function infoStudent($st)
@@ -80,13 +71,13 @@ class EducationalProgramController extends Controller
         ->first();
         if($s->result == null){
             return back()->with('alerta', 'El estudiante seleccionado aún no ha respondido ningún cuestionario');
-        }        
+        }
         $test1 =  Test::where('name', 'Estilo de aprendizaje')->first();
         $learningTest = $test1->questions()->orderBy('order', 'ASC')->get();
 
         $test2 = Test::where('name', 'Orientación Vocacional')->first();
         $vocationalTest = $test2->questions()->orderBy('order', 'ASC')->get();
-      
+
         $test3 = Test::where('name', 'Trayectoria académica')->first();
         $trayectoryTest = $test3->questions()->orderBy('order', 'ASC')->get();
         if($s->tests->contains(Test::find(3)) && $s->tests->contains(Test::find(2)) && $s->tests->contains(Test::find(1))){ //Evaluamos si se han respondido los test según su id
@@ -94,11 +85,11 @@ class EducationalProgramController extends Controller
             $answerVocationalTest = (array) json_decode(stripslashes($s->tests[1]->pivot->answers));
             $answerLearningTest = (array) json_decode(stripslashes($s->tests[2]->pivot->answers));
 
-        }else if($s->tests->contains(Test::find(3)) &&  $s->tests->contains(Test::find(2))){ 
+        }else if($s->tests->contains(Test::find(3)) &&  $s->tests->contains(Test::find(2))){
             $answerTrayectoryTest = [];
             $answerVocationalTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
             $answerLearningTest = (array) json_decode(stripslashes($s->tests[1]->pivot->answers));
-            
+
         }else if($s->tests->contains(Test::find(3))){ //Comparamos si el test de estilo de aprendixaje (id=3) ha sido respondido
             $answerLearningTest = (array) json_decode(stripslashes($s->tests[0]->pivot->answers));
             $answerTrayectoryTest = [];
