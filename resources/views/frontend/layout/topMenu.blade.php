@@ -15,23 +15,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item {{ (Route::is('students.tests','students.advancedTrajectory')) ? 'd-none' : ''}}">
-                    <a class="nav-link me-2 {{ (Route::is('students.learnigStyle')) ? 'active' : ''}}"  >
-                        <i class="ni ni-ruler-pencil opacity-6 text-dark me-1 "></i>
-                        C. Aprendizaje
-                    </a>
-                </li>
-                <li class="nav-item {{ (Route::is('students.tests','students.advancedTrajectory')) ? 'd-none' : ''}}">
-                    <a class="nav-link d-flex align-items-center me-2 {{ (Route::is('students.vocational')) ? 'active' : ''}}" aria-current="page"
-                        >
-                        <i class="ni ni-briefcase-24 opacity-6 text-dark me-1"></i>
-                        C. Vocacional
-                    </a>
-                </li>
                 <li class="nav-item {{ (Route::is('students.tests')) ? 'd-none' : ''}}">
                     <a class="nav-link me-2 {{ (Route::is('students.trajectory')) ? 'active' : ''}}" >
                         <i class="ni ni-hat-3 opacity-6 text-dark me-1"></i>
-                        C. Trayectoria
+                        Resultados
                     </a>
                 </li>
                 <li class="nav-item d-lg-none d-block">

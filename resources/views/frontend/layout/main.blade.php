@@ -32,7 +32,7 @@
 </head>
 
 <body class="{{ Route::is('students.tests') ? 'bg-gradient-light' : '' }}">
-    @if (!Route::is('students.results', 'students.advancedStoreTrajectoryTest.results'))
+    @if (!Route::is('students.advancedStoreTrajectoryTest.results'))
         <div class="container position-sticky z-index-sticky top-0">
             <!-- Navbar -->
             @include('frontend.layout.topMenu')
