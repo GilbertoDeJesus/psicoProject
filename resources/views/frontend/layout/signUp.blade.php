@@ -114,12 +114,6 @@
                                                                 class="form-control" placeholder="correo"
                                                                 aria-label="Email" required>
                                                         </div>
-                                                        <label>Contraseña</label>
-                                                        <div class="input-group mb-3">
-                                                            <input type="password" name="password"
-                                                                class="form-control" placeholder="Contraseña"
-                                                                aria-label="Password" autocomplete="false" required>
-                                                        </div>
                                                         <div class="text-center">
                                                             <button type="submit"
                                                                 class="btn bg-gradient-dark-green btn-lg w-100 mt-4 mb-0 text-white">Iniciar
@@ -213,7 +207,7 @@
                                                         name="age" required value="{{ old('age') }}">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-lg-4 col-md-12">
+                                            <div class="col-xl-8 col-lg-8 col-md-12">
                                                 <label>Teléfono</label>
                                                 <div class="mb-3">
                                                     <input type="tel" class="form-control" placeholder="Teléfono"
@@ -223,16 +217,6 @@
                                                         required>
                                                 </div>
 
-                                            </div>
-                                            <div class="col-xl-4 col-lg-4 col-md-12">
-                                                <label>Teléfono de contacto</label>
-                                                <div class="mb-3">
-                                                    <input type="tel" class="form-control"
-                                                        placeholder="Teléfono de contacto" {{-- Con esto solo tomamos en cuenta los números, no letras, no símbolos. --}}
-                                                        onkeypress="return [45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57].includes(event.charCode);"
-                                                        pattern="[0-9]+" name="contact_phone" maxlength="10" required
-                                                        value="{{ old('contact_phone') }}">
-                                                </div>
                                             </div>
                                         </div>
                                     </form>

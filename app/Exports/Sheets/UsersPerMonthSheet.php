@@ -40,6 +40,8 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAu
         $array = array(
             'students.id',
             'students.name',
+            'students.family_name',
+            'students.last_name',
             'email',
             'das.name as das',
             'des.name as des',
@@ -63,10 +65,12 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAu
         $array = [
             '#',
             'Nombre',
+            'Apellido P',
+            'Apellido M',
             'Email',
-            'Orientacional1',
-            'Orientacional2',
-            'Orientacional3',
+            'Programa E. 1',
+            'Programa E. 2',
+            'Programa E. 3',
             'Fecha',
         ];
 
@@ -104,7 +108,7 @@ class UsersPerMonthSheet implements FromQuery, WithTitle, WithHeadings, ShouldAu
                         ],
                     ],
                 ];
-                $cellRange = 'A1:G1'; // All headers
+                $cellRange = 'A1:I1'; // All headers
 
                 $event->sheet->getDelegate()->getStyle($cellRange)
                     ->applyFromArray($styleArray);

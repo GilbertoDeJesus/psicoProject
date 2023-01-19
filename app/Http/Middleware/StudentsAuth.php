@@ -16,9 +16,9 @@ class StudentsAuth
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {   
-        
-        if (session()->has('emailAlumno') && session()->has('passwordAlumno')) {//Verificamos que existan las variables de sesión matriculaAlumno y passwordAlumno
+    {
+
+        if (session()->has('emailAlumno')) {//Verificamos que existan las variables de sesión matriculaAlumno
             if (!Student::where('email',session()->get('emailAlumno'))) { //Comprobamos si la matrícula de la variable coincide con un registro en la bd
                 return redirect()->route('sign-up'); //Al no encontrar coincidencias se redirige a sign-up
             }

@@ -25,7 +25,6 @@ class LogInStudentRequest extends FormRequest
     {
         return [
             'correo'=>'required|email',
-            'password'=>'required|min:8',
         ];
     }
 

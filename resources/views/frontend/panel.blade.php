@@ -1,7 +1,7 @@
 @extends('frontend.layout.main')
 
 @section('css')
-    
+
 @endsection
 
 @section('contenido')
@@ -17,8 +17,6 @@
                         data-bs-dismiss="modal">Consulta tus resultados</a>
                     @else
                         <h4 class="text-white mb-2 mt-7">¡Bienvenido, {{ Str::title(Session::get('nameAlumno')) }}!</h4>
-                        <p class="text-lead text-white mb-5">Puedes consultar tu contraseña en el botón con tu nombre
-                        </p>
                     @endif
                 </div>
             </div>
@@ -190,7 +188,7 @@
         // Copia el texto seleccionado
         document.execCommand("copy")
         // Elimina el campo de la página
-        document.body.removeChild(aux); 
+        document.body.removeChild(aux);
     });
 </script>
 @endsection

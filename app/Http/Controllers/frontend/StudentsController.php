@@ -50,7 +50,7 @@ class StudentsController extends Controller
 
         $student = Student::where('email', $request->correo)->first();
 
-        if ($student != null && Hash::check($request->password, $student->password)) {
+        if ($student != null) {
             session([
                 'idAlumno' => $student->id,
                 'nameAlumno' => $student->name,
@@ -77,7 +77,7 @@ class StudentsController extends Controller
         $publicacion = $request->all();
         $publicacion['password'] = $request->phone;
         $student = Student::create($publicacion);
-        $pass = "p" . "newEntry" . "s" . $student->id;
+        $pass = "nE"  . $student->id;
         $student->update(['password' => $pass]);
         session([
             'idAlumno' => $student->id,
