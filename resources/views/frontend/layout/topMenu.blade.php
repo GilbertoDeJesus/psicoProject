@@ -27,12 +27,12 @@
                         Cerrar sesión
                     </a>
                 </li>
-                <li class="nav-item d-lg-none {{ (!Route::is('students.tests')) ? 'd-none' : 'd-block'}}">
+                {{-- <li class="nav-item d-lg-none {{ (!Route::is('students.tests')) ? 'd-none' : 'd-block'}}">
                     <a class="nav-link me-2" href="#" data-bs-toggle="modal" data-bs-target="#modal-notification">
                         <i class="icon-eye opacity-6 text-dark me-1"></i>
                         Ver mi contraseña
                     </a>
-                </li>
+                </li> --}}
             </ul>
             <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item dropdown pe-2 d-flex align-items-center">
@@ -57,7 +57,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="{{ (!Route::is('students.tests','students.advancedTrajectory')) ? 'd-none' : 'd-block'}}">
+                        {{-- <li class="{{ (!Route::is('students.tests','students.advancedTrajectory')) ? 'd-none' : 'd-block'}}">
                             <a class="dropdown-item border-radius-md" href="#" data-bs-toggle="modal" data-bs-target="#modal-notification">
                                 <div class="d-flex py-1">
                                     <div class="avatar avatar-sm bg-gradient-dark  me-3  my-auto">
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
             </ul>
