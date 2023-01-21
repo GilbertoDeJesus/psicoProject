@@ -159,7 +159,7 @@ class StudentsAdminController extends Controller
     }
 
     public function getInfo(Request $request){
-        $student = Student::where('id',$request->id)->with('group.educativeProgram')->first();
+        $student = Student::where('id',$request->id)->first();
         return response(json_encode($student),200);
     }
 
