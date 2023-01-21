@@ -268,14 +268,13 @@
                 var age = document.getElementsByName("age")[0].value;
                 var mail = document.getElementsByName("email")[0].value;
                 var phone = document.getElementsByName("phone")[0].value;
-                var cphone = document.getElementsByName("contact_phone")[0].value;
                 console.log(mail);
                 document.getElementById("content_confirm").innerHTML =
                     "<div class='card'><div class='table-responsive'><table class='table table-striped table-hover align-items-center mb-0'><thead><tr><th class='text-uppercase text-dark text-xs font-weight-bolder opacity-7'>Dato</th><th class='text-uppercase text-dark text-xs font-weight-bolder opacity-7 ps-2'>Información</th></tr></thead>" +
                     "<tbody><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Nombre</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + nom + "&nbsp" + apm + "&nbsp" + app +
                     "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Email</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + mail +
                     "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Télefono</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + phone +
-                    "</p></td></tr><tr><td><div class='d-flex px-2'><div class='my-auto'><h6 class='mb-0 text-xs'>Tél. Contacto</h6></div></div></td><td><p class='text-xs font-weight-bold mb-0'>" + cphone + "</p></td></tr></tbody></table></div></div>";
+                    "</p></td></tr></tbody></table></div></div>";
                 document.getElementById("content_confirm").classList.add('text-center', 'mb-4');
             } else {
                 document.getElementById("acceptData").classList.add("d-none");
