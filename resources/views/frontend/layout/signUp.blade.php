@@ -84,7 +84,7 @@
                                         <div class="card-header py-0 text-center">
                                             <h4 class="font-weight-bolder text-info text-gradient">Bienvenido de nuevo
                                             </h4>
-                                            <p class="mb-0 text-sm">Ingresa tu correo y contraseña para iniciar
+                                            <p class="mb-0 text-sm">Ingresa el correo con el que te registraste para iniciar
                                                 sesión</p>
                                         </div>
                                         <div class="card-body">
